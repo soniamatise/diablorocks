@@ -1,0 +1,21 @@
+@import 'color/color';
+@import '~matise-stack/_stack.scss', '~matise-grid/grid.scss';
+@import 'settings/settings';
+@import 'typography/typography';
+@import 'layout/layout', 'components/components';
+
+.container {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  background-color: rgba(black, 0.5);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: white;
+  padding: grid(3);
+  margin-top: grid(3);
+}
+
+body,
+html {
+  background: color(Blue);
+}
