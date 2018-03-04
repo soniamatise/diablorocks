@@ -23,6 +23,7 @@ module.exports = {
   rules: {
 		'no-mixed-spaces-and-tabs': 0,
 		'no-tabs': 0,
+		'no-return-assign': 0,
     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development

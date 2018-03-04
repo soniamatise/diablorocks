@@ -15,7 +15,9 @@ const app = new Vue({
 })
 
 Object.keys(routes).forEach(route => {
-  const Component = require('./pages/' + routes[route] + '.vue')
+  let view = routes[route]
+  const Component = require('./pages/' + view + '.vue').default
   page(route, () => app.ViewComponent = Component)
 })
+page('*', () => app.ViewComponent = require('./pages/404.vue').default)
 page()
