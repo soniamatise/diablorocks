@@ -6,10 +6,11 @@
           <nav>
             <ul>
               <li>
-                <v-link href="/">Home</v-link>
+                <v-link href="/culture">Culture</v-link>
                 <v-link href="/work">Work</v-link>
                 <v-link href="/what-we-do">What we do</v-link>
                 <v-link href="/who-we-are">Who we are</v-link>
+                <v-link href="/">Home</v-link>
               </li>
             </ul>
           </nav>
