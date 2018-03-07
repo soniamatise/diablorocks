@@ -42,6 +42,15 @@ p {
   @extend %p;
 }
 
+a {
+	@extend %p;
+}
+
+li {
+	@extend %p;
+}
+
+
 blockquote {
   @extend %blockquote;
 }

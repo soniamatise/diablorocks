@@ -20,3 +20,9 @@ html {
 		text-decoration: underline;
 	}
 }
+
+@media #{$mobile} {
+	.mobile-hide{
+		display: none;
+	}
+}
