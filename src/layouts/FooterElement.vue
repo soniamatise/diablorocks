@@ -42,7 +42,6 @@
 </style>
 
 <script>
-/* eslint-disable */
 import VLink from '../components/VLink.vue'
 export default {
 	components: {
