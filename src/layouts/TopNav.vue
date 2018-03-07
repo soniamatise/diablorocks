@@ -16,10 +16,6 @@
   </header>
 </template>
 
-<style lang="scss">
-	@import '../assets/scss/app.scss';
-</style>
-
 <script>
 /* eslint-disable */
 import VLink from '../components/VLink.vue'
