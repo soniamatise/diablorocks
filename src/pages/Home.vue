@@ -1,7 +1,6 @@
 <template>
 <div>
 	<top-nav></top-nav>
-	<main-layout>
 		<h1 class="dark">Work</h1>
 		<h1 class="light">Work</h1>
 		<h2 class="dark"><span>Our latest and greatest</span> for brands we believe in.</h2>
@@ -18,7 +17,6 @@
 			<li class="regular">list item 1</li>
 			<li class="medium">list item 1</li>
 		</ol>
-	</main-layout>
 	<footer-element></footer-element>
 </div>
 </template>
