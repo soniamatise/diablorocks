@@ -7,8 +7,8 @@
 		}
 	}
 	&__contact-us{ margin-top: grid(1.5)}
-	&__contact{}
-	&__social{}
+	&__contact{line-height: rem(32); }
+	&__social{ margin-left: grid(1.5); line-height: rem(32);}
 	&__practical{ margin-top: grid(1.5);
 		&__item{
 			padding-right: rem(45);
