@@ -1,49 +1,51 @@
+//body text
+%p{
+	font-family: $body-font-family; font-size: rem(18); line-height: rem(32); margin: 0; padding: 0;
+	@media #{$large-down}{ font-size: rem(16); line-height: rem(30); }
+}
+
 // headers
 %header-default{
-	font-family: $heading-font-family; font-weight: $font-bold; margin: 0; padding: 0; text-align: left;
-	&.sub{
-		font-weight: $font-light;
-	}
+	font-family: $heading-font-family; font-weight: $font-regular; margin: 0; padding: 0; text-align: left;
 }
 
 $minus: 0.1066;
+
 %h1{
-	font-size: grid(0.75); font-weight: $font-bold; line-height: 1.25;
-
+	font-size: grid(2); font-weight: $font-semibold; line-height: 1;
 	@extend %header-default;
-	@include min-fontsize(0.75,24);
+	@include max-fontsize(2,160);
+	@media #{$small-only}{ font-size: rem(20); line-height: rem(30); }
 }
+
 %h2{
-	font-size: grid(0.75); font-weight: $font-semibold; line-height: 1.25;
-
+	font-size: grid(0.4); font-weight: $font-regular; line-height: 0.6;
 	@extend %header-default;
-	@include min-fontsize(0.75,24);
+	@media #{$small-only}{ font-size: rem(20); line-height: rem(30); }
 }
+
 %h3{
-	font-size: grid(0.4); font-weight: $font-bold; line-height: 1.25;
-
+	font-size: grid(0.3); font-weight: $font-medium; line-height: 0.4;
 	@extend %header-default;
-	@include min-fontsize(0.4,20);
+	@media #{$small-only}{ font-size: rem(20); line-height: rem(30); }
 }
+
 %h4{
-	font-size: grid(0.3); font-weight: $font-bold; line-height: 1.25;
-
+	font-size: rem(16); font-weight: $font-regular; line-height: rem(24);
 	@extend %header-default;
-	@include min-fontsize(0.3,16);
+	// breakpoint 640px
+	@media only screen and (max-width : 640px){ font-size: rem(14); line-height: rem(24); }
 }
-%h5{
-	font-size: rem(14); line-height: 1.25;
-
-	@extend %header-default;
-}
-%h6{
-	font-size: rem(12); line-height: 1.25;
-
-	@extend %header-default;
-}
-
-
-
+//
+// %h5{
+// 	font-size: rem(14); line-height: 1.25;
+// 	@extend %header-default;
+// }
+//
+// %h6{
+// 	font-size: rem(12); line-height: 1.25;
+// 	@extend %header-default;
+// }
 
 // make font styles
 
@@ -51,7 +53,7 @@ $minus: 0.1066;
 	font-weight: $font-regular;
 }
 %font-bold{
-	font-weight: $font-bold;
+	font-weight: $font-regular;
 }
 %small{
 	font-size: smaller;
@@ -69,24 +71,7 @@ $minus: 0.1066;
 	font-size: smaller; vertical-align: sup;
 }
 
-%p{
-	font-family: $body-font-family; font-size: rem(16); font-weight: 400; line-height: rem(24); margin: 0; padding: 0;
-	&.text-tiny{
-		font-size: rem(12);
-	}
-	&.text-small{
-		font-size: rem(14);
-	}
-	&.text-regular{
-		font-size: rem(16);
-	}
-	&.text-large{
-		font-size: rem(18);
-	}
-	&.text-xlarge{
-		font-size: rem(24);
-	}
-}
+
 
 %blockquote{
 	margin: 0; padding: 0.5rem  1rem;
