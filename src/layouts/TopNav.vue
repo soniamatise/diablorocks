@@ -1,16 +1,14 @@
 <template>
-  <header class="header">
+  <header id="header" class="header">
     <div class="row center">
       <div class="column column-20">
-        <nav>
+        <nav id="nav" class="nav">
           <ul>
-            <li>
-              <v-link href="/culture">Culture</v-link>
-              <v-link href="/work">Work</v-link>
-              <v-link href="/what-we-do">What we do</v-link>
-              <v-link href="/who-we-are">Who we are</v-link>
-              <v-link href="/">Home</v-link>
-            </li>
+            <li class="menu-link"><v-link href="/culture">Culture</v-link></li>
+            <li class="menu-link"><v-link href="/work">Work</v-link></li>
+            <li class="menu-link"><v-link href="/what-we-do">What we do</v-link></li>
+            <li class="menu-link"><v-link href="/who-we-are">Who we are</v-link></li>
+            <li id="logo" class="menu-link logo"><v-link href="/">Matise.</v-link></li>
           </ul>
         </nav>
       </div>
