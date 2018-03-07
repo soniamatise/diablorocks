@@ -1,15 +1,18 @@
 <template>
-	<main-layout>
-		<p>Welcome work</p>
-	</main-layout>
+	<div>
+		<top-nav></top-nav>
+		<footer-element></footer-element>
+	</div>
 </template>
 
 <script>
 /* eslint-disable */
-import MainLayout from '../layouts/Main.vue'
+import TopNav from '../layouts/TopNav.vue'
+import FooterElement from '../layouts/FooterElement.vue'
 export default {
 	components: {
-		MainLayout
+		TopNav,
+		FooterElement
 	}
 }
 </script>
