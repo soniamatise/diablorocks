@@ -1,28 +1,28 @@
 $heading-font-weights: (
-  'Light': 300,
+  // 'Light': 300,
   'Regular': 400,
-  'SemiBold': 600
+  'Medium': 500,
+  'SemiBold': 600,
 ); //
 $body-font-weights: (
-  'Light': 300,
+  // 'Light': 300,
   'Regular': 400,
-  'SemiBold': 600
+  'Medium': 500,
+  'SemiBold': 600,
 ); //
 //
-$font-light: map-get($heading-font-weights, Light); //
 $font-regular: map-get($heading-font-weights, Regular); //
-$font-book: $font-regular; //
-$font-medium: $font-regular; //
+$font-medium: map-get($heading-font-weights, Medium); //
 $font-semibold: map-get($heading-font-weights, SemiBold); //
-$font-bold: $font-semibold; //
+
 
 // Base font
 /*
 	Use font-include for single fonts
 	and font-list for a list using the $*-font-weights list
 */
-$heading-font: 'Georgia'; //
-$heading-font-name: 'TimesNewRoman--'; //
+$heading-font: 'Graphik'; //
+$heading-font-name: 'Graphik--'; //
 $heading-font-family: #{$heading-font}, serif; //
 //
 /* embed sing font weight */
@@ -35,8 +35,8 @@ $heading-font-family: #{$heading-font}, serif; //
   font-family: $heading-font-family;
 }
 //
-$body-font: 'Courier New'; //
-$body-font-name: 'arial-'; //
+$body-font: 'Graphik'; //
+$body-font-name: 'Graphik-'; //
 $body-font-family: #{$body-font}, sans-serif; //
 /* embed sing font weight */
 //@include font-include($body-font,$body-font-name,normal,normal);
@@ -47,5 +47,4 @@ $body-font-family: #{$body-font}, sans-serif; //
 .body-font-family,
 %body-font-family {
   font-family: $body-font-family;
-  font-weight: normal;
 }

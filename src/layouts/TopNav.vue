@@ -2,7 +2,7 @@
     <header class="header">
       <nav>
         <ul>
-          <li>
+          <li class="menu header">
             <v-link href="/">Home</v-link>
             <v-link href="/work">Work</v-link>
             <v-link href="/what-we-do">What we do</v-link>
