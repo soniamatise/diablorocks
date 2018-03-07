@@ -1,4 +1,6 @@
 <template>
+<div>
+	<top-nav></top-nav>
 	<main-layout>
 		<h1 class="dark">Work</h1>
 		<h1 class="light">Work</h1>
@@ -17,14 +19,18 @@
 			<li class="medium">list item 1</li>
 		</ol>
 	</main-layout>
+	<footer-element></footer-element>
+</div>
 </template>
 
 <script>
 /* eslint-disable */
-import MainLayout from '../layouts/Main.vue'
+import TopNav from '../layouts/TopNav.vue'
+import FooterElement from '../layouts/FooterElement.vue'
 export default {
 	components: {
-		MainLayout
+		TopNav,
+		FooterElement
 	}
 }
 </script>

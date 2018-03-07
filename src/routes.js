@@ -1,4 +1,6 @@
 export default {
 	'/': 'Home',
-	'/work': 'Work'
+	'/work': 'Work',
+	'/what-we-do': 'WhatWeDo',
+	'/who-we-are': 'WhoWeAre'
 }
