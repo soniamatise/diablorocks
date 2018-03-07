@@ -1,15 +1,13 @@
 <template>
-	<main-layout>
-		<p>What we do</p>
-	</main-layout>
+	<top-nav></top-nav>
 </template>
 
 <script>
 /* eslint-disable */
-import MainLayout from '../layouts/Main.vue'
+import TopNav from '../layouts/TopNav.vue'
 export default {
 	components: {
-		MainLayout
+		TopNav
 	}
 }
 </script>
