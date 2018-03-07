@@ -1,5 +1,4 @@
 <template>
-  <div class="container">
     <header class="header">
       <nav>
         <ul>
@@ -12,13 +11,10 @@
         </ul>
       </nav>
     </header>
-
-    <slot></slot>
-  </div>
 </template>
 
 <style lang="scss">
-  @import '../assets/scss/app.scss';
+	@import '../assets/scss/app.scss';
 </style>
 
 <script>
