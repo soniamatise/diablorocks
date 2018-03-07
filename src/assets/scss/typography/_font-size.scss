@@ -15,26 +15,28 @@ $minus: 0.1066;
 	font-size: grid(2); font-weight: $font-semibold; line-height: 1;
 	@extend %header-default;
 	@include max-fontsize(2,160);
-	@media #{$small-only}{ font-size: rem(20); line-height: rem(30); }
+	@include min-fontsize(2,20);
 }
 
 %h2{
-	font-size: grid(0.4); font-weight: $font-regular; line-height: 0.6;
+	font-size: grid(0.4); font-weight: $font-regular; line-height: 1.5;
 	@extend %header-default;
-	@media #{$small-only}{ font-size: rem(20); line-height: rem(30); }
+	@include min-fontsize(.4,20);
 }
 
 %h3{
-	font-size: grid(0.3); font-weight: $font-medium; line-height: 0.4;
+	font-size: grid(0.3); font-weight: $font-medium; line-height: 1.5;
 	@extend %header-default;
-	@media #{$small-only}{ font-size: rem(20); line-height: rem(30); }
+	@include min-fontsize(.3,20);
+
 }
 
 %h4{
-	font-size: rem(16); font-weight: $font-regular; line-height: rem(24);
+	font-size: grid(.2); font-weight: $font-regular; line-height: 1.5;
+	@include max-fontsize(.2,16);
+	@include min-fontsize(.2,14);
 	@extend %header-default;
-	// breakpoint 640px
-	@media only screen and (max-width : 640px){ font-size: rem(14); line-height: rem(24); }
+
 }
 //
 // %h5{
