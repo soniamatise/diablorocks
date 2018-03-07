@@ -1,7 +1,13 @@
 <template>
   <div class="container">
     <ul>
-      <li>
+      <li class="menu header">
+        <v-link href="/">Home</v-link>
+        <v-link href="/work">Work</v-link>
+      </li>
+    </ul>
+    <ul>
+      <li class="menu footer">
         <v-link href="/">Home</v-link>
         <v-link href="/work">Work</v-link>
       </li>
