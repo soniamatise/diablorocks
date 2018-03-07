@@ -1,11 +1,17 @@
 <template>
   <div class="container">
-    <ul>
-      <li>
-        <v-link href="/">Home</v-link>
-        <v-link href="/work">Work</v-link>
-      </li>
-    </ul>
+    <header class="header">
+      <nav>
+        <ul>
+          <li>
+            <v-link href="/">Home</v-link>
+            <v-link href="/work">Work</v-link>
+            <v-link href="/what-we-do">What we do</v-link>
+            <v-link href="/who-we-are">Who we are</v-link>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
     <slot></slot>
   </div>
