@@ -1,17 +1,21 @@
 <template>
   <div class="container">
-    <header class="header">
-      <nav>
-        <ul>
-          <li>
-            <v-link href="/">Home</v-link>
-            <v-link href="/work">Work</v-link>
-            <v-link href="/what-we-do">What we do</v-link>
-            <v-link href="/who-we-are">Who we are</v-link>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <div class="row center">
+      <div class="column column-20">
+        <header class="header">
+          <nav>
+            <ul>
+              <li>
+                <v-link href="/">Home</v-link>
+                <v-link href="/work">Work</v-link>
+                <v-link href="/what-we-do">What we do</v-link>
+                <v-link href="/who-we-are">Who we are</v-link>
+              </li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+    </div>
 
     <slot></slot>
   </div>
