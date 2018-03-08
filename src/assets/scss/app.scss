@@ -9,12 +9,6 @@
   color: hotpink; margin: grid(4); padding: grid(1);
 }
 
-body,
-html {
-  background: color(Blue);
-}
-
-
 .link{
 	&--external{
 		text-decoration: underline;
