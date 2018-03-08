@@ -1,11 +1,10 @@
 <template>
 	<main-layout>
-
 		<div class="row center">
-  			<div class="column column-12">
-  				<p>BBB Cycling — This is what happens when commerce and emotion collide and come together.</p>
-  			</div>
-  		</div>
+			<div class="column column-12">
+				<p>BBB Cycling — This is what happens when commerce and emotion collide and come together.</p>
+			</div>
+		</div>
 	</main-layout>
 </template>
 

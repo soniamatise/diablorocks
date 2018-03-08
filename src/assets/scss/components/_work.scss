@@ -1,0 +1,33 @@
+.work {
+	.work-items {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		.work-item {
+			width: grid(6);
+			margin-right: grid(1);
+			margin-bottom: grid(1);
+		    justify-content: center;
+		    display: flex;
+		    flex-direction: column;
+		    flex-grow: 1;
+
+		    .image {
+				width: grid(6);
+				// height: grid(6);
+				overflow: hidden;
+
+				img {
+					width: 100%;
+				}
+			}
+
+			.description {
+				padding: grid(1/2);
+			}
+		}
+		.work-item:nth-child(3n+3) {
+			margin-right: 0;
+		}
+	}
+}
