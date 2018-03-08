@@ -2,7 +2,7 @@
 <main-layout>
 		<div class="row center">
 			<div class="column large-18">
-				<div class="holder"></div>
+				<div class="holder shadow"></div>
 			</div>
 			<div class="column large-12">
 				<h3>Part of you ride</h3>
