@@ -20,26 +20,7 @@
 			margin-right: grid(.75);
 			a{ font-size: rem(14);
 				position: relative;
-				&:before{
-					content: "";
-					position: absolute;
-					z-index: -1;
-					right: 0;
-					width: 0;
-					bottom: -5px;
-					background: #000;
-					height: 2px;
-					transition-property: width;
-					transition-duration: 0.3s;
-					transition-timing-function: ease-out;
-				}
-				&:hover {
-					&:before {
-						left: 0;
-						right: auto;
-						width: 100%;
-					}
-				}
+
 			}
 			&--active {
 				position: relative;
@@ -62,16 +43,20 @@
 		}
 	}
 	&__contact{
-		color: color(Gray, 0.5);
 		line-height: rem(32);
 		margin-right: grid(1.5);
+		&__item{
+			color: color(Gray, 0.5);
+		}
 		@media #{$medium-down}{
 			margin-right: grid(2);
 		}
 	}
 	&__social{
-		color: color(Gray, 0.5);
 		line-height: rem(32);
+		&__item{
+			color: color(Gray, 0.5);
+		}
 		@media (max-width: rem(488)){
 			margin-top: rem(32);
 		}
