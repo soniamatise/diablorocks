@@ -63,9 +63,9 @@
 		}
 	}
 	&__contact{
-		line-height: rem(32);
 		margin-right: grid(1.5);
 		&__item{
+			line-height: rem(32);
 			color: color(Gray, 0.5);
 		}
 		@media #{$medium-down}{
@@ -73,9 +73,12 @@
 		}
 	}
 	&__social{
-		line-height: rem(32);
 		&__item{
 			color: color(Gray, 0.5);
+			line-height: rem(32);
+			a {
+				font-size: 1rem;
+			}
 		}
 		@media (max-width: rem(488)){
 			margin-top: rem(32);
