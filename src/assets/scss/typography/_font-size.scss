@@ -2,26 +2,33 @@
 %p{
 	font-family: $body-font-family; font-size: rem(18); line-height: rem(32); margin: 0; padding: 0;
 	@media #{$large-down}{ font-size: rem(16); line-height: rem(30); }
+	span{
+		&:after{ content: ' —'; font-weight: $font-regular; }
+	}
 }
 
 // headers
 %header-default{
-	font-family: $heading-font-family; font-weight: $font-regular; margin: 0; padding: 0; text-align: left;
+	font-family: $body-font-family; margin: 0; padding: 0;
 }
 
-$minus: 0.1066;
-
 %h1{
-	font-size: grid(2); font-weight: $font-semibold; line-height: 1;
+	font-size: grid(2); font-weight: $font-semibold; line-height: 1; text-align: center;
 	@extend %header-default;
-	@include max-fontsize(2,160);
 	@include min-fontsize(2,20);
+	@media #{$small-only}{
+		font-size: rem(20); line-height: 1.5;
+	}
 }
 
 %h2{
 	font-size: grid(0.4); font-weight: $font-regular; line-height: 1.5;
 	@extend %header-default;
 	@include min-fontsize(.4,20);
+	span{
+		&:after{ content: ' —'; font-weight: $font-regular; }
+	}
+	&.centered{ text-align: center; }
 }
 
 %h3{
@@ -32,30 +39,37 @@ $minus: 0.1066;
 }
 
 %h4{
-	font-size: grid(.2); font-weight: $font-regular; line-height: 1.5;
-	@include max-fontsize(.2,16);
-	@include min-fontsize(.2,14);
+	font-size: 1rem; font-weight: $font-regular; line-height: 1.5;
 	@extend %header-default;
-
+	@media #{$small-only}{
+		font-size: rem(14); line-height: rem(20);
+	}
+	span{
+		&:after{ content: ' —'; font-weight: $font-regular; }
+	}
 }
-//
-// %h5{
-// 	font-size: rem(14); line-height: 1.25;
-// 	@extend %header-default;
-// }
-//
-// %h6{
-// 	font-size: rem(12); line-height: 1.25;
-// 	@extend %header-default;
-// }
 
-// make font styles
+%h5{
+	@extend %h4;
+}
 
+%h6{
+	@extend %h4;
+}
+
+%blockquote{
+	@extend %h2; font-weight: $font-medium;
+}
+
+// make font styles fallback
 %font-regular{
 	font-weight: $font-regular;
 }
-%font-bold{
-	font-weight: $font-regular;
+%font-medium{
+	font-weight: $font-medium;
+}
+%font-semibold, %font-bold{
+	font-weight: $font-semibold;
 }
 %small{
 	font-size: smaller;
@@ -72,9 +86,6 @@ $minus: 0.1066;
 %sup{
 	font-size: smaller; vertical-align: sup;
 }
-
-
-
 %blockquote{
-	margin: 0; padding: 0.5rem  1rem;
+	margin: 0;
 }
