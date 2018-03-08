@@ -1,6 +1,7 @@
 <template>
 	<main-layout>
-		<h3>Hoi dit is work</h3>
+		<h1>Work</h1>
+		<p>Our latest and greatest for brands we believe in.</p>
 	</main-layout>
 </template>
 
