@@ -18,8 +18,30 @@
 		&__list-item{
 			font-weight: $font-medium;
 			margin-right: grid(.75);
-			a{ font-size: rem(14); }
-			&--active, &:hover{
+			a{ font-size: rem(14);
+				position: relative;
+				&:before{
+					content: "";
+					position: absolute;
+					z-index: -1;
+					right: 0;
+					width: 0;
+					bottom: -5px;
+					background: #000;
+					height: 2px;
+					transition-property: width;
+					transition-duration: 0.3s;
+					transition-timing-function: ease-out;
+				}
+				&:hover {
+					&:before {
+						left: 0;
+						right: auto;
+						width: 100%;
+					}
+				}
+			}
+			&--active {
 				position: relative;
 				&:after{
 					content: '';
