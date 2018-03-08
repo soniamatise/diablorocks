@@ -1,5 +1,4 @@
 $time: 0.6;
-
 .nav {
 	padding: grid(1/3) 0;
 	@media #{$small-only}{
@@ -68,8 +67,6 @@ $time: 0.6;
 		}
 	}
 }
-
-
 .sidekick {
 	position: absolute;
 	right: 0;
