@@ -20,15 +20,35 @@
 			margin-right: grid(.75);
 			a{ font-size: rem(14);
 				position: relative;
-
+				&:before{
+					content: "";
+					position: absolute;
+					right: 0;
+					width: 0;
+					bottom: -4px;
+					background-color: color(Black);
+					height: 2px;
+					transition-property: width;
+					transition-duration: 0.3s;
+					transition-timing-function: ease-out;
+					@media #{$small-only}{
+						background-color: white;
+					}
+				}
+				&:hover {
+					&:before {
+						left: 0;
+						right: auto;
+						width: 100%;
+					}
+				}
 			}
 			&--active {
 				position: relative;
-				&:after{
-					content: '';
-					border-bottom: 1px solid color(Black);
-					position: absolute;
-					left: 0; right: 0; bottom: 0;
+				a:before {
+					left: 0;
+					right: auto;
+					width: 100%;
 				}
 			}
 		}
