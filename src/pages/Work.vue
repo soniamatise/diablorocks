@@ -1,7 +1,19 @@
 <template>
 	<main-layout>
-		<h1>Work</h1>
-		<p>Our latest and greatest for brands we believe in.</p>
+		<div class="row center">
+      		<div class="column column-20">
+				<h1>Work</h1>
+				<p>Our latest and greatest for brands we believe in.</p>
+			</div>
+		</div>
+		<div class="row center">
+      		<div class="column column-20">
+      			<div class="item"></div>
+      			<div class="item"></div>
+      			<div class="item"></div>
+      			<div class="item"></div>
+      		</div>
+      	</div>
 	</main-layout>
 </template>
 
