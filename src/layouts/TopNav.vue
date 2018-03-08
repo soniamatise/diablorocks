@@ -2,6 +2,10 @@
   <header id="header" class="header">
     <div class="row center">
       <div class="column column-20">
+        <input id="menu-trigger" type="checkbox"/>
+        <div class="sidekick"><a class="logo"></a>
+          <label class="trigger" for="menu-trigger"><span></span></label>
+        </div>
         <nav id="nav" class="nav">
           <ul>
             <li class="menu-link"><v-link href="/culture">Culture</v-link></li>
@@ -24,7 +28,5 @@ export default {
 		VLink
 	}
 }
-
-
 
 </script>

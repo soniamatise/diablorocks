@@ -1,12 +1,11 @@
+$time: 0.6;
+
 .nav {
 	padding: grid(1/3) 0;
 	@media #{$small-only}{
-		position: fixed;
-		top: 0;
-		left: 0;
-		background: black;
-		width: 100%;
-		height: 100%;
+		position: absolute; top: 0; left: 0; height: 100%; width: 100%; background-color: color(Black); padding: grid(1); transition: clip-path .3s; 
+		  color: var(--color-white);
+		  animation: closeMenu .5s ease-in-out forwards;
 	}
 	.menu-link {
 		margin-right: rem(45);
@@ -15,6 +14,9 @@
 		}
 		a {
 			position: relative;
+			@media #{$small-only}{
+				color: white;
+			}
 			&:before{
 				content: "";
 				position: absolute;
@@ -47,5 +49,184 @@
 				}
 			}
 		}
+	}
+}
+
+
+.sidekick {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 4rem;
+	z-index: 10;
+	transform: translateY(-50%);
+
+	display: none;
+	@media #{$small-only}{
+		display: block;
+	}
+	a.logo {
+		display: block;
+		background-color: color(Black);
+		width: 4rem;
+		height: 8rem;
+		display: block;
+	}
+	label.trigger {
+		display: block;
+		width: 4rem;
+		height: 4rem;
+		background-color: white;
+		position: relative;
+		span {
+			@include menu(1rem, 0.125rem, 0.1875rem,  color(Black));
+			& {
+				background-color: white;
+				width: 1rem;
+				animation: growSpan #{$time}s #{$time}s forwards;
+			}
+			&:before {
+				transform: translate(0, 5px);
+				animation: goUpBefore #{$time}s 0s forwards;
+			}
+			&:after {
+				transform: translate(0, -5px);
+				animation: goDownAfter #{$time}s 0s forwards;
+			}
+		}
+	}
+}
+@keyframes goUpBefore {
+	0% {
+		transform: rotate(-45deg) translate(0, 5px);
+		width: 1rem;
+	}
+	50% {
+		transform: rotate(0deg) translate(0, 5px);
+		width: 1.5rem;
+	}
+	100% {
+		transform: rotate(0deg) translate(0, 0);
+		width: 1.5rem;
+	}
+}
+@keyframes growSpan {
+	0% {
+		background-color: color(Black);
+		width: 1.5rem;
+	}
+	50% {
+		background-color: color(Black);
+		width: 1.5rem;
+	}
+	100% {
+		background-color: color(Black);
+		width: 1.5rem;
+		left: 2rem;
+	}
+}
+@keyframes goDownAfter {
+	0% {
+		transform: rotate(45deg) translate(0, -5px);
+		width: 1rem;
+	}
+	50% {
+		transform: rotate(0deg) translate(0, -5px);
+		width: 1.5rem;
+	}
+	100% {
+		transform: rotate(0deg) translate(0, 0);
+		width: 1.5rem;
+	}
+}
+input#menu-trigger {
+	width: 0;
+	height: 0;
+	opacity: 0;
+	display: block;
+	margin: 0;
+	padding: 0;
+	visibility: hidden;
+	&:checked {
+    & ~ .nav{
+      animation: openMenu .3s ease-in-out forwards;
+    }
+		& ~ .sidekick {
+			overflow: hidden;
+			.trigger {
+				span {
+					& {
+						background-color: color(Black);
+						animation: rotateSpan #{$time}s #{$time}s forwards;
+					}
+					&:before {
+						animation: goLeft #{$time*2}s 0s forwards;
+					}
+					&:after {
+						animation: goRight #{$time*2}s 0s forwards;
+					}
+				}
+			}
+		}
+	}
+}
+@keyframes closeMenu{
+  0%{ clip-path: inset(0 0% 0 0); }
+  100%{ clip-path: inset(0 0 0 100%); }
+}
+@keyframes openMenu{
+  0%{ clip-path: inset(0 100% 0 0); }
+  100%{ clip-path: inset(0 0% 0 0); }
+}
+@keyframes goLeft {
+	0% {
+		transform: rotate(0deg) translateX(0) scale(1);
+		width: 1.5rem;
+	}
+	50% {
+		transform: rotate(0deg) translateX(-5rem) scale(1);
+		width: 1.5rem;
+	}
+	51% {
+		top: 0;
+		transform: rotate(0deg) translateX(0) scale(1);
+		width: 1rem;
+	}
+	100% {
+		top: 0;
+		transform: rotate(45deg) translateX(0) scale(1);
+		width: 1rem;
+	}
+}
+@keyframes goRight {
+	0% {
+		transform: rotate(0deg) translateX(0) scale(1);
+		width: 1.5rem;
+	}
+	50% {
+		transform: rotate(0deg) translateX(5rem) scale(1);
+		width: 1.5rem;
+	}
+	51% {
+		top: 0;
+		transform: rotate(0deg) translateX(0) scale(1);
+		width: 1rem;
+	}
+	100% {
+		top: 0;
+		transform: rotate(-45deg) translateX(0) scale(1);
+		width: 1rem;
+	}
+}
+@keyframes rotateSpan {
+	0%,
+	33% {
+		background-color: black;
+		width: 16px;
+	}
+	33%,
+	100% {
+		background-color: white;
+		width: 16px;
 	}
 }
