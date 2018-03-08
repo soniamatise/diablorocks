@@ -18,6 +18,7 @@
 		&__list-item{
 			font-weight: $font-medium;
 			margin-right: grid(.75);
+			a{ font-size: rem(14); }
 			&--active, &:hover{
 				position: relative;
 				&:after{
@@ -27,14 +28,10 @@
 					left: 0; right: 0; bottom: 0;
 				}
 			}
-			@media #{$medium-down}{
-				a{ font-size: rem(14); }
-			}
 		}
 	}
 	&__contact-us{
 		margin-top: grid(1.5);
-		color: color(Gray, 0.5);
 		@media #{$medium-down}{
 			margin-top: grid(2);
 		}
@@ -43,6 +40,7 @@
 		}
 	}
 	&__contact{
+		color: color(Gray, 0.5);
 		line-height: rem(32);
 		margin-right: grid(1.5);
 		@media #{$medium-down}{
@@ -50,6 +48,7 @@
 		}
 	}
 	&__social{
+		color: color(Gray, 0.5);
 		line-height: rem(32);
 		@media (max-width: rem(488)){
 			margin-top: rem(32);
