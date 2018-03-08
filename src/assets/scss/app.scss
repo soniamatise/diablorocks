@@ -2,14 +2,11 @@
 @import '~matise-stack/_stack.scss', '~matise-grid/grid.scss';
 @import 'settings/settings';
 @import 'typography/typography';
-@import 'layout/layout', 'components/components';
+@import 'layout/layout', 'components/components', 'components/menu', 'components/header';
 
-.container {
-  background-color: silver;
-  color: hotpink; margin: grid(4); padding: grid(1);
-}
+.container {}
 
 body,
 html {
-  background: color(Blue);
+  
 }
