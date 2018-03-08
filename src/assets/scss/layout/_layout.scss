@@ -1,7 +1,5 @@
 .center{ margin: auto; }
 
-.holder{ background-color: red; width: 100%; height: grid(10.125); display: block;
-  &.shadow{
-    &:after{ content: ''; width: calc(100% - 80px); background-color: hotpink; display: block; }
-  }
+.holder{ background-color: red; width: 100%; height: grid(10.125); display: block; border-radius: 4px; 
+  &.shadow{  }
 }
