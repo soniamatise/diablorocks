@@ -62,6 +62,10 @@ $time: 0.6;
 		@media #{$small-only}{
 			display: block;
 		}
+
+		p + p {
+			margin: 0;
+		}
 	}
 }
 
