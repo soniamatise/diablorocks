@@ -1,8 +1,11 @@
 <template>
 <main-layout>
-		<div class="row center">
+	<div class="row center">
 			<div class="column large-18">
-				<div class="holder shadow"></div>
+				<div class="holder big shading">
+					<!-- img paceholder for principle anime-->
+					<img src="../../static/img/placeholder.png" alt="placeholder">
+				</div>
 			</div>
 			<div class="column large-12">
 				<h3>Part of you ride</h3>
