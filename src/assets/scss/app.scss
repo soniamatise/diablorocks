@@ -4,12 +4,21 @@
 @import 'typography/typography';
 @import 'layout/layout', 'components/components';
 
-.container {
-  background-color: silver;
-  color: hotpink; margin: grid(4); padding: grid(1);
-}
 
 body,
 html {
-  background: color(Blue);
+  background: color(White);
+}
+
+
+.link{
+	&--external{
+		text-decoration: underline;
+	}
+}
+
+@media #{$mobile} {
+	.mobile-hide{
+		display: none;
+	}
 }

@@ -1,0 +1,305 @@
+<<<<<<< HEAD
+// .footer {
+//   background: white;
+//   padding: grid(4 0 1.5 0);
+//   @media #{$medium-down} {
+//     padding: grid(5 0 2 0);
+//   }
+//   @debug $mobile;
+//   @media #{$mobile} {
+//     padding: rem(96 64 63);
+//   }
+//   &__nav {
+//     margin-top: grid(0.5);
+//     @media #{$medium-down} {
+//       margin-top: grid(0.75);
+//     }
+//     @media #{$mobile} {
+//       margin-top: rem(24);
+//     }
+//     &__list-item {
+//       font-weight: $font-medium;
+//       margin-right: grid(0.75);
+//       a {
+//         font-size: rem(14);
+//         position: relative;
+//         &:before {
+//           content: ‘’;
+//           position: absolute;
+//           right: 0;
+//           width: 0;
+//           bottom: -4px;
+//           background-color: color(Black);
+//           height: 2px;
+//           transition-property: width;
+//           transition-duration: 0.3s;
+//           transition-timing-function: ease-out;
+//           @media #{$small-only} {
+//             background-color: white;
+//           }
+//         }
+//         &:hover {
+//           &:before {
+//             left: 0;
+//             right: auto;
+//             width: 100%;
+//           }
+//         }
+//       }
+//       &--active {
+//         position: relative;
+//         a:before {
+//           left: 0;
+//           right: auto;
+//           width: 100%;
+//         }
+//       }
+//     }
+//   }
+//   &__contact-us {
+//     margin-top: grid(1.5);
+//     @media #{$medium-down} {
+//       margin-top: grid(2);
+//     }
+//     @media #{$mobile} {
+//       margin-top: rem(32);
+//     }
+//   }
+//   &__contact {
+//     margin-right: grid(1.5);
+//     &__item {
+//       line-height: rem(32);
+//       color: color(Gray, 0.5);
+//     }
+//     @media #{$medium-down} {
+//       margin-right: grid(2);
+//     }
+//   }
+//   &__social {
+//     &__item {
+//       color: color(Gray, 0.5);
+//       line-height: rem(32);
+//       a {
+//         font-size: 1rem;
+//       }
+//     }
+//     @media (max-width: rem(488)) {
+//       margin-top: rem(32);
+//     }
+//   }
+//   &__practical {
+//     margin-top: grid(1.5);
+//     @media #{$medium-down} {
+//       margin-top: grid(2);
+//     }
+//     @media #{$mobile} {
+//       margin-top: rem(32);
+//     }
+//     &__item {
+//       margin-right: rem(45);
+//       color: color(Gray, 0.5);
+//     }
+//     @media #{$medium-down} {
+//       flex-direction: column;
+//       &__item {
+//         order: 1;
+//       }
+//       .copyright {
+//         order: 3;
+//         margin-top: grid(62/32);
+//       }
+//     }
+//     @media #{$mobile} {
+//       .copyright {
+//         margin-top: rem(32);
+//       }
+//     }
+//   }
+// }
+
+.footer {
+  background-color: color(White); padding: grid(4 0 1.5 0);
+	h2{ font-weight: $font-medium; }
+  @media #{$medium-down} {
+    padding: grid(5 0 2 0);
+  }
+
+  @media #{$small-only} {
+    padding: 6rem 4rem 4rem 4rem;
+  }
+
+	&Nav{
+		// border: 1px solid red;
+		&__list{
+			// border: 1px solid blue;
+		}
+		&__item{
+			@media #{$medium-up}{
+				& + .footerNav__item{ margin-left: grid(.5); }
+			}
+			@media #{$small-only}{
+				padding-right: 2rem;
+			}
+		}
+		&__link{ position: relative;
+			@extend %link-hover;
+			&:before{ top: 100%; }
+		}
+		&__text{
+			font-size: 1rem;
+			font-weight: $font-medium;
+		}
+	}
+
+  &Row {
+    margin-top: grid(1.5);
+		&.headline{
+			& + .footerRow{
+				margin-top: grid(.5);
+				@media #{$small-only}{
+					margin-top: 1.5rem;
+				}
+			}
+		}
+		&.copyright{
+			@media #{$small-only}{
+				p { font-size: rem(14); }
+			}
+		}
+  }
+  &__block {
+    display: inline-block; color: color(Gray, .5);
+		p a:before{ background-color: color(Gray, .5);  }
+		span,a{
+			& + a, & + span{ margin-left: grid(.75); }
+		}
+
+	  & + .footer__block {
+			@media #{$small-only}{
+				margin-top: 1.5rem;
+			}
+			@media #{$medium-up}{
+		    margin-left: grid(1.5);
+			}
+	  }
+  }
+  .hide-for-medium-down {
+    @media #{$medium-down} {
+      display: none;
+    }
+  }
+=======
+.footer{
+	background: white;
+	padding: grid(4 4 1.5);
+	@media #{$medium-down}{
+		padding: grid(5 4 2);
+	}
+	@media #{$mobile}{
+		padding: rem(96 64 63);
+	}
+	&__nav{
+		margin-top: grid(.5);
+		@media #{$medium-down}{
+			margin-top: grid(.75);
+		}
+		@media #{$mobile}{
+			margin-top: rem(24);
+		}
+		&__list-item{
+			font-weight: $font-medium;
+			margin-right: grid(.75);
+			a{ font-size: rem(14);
+				position: relative;
+				&:before{
+					content: "";
+					position: absolute;
+					right: 0;
+					width: 0;
+					bottom: -4px;
+					background-color: color(Black);
+					height: 2px;
+					transition-property: width;
+					transition-duration: 0.3s;
+					transition-timing-function: ease-out;
+					@media #{$small-only}{
+						background-color: white;
+					}
+				}
+				&:hover {
+					&:before {
+						left: 0;
+						right: auto;
+						width: 100%;
+					}
+				}
+			}
+			&--active {
+				position: relative;
+				a:before {
+					left: 0;
+					right: auto;
+					width: 100%;
+				}
+			}
+		}
+	}
+	&__contact-us{
+		margin-top: grid(1.5);
+		@media #{$medium-down}{
+			margin-top: grid(2);
+		}
+		@media #{$mobile}{
+			margin-top: rem(32);
+		}
+	}
+	&__contact{
+		margin-right: grid(1.5);
+		&__item{
+			line-height: rem(32);
+			color: color(Gray, 0.5);
+		}
+		@media #{$medium-down}{
+			margin-right: grid(2);
+		}
+	}
+	&__social{
+		&__item{
+			color: color(Gray, 0.5);
+			line-height: rem(32);
+			a {
+				font-size: 1rem;
+			}
+		}
+		@media (max-width: rem(488)){
+			margin-top: rem(32);
+		}
+	}
+	&__practical{
+		margin-top: grid(1.5);
+		@media #{$medium-down}{
+			margin-top: grid(2);
+		}
+		@media #{$mobile}{
+			margin-top: rem(32);
+		}
+		&__item{
+			margin-right: rem(45);
+			color: color(Gray, 0.5);
+		}
+		@media #{$medium-down}{
+			flex-direction: column;
+			&__item{
+				order: 1;
+			}
+			.copyright{
+				order: 3;
+				margin-top: grid(62/32);
+			}
+		}
+		@media #{$mobile}{
+			.copyright{ margin-top: rem(32);}
+		}
+	}
+>>>>>>> develop
+}
