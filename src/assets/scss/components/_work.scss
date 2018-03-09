@@ -32,6 +32,17 @@
 			}
 			.description {
 				padding: grid(1/2);
+				p {
+					transition: color ease 500ms;
+				}
+			}
+
+			&:hover {
+				.description {
+					p {
+						color: white;
+					}
+				}
 			}
 		}
 		.work-item:nth-child(3n+3) {
@@ -44,9 +55,12 @@
 		height: 100%;
 		top: 0;
 		left: 0;
-		z-index: 1;
-		background-color: rgba(116, 117, 119, 1);
-		opacity: 0;
-		transition: ease 1s opacity;
+		z-index: 2;
+		background-color: rgba(116, 117, 119, 0.9);
+		// transition: ease 1s opacity;
+
+		&.hidden {
+			display: none;
+		}
 	}
 }

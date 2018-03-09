@@ -61,7 +61,7 @@
 							</div>
 						</div>
 					</div>
-					<div id="overlay" class="overlay"></div>
+					<div id="overlay" class="overlay hidden"></div>
 					<canvas id="myCanvas"></canvas>
 				</div>
 			</div>
@@ -82,18 +82,24 @@ document.addEventListener('DOMContentLoaded', () => {
 	var workItems = document.getElementsByClassName('work-item');
 	var overlay = document.getElementById('overlay');
 
+	overlay.style.opacity = 0;
+	overlay.style.transition = 'opacity 500ms';
+
 	for (var i = 0; i < workItems.length; i++) {
 		workItems[i].addEventListener('mouseover', overlayColor); 
 		workItems[i].addEventListener('mouseout', overlayAway);
 	}
 
 	function overlayColor() {
-		overlay.style.opacity = '0.9';
-		this.style.opacity = '0';
+		overlay.classList.remove('hidden');
+		setTimeout(function(){ overlay.style.opacity = 1; }, 100);
+		this.style.zIndex = '4';
 	}
 	function overlayAway() {
-		overlay.style.opacity = '0';
-		this.style.opacity = '1';
+		overlay.style.opacity = 0; 
+		overlay.classList.add('hidden');
+		// setTimeout(function(){ overlay.classList.add('hidden'); }, 100);
+		this.style.zIndex = '1';
 	}
 	
 });
