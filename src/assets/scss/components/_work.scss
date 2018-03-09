@@ -1,13 +1,17 @@
 .work {
 	.intro {
+		padding: grid(2) 0 grid(1) 0;
 
+		h1 + p {
+			padding-top: 1rem;
+		}
 	}
 	.work-items {
 		width: 100%;
-
 		display: flex;
 		align-items: center;
 		flex-wrap: wrap;
+		// position: relative;
 		.work-item {
 			width: grid(6);
 			margin-right: grid(1);
@@ -26,7 +30,6 @@
 					width: 100%;
 				}
 			}
-
 			.description {
 				padding: grid(1/2);
 			}
@@ -36,18 +39,14 @@
 		}
 	}
 	.overlay {
-		position: absolute;
+		position: fixed;
 		width: 100%;
 		height: 100%;
 		top: 0;
 		left: 0;
-		z-index:2;
-		background-color: red;
-		opacity: 0.5;
-		display: none;
+		z-index: 1;
+		background-color: rgba(116, 117, 119, 1);
+		opacity: 0;
+		transition: ease 1s opacity;
 	}
 }
-
-// .work-item:hover {
-// 	.overlay {}
-// }

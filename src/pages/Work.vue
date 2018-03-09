@@ -12,12 +12,13 @@
 					<div class="work-items">
 						<div class="work-item">
 							<div class="image">
-								<img class="work-item-image" src="https://source.unsplash.com/gYl-UtwNg_I/1500x1500">
+								<img id="text" class="work-item-image" src="../assets/images/test/test1.jpg">
 							</div>
 							<div class="description">
 								<p><b>Kalkhoff Bikes —</b> When your bikes are eye-catchers, your website should be too.</p>
 							</div>
 						</div>
+
 						<div class="work-item">
 							<div class="image">
 								<img class="work-item-image" src="https://images.pexels.com/photos/34950/pexels-photo.jpg?w=1260&h=750&auto=compress&cs=tinysrgb">
@@ -60,9 +61,10 @@
 							</div>
 						</div>
 					</div>
+					<div id="overlay" class="overlay"></div>
+					<canvas id="myCanvas"></canvas>
 				</div>
 			</div>
-			<div id="overlay" class="overlay"></div>
 		</section>
 	</main-layout>
 </template>
@@ -75,22 +77,26 @@ export default {
 	}
 }
 
-// document.addEventListener('DOMContentLoaded', () => {
-// 	var workItems = document.getElementsByClassName('work-item');
-// 	var overlay = document.getElementById('overlay');
+document.addEventListener('DOMContentLoaded', () => {
 
-// 	for (var i = 0; i < workItems.length; i++) {
-// 		workItems[i].addEventListener('mouseover', overlayColor); 
-// 		workItems[i].addEventListener('mouseout', overlayAway);
-// 	}
+	var workItems = document.getElementsByClassName('work-item');
+	var overlay = document.getElementById('overlay');
 
-// 	function overlayColor() {
-// 		overlay.style.display = 'block';
-// 	}
-// 	function overlayAway() {
-// 		overlay.style.display = 'none'
-// 	}
-// });
+	for (var i = 0; i < workItems.length; i++) {
+		workItems[i].addEventListener('mouseover', overlayColor); 
+		workItems[i].addEventListener('mouseout', overlayAway);
+	}
+
+	function overlayColor() {
+		overlay.style.opacity = '0.9';
+		this.style.opacity = '0';
+	}
+	function overlayAway() {
+		overlay.style.opacity = '0';
+		this.style.opacity = '1';
+	}
+	
+});
 
 
 </script>
