@@ -11,18 +11,16 @@
 		padding: rem(96 64 63);
 	}
 	&__nav{
-		margin-top: grid(.5);
-		@include max-margin-top(.5, 40)
-		@media #{$medium-down}{
-			margin-top: grid(.75);
+		margin-top: rem(30);
+		@media #{$xxlarge-only}{
+			margin-top: rem(40);
 		}
-		@media #{$mobile}{
+		@media #{$medium-down}{
 			margin-top: rem(24);
 		}
 		&__list-item{
 			font-weight: $font-medium;
 			margin-right: grid(.75);
-			@include max-margin-right(.75, 60)
 			@media #{$medium-down}{
 				margin-right: grid(1);
 				&:last-of-type{ margin: 0;}
