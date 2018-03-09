@@ -81,25 +81,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	var workItems = document.getElementsByClassName('work-item');
 	var overlay = document.getElementById('overlay');
+	var Enabled = true;
 
-	overlay.style.opacity = 0;
-	overlay.style.transition = 'opacity 500ms';
+	function overlayColor() {
+		if (Enabled == true) {
+			overlay.classList.remove('hidden');
+			setTimeout(function(){ overlay.style.opacity = 0.9; }, 100);
+			this.style.zIndex = '4';
+		} else {
+			overlay.style.opacity = 1; 
+			overlay.classList.remove('hidden');
+		}
+	}
+	function overlayAway() {
+		if (Enabled == true) {
+			overlay.style.opacity = 0; 
+			overlay.classList.add('hidden');
+			this.style.zIndex = '1';
+		} else {
+			overlay.style.opacity = 1; 
+			overlay.classList.remove('hidden');
+		}
+	}
+	function awesomeRotation() {
+		Enabled = false;
+		overlay.style.opacity = '1';
+		overlay.classList.remove('hidden');
+		this.classList.add('animation');
+	}
 
 	for (var i = 0; i < workItems.length; i++) {
 		workItems[i].addEventListener('mouseover', overlayColor); 
 		workItems[i].addEventListener('mouseout', overlayAway);
-	}
-
-	function overlayColor() {
-		overlay.classList.remove('hidden');
-		setTimeout(function(){ overlay.style.opacity = 1; }, 100);
-		this.style.zIndex = '4';
-	}
-	function overlayAway() {
-		overlay.style.opacity = 0; 
-		overlay.classList.add('hidden');
-		// setTimeout(function(){ overlay.classList.add('hidden'); }, 100);
-		this.style.zIndex = '1';
+		workItems[i].addEventListener('click', awesomeRotation);
 	}
 	
 });
