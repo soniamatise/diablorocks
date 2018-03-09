@@ -1,8 +1,10 @@
 @import 'color/color';
 @import '~matise-stack/_stack.scss', '~matise-grid/grid.scss';
+@import 'mixins/_mixins.scss';
 @import 'settings/settings';
 @import 'typography/typography';
 @import 'layout/layout', 'components/components';
+
 
 
 body,

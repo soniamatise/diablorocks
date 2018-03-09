@@ -4,8 +4,8 @@
 	<section class="row footer__title">
 		<h3>Not your average Digital Agency.</h3>
 	</section>
-	<nav class="footer-nav" aria-label="Footer navigation">
-		<ul class="row list--row footer__nav">
+	<nav class="footer__nav" aria-label="Footer navigation">
+		<ul class="row list--row ">
 			<li class="mobile-hide footer__nav__list-item footer__nav__list-item--active font-medium"><a href="/culture">Culture</a></li>
 			<li class="mobile-hide footer__nav__list-item font-medium"><a href="/work">Work</a></li>
 			<li class="mobile-hide footer__nav__list-item font-medium"><a href="/who-we-are">Who we are</a></li>

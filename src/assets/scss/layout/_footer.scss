@@ -12,6 +12,7 @@
 	}
 	&__nav{
 		margin-top: grid(.5);
+		@include max-margin-top(.5, 40)
 		@media #{$medium-down}{
 			margin-top: grid(.75);
 		}
@@ -21,6 +22,11 @@
 		&__list-item{
 			font-weight: $font-medium;
 			margin-right: grid(.75);
+			@include max-margin-right(.75, 60)
+			@media #{$medium-down}{
+				margin-right: grid(1);
+				&:last-of-type{ margin: 0;}
+			}
 			a{ font-size: rem(14);
 				position: relative;
 				&:before{
@@ -77,8 +83,8 @@
 			color: color(Gray, 0.5);
 			line-height: rem(32);
 		}
-		@media (max-width: rem(421)){
-			margin-top: rem(32);
+		@media (max-width: rem(450)){
+			margin-top: grid(1);
 		}
 	}
 	&__practical{
