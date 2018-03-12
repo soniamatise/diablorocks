@@ -12,7 +12,7 @@
             <li class="menu-link"><v-link href="/work"><p>Work</p></v-link></li>
             <li class="menu-link"><v-link href="/what-we-do"><p>What we do</p></v-link></li>
             <li class="menu-link"><v-link href="/who-we-are"><p>Who we are</p></v-link></li>
-            <li id="logo" class="menu-link logo"><v-link href="/">Matise.</v-link></li>
+            <li id="logo" class="menu-link logo"><v-link href="/"><img src="../assets/images/logo.svg"></v-link></li>
           </ul>
           <div class="contact-info">
             <p>Contact</p>

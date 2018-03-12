@@ -45,6 +45,8 @@ $time: 0.6;
 			background: color(Black);
 			position: absolute;
 			margin-right: 0;
+			height: rem(50);
+
 			right: 0;
 			@media #{$small-only}{
 				display: none;
