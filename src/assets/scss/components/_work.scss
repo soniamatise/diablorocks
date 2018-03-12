@@ -31,7 +31,8 @@
 		    float: left;
 		    flex-direction: column;
 		    flex-grow: 1;
-		    transition: color ease 2s, width ease 2s, height ease 2s,;
+		    transition: color ease 2s, width ease 2s, height ease 2s;
+		    cursor: pointer;
 		    // transform-origin: 50% 50%;
 
 		    .image {

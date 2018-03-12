@@ -118,6 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	
 });
 
+// TYPEWRITER
 document.addEventListener('DOMContentLoaded',function(){
 	var dataText = 'Work';
 
@@ -133,14 +134,12 @@ document.addEventListener('DOMContentLoaded',function(){
 			setTimeout(fnCallback, 700);
 		}
 	}
-	function StartTextAnimation(i) {
-		if (i < dataText.length) {
-			typeWriter(dataText, 0, function(){
-				StartTextAnimation(i + 1);
-			});
-		}
+	function StartTextAnimation() {
+		typeWriter(dataText, 0, function(){
+			StartTextAnimation();
+		});
 	}
-	StartTextAnimation(0);
+	StartTextAnimation();
 });
 
 </script>
