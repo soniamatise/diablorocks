@@ -78,7 +78,6 @@ export default {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-
 	var workItems = document.getElementsByClassName('work-item');
 	var overlay = document.getElementById('overlay');
 	var Enabled = true;
@@ -105,10 +104,27 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 	function awesomeRotation() {
 		Enabled = false;
+		this.setAttribute('id', 'active');
+		this.classList.add('animation'); 
 		overlay.style.opacity = '1';
 		overlay.classList.remove('hidden');
-		this.classList.add('animation');
+
+		rotatedProperties();
 	}
+
+	function rotatedProperties() {
+		// var screenWidth = document.documentElement.clientWidth;
+		// var screenHeight = document.documentElement.clientHeight;
+
+		// var header = document.getElementById('active').firstChild;
+		// console.log(screenWidth);
+
+		// header.style.height = screenWidth + 'px';
+		// header.style.width = screenHeight + 'px';
+
+	}
+
+	window.addEventListener('resize', rotatedProperties);
 
 	for (var i = 0; i < workItems.length; i++) {
 		workItems[i].addEventListener('mouseover', overlayColor); 
