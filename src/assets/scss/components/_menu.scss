@@ -46,8 +46,8 @@ $time: 0.6;
 			position: absolute;
 			margin-right: 0;
 			height: rem(50);
-
 			right: 0;
+			top: 0.5rem;
 			@media #{$small-only}{
 				display: none;
 			}
