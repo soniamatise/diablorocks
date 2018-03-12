@@ -2,6 +2,17 @@
 	.intro {
 		padding: grid(2) 0 grid(1) 0;
 
+		span {
+		  border-right: .05em solid;
+		  animation: caret 1s steps(1) infinite;
+		}
+
+		@keyframes caret {
+		  50% {
+		    border-color: transparent;
+		  }
+		}
+
 		h1 + p {
 			padding-top: 1rem;
 		}

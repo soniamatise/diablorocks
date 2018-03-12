@@ -3,7 +3,7 @@
 		<section class="work">
 			<div class="row center textCenter intro">
 				<div class="column column-8">
-					<h1>Work</h1>
+					<h1 id="title">Work</h1>
 					<p>Our latest and greatest for brands we believe in.</p>
 				</div>
 			</div>
@@ -108,23 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		this.classList.add('animation'); 
 		overlay.style.opacity = '1';
 		overlay.classList.remove('hidden');
-
-		rotatedProperties();
 	}
-
-	function rotatedProperties() {
-		// var screenWidth = document.documentElement.clientWidth;
-		// var screenHeight = document.documentElement.clientHeight;
-
-		// var header = document.getElementById('active').firstChild;
-		// console.log(screenWidth);
-
-		// header.style.height = screenWidth + 'px';
-		// header.style.width = screenHeight + 'px';
-
-	}
-
-	window.addEventListener('resize', rotatedProperties);
 
 	for (var i = 0; i < workItems.length; i++) {
 		workItems[i].addEventListener('mouseover', overlayColor); 
@@ -134,5 +118,29 @@ document.addEventListener('DOMContentLoaded', () => {
 	
 });
 
+document.addEventListener('DOMContentLoaded',function(){
+	var dataText = 'Work';
+
+	function typeWriter(text, i, fnCallback) {
+		if (i < (text.length)) {
+			document.getElementById('title').innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
+
+			setTimeout(function() {
+				typeWriter(text, i + 1, fnCallback)
+			}, 1000);
+		}
+		else if (typeof fnCallback == 'function') {
+			setTimeout(fnCallback, 700);
+		}
+	}
+	function StartTextAnimation(i) {
+		if (i < dataText.length) {
+			typeWriter(dataText, 0, function(){
+				StartTextAnimation(i + 1);
+			});
+		}
+	}
+	StartTextAnimation(0);
+});
 
 </script>
