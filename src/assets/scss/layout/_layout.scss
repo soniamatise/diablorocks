@@ -12,8 +12,8 @@
 	}
 }
 
-.carousel{ border: solid 1px red; overflow: hidden;
-	.slick-track{ width: 400px;
-		.slick-slide{ width: grid(6); height: 100px; display: inline-block; position: relative; border: solid 1px yellow; }
+.carousel{ border: solid 1px red; overflow: hidden; height: grid(12);
+	.slick-track{ width: 400px; height: grid(12);
+		.slick-slide{ width: grid(6); height: grid(12); display: inline-block; position: relative; border: solid 1px yellow; }
 	}
 }
