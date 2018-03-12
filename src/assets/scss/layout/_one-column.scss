@@ -1,0 +1,57 @@
+.holder {
+	&.full {
+		width: 100%;
+		height: grid(10.125);
+		display: block;
+		margin-bottom: grid(2);
+		position: relative;
+		background: color(Light);
+		border-radius: rem(4);
+		@media #{$medium-only} {
+			height: rem(360);
+			width: calc(100% - 128px);
+			margin: 0 auto rem(64);
+			border-radius: rem(2);
+		}
+		@media #{$small-only} {
+			height: rem(175);
+			width: calc(100% - 64px);
+			margin: 0 auto rem(64);
+			border-radius: rem(2);
+		}
+		.contentHolder {
+			height: inherit;
+			position: relative;
+			overflow: hidden;
+			border-radius: rem(4);
+		}
+		&:after {
+			z-index: -1;
+			top: grid(.5);
+			left: grid(.5);
+			right: grid(.5);
+			bottom: 0;
+			content: '';
+			position: absolute;
+			display: block;
+			box-shadow: 0 grid(.25) grid(.75) grid(.25) color(Dark, .2);
+			@media #{$medium-down} {
+				top: 1rem;
+				left: 1rem;
+				right: 1rem;
+				bottom: 0;
+			}
+		}
+		img {
+			width: 100%;
+			border-radius: rem(4);
+			display: block;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-size: contain;
+			@media #{$medium-down} {
+				border-radius: rem(2);
+			}
+		}
+	}
+}
