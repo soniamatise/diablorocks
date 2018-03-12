@@ -1,3 +1,4 @@
+
 .work__grid{
 	display: flex; justify-content: center;
 	flex-direction: row;
@@ -10,40 +11,27 @@
 	&:nth-of-type(3n){
 		padding: 0;
 	}
-	&:nth-of-type(6n - 5){
-		margin-top: grid(1);
-	}
-	&:nth-of-type(6n - 4){
-		margin-top: grid(1.5);
-	}
-	&:nth-of-type(6n - 3){
-		margin-top: 0;
-	}
-	&:nth-of-type(6n - 2){
-		margin-top: grid(1.5);
-	}
-	&:nth-of-type(6n - 1){
-		margin-top: grid(1);
-	}
-
-	&:nth-of-type(6n){
-		margin-top: grid(1.5);
-
-	}
 
 	&__image{
-		width: grid(6);
+		width: 100vw;
 		&:before{
 			content: '';
 		}
 		&--small{
 			height: grid(7);
+			width: grid(6);
+			overflow: hidden;
 		}
 		&--medium{
 			height: grid(8);
+			width: grid(6);
+			overflow: hidden;
 		}
 		&--large{
 			height: grid(9);
+			width: grid(6);
+			overflow: hidden;
+
 		}
 	}
 	&__description{
@@ -51,3 +39,11 @@
 		padding: rem(32 30);
 	}
 }
+.image-container{
+}
+
+
+.background-canvas { width: 100vw; height: 100vw; position: fixed; top: 0; left: 0; z-index: 1; transition: .5s; transition-timing-function: ease-in; opacity: 0; background: white; pointer-events: none;}
+
+.whoo{ z-index: 2; position: relative; color: white;}
+.whoohoo{ z-index: 1; opacity: 0.9; transition: 1.5s;}
