@@ -3,10 +3,10 @@
 	<div class="column large-14 medium-20 small-full">
 		<carousel :mouseDrag="false">
 			<slide>
-				<img src="../../static/img/placeholderMob.png" alt="placeholder">
+				<!-- <img src="../../static/img/placeholderMob.png" alt="placeholder"> -->
 			</slide>
 			<slide>
-				<img src="../../static/img/placeholderMob.png" alt="placeholder">
+				<!-- <img src="../../static/img/placeholderMob.png" alt="placeholder"> -->
 			</slide>
 		</carousel>
 	</div>
