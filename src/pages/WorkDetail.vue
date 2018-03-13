@@ -23,19 +23,4 @@ export default {
 		MainLayout
 	}
 }
-
-// document.addEventListener('DOMContentLoaded', function() {
-// 	var caseText = document.getElementById('case-text');
-// 	var nextCaseText = document.getElementById('next-case-text');
-// 	nextCaseText.style.transition = 'opacity 300ms';
-
-// 	caseText.addEventListener('mouseover', function(){
-// 		fade();
-// 	});
-
-// 	function fade(){
-// 		nextCaseText.style.opacity = 0; 
-// 		setTimeout(function(){ nextCaseText.classList.add('hidden'); }, 500);
-// 	}
-// });
 </script>
