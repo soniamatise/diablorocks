@@ -1,8 +1,49 @@
-// .VueCarousel-inner{ justify-content: space-between; border: solid 1px green; height: 400px;
-// 	.VueCarousel-slide{ background-color: hotpink; width: 200px!important; height: 100%; flex-basis: grid(6); }
-// }
-
-.swiper-container {
-	width: 600px;
-	height: 300px;
+.swiper-container{ background-color: hotpink; position: relative; height: 558px;
+	.swiper-wrapper{ background-color: green; height: 100%; width: 100%;
+		.swiper-slide{ width: 279px!important; height: 558px; background-color: red;
+			&:nth-child(1){ background-color: teal; margin-left: 32px; }
+			&:nth-child(2){ background-color: purple; margin-right: 32px; }
+			.contentHolder{ width: 279px!important; height: 558px; border: solid 1px blue; }
+		}
+	}
 }
+
+
+// .swiper-container{ overflow: visible;
+// 	// @media #{$medium-down}{ width: calc(100% - 128px); }
+// 	// @media #{$small-only}{ overflow: hidden;  }
+// 	.swiper-wrapper{ margin-bottom: grid(2);
+// 		.swiper-slide{ width: calc(375px - 64px)!important; display: block!important; position: relative; height: 400px; //@ROX CALCULEREN
+// 			&:nth-child(1){ background: rgba(yellow, .5);
+// 				&.swiper-slide-active{
+// 					.contentHolder{ left: 32px; }
+// 				}
+// 				.contentHolder{ left: -64px; }
+// 			}
+// 			&:nth-child(2){ background: rgba(green, .5);
+// 				&.swiper-slide-active{
+// 					.contentHolder{ left: -64px; }
+// 				}
+// 				.contentHolder{ left: 64px; }
+// 			}
+//
+// 			.contentHolder{ position: absolute; width: calc(279px + 32px)!important; height: 400px; top: 0px; left: 0px; background-color: red;
+// 				.imgHolder{ background-size: cover; display: block; position: absolute; width: calc(279px + 32px)!important; height: 400px; left: 0px; right: 0px; background-image: url(http://placebeyonce.com/280-400); }
+// 			}
+// 			// img{ max-height: 200px; }
+// 			// @media #{$medium-down}{ width: grid(9)!important; height: grid(18); }
+// 			// @media #{$small-only}{ width: rem(279)!important; height: rem(558); margin-bottom: rem(64); }
+// 			// .contentHolder{ border-radius: rem(4); z-index: 1; position: relative; width: grid(6)!important; height: grid(12);
+// 			// 	@media #{$medium-down}{ width: grid(9)!important; height: grid(18); }
+// 			// 	@media #{$small-only}{ width: rem(279)!important; height: rem(558); }
+// 			// 	img{ background-size: cover; height: grid(12); width: grid(6); z-index: 1; position: relative;
+// 			// 		@media #{$medium-down}{ width: grid(9)!important; height: grid(18); }
+// 			// 		@media #{$small-only}{ width: rem(279)!important; height: rem(558); }
+// 			// 	}
+// 			// 	&:after{ content: ''; z-index: 0; top: grid(.5); left: grid(.5); right: grid(.5); bottom: 0; position: absolute; display: block; box-shadow: 0 grid(.25) grid(.75) grid(.25) color(Dark, .2);
+// 			// 		@media #{$medium-down}{ top: 1rem; left: 1rem; right: 1rem; bottom: 0; }
+// 			// 	}
+// 			// }
+// 		}
+// 	}
+// }
