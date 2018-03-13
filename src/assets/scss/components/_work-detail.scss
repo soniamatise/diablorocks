@@ -6,16 +6,33 @@
 		justify-content: center;
 		color: color(Light);
 		.case-text {
-			transition: width 2s;
-			// position: relative;
+			display: inline-block;
 			p {
 				font-size: 2rem;
-				transition: all 2s;
-				// float: left;
-				// position: relative;
+				transition: opacity 300ms;
+				position: relative;
+				display: block;
+				&:hover {
+					cursor: pointer;
+					span {
+						width: 105%;
+					}
+				}
 
-				&+ p {
-					margin: 0 !important;
+				span{
+					position: absolute;
+					width: 0;
+					right: 105%;
+				    top: -3px;
+					overflow: hidden;
+					transition: width 0.25s;
+				    display:block;
+				    white-space: nowrap;
+				    text-align: right;
+
+				    &:after {
+				    	display: none;
+				    }
 				}
 			}
 		}
