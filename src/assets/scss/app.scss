@@ -1,16 +1,31 @@
 @import 'color/color';
 @import '~matise-stack/_stack.scss', '~matise-grid/grid.scss';
+@import 'mixins/_mixins.scss';
 @import 'settings/settings';
 @import 'typography/typography';
 @import 'layout/layout', 'components/components', 'components/menu', 'components/header';
 
 .container {}
 
-body,
-html {
-  
-}
-
 body {
 	padding-top: grid(5);
+}
+
+
+body,
+html {
+  background: color(White);
+}
+
+
+.link{
+	&--external{
+		text-decoration: underline;
+	}
+}
+
+@media #{$mobile} {
+	.mobile-hide{
+		display: none;
+	}
 }

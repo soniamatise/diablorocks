@@ -20,7 +20,7 @@ h4 {
 // make font styles
 .font-bold,
 strong {
-  @extend %font-bold;
+  @extend %font-semibold;
 }
 small {
   @extend %small;
@@ -41,6 +41,15 @@ sup {
 p {
   @extend %p;
 }
+
+a {
+	@extend %p;
+}
+
+li {
+	@extend %p;
+}
+
 
 blockquote {
   @extend %blockquote;
