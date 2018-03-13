@@ -4,12 +4,12 @@
 		<swiper :options="swiperOption">
 			<swiper-slide>
 				<div class="contentHolder">
-					Slide 1
+					<img src="../../static/img/placeholderMob.png" alt="placeholder">
 				</div>
 			</swiper-slide>
 			<swiper-slide>
 				<div class="contentHolder">
-					Slide 2
+					<img src="../../static/img/placeholderMob.png" alt="placeholder">
 				</div>
 			</swiper-slide>
 		</swiper>
@@ -52,20 +52,17 @@ export default {
 	data() {
 		return {
 			swiperOption: {
-				slidesPerView: 'auto',
-				spaceBetween: 32,
+				slidesPerView: 2,
+				touchRatio: 0,
+				breakpoints: {
+					640: {
+						slidesPerView: 'auto',
+						spaceBetween: 32,
+						touchRatio: 1,
+					}
+				}
 			}
 		}
 	}
 }
 </script>
-
-<style scoped>
-.swiper-slide {
-	width: 80%;
-}
-
-.swiper-slide:nth-child(2n) {
-	width: 60%;
-}
-</style>
