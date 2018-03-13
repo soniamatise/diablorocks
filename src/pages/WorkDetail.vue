@@ -1,15 +1,17 @@
 <template>
-	<main-layout>
+	<main-layout class="work-detail">
 		<div class="row center">
 			<div class="column column-12">
 				<p>BBB Cycling — This is what happens when commerce and emotion collide and come together.</p>
 			</div>
 		</div>
-		<div class="row center">
-			<div class="column column-24">
-				<!-- <img src="https://source.unsplash.com/gYl-UtwNg_I/1500x1500"> -->
+		<section class="next-case" style="background-color: #524d40;">
+			<div class="row center">
+				<div class="column column-24">
+					<p>Next case - BBB Cycling</p>
+				</div>
 			</div>
-		</div>
+		</section>
 	</main-layout>
 </template>
 <script>
