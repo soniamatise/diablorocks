@@ -1,3 +1,8 @@
-.VueCarousel-inner{ height: 400px; border: solid 1px green;
-	.VueCarousel-slide{ background-color: hotpink; width: 200px!important; height: 100%; }
+// .VueCarousel-inner{ justify-content: space-between; border: solid 1px green; height: 400px;
+// 	.VueCarousel-slide{ background-color: hotpink; width: 200px!important; height: 100%; flex-basis: grid(6); }
+// }
+
+.swiper-container {
+	width: 600px;
+	height: 300px;
 }
