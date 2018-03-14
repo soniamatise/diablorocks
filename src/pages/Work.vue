@@ -4,60 +4,60 @@
 		<div class="background-canvas">
 
 		</div>
-		<section class="work__grid row center">
-			<article class="work__card columns-6">
-				<div class="image-container">
-					<img class="work__card__image" src="/static/img/test.jpg">
+		<section class="work__grid">
+			<article class="work__card">
+				<div class="work__card__image-container">
+					<img class="work__card__image" src="/static/img/kalkhoff.png">
+				</div>
+				<p class="work__card__description"><span class="work__card__description--bold">Kalkhoff Bikes</span> When your bikes are eye-catchers, your website should be too.</p>
+			</article>
+			<article class="work__card">
+				<div class="work__card__image-container">
+					<img class="work__card__image" src="/static/img/nielson.png">
+				</div>
+				<p class="work__card__description"><span class="work__card__description--bold">Sony Music Netherlands</span> A new digital home for Nielson, an artist that reinvented himself.</p>
+			</article>
+			<article class="work__card">
+				<div class="work__card__image-container">
+					<img class="work__card__image" src="/static/img/bbb.png">
+				</div>
+				<p class="work__card__description"><span class="work__card__description--bold">BBB Cycling</span> This is what happens when commerce and emotion collide and come together.</p>
+			</article>
+			<article class="work__card">
+				<div class="work__card__image-container">
+					<img class="work__card__image" src="/static/img/boz.png">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Aangenaam Bergen op Zoom</span> Original stories from a ‘gezellige’ community.</p>
 			</article>
-			<article class="work__card columns-6">
-				<div class="image-container">
-					<img class="work__card__image" src="/static/img/test2.jpg">
+			<article class="work__card">
+				<div class="work__card__image-container">
+					<img class="work__card__image" src="/static/img/dvlm.png">
 				</div>
-				<p class="work__card__description"><span class="work__card__description--bold">Aangenaam Bergen op Zoom</span> Original stories from a ‘gezellige’ community.</p>
+				<p class="work__card__description"><span class="work__card__description--bold">Sony Music Netherlands & DVLM</span> Scavenger hunts are the future of giveaway campaigns.</p>
 			</article>
-			<article class="work__card columns-6">
-				<div class="image-container">
-					<img class="work__card__image" src="/static/img/test.jpg">
+			<article class="work__card">
+				<div class="work__card__image-container">
+					<img class="work__card__image" src="/static/img/mtv.png">
 				</div>
-				<p class="work__card__description"><span class="work__card__description--bold">Aangenaam Bergen op Zoom</span> Original stories from a ‘gezellige’ community.</p>
+				<p class="work__card__description"><span class="work__card__description--bold">Viacom Out of Office</span> Getting your out of office as fun as actually being out of office.</p>
 			</article>
-			<article class="work__card columns-6">
-				<div class="image-container">
-					<img class="work__card__image" src="/static/img/test2.jpg">
+			<article class="work__card">
+				<div class="work__card__image-container">
+					<img class="work__card__image" src="/static/img/wadden.png">
 				</div>
-				<p class="work__card__description"><span class="work__card__description--bold">Aangenaam Bergen op Zoom</span> Original stories from a ‘gezellige’ community.</p>
+				<p class="work__card__description"><span class="work__card__description--bold">Expeditie Wadden</span> A journey through time and space.</p>
 			</article>
-			<article class="work__card columns-6">
-				<div class="image-container">
-					<img class="work__card__image" src="/static/img/test2.jpg">
+			<article class="work__card">
+				<div class="work__card__image-container">
+					<img class="work__card__image" src="/static/img/boz.png">
 				</div>
-				<p class="work__card__description"><span class="work__card__description--bold">Aangenaam Bergen op Zoom</span> Original stories from a ‘gezellige’ community.</p>
+				<p class="work__card__description"><span class="work__card__description--bold">Stadsmakelaar</span>Finding the place of your dreams in Bergen op Zoom.</p>
 			</article>
-			<article class="work__card columns-6">
-				<div class="image-container">
-					<img class="work__card__image" src="/static/img/test.jpg">
+			<article class="work__card">
+				<div class="work__card__image-container">
+					<img class="work__card__image" src="/static/img/natwerk.png">
 				</div>
-				<p class="work__card__description"><span class="work__card__description--bold">Aangenaam Bergen op Zoom</span> Original stories from a ‘gezellige’ community.</p>
-			</article>
-			<article class="work__card columns-6">
-				<div class="image-container">
-					<img class="work__card__image" src="/static/img/test.jpg">
-				</div>
-				<p class="work__card__description"><span class="work__card__description--bold">Aangenaam Bergen op Zoom</span> Original stories from a ‘gezellige’ community.</p>
-			</article>
-			<article class="work__card columns-6">
-				<div class="image-container">
-					<img class="work__card__image" src="/static/img/test.jpg">
-				</div>
-				<p class="work__card__description"><span class="work__card__description--bold">Aangenaam Bergen op Zoom</span> Original stories from a ‘gezellige’ community.</p>
-			</article>
-			<article class="work__card columns-6">
-				<div class="image-container">
-					<img class="work__card__image" src="/static/img/test.jpg">
-				</div>
-				<p class="work__card__description"><span class="work__card__description--bold">Aangenaam Bergen op Zoom</span> Original stories from a ‘gezellige’ community.</p>
+				<p class="work__card__description"><span class="work__card__description--bold">Natwerk</span>I GIF this website a 10/10.</p>
 			</article>
 		</section>
 
@@ -72,7 +72,7 @@ export default {
 	}
 }
 setTimeout(function(){
-	let allCards = document.querySelectorAll('.image-container');
+	let allCards = document.querySelectorAll('.work__card__image-container');
 	let images = document.querySelectorAll('.work__card__image');
 	// const customClass = ['medium', 'small', 'large', 'small', 'large', 'medium'];
 
@@ -175,10 +175,5 @@ setTimeout(function(){
 		return rgb;
 	}
 },400)
-
-
-
-
-
 
 </script>

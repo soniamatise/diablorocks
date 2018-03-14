@@ -2,7 +2,7 @@
 .work__grid{
 	column-count: 3;
 	column-gap: grid(1);
-	padding: grid(2 0);
+	padding: grid(2);
 }
 
 .work__card{
@@ -14,29 +14,39 @@
 			padding-top: grid(1.5);
 		}
 	}
-	margin-bottom: grid(2);
+	margin-bottom: grid(1.5);
 
 	&__image{
 		width: 100vw;
 		&:before{
 			content: '';
 		}
+		&-container{
+			width: grid(6);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
 		&--small{
 			height: grid(7);
+			width: grid(6);
 			overflow: hidden;
 		}
 		&--medium{
 			height: grid(8);
+			width: grid(6);
 			overflow: hidden;
 		}
 		&--large{
 			height: grid(9);
+			width: grid(6);
 			overflow: hidden;
 
 		}
 	}
 	&__description{
-		padding: rem(32 30 0);
+		width: grid(6);
+		padding: rem(32 30);
 	}
 }
 
