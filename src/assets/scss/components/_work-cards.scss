@@ -3,9 +3,18 @@
 	column-count: 3;
 	column-gap: grid(1);
 	padding: grid(2);
+	@media #{$medium-down}{
+		column-count: 2;
+	}
+	@media #{$mobile}{
+		column-count: 1;
+	}
 }
 
 .work__card{
+	break-inside: avoid;
+	margin-bottom: grid(1.5);
+
 	&.column1{
 		&:first-of-type{
 			padding-top: grid(1);
@@ -14,43 +23,51 @@
 			padding-top: grid(1.5);
 		}
 	}
-	margin-bottom: grid(1.5);
 
 	&__image{
-		width: 100vw;
+		height: 100%;
+		@media #{$mobile}{
+			// height: 200%;
+		}
 		&:before{
 			content: '';
+		}
+		&--small{
+			height: grid(7);
+		}
+		&--medium{
+			height: grid(8);
+		}
+		&--large{
+			height: grid(9);
 		}
 		&-container{
 			width: grid(6);
 			display: flex;
 			justify-content: center;
-			align-items: center;
-		}
-		&--small{
-			height: grid(7);
-			width: grid(6);
 			overflow: hidden;
-		}
-		&--medium{
-			height: grid(8);
-			width: grid(6);
-			overflow: hidden;
-		}
-		&--large{
-			height: grid(9);
-			width: grid(6);
-			overflow: hidden;
-
+			@media #{$medium-down}{
+				width: grid(9.25);
+			}
+			@media #{$mobile}{
+				width: grid(20);
+				height: grid(20);
+			}
 		}
 	}
 	&__description{
 		width: grid(6);
 		padding: rem(32 30);
+		@media #{$medium-down}{
+			width: grid(9.25);
+		}
+		@media #{$mobile}{
+			width: grid(20);
+		}
 	}
 }
 
-.background-canvas { width: 100vw; height: 100vw; position: fixed; top: 0; left: 0; z-index: 1; transition: .2s; opacity: 0; background: white; pointer-events: none;}
+.background-canvas { width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; z-index: 1; transition: .2s; opacity: 0; background: white; pointer-events: none;}
 
 .card--hover{ z-index: 2; position: relative; color: white; transition: color .5s .1s;}
 .background--forward{ z-index: 1; opacity: 0.9; transition: 1.5s;}
