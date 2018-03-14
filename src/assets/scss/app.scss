@@ -3,8 +3,10 @@
 @import 'settings/settings';
 @import 'typography/typography';
 @import 'layout/layout', 'components/components', 'components/menu', 'components/header';
+@import 'layout/footer';
+@import 'layout/one-column';
+@import 'layout/two-column';
 
-.container {}
 
 
 body {
