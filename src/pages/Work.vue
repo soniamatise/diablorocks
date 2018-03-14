@@ -74,18 +74,46 @@ export default {
 setTimeout(function(){
 	let allCards = document.querySelectorAll('.image-container');
 	let images = document.querySelectorAll('.work__card__image');
-	const customClass = ['medium', 'small', 'large', 'small', 'large', 'medium'];
+	// const customClass = ['medium', 'small', 'large', 'small', 'large', 'medium'];
+
+
+	const column1 = ['medium', 'small'];
+	const column2 = ['small', 'large'];
+	const column3 = ['large', 'medium'];
+
 	let counter = 0;
+	let column;
+	let activeColumn;
+	let columnClass;
+
 	const background = document.querySelector('.background-canvas');
 
-	allCards.forEach(function(card){
-		card.classList.add('work__card__image--' + customClass[counter]);
-		if(counter !== customClass.length -1){
+	const columns = images.length / 3;
+
+	for (let i = 0; i < allCards.length; i++){
+		if (i <= (columns - 1)) {
+			activeColumn = column1;
+			columnClass = 'column1';
+		} else if (i <= (columns * 2) - 1){
+			activeColumn = column2;
+			columnClass = 'column2';
+		} else {
+			activeColumn = column3;
+			columnClass = 'column3';
+		}
+		if(column !== activeColumn){
+			column = activeColumn;
+			counter = 0;
+		}
+		allCards[i].classList.add('work__card__image--' + activeColumn[counter]);
+		allCards[i].parentElement.classList.add(columnClass);
+
+		if(counter !== column.length -1){
 			counter++;
 		} else{
 			counter = 0;
 		}
-	});
+	}
 	images.forEach(function(image){
 		let color = getAverageRGB(image);
 		image.addEventListener('mouseover', function () {
