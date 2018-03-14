@@ -6,22 +6,22 @@
         <div class="sidekick"><a class="logo"><img src="../assets/images/logo.svg"></a>
           <label class="trigger" for="menu-trigger"><span></span></label>
         </div>
-        <nav id="nav" class="nav">
+        <nav class="nav top__nav" aria-label="Top navigation">
           <ul>
-            <li class="menu-link main-link"><v-link href="/culture"><p>Culture</p></v-link></li>
-            <li class="menu-link main-link"><v-link href="/work"><p>Work</p></v-link></li>
-            <li class="menu-link main-link"><v-link href="/what-we-do"><p>What we do</p></v-link></li>
-            <li class="menu-link main-link"><v-link href="/who-we-are"><p>Who we are</p></v-link></li>
-            <li id="logo" class="menu-link logo"><v-link href="/"><img src="../assets/images/logo.svg"></v-link></li>
+            <li class="nav__list-item__top main-link"><a href="/culture">Culture</a></li>
+            <li class="nav__list-item__top main-link"><a href="/work">Work</a></li>
+            <li class="nav__list-item__top main-link"><a href="/what-we-do">What we do</a></li>
+            <li class="nav__list-item__top main-link"><a href="/who-we-are">Who we are</a></li>
+            <li id="logo" class="nav__list-item__top logo"><a href="/"><img src="../assets/images/logo.svg"></a></li>
           </ul>
-          <div class="contact-info">
-            <p><b>Contact</b></p>
+          <section class="top__contact-us">
             <ul>
-              <li class="menu-link"><p><a href="mailto:office@matise.nl">office@matise.nl</a></p></li>
-              <li class="menu-link"><p>+31 20 845 37 99</p></li>
-              <li class="menu-link"><p>Entrepotdok 78, Amsterdam</p></li>
+              <li class="nav__list-item__top"><a href=""><b>Contact</b></a></li>
+              <li class="nav__list-item__top info-link"><a href="mailto:office@matise.nl">office@matise.nl</a></li>
+              <li class="nav__list-item__top info-link"><a href="">+31 20 845 37 99</a></li>
+              <li class="nav__list-item__top info-link"><a href="">Entrepotdok 78, Amsterdam</a></li>
             </ul>
-          </div>
+          </section>
         </nav>
       </div>
     </div>

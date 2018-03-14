@@ -1,7 +1,8 @@
 .header {
 	width: 100%;
 	position: fixed;
-	top: rem(90);
+	top: rem(83);
+    z-index: 10;
 	@media #{$small-only}{
 		width: 100%;
 	    height: 100%;
