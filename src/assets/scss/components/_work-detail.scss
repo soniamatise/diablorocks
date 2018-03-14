@@ -12,13 +12,6 @@
 				transition: opacity 300ms;
 				position: relative;
 				display: block;
-				&:hover {
-					cursor: pointer;
-					span {
-						width: 105%;
-					}
-				}
-
 				span{
 					position: absolute;
 					width: 0;
@@ -33,6 +26,14 @@
 				    &:after {
 				    	display: none;
 				    }
+				}
+			}
+		}
+		&:hover {
+			p {
+				cursor: pointer;
+				span {
+					width: 105%;
 				}
 			}
 		}
