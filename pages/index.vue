@@ -1,0 +1,3 @@
+<template>
+	hoi nuxt
+</template>
