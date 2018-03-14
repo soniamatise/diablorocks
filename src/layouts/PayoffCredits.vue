@@ -6,52 +6,83 @@
 		</div>
 	</div>
 	<div class="credits">
-		<div class="row column large-12 medium-16 small-full item">
-			<div class="column large-4 medium-full small-full ">
-				<p class="medium">Client</p>
+		<div class="row item center">
+			<div class="column large-12 medium-16 small-full">
+				<div class="row">
+					<div class="column large-8 medium-full small-full ">
+						<p class="medium">Client</p>
+					</div>
+					<div class="column large-16 medium-full small-full">
+						<p>BBB Cycling</p>
+					</div>
+					<div class="line"></div>
+				</div>
+				<!-- end column -->
 			</div>
-			<div class="column large-8 medium-full small-full">
-				<p>BBB Cycling</p>
-			</div>
+			<!-- end row -->
 		</div>
-		<div class="line"></div>
-		<div class="row column large-12 medium-16 small-full item">
-			<div class="column large-4 medium-full small-full ">
-				<p class="medium">Deliverables</p>
+		<div class="row item center">
+			<div class="column large-12 medium-16 small-full">
+				<div class="row">
+					<div class="column large-8 medium-full small-full ">
+						<p class="medium">Deliverables</p>
+					</div>
+					<div class="column large-16 medium-full small-full">
+						<p>Concept, Design, Strategy, Icons, Photo Manipulation and Retouching, UI / UX, Assets library *</p>
+					</div>
+					<div class="line"></div>
+				</div>
+				<!-- end column -->
 			</div>
-			<div class="column large-8 medium-full small-full">
-				<p>Concept, Design, Strategy, Icons, Photo Manipulation and Retouching, UI / UX, Assets library *</p>
-			</div>
+			<!-- end row -->
 		</div>
-		<div class="line"></div>
-		<div class="row column large-12 medium-16 small-full item">
-			<div class="column large-4 medium-full small-full ">
-				<p class="medium">Platform</p>
+		<div class="row item center">
+			<div class="column large-12 medium-16 small-full">
+				<div class="row">
+					<div class="column large-8 medium-full small-full ">
+						<p class="medium">Platform</p>
+					</div>
+					<div class="column large-16 medium-full small-full">
+						<p>Magento 2</p>
+					</div>
+					<div class="line"></div>
+				</div>
+				<!-- end column -->
 			</div>
-			<div class="column large-8 medium-full small-full">
-				<p>Magento 2</p>
-			</div>
+			<!-- end row -->
 		</div>
-		<div class="line"></div>
-		<div class="row column large-12 medium-16 small-full item">
-			<div class="column large-4 medium-full small-full ">
-				<p class="medium">Partners</p>
+		<div class="row item center">
+			<div class="column large-12 medium-16 small-full">
+				<div class="row">
+					<div class="column large-8 medium-full small-full ">
+						<p class="medium">Partners</p>
+					</div>
+					<div class="column large-16 medium-full small-full">
+						<p>Pon.Digital <span>Front-end Development</span>, Guapa <span>Magento Development</span></p>
+					</div>
+					<div class="line"></div>
+				</div>
+				<!-- end column -->
 			</div>
-			<div class="column large-8 medium-full small-full">
-				<p>Pon.Digital <span>Front-end Development</span>, Guapa <span>Magento Development</span></p>
-			</div>
+			<!-- end row -->
 		</div>
-		<div class="line"></div>
-		<div class="row column large-12 medium-16 small-full item">
-			<div class="column large-4 medium-full small-full ">
-				<p class="medium">See it live</p>
+		<div class="row item center">
+			<div class="column large-12 medium-16 small-full">
+				<div class="row">
+					<div class="column large-8 medium-full small-full ">
+						<p class="medium">See it live</p>
+					</div>
+					<div class="column large-16 medium-full small-full">
+						<a class="button plainText" href="http://bbbcycling.com" target="_blank">bbbcycling.com</a>
+					</div>
+					<div class="line"></div>
+				</div>
+				<!-- end column -->
 			</div>
-			<div class="column large-8 medium-full small-full">
-				<a class="button plainText" href="http://bbbcycling.com" target="_blank">bbbcycling.com</a>
-			</div>
+			<!-- end row -->
 		</div>
 		<div class="row column large-12 medium-16 small-full link">
-			<p class="gray">* Learn how Matise guaranteed top-notch front-end development, without actually developing. <a class="button plainText gray" href="/sil-article" target="_blank">Read Sil van Diepen’s article</a></p>
+			<p class="gray">Learn how Matise guaranteed top-notch front-end development, without actually developing. <a class="button plainText gray" href="/sil-article" target="_blank">Read Sil van Diepen’s article</a></p>
 		</div>
 	</div>
 </section>

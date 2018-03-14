@@ -1,18 +1,27 @@
 #PayoffCredits {
 	margin-bottom: grid(5);
 	@media #{$small-only} {
-		width: calc(100% - 128px); margin: 0 auto rem(96) auto;
+		width: calc(100% - 128px);
+		margin: 0 auto rem(96);
 	}
 
 	.credits {
 		margin-top: grid(2);
-		@media #{$medium-down}{ margin-top: rem(64); }
+		@media #{$medium-down} {
+			margin-top: calc(64px - 24px);
+		}
+
 		.item {
-			padding: rem(28) 0;
+			a {
+				padding: rem(24) 0;
+			}
+
 			p {
+				padding: rem(24) 0;
+
 				&.medium {
-					padding-left: rem(21);
-					@media #{$medium-down}{
+					padding-left: grid(0.2625);
+					@media #{$medium-down} {
 						padding-left: 0;
 					}
 				}
@@ -33,13 +42,26 @@
 			width: grid(12);
 			height: rem(2);
 			margin: auto;
-			@media #{$medium-down}{ width: grid(16); }
-			@media #{$small-only}{ width: 100%; }
+			@media #{$medium-down} {
+				width: grid(16);
+			}
+			@media #{$small-only} {
+				width: 100%;
+			}
 		}
 
 		.link {
 			margin-top: grid(1);
-			@media #{$medium-down}{ margin-top: calc(64px - 28px); }
+			@media #{$medium-down} {
+				margin-top: calc(64px - 24px);
+			}
+
+			p:before {
+				content: '*';
+				display: inline-block;
+				padding-left: grid(0.2625);
+				padding-right: rem(13);
+			}
 		}
 	}
 }
