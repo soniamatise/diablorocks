@@ -9,7 +9,8 @@
 			<div class="row center textCenter">
 				<div class="column column-24">
 					<div id="case-text" class="case-text">
-						<p><span id="next-case-text">Next case —</span> BBB Cycling</p>
+						<div class="next-text"><p>Next case —</p></div>
+						<div class="case-text"><p>BBB Cycling</p></div>
 					</div>
 					<div class="case-image"></div>
 				</div>
