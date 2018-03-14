@@ -2,7 +2,7 @@
 .work__grid{
 	column-count: 3;
 	column-gap: grid(1);
-	padding: grid(2);
+	padding: grid(2 0);
 }
 
 .work__card{
@@ -14,7 +14,7 @@
 			padding-top: grid(1.5);
 		}
 	}
-	margin-bottom: grid(1.5);
+	margin-bottom: grid(2);
 
 	&__image{
 		width: 100vw;
@@ -23,30 +23,24 @@
 		}
 		&--small{
 			height: grid(7);
-			width: grid(6);
 			overflow: hidden;
 		}
 		&--medium{
 			height: grid(8);
-			width: grid(6);
 			overflow: hidden;
 		}
 		&--large{
 			height: grid(9);
-			width: grid(6);
 			overflow: hidden;
 
 		}
 	}
 	&__description{
-		width: grid(6);
-		padding: rem(32 30);
+		padding: rem(32 30 0);
 	}
 }
-.image-container{
-}
 
-.background-canvas { width: 100vw; height: 100vw; position: fixed; top: 0; left: 0; z-index: 1; transition: .5s; transition-timing-function: ease-in; opacity: 0; background: white; pointer-events: none;}
+.background-canvas { width: 100vw; height: 100vw; position: fixed; top: 0; left: 0; z-index: 1; transition: .2s; opacity: 0; background: white; pointer-events: none;}
 
-.card--hover{ z-index: 2; position: relative; color: white; transition: color 1s .2s;}
+.card--hover{ z-index: 2; position: relative; color: white; transition: color .5s .1s;}
 .background--forward{ z-index: 1; opacity: 0.9; transition: 1.5s;}

@@ -4,56 +4,56 @@
 		<div class="background-canvas">
 
 		</div>
-		<section class="work__grid">
-			<article class="work__card">
+		<section class="work__grid row center">
+			<article class="work__card columns-6">
 				<div class="image-container">
 					<img class="work__card__image" src="/static/img/test.jpg">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Aangenaam Bergen op Zoom</span> Original stories from a ‘gezellige’ community.</p>
 			</article>
-			<article class="work__card">
+			<article class="work__card columns-6">
 				<div class="image-container">
 					<img class="work__card__image" src="/static/img/test2.jpg">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Aangenaam Bergen op Zoom</span> Original stories from a ‘gezellige’ community.</p>
 			</article>
-			<article class="work__card">
+			<article class="work__card columns-6">
 				<div class="image-container">
 					<img class="work__card__image" src="/static/img/test.jpg">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Aangenaam Bergen op Zoom</span> Original stories from a ‘gezellige’ community.</p>
 			</article>
-			<article class="work__card">
+			<article class="work__card columns-6">
 				<div class="image-container">
 					<img class="work__card__image" src="/static/img/test2.jpg">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Aangenaam Bergen op Zoom</span> Original stories from a ‘gezellige’ community.</p>
 			</article>
-			<article class="work__card">
+			<article class="work__card columns-6">
 				<div class="image-container">
 					<img class="work__card__image" src="/static/img/test2.jpg">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Aangenaam Bergen op Zoom</span> Original stories from a ‘gezellige’ community.</p>
 			</article>
-			<article class="work__card">
+			<article class="work__card columns-6">
 				<div class="image-container">
 					<img class="work__card__image" src="/static/img/test.jpg">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Aangenaam Bergen op Zoom</span> Original stories from a ‘gezellige’ community.</p>
 			</article>
-			<article class="work__card">
+			<article class="work__card columns-6">
 				<div class="image-container">
 					<img class="work__card__image" src="/static/img/test.jpg">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Aangenaam Bergen op Zoom</span> Original stories from a ‘gezellige’ community.</p>
 			</article>
-			<article class="work__card">
+			<article class="work__card columns-6">
 				<div class="image-container">
 					<img class="work__card__image" src="/static/img/test.jpg">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Aangenaam Bergen op Zoom</span> Original stories from a ‘gezellige’ community.</p>
 			</article>
-			<article class="work__card">
+			<article class="work__card columns-6">
 				<div class="image-container">
 					<img class="work__card__image" src="/static/img/test.jpg">
 				</div>
@@ -131,14 +131,8 @@ setTimeout(function(){
 		}
 
 	});
-},400)
-
-
-
-
-
-function getAverageRGB(imgEl) {
-	var blockSize = 5, // only visit every 5 pixels
+	function getAverageRGB(imgEl) {
+		var blockSize = 5, // only visit every 5 pixels
 		defaultRGB = {r:0,g:0,b:0}, // for non-supporting envs
 		canvas = document.createElement('canvas'),
 		context = canvas.getContext && canvas.getContext('2d'),
@@ -148,37 +142,43 @@ function getAverageRGB(imgEl) {
 		rgb = {r:0,g:0,b:0},
 		count = 0;
 
-	if (!context) {
-		return defaultRGB;
+		if (!context) {
+			return defaultRGB;
+		}
+
+		height = canvas.height = imgEl.naturalHeight || imgEl.offsetHeight || imgEl.height;
+		width = canvas.width = imgEl.naturalWidth || imgEl.offsetWidth || imgEl.width;
+
+		context.drawImage(imgEl, 0, 0);
+
+		try {
+			data = context.getImageData(0, 0, width, height);
+		} catch(e) {
+			/* security error, img on diff domain */
+			return defaultRGB;
+		}
+
+		length = data.data.length;
+
+		while ( (i += blockSize * 4) < length ) {
+			++count;
+			rgb.r += data.data[i];
+			rgb.g += data.data[i+1];
+			rgb.b += data.data[i+2];
+		}
+
+		// ~~ used to floor values
+		rgb.r = ~~(rgb.r/count);
+		rgb.g = ~~(rgb.g/count);
+		rgb.b = ~~(rgb.b/count);
+
+		return rgb;
 	}
+},400)
 
-	height = canvas.height = imgEl.naturalHeight || imgEl.offsetHeight || imgEl.height;
-	width = canvas.width = imgEl.naturalWidth || imgEl.offsetWidth || imgEl.width;
 
-	context.drawImage(imgEl, 0, 0);
 
-	try {
-		data = context.getImageData(0, 0, width, height);
-	} catch(e) {
-		/* security error, img on diff domain */
-		return defaultRGB;
-	}
 
-	length = data.data.length;
 
-	while ( (i += blockSize * 4) < length ) {
-		++count;
-		rgb.r += data.data[i];
-		rgb.g += data.data[i+1];
-		rgb.b += data.data[i+2];
-	}
-
-	// ~~ used to floor values
-	rgb.r = ~~(rgb.r/count);
-	rgb.g = ~~(rgb.g/count);
-	rgb.b = ~~(rgb.b/count);
-
-	return rgb;
-}
 
 </script>
