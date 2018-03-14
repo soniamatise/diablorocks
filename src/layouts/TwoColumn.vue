@@ -1,5 +1,5 @@
 <template>
-<div class="row center">
+<div id="twoCol" class="row center">
 	<div class="column large-14 medium-full small-full">
 		<swiper :options="swiperOption">
 			<swiper-slide>
