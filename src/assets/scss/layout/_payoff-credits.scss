@@ -1,0 +1,45 @@
+#PayoffCredits {
+	margin-bottom: grid(5);
+	@media #{$small-only} {
+		width: calc(100% - 128px); margin: 0 auto rem(96) auto;
+	}
+
+	.credits {
+		margin-top: grid(2);
+		@media #{$medium-down}{ margin-top: rem(64); }
+		.item {
+			padding: rem(28) 0;
+			p {
+				&.medium {
+					padding-left: rem(21);
+					@media #{$medium-down}{
+						padding-left: 0;
+					}
+				}
+
+				span {
+					font-weight: $font-regular;
+					color: color(Gray);
+
+					&:after {
+						display: none;
+					}
+				}
+			}
+		}
+
+		.line {
+			background-color: color(Gray, .25);
+			width: grid(12);
+			height: rem(2);
+			margin: auto;
+			@media #{$medium-down}{ width: grid(16); }
+			@media #{$small-only}{ width: 100%; }
+		}
+
+		.link {
+			margin-top: grid(1);
+			@media #{$medium-down}{ margin-top: calc(64px - 28px); }
+		}
+	}
+}
