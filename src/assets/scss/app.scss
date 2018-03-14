@@ -1,9 +1,8 @@
 @import 'color/color';
 @import '~matise-stack/_stack.scss', '~matise-grid/grid.scss';
-@import 'mixins/_mixins.scss';
 @import 'settings/settings';
 @import 'typography/typography';
-@import 'layout/layout', 'components/components';
+@import 'layout/layout', 'components/components', 'components/menu', 'components/header';
 @import 'layout/footer';
 @import 'layout/one-column';
 @import 'layout/two-column';
@@ -11,9 +10,9 @@
 @import 'layout/buttons';
 
 
-body,
-html {
-  background: color(White);
+
+body {
+	padding-top: grid(5);
 }
 
 
