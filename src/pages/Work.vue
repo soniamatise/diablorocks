@@ -74,35 +74,49 @@ export default {
 setTimeout(function(){
 	let allCards = document.querySelectorAll('.image-container');
 	let images = document.querySelectorAll('.work__card__image');
-	const customClass = ['medium', 'small', 'large', 'small', 'large', 'medium'];
-	let counter = 0;
+	const customClass = ['small', 'medium', 'large'];
+	let random;
 	const background = document.querySelector('.background-canvas');
 
+
 	allCards.forEach(function(card){
-		card.classList.add('work__card__image--' + customClass[counter]);
-		if(counter !== customClass.length -1){
-			counter++;
-		} else{
-			counter = 0;
+
+		let randomClass = function(r) {
+				for (let i = array.length - 1; i > 0; i--) {
+					let j = Math.floor(Math.random() * (i + 1));
+					[array[i], array[j]] = [array[j], array[i]];
+				}
+			}
+
+		for let i = 0; i < customClass.length; i++{
+
 		}
+
+		card.classList.add('work__card__image--' + customClass[counter]);
+		// if(counter !== customClass.length -1){
+		// 	counter++;
+		// } else{
+		// 	counter = 0;
+		// }
 	});
 	images.forEach(function(image){
 		let color = getAverageRGB(image);
 		image.addEventListener('mouseover', function () {
 			background.style.background = 'rgb(' + color.r + ',' + color.g + ',' + color.b +')';
-			background.classList.add('whoohoo');
-			image.parentElement.parentElement.classList.add('whoo');
+			background.classList.add('background--forward');
+			image.parentElement.parentElement.classList.add('card--hover');
 			checkMouse(image);
 		});
 		let checkMouse = function(image){
 			image.addEventListener('mouseout', function (){
 				background.style.background = 'none';
-				background.classList.remove('whoohoo');
-				image.parentElement.parentElement.classList.remove('whoo');
+				background.classList.remove('background--forward');
+				image.parentElement.parentElement.classList.remove('card--hover');
 			});
 		}
-
 	});
+
+
 },400)
 
 
