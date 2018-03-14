@@ -11,6 +11,7 @@
 					<div id="case-text" class="case-text">
 						<p><span id="next-case-text">Next case —</span> BBB Cycling</p>
 					</div>
+					<div class="case-image"></div>
 				</div>
 			</div>
 		</section>

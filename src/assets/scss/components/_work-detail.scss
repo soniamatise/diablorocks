@@ -5,6 +5,8 @@
 		align-items: center;
 		justify-content: center;
 		color: color(Light);
+		position: relative;
+		cursor: pointer;
 		.case-text {
 			display: inline-block;
 			p {
@@ -28,6 +30,15 @@
 				    }
 				}
 			}
+		}
+		.case-image{
+			background:red;
+			position: absolute;
+			width: grid(6);
+			height: grid(2);
+			transform: translate(-50%);
+			left: 50%;
+			bottom: 0;
 		}
 		&:hover {
 			p {
