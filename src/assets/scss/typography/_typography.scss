@@ -5,6 +5,7 @@
 .light{ color: color(Light); }
 .gray{ color: color(Gray); }
 .opacity{ opacity: 0.5; }
+.medium{ font-weight: $font-medium; }
 
 //span = medium font-weight
 span, .font-medium{ font-weight: $font-medium; }
