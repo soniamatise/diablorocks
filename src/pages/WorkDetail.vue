@@ -16,7 +16,9 @@
 						</div>
 						<div id="case-text" class="case-text"><p>BBB Cycling</p></div>
 					</div>
-					<div class="case-image"></div>
+					<div id="case-image" class="case-image">
+						<img src="../assets/images/kalkhoff.png">
+					</div>
 				</div>
 			</div>
 		</section>
@@ -30,35 +32,42 @@ export default {
 	}
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-	var caseTextInner = document.getElementById('case-text-inner');
-	var nextText = document.getElementById('next-text');
-	var caseText = document.getElementById('case-text');
-	var bgDiv = document.getElementById('next-case');
+document.addEventListener('DOMContentLoaded', () => {
+	const caseTextInner = document.getElementById('case-text-inner');
+	const nextText = document.getElementById('next-text');
+	const caseText = document.getElementById('case-text');
+	const bgDiv = document.getElementById('next-case');
+	const caseImage = document.getElementById('case-image');
 
 	function toggleWidth() {
-		var currentWidthInner = caseTextInner.offsetWidth;
-		var currentWidthNext = nextText.offsetWidth;
-		var currentWidthCase = caseText.offsetWidth;
-		var currentWidthNextParent = nextText.parentElement;
+		const currentWidthInner = caseTextInner.offsetWidth;
+		const currentWidthNext = nextText.offsetWidth;
+		const currentWidthCase = caseText.offsetWidth;
+		const currentWidthNextParent = nextText.parentElement;
 
-		currentWidthNextParent.style.width = currentWidthNext + 'px';
+		caseTextInner.style.width = 'calc(2px + ' + currentWidthInner + 'px)';
 		nextText.style.width = currentWidthNext + 'px';
 		caseText.style.width = 'calc(1px + ' + currentWidthCase + 'px)';
-		caseTextInner.style.width = 'calc(1px + ' + currentWidthInner + 'px)';
-
+		currentWidthNextParent.style.width = currentWidthNext + 'px';
 	}
 	toggleWidth();
+	
 	function bgColorOfCase() {
-		bgDiv.style.backgroundColor = '#524d40';
+		bgDiv.style.backgroundColor = '#524d40';//TODO: PLACEHOLDER COLOR OF THE CASE!!!!
 	}
 	function bgColorOfNormal() {
 		bgDiv.style.backgroundColor = 'black';
 	}
-
-
+	function active() {
+		bgDiv.classList.add('active');
+		setTimeout(function(){ 
+			caseImage.style.transformOrigin = 'center !important';
+			bgDiv.classList.add('rotation');
+		}, 500);
+	}
 	window.addEventListener('resize', toggleWidth);
 	bgDiv.addEventListener('mouseover', bgColorOfCase);
 	bgDiv.addEventListener('mouseout', bgColorOfNormal);
+	bgDiv.addEventListener('click', active);
 });
 </script>
