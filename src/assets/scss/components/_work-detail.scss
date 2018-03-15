@@ -5,48 +5,74 @@
 		align-items: center;
 		justify-content: center;
 		color: color(Light);
-		position: relative;
 		cursor: pointer;
-		.case-text {
-			display: inline-block;
-			p {
-				font-size: 2rem;
-				transition: opacity 300ms;
-				position: relative;
-				display: block;
-				span{
-					position: absolute;
-					width: 0;
-					right: 105%;
-				    top: -3px;
-					overflow: hidden;
-					transition: width 0.25s;
-				    display:block;
-				    white-space: nowrap;
-				    text-align: right;
+		position: relative;
+		background-color: color(Black);
+		overflow: hidden;
+		transition: background-color 1s cubic-bezier(.42,0,.58,1);
 
-				    &:after {
-				    	display: none;
-				    }
+		.case-text-inner {
+			position: absolute;
+			transform: translate(-50%);
+			left: 50%;
+			p{ font-size: 2rem;}
+			.next-text {
+				float: left;
+				position: relative;
+				margin-left:auto;
+				margin-right:auto;
+				text-align:right;
+				overflow:hidden;
+				white-space: nowrap;
+				transition: width 0s ease 0.4s;
+				#next-text {
+					float: right;
+					overflow-x:hidden;
+					transition: width 0.4s cubic-bezier(.42,0,.58,1) 0.4s;
+					p {direction: rtl;}
 				}
 			}
+			.case-text {
+				position: relative;
+				right: 0;
+				top: 0;
+				float: right;
+				transition: width 0.2s cubic-bezier(.42,0,.58,1) 0.2s;
+			}
 		}
-		.case-image{
+		.case-image {
 			background:red;
 			position: absolute;
 			width: grid(6);
-			height: grid(2);
+			height: grid(10);
 			transform: translate(-50%);
 			left: 50%;
-			bottom: 0;
+			bottom: grid(-10);
+			transition: bottom 0.4s cubic-bezier(.42,0,.58,1) 0.6s;
 		}
 		&:hover {
-			p {
-				cursor: pointer;
-				span {
-					width: 105%;
+			.next-text {
+				width: 0px !important;
+				transition: width 0s ease 0.6s;
+				#next-text {
+					width: 0px !important;
+					transition: width 0.4s cubic-bezier(.42,0,.58,1) 0.2s;
 				}
 			}
+			.case-text {
+				width: 100% !important;
+				transition: width 0.2s cubic-bezier(.42,0,.58,1) 0.6s;
+			}
+			.case-image {
+				bottom: grid(-8);
+				transition: bottom 0.3s cubic-bezier(.42,2,.58,1) 0.6s;
+			}
 		}
+		// &:active {
+		// 	.case-image {
+		// 		bottom: grid(-8);
+		// 		transition: bottom 0.3s cubic-bezier(.42,2,.58,1) 0.6s;
+		// 	}
+		// }
 	}
 }
