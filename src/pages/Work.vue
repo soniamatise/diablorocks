@@ -1,9 +1,7 @@
 
 <template>
 	<main-layout>
-		<div class="background-canvas">
-
-		</div>
+		<div class="background-canvas"></div>
 		<section class="work__grid">
 			<article class="work__card">
 				<div class="work__card__image-container">
@@ -142,9 +140,9 @@ setTimeout(function(){
 			let color = getAverageRGB(image);
 			image.addEventListener('mouseover', function () {
 				background.style.background = 'rgb(' + color.r + ',' + color.g + ',' + color.b +')';
-				background.classList.add('background--forward');
 				if(!background.classList.contains('expandBackground')){
 					image.parentElement.parentElement.classList.add('card--hover');
+					background.classList.add('background--forward');
 				}
 				checkMouse(image);
 			});

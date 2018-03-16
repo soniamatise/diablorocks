@@ -1,9 +1,11 @@
 
+
+
 .work__grid{
 	column-count: 3;
 	column-gap: grid(1);
 	padding: grid(2);
-	position: relative;
+	// position: relative;
 	@media #{$medium-down}{
 		column-count: 2;
 	}
@@ -32,33 +34,39 @@
 	}
 
 	&__image{
-		height: 67.5vh;
+		width: grid(24 * 0.675);
+		height: grid((24 * 0.675) * 0.5625);
 		&:before{
 			content: '';
 		}
 		&--small{
-			height: grid(7);
+			clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+			// height: grid(7);
 			@media #{$medium-down} {
 				height: grid(10);
 			}
 		}
 		&--medium{
-			height: grid(8);
+			clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+			// height: grid(8);
 			@media #{$medium-down} {
 				height: grid(12);
 			}
 		}
 		&--large{
-			height: grid(9);
+			clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+			// height: grid(9);
 			@media #{$medium-down} {
 				height: grid(14);
 			}
+
 		}
 		&-container{
-			width: grid(6);
+			// width: grid(6);
 			display: flex;
 			justify-content: center;
-			overflow: hidden;
 			@media #{$medium-down}{
 				width: grid(9.25);
 			}
@@ -88,61 +96,126 @@ $standardCubicBezier: cubic-bezier(0.42, 0.58, 0, 1);
 $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 
 .expandCard {
-	 margin: 0;
+	margin: 0;
+	position: fixed;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 2;
+	color: white;
 }
 
 .expandImage{
-	transition: margin-bottom .4s .1s $specialCubicBezier;
-	margin-left: grid(7);
-	left: grid(2);
-	position: fixed;
+	position: relative;
 	top:0;
+	bottom: 0;
 	z-index: 2;
 	padding: 0;
-	display: flex;
-	animation: expandContainer;
 	img{
-		height: 100vh;
+		width: 100vw;
+		height: grid(24 * 0.5625);
+		transform-origin: center;
+		// transform: rotate(90deg);
 		transition: 2s $specialCubicBezier .4s;
 	}
 
-	&+p{ opacity: 0; height: 0; transition: opacity 1s $standardCubicBezier; padding: 0; }
+	&+p{ opacity: 0;  transition: opacity .4s $standardCubicBezier; padding: 0; }
 	&.work__card__image{
 		&--small{
-			margin-top: calc((100vh - ((100vw / 24) * 7)) / 2);
+			// margin-top: calc((100vh - ((100vw / 24) * 7)) / 2);
+
 		}
 		&--medium{
-			margin-top: calc((100vh - ((100vw / 24) * 8)) / 2);
+			// margin-top: calc((100vh - ((100vw / 24) * 8)) / 2);
 		}
 		&--large{
-			margin-top: calc((100vh - ((100vw / 24) * 9)) / 2);
+			// margin-top: calc((100vh - ((100vw / 24) * 9)) / 2);
 		}
 	}
 }
 
 .column1 .expandImage{
-	transition: margin-left 2s .4s $specialCubicBezier;
-	margin-left: grid(7);
 	left: grid(2);
+	animation: fromLeftToCenter 2.5s $specialCubicBezier forwards;
 }
+.column2 .expandImage{
+	margin-left: grid(9);
+	animation: fromCenter 2.5s $specialCubicBezier forwards;
+}
+
 .column3 .expandImage{
-	transition: margin-right 2s .4s $specialCubicBezier;
-	margin-right: grid(7);
-	right: grid(2);
-	left: auto;
+	clip-path: polygon( grid(9 2), grid(15 2), grid(15 8), grid(9 8));
+	animation: fromRightToCenter 2.5s $specialCubicBezier forwards;
 }
 
+.expandBackground{ opacity: 1; transition: .4s $standardCubicBezier; z-index: 1; pointer-events: auto;}
 
-.expandBackground{ opacity: 1; transition: 1s $standardCubicBezier; z-index: 1; pointer-events: auto;}
-
-@keyframes expandContainer {
+@keyframes fromRightToCenter {
 	0%{
-		width: inherit;
-		height: inherit;
+		clip-path: polygon( grid(16 2), grid(22 2), grid(22 10), grid(16 10));
+		transition: none;
+	}
+	4%{
+		clip-path: polygon( grid(16 10), grid(22 10), grid(22 10), grid(16 10));
+	}
+	16%{
+
+	}
+	20%{
+		clip-path: polygon( grid(9 2), grid(15 2), grid(15 8), grid(9 8));
 	}
 	100%{
-		width: 100%;
-		height: 100%;
+		clip-path: polygon(0 grid(28), 0 0, grid(28) 0, grid(28) grid(28));
 	}
-
 }
+//
+// @keyframes fromLeftToCenter {
+// 	4%{
+// 		left: grid(2);
+// 		right: grid(16);
+// 		transform-origin: center;
+//
+// 	}
+// 	16%{
+// 		width: grid(6);
+// 	}
+// 	20%{
+// 		left: grid(9);
+// 		right: grid(9);
+// 	}
+// 	100%{
+// 		width: 100vh;
+// 		height: 100vw;
+// 		left: grid(9);
+// 		right: grid(9);
+// 		top: 0;
+// 		bottom:0;
+// 		margin: 0;
+// 		transform: rotate(-90deg);
+// 		transform-origin: center;
+// 		background: rgba( 255, 255, 255, 0.5);
+// 	}
+// }
+//
+// @keyframes fromCenter {
+// 	16%{
+// 		width: grid(6);
+// 		transform-origin: center;
+//
+// 	}
+// 	100%{
+// 		width: 100vh;
+// 		height: 100vw;
+// 		left: grid(9);
+// 		right: grid(9);
+// 		top: 0;
+// 		bottom:0;
+// 		margin: 0;
+// 		transform: rotate(-90deg);
+// 		transform-origin: center;
+// 		background: rgba( 255, 255, 255, 0.5);
+// 	}
+// }
