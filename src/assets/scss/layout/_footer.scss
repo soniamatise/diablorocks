@@ -10,53 +10,6 @@
 	@media #{$mobile}{
 		padding: rem(96 64 63);
 	}
-	&__nav{
-		margin-top: rem(30);
-		@media #{$xxlarge-only}{
-			margin-top: rem(40);
-		}
-		@media #{$medium-down}{
-			margin-top: rem(24);
-		}
-		&__list-item{
-			font-weight: $font-medium;
-			margin-right: grid(.75);
-			@media #{$medium-down}{
-				margin-right: grid(1);
-				&:last-of-type{ margin: 0;}
-			}
-			a{ font-size: rem(14);
-				position: relative;
-				&:before{
-					content: "";
-					position: absolute;
-					right: 0;
-					width: 0;
-					bottom: -4px;
-					background-color: color(Black);
-					height: 1px;
-					transition-property: width;
-					transition-duration: 0.3s;
-					transition-timing-function: ease-out;
-				}
-				&:hover {
-					&:before {
-						left: 0;
-						right: auto;
-						width: 100%;
-					}
-				}
-			}
-			&--active {
-				position: relative;
-				a:before {
-					left: 0;
-					right: auto;
-					width: 100%;
-				}
-			}
-		}
-	}
 	&__contact-us{
 		margin-top: grid(1.5);
 		@media #{$medium-down}{
