@@ -14,32 +14,48 @@
 .work__card{
 	break-inside: avoid;
 	margin-bottom: grid(1.5);
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	top: 0; left: 0; right: 0; bottom: 0;
 
 	&.column1{
 		&:first-of-type{
 			padding-top: grid(1);
+			@media #{$medium-down} {
+				padding-top: 0;
+			}
 		}
 		&+.column2{
 			padding-top: grid(1.5);
+			@media #{$medium-down} {
+				padding-top: grid(.5);
+			}
 		}
 	}
 
 	&__image{
-		height: 100%;
-		@media #{$mobile}{
-			// height: 200%;
-		}
+		height: 67.5vh;
 		&:before{
 			content: '';
 		}
 		&--small{
 			height: grid(7);
+			@media #{$medium-down} {
+				height: grid(10);
+			}
 		}
 		&--medium{
 			height: grid(8);
+			@media #{$medium-down} {
+				height: grid(12);
+			}
 		}
 		&--large{
 			height: grid(9);
+			@media #{$medium-down} {
+				height: grid(14);
+			}
 		}
 		&-container{
 			width: grid(6);
@@ -68,6 +84,33 @@
 }
 
 .background-canvas { width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; z-index: 1; transition: .2s; opacity: 0; background: white; pointer-events: none;}
-
 .card--hover{ z-index: 2; position: relative; color: white; transition: color .5s .1s;}
 .background--forward{ z-index: 1; opacity: 0.9; transition: 1.5s;}
+
+$standardCubicBezier: cubic-bezier(0.42, 0.58, 0, 1);
+$specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
+
+.expandCard {
+	position: fixed;
+	top: 0; left: 0; right: 0; bottom: 0;
+	z-index: 2;
+	padding: 0; margin: 0 auto;
+	transform-origin: right;
+	transform: translate(30%, 20%);
+	// justify-content: center;
+	// align-items: center;
+	transition: 4s $standardCubicBezier;
+}
+
+.expandImage{
+	animation: expandContainer 2.4s;
+	img{
+		height: 100vh; transition: 2s .4s $specialCubicBezier;
+	}
+	&+p{ opacity: 0; height: 0; transition: .4 $standardCubicBezier; padding: 0; }
+}
+.expandBackground{ opacity: 1; transition: 1s; transition-timing-function: $standardCubicBezier; z-index: 1;}
+
+@keyframes expandContainer {
+
+}

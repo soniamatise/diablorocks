@@ -77,6 +77,7 @@ setTimeout(function(){
 	let allCards = document.querySelectorAll('.work__card__image-container');
 	let images = document.querySelectorAll('.work__card__image');
 
+	const background = document.querySelector('.background-canvas');
 	const column1 = ['medium', 'small'];
 	const column2 = ['small', 'large'];
 	const column3 = ['large', 'medium'];
@@ -88,10 +89,11 @@ setTimeout(function(){
 	let columnClass;
 	let savedWidth = window.innerWidth;
 
-	const background = document.querySelector('.background-canvas');
 	window.addEventListener('resize', function(){
 		checkColumns();
-	})
+	});
+
+
 
 	let checkColumns = function(){
 		if (window.innerWidth < 375 && savedWidth != 375){
@@ -99,7 +101,7 @@ setTimeout(function(){
 			savedWidth = 375;
 			assignColumns(columns)
 		} else if ((window.innerWidth < 960 && window.innerWidth > 375) && savedWidth != 960){
-			columns = images.length / 2;
+			columns = Math.ceil(images.length / 2);
 			savedWidth = 960;
 			assignColumns(columns)
 		} else {
@@ -108,14 +110,12 @@ setTimeout(function(){
 			assignColumns(columns)
 		}
 	}
-
 	let assignColumns = function(columns) {
-		console.log('init', columns);
 		for (let i = 0; i < allCards.length; i++){
 			if (i <= (columns - 1)) {
 				activeColumn = column1;
 				columnClass = 'column1';
-			} else if (i <= Math.round((columns * 2) - 1)){
+			} else if (i <= (columns * 2) - 1){
 				activeColumn = column2;
 				columnClass = 'column2';
 			} else {
@@ -138,6 +138,7 @@ setTimeout(function(){
 	}
 	let onHover = function(){
 		images.forEach(function(image){
+			clickAnim(image);
 			let color = getAverageRGB(image);
 			image.addEventListener('mouseover', function () {
 				background.style.background = 'rgb(' + color.r + ',' + color.g + ',' + color.b +')';
@@ -149,11 +150,23 @@ setTimeout(function(){
 	}
 	let checkMouse = function(image){
 		image.addEventListener('mouseout', function (){
-			background.style.background = 'none';
+			if(!background.classList.contains('expandBackground')){
+				background.style.background = 'none';
+			}
 			background.classList.remove('background--forward');
 			image.parentElement.parentElement.classList.remove('card--hover');
 		});
 	}
+
+	let clickAnim = function(image){
+		image.addEventListener('click', function(e) {
+			e.target.parentElement.parentElement.classList.add('expandCard');
+			e.target.parentElement.classList.add('expandImage');
+			background.classList.add('expandBackground');
+			background.style.background = 'rgb(' + color.r + ',' + color.g + ',' + color.b +')';
+		});
+	}
+
 	function getAverageRGB(imgEl) {
 		var blockSize = 5, // only visit every 5 pixels
 			defaultRGB = {r:0,g:0,b:0}, // for non-supporting envs
