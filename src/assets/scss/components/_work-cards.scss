@@ -3,6 +3,7 @@
 	column-count: 3;
 	column-gap: grid(1);
 	padding: grid(2);
+	position: relative;
 	@media #{$medium-down}{
 		column-count: 2;
 	}
@@ -14,10 +15,6 @@
 .work__card{
 	break-inside: avoid;
 	margin-bottom: grid(1.5);
-	display: flex;
-	flex-direction: column;
-	position: relative;
-	top: 0; left: 0; right: 0; bottom: 0;
 
 	&.column1{
 		&:first-of-type{
@@ -83,7 +80,7 @@
 	}
 }
 
-.background-canvas { width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; z-index: 1; transition: .2s; opacity: 0; background: white; pointer-events: none;}
+.background-canvas { position: fixed; top: 0; left: 0; bottom: 0; right: 0; z-index: 1; transition: .2s; opacity: 0; background: white; pointer-events: none;}
 .card--hover{ z-index: 2; position: relative; color: white; transition: color .5s .1s;}
 .background--forward{ z-index: 1; opacity: 0.9; transition: 1.5s;}
 
@@ -91,26 +88,61 @@ $standardCubicBezier: cubic-bezier(0.42, 0.58, 0, 1);
 $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 
 .expandCard {
-	position: fixed;
-	top: 0; left: 0; right: 0; bottom: 0;
-	z-index: 2;
-	padding: 0; margin: 0 auto;
-	transform-origin: right;
-	transform: translate(30%, 20%);
-	// justify-content: center;
-	// align-items: center;
-	transition: 4s $standardCubicBezier;
+	 margin: 0;
 }
 
 .expandImage{
-	animation: expandContainer 2.4s;
+	transition: margin-bottom .4s .1s $specialCubicBezier;
+	margin-left: grid(7);
+	left: grid(2);
+	position: fixed;
+	top:0;
+	z-index: 2;
+	padding: 0;
+	display: flex;
+	animation: expandContainer;
 	img{
-		height: 100vh; transition: 2s .4s $specialCubicBezier;
+		height: 100vh;
+		transition: 2s $specialCubicBezier .4s;
 	}
-	&+p{ opacity: 0; height: 0; transition: .4 $standardCubicBezier; padding: 0; }
+
+	&+p{ opacity: 0; height: 0; transition: opacity 1s $standardCubicBezier; padding: 0; }
+	&.work__card__image{
+		&--small{
+			margin-top: calc((100vh - ((100vw / 24) * 7)) / 2);
+		}
+		&--medium{
+			margin-top: calc((100vh - ((100vw / 24) * 8)) / 2);
+		}
+		&--large{
+			margin-top: calc((100vh - ((100vw / 24) * 9)) / 2);
+		}
+	}
 }
-.expandBackground{ opacity: 1; transition: 1s; transition-timing-function: $standardCubicBezier; z-index: 1;}
+
+.column1 .expandImage{
+	transition: margin-left 2s .4s $specialCubicBezier;
+	margin-left: grid(7);
+	left: grid(2);
+}
+.column3 .expandImage{
+	transition: margin-right 2s .4s $specialCubicBezier;
+	margin-right: grid(7);
+	right: grid(2);
+	left: auto;
+}
+
+
+.expandBackground{ opacity: 1; transition: 1s $standardCubicBezier; z-index: 1; pointer-events: auto;}
 
 @keyframes expandContainer {
+	0%{
+		width: inherit;
+		height: inherit;
+	}
+	100%{
+		width: 100%;
+		height: 100%;
+	}
 
 }

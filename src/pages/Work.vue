@@ -143,7 +143,9 @@ setTimeout(function(){
 			image.addEventListener('mouseover', function () {
 				background.style.background = 'rgb(' + color.r + ',' + color.g + ',' + color.b +')';
 				background.classList.add('background--forward');
-				image.parentElement.parentElement.classList.add('card--hover');
+				if(!background.classList.contains('expandBackground')){
+					image.parentElement.parentElement.classList.add('card--hover');
+				}
 				checkMouse(image);
 			});
 		});
@@ -163,7 +165,7 @@ setTimeout(function(){
 			e.target.parentElement.parentElement.classList.add('expandCard');
 			e.target.parentElement.classList.add('expandImage');
 			background.classList.add('expandBackground');
-			background.style.background = 'rgb(' + color.r + ',' + color.g + ',' + color.b +')';
+			image.parentElement.parentElement.classList.remove('card--hover');
 		});
 	}
 
