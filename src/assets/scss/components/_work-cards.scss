@@ -55,14 +55,13 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 			@media #{$medium-down}{
 				width: grid(9.25);
 			}
-			@media #{$mobile}{
-				width: grid(20);
-				height: grid(20);
-			}
 			&--small{
 				height: grid(7);
 				@media #{$medium-down} {
 					height: grid(10);
+				}
+				@media #{$mobile} {
+					height: grid(20);
 				}
 			}
 			&--medium{
@@ -70,12 +69,21 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 				@media #{$medium-down} {
 					height: grid(12);
 				}
+				@media #{$mobile} {
+					height: grid(20);
+				}
 			}
 			&--large{
 				height: grid(9);
 				@media #{$medium-down} {
 					height: grid(14);
 				}
+				@media #{$mobile} {
+					height: grid(20);
+				}
+			}
+			@media #{$mobile}{
+				width: grid(20);
 			}
 		}
 	}
@@ -211,7 +219,6 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 		--xleft: var(--margin);
 		--xright: calc(var(--margin) + var(--width));
 		height: var(--height);
-
 		position: absolute;
 		width: 100vw;
 		top: 0;

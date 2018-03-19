@@ -70,7 +70,7 @@ export default {
 		MainLayout
 	}
 }
-setTimeout(function(){
+document.addEventListener('DOMContentLoaded', function() {
 	let allCards = document.querySelectorAll('.work__card__image-container');
 	let images = document.querySelectorAll('.work__card__image');
 
@@ -192,6 +192,6 @@ setTimeout(function(){
 	}
 	onHover();
 	checkColumns();
-},400)
+});
 
 </script>

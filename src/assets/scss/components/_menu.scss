@@ -93,7 +93,7 @@
 		flex-wrap: wrap;
 		justify-content: space-between;
 		@media #{$small-only}{
-			position: absolute; top: 0; left: 0; height: 100%; width: 100%; background-color: color(Black); padding: grid(1); transition: clip-path .3s; 
+			position: absolute; top: 0; left: 0; height: 100%; width: 100%; background-color: color(Black); padding: grid(1); transition: clip-path .3s;
 			color: color(Light);
 			animation: closeMenu .5s ease-in-out forwards;
 			padding: rem(87) rem(64) rem(90) rem(64);
@@ -125,7 +125,7 @@ $time: 0.6;
 	right: 0;
 	top: 50%;
 	width: rem(54);
-	z-index: 10;
+	z-index: 2;
 	transform: translateY(-50%);
 
 	display: none;
