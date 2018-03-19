@@ -4,12 +4,12 @@ $base-fontpath: '../fonts';
 $body-font-weights: (
   'Regular': 400,
   'Medium': 500,
-  'SemiBold': 600,
+  'Semibold': 600,
 );
 
 $font-regular: map-get($body-font-weights, Regular); //
 $font-medium: map-get($body-font-weights, Medium); //
-$font-semibold: map-get($body-font-weights, SemiBold); //
+$font-semibold: map-get($body-font-weights, Semibold); //
 
 // Base font
 $body-font: 'Graphik'; //
