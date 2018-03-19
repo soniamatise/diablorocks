@@ -39,40 +39,36 @@
 		&:before{
 			content: '';
 		}
-		&--small{
-			clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 
-			// height: grid(7);
-			@media #{$medium-down} {
-				height: grid(10);
-			}
-		}
-		&--medium{
-			clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-
-			// height: grid(8);
-			@media #{$medium-down} {
-				height: grid(12);
-			}
-		}
-		&--large{
-			clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-			// height: grid(9);
-			@media #{$medium-down} {
-				height: grid(14);
-			}
-
-		}
 		&-container{
-			// width: grid(6);
+			width: grid(6);
 			display: flex;
 			justify-content: center;
+			overflow: hidden;
 			@media #{$medium-down}{
 				width: grid(9.25);
 			}
 			@media #{$mobile}{
 				width: grid(20);
 				height: grid(20);
+			}
+			&--small{
+				height: grid(7);
+				@media #{$medium-down} {
+					height: grid(10);
+				}
+			}
+			&--medium{
+				height: grid(8);
+				@media #{$medium-down} {
+					height: grid(12);
+				}
+			}
+			&--large{
+				height: grid(9);
+				@media #{$medium-down} {
+					height: grid(14);
+				}
 			}
 		}
 	}
@@ -106,6 +102,7 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 	height: 100vh;
 	z-index: 2;
 	color: white;
+	transition: width height 2s 2s;
 }
 
 .expandImage{
@@ -147,7 +144,9 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 }
 
 .column3 .expandImage{
-	clip-path: polygon( grid(9 2), grid(15 2), grid(15 8), grid(9 8));
+	// clip-path: polygon( grid(16 10), grid(22 10), grid(22 10), grid(16 10));
+
+	// clip-path: polygon( grid(9 2), grid(15 2), grid(15 8), grid(9 8));
 	animation: fromRightToCenter 2.5s $specialCubicBezier forwards;
 }
 
@@ -155,7 +154,7 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 
 @keyframes fromRightToCenter {
 	0%{
-		clip-path: polygon( grid(16 2), grid(22 2), grid(22 10), grid(16 10));
+		clip-path: polygon( grid(16 10), grid(22 10), grid(22 10), grid(16 10));
 		transition: none;
 	}
 	4%{

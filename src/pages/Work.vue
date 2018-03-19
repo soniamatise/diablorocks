@@ -124,7 +124,7 @@ setTimeout(function(){
 				column = activeColumn;
 				counter = 0;
 			}
-			allCards[i].classList.add('work__card__image--' + activeColumn[counter]);
+			allCards[i].classList.add('work__card__image-container--' + activeColumn[counter]);
 			allCards[i].parentElement.classList = ('work__card ' + columnClass);
 
 			if(counter !== column.length -1){
