@@ -2,12 +2,17 @@
 @import '~matise-stack/_stack.scss', '~matise-grid/grid.scss';
 @import 'settings/settings';
 @import 'typography/typography';
-@import 'layout/layout', 'components/components';
+@import 'layout/layout', 'components/components', 'components/menu', 'components/header';
+@import 'layout/footer';
+@import 'layout/one-column';
+@import 'layout/two-column';
+@import 'layout/payoff-credits';
+@import 'layout/buttons';
 
 
-body,
-html {
-  background: color(White);
+
+body {
+	padding-top: grid(5);
 }
 
 
