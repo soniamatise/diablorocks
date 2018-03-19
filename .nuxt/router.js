@@ -7,6 +7,7 @@ const _091b3185 = () => import('../pages/Work.vue' /* webpackChunkName: "pages/W
 const _757fcf51 = () => import('../pages/WhatWeDo.vue' /* webpackChunkName: "pages/WhatWeDo" */).then(m => m.default || m)
 const _2be66f5a = () => import('../pages/Home.vue' /* webpackChunkName: "pages/Home" */).then(m => m.default || m)
 const _5cab37d8 = () => import('../pages/404.vue' /* webpackChunkName: "pages/404" */).then(m => m.default || m)
+const _c67ea92c = () => import('../pages/Culture.vue' /* webpackChunkName: "pages/Culture" */).then(m => m.default || m)
 const _dcb4e708 = () => import('../pages/WhoWeAre.vue' /* webpackChunkName: "pages/WhoWeAre" */).then(m => m.default || m)
 const _345765ae = () => import('../pages/index.vue' /* webpackChunkName: "pages/index" */).then(m => m.default || m)
 
@@ -87,6 +88,11 @@ export function createRouter () {
 			path: "/404",
 			component: _5cab37d8,
 			name: "404"
+		},
+		{
+			path: "/Culture",
+			component: _c67ea92c,
+			name: "Culture"
 		},
 		{
 			path: "/WhoWeAre",

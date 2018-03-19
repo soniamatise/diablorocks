@@ -1,8 +1,24 @@
 import Vue from 'vue'
 import NuxtLoading from './components/nuxt-loading.vue'
 
+import '../assets/scss/app.scss'
+
+import '../node_modules/swiper/dist/css/swiper.css'
+
 
 let layouts = {
+
+  "_FooterElement": () => import('../layouts/FooterElement.vue'  /* webpackChunkName: "layouts/FooterElement" */).then(m => m.default || m),
+
+  "_MainLayout": () => import('../layouts/MainLayout.vue'  /* webpackChunkName: "layouts/MainLayout" */).then(m => m.default || m),
+
+  "_OneColumn": () => import('../layouts/OneColumn.vue'  /* webpackChunkName: "layouts/OneColumn" */).then(m => m.default || m),
+
+  "_PayoffCredits": () => import('../layouts/PayoffCredits.vue'  /* webpackChunkName: "layouts/PayoffCredits" */).then(m => m.default || m),
+
+  "_TopNav": () => import('../layouts/TopNav.vue'  /* webpackChunkName: "layouts/TopNav" */).then(m => m.default || m),
+
+  "_TwoColumn": () => import('../layouts/TwoColumn.vue'  /* webpackChunkName: "layouts/TwoColumn" */).then(m => m.default || m),
 
   "_default": () => import('./layouts/default.vue'  /* webpackChunkName: "layouts/default" */).then(m => m.default || m)
 
@@ -11,7 +27,7 @@ let layouts = {
 let resolvedLayouts = {}
 
 export default {
-  head: {"meta":[],"link":[],"style":[],"script":[]},
+  head: {"title":"Matise | Creative Digital Agency","meta":[{"charset":"utf-8"},{"name":"viewport","content":"width=device-width, initial-scale=1"},{"hid":"description","name":"description","content":"Matise 2018 in Nuxt"}],"link":[{"rel":"icon","type":"image\u002Fx-icon","href":"\u002Ffavicon.ico"}],"style":[],"script":[]},
   render(h, props) {
     const loadingEl = h('nuxt-loading', { ref: 'loading' })
     const layoutEl = h(this.layout || 'nuxt')
