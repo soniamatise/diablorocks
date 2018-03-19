@@ -3,5 +3,6 @@ export default {
 	'/work': 'Work',
 	'/what-we-do': 'WhatWeDo',
 	'/who-we-are': 'WhoWeAre',
-	'/work-detail': 'WorkDetail'
+	'/work-detail': 'WorkDetail',
+	'/culture': 'Culture'
 }
