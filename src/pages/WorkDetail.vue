@@ -60,6 +60,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 	function active() {
 		bgDiv.classList.add('active');
+		// caseImage.style.width = '100vh';
+		// caseImage.style.height = '100vw';
 		setTimeout(function(){ 
 			caseImage.style.transformOrigin = 'center !important';
 			bgDiv.classList.add('rotation');
