@@ -8,13 +8,18 @@
 						<source src="../assets/videos/demo.mp4" type="video/mp4">
 					</video>
 					<div class="controls">
-						<div class="pause" id="pause"></div>
-						<div class="timeline"></div>
-						<div class="fullsize"></div>
-						<div class="volume"></div>
+						<div class="pause" id="pause">Pause</div>
+						<div class="timeline">timeline</div>
+						<div class="fullsize">fullsize</div>
+						<div class="volume">volume</div>
 					</div>
-					<div class="textCenter play" id="play">
-						<h2><b>Play</b></h2>
+					<div id="case-text-inner" class="textCenter play case-text-inner">
+						<div class="next-text">
+							<div id="next-text">
+								<p> &nbsp;—&nbsp;BBB Cycling</p>
+							</div>
+						</div>
+						<div id="case-text" class="case-text"><p>Play</p></div>
 					</div>
 				</div>
 			</div>
@@ -29,8 +34,6 @@ export default {
 		MainLayout
 	}
 }
-
-// let video = document.querySelectorAll('.video');
 
 document.addEventListener('DOMContentLoaded',  () => {
 
@@ -50,17 +53,11 @@ document.addEventListener('DOMContentLoaded',  () => {
 		currentWidthNextParent.style.width = currentWidthNext + 'px';
 	}
 	toggleWidth();
-
-
-
-
-
-
-
+	
 	const videos = document.getElementsByClassName('video');
 	for(let i = 0; i < videos.length; i++)
 	{
-		const play = document.getElementById('play');
+		const play = document.getElementById('case-text-inner');
 		play.addEventListener('click', () => {
 			videos[i].play();
 		})
