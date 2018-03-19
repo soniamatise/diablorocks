@@ -3,57 +3,56 @@
 	<main-layout>
 		<div class="background-canvas"></div>
 		<section class="work__grid">
-			<article class="work__card">
+			<article class="work__card " case="kalkhoff">
 				<div class="work__card__image-container">
 					<img class="work__card__image" src="/static/img/kalkhoff.png">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Kalkhoff Bikes</span> When your bikes are eye-catchers, your website should be too.</p>
 			</article>
-			<article class="work__card">
+			<article class="work__card" case="aangenaam">
 				<div class="work__card__image-container">
 					<img class="work__card__image" src="/static/img/boz.png">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Aangenaam Bergen op Zoom</span> Original stories from a ‘gezellige’ community.</p>
 			</article>
-			<article class="work__card">
+			<article class="work__card" case="expeditiewadden">
 				<div class="work__card__image-container">
 					<img class="work__card__image" src="/static/img/wadden.png">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Expeditie Wadden</span> A journey through time and space.</p>
 			</article>
 
-			<article class="work__card">
+			<article class="work__card" case="nielson">
 				<div class="work__card__image-container">
 					<img class="work__card__image" src="/static/img/nielson.png">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Sony Music Netherlands</span> A new digital home for Nielson, an artist that reinvented himself.</p>
 			</article>
-			<article class="work__card">
+			<article class="work__card" case="ticketchaser">
 				<div class="work__card__image-container">
 					<img class="work__card__image" src="/static/img/dvlm.png">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Sony Music Netherlands & DVLM</span> Scavenger hunts are the future of giveaway campaigns.</p>
 			</article>
-			<article class="work__card">
+			<article class="work__card" case="stadsmakelaar">
 				<div class="work__card__image-container">
 					<img class="work__card__image" src="/static/img/boz.png">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Stadsmakelaar</span>Finding the place of your dreams in Bergen op Zoom.</p>
 			</article>
-
-			<article class="work__card">
+			<article class="work__card" case="bbbcycling">
 				<div class="work__card__image-container">
 					<img class="work__card__image" src="/static/img/bbb.png">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">BBB Cycling</span> This is what happens when commerce and emotion collide and come together.</p>
 			</article>
-			<article class="work__card">
+			<article class="work__card" case="viacom">
 				<div class="work__card__image-container">
 					<img class="work__card__image" src="/static/img/mtv.png">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Viacom Out of Office</span> Getting your out of office as fun as actually being out of office.</p>
 			</article>
-			<article class="work__card">
+			<article class="work__card" case="natwerk">
 				<div class="work__card__image-container">
 					<img class="work__card__image" src="/static/img/natwerk.png">
 				</div>
@@ -137,9 +136,8 @@ setTimeout(function(){
 	let onHover = function(){
 		images.forEach(function(image){
 			clickAnim(image);
-			let color = getAverageRGB(image);
 			image.addEventListener('mouseover', function () {
-				background.style.background = 'rgb(' + color.r + ',' + color.g + ',' + color.b +')';
+				background.classList.add('bg-' + image.parentElement.parentElement.getAttribute('case'));
 				if(!background.classList.contains('expandBackground')){
 					image.parentElement.parentElement.classList.add('card--hover');
 					background.classList.add('background--forward');
@@ -151,7 +149,7 @@ setTimeout(function(){
 	let checkMouse = function(image){
 		image.addEventListener('mouseout', function (){
 			if(!background.classList.contains('expandBackground')){
-				background.style.background = 'none';
+				background.classList.remove('bg-' + image.parentElement.parentElement.getAttribute('case'));
 			}
 			background.classList.remove('background--forward');
 			image.parentElement.parentElement.classList.remove('card--hover');
@@ -172,50 +170,6 @@ setTimeout(function(){
 			background.classList.add('expandBackground');
 			image.parentElement.parentElement.classList.remove('card--hover');
 		});
-	}
-
-	function getAverageRGB(imgEl) {
-		var blockSize = 5, // only visit every 5 pixels
-			defaultRGB = {r:0,g:0,b:0}, // for non-supporting envs
-			canvas = document.createElement('canvas'),
-			context = canvas.getContext && canvas.getContext('2d'),
-			data, width, height,
-			i = -4,
-			length,
-			rgb = {r:0,g:0,b:0},
-			count = 0;
-
-		if (!context) {
-			return defaultRGB;
-		}
-
-		height = canvas.height = imgEl.naturalHeight || imgEl.offsetHeight || imgEl.height;
-		width = canvas.width = imgEl.naturalWidth || imgEl.offsetWidth || imgEl.width;
-
-		context.drawImage(imgEl, 0, 0);
-
-		try {
-			data = context.getImageData(0, 0, width, height);
-		} catch(e) {
-			/* security error, img on diff domain */
-			return defaultRGB;
-		}
-
-		length = data.data.length;
-
-		while ( (i += blockSize * 4) < length ) {
-			++count;
-			rgb.r += data.data[i];
-			rgb.g += data.data[i+1];
-			rgb.b += data.data[i+2];
-		}
-
-		// ~~ used to floor values
-		rgb.r = ~~(rgb.r/count);
-		rgb.g = ~~(rgb.g/count);
-		rgb.b = ~~(rgb.b/count);
-
-		return rgb;
 	}
 	onHover();
 	checkColumns();
