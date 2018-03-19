@@ -3,11 +3,11 @@
 		<section class="work">
 			<div class="row center textCenter intro">
 				<div class="column column-8">
-					<h1 id="title">Work</h1>
-					<p>Our latest and greatest for brands we believe in.</p>
+					<h1 class="title line-1 anim-typewriter" id="title"></h1>
+					<p class="content">Our latest and greatest for brands we believe in.</p>
 				</div>
 			</div>
-			<div class="row center">
+			<div class="row center content">
 				<div class="column column-20">
 					<div class="work-items">
 						<div class="work-item">
@@ -119,19 +119,25 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // TYPEWRITER
-document.addEventListener('DOMContentLoaded',function(){
+window.onload = function() {
 	var dataText = 'Work';
+	var content = document.querySelectorAll('.content');
 
 	function typeWriter(text, i, fnCallback) {
 		if (i < (text.length)) {
-			document.getElementById('title').innerHTML = text.substring(0, i+1) +'<span aria-hidden="true"></span>';
+			document.getElementById('title').innerHTML = text.substring(0, i+1) +'<span aria-hidden="true" id="typestroke"></span>';
 
 			setTimeout(function() {
 				typeWriter(text, i + 1, fnCallback)
-			}, 1000);
+			}, 250);
 		}
 		else if (typeof fnCallback == 'function') {
-			setTimeout(fnCallback, 700);
+			var typestroke = document.getElementById('typestroke');
+			var index = 0, length = content.length;
+			for ( ; index < length; index++) {
+				content[index].style.opacity = '1';
+			}
+			typestroke.style.border = 'white';
 		}
 	}
 	function StartTextAnimation() {
@@ -140,6 +146,6 @@ document.addEventListener('DOMContentLoaded',function(){
 		});
 	}
 	StartTextAnimation();
-});
+}
 
 </script>

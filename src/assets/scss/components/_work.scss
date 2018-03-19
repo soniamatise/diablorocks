@@ -3,19 +3,23 @@
 		padding: grid(2) 0 grid(1) 0;
 
 		span {
-		  border-right: .05em solid;
-		  animation: caret 1s steps(1) infinite;
+			border-right: .05em solid;
+			animation: caret 1s steps(1) infinite;
 		}
 
 		@keyframes caret {
-		  50% {
-		    border-color: transparent;
-		  }
+			50% {
+				border-color: transparent;
+			}
 		}
 
 		h1 + p {
 			padding-top: 1rem;
 		}
+	}
+	.content {
+		transition: opacity 1s cubic-bezier(.42,0,.58,1); 
+		opacity: 0;
 	}
 	.work-items {
 		width: 100%;
