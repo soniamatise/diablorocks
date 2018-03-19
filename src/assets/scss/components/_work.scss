@@ -1,0 +1,29 @@
+.work {
+	.video-container {
+		background-color: color(Black);
+		position: relative;
+
+		video {
+
+		}
+
+		.play {
+			color: color(Light);
+			width: grid(6);
+			padding: grid(2) 0;
+			position: absolute;
+			transform: translate(-50%, -50%);
+			left: 50%;
+			top: 50%;
+			cursor: pointer;
+		}
+
+		.controls {
+			width: grid(24);
+			height: grid(3/2);
+			position: absolute;
+			bottom: 0;
+			background-color: color(Black);
+		}
+	}
+}
