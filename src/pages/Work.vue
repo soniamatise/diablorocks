@@ -160,6 +160,13 @@ setTimeout(function(){
 
 	let clickAnim = function(image){
 		image.addEventListener('click', function(e) {
+			if(e.target.parentElement.classList.contains('work__card__image-container--small')){
+				e.target.parentElement.style = '--height: 7;'
+			} else if(e.target.parentElement.classList.contains('work__card__image-container--medium')){
+				e.target.parentElement.style = '--height: 8;'
+			} else {
+				e.target.parentElement.style = '--height: 9;'
+			}
 			e.target.parentElement.parentElement.classList.add('expandCard');
 			e.target.parentElement.classList.add('expandImage');
 			background.classList.add('expandBackground');

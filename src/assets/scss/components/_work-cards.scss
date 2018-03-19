@@ -1,6 +1,5 @@
-
-
-
+$standardCubicBezier: cubic-bezier(0.42, 0.58, 0, 1);
+$specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 .work__grid{
 	column-count: 3;
 	column-gap: grid(1);
@@ -84,137 +83,121 @@
 	}
 }
 
-.background-canvas { position: fixed; top: 0; left: 0; bottom: 0; right: 0; z-index: 1; transition: .2s; opacity: 0; background: white; pointer-events: none;}
-.card--hover{ z-index: 2; position: relative; color: white; transition: color .5s .1s;}
-.background--forward{ z-index: 1; opacity: 0.9; transition: 1.5s;}
-
-$standardCubicBezier: cubic-bezier(0.42, 0.58, 0, 1);
-$specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
+.background-canvas { position: fixed; top: 0; left: 0; bottom: 0; right: 0; z-index: 1; transition: .2s $standardCubicBezier; opacity: 0; background: white; pointer-events: none;}
+.card--hover{ z-index: 2; position: relative; color: white; transition: color .5s .1s $standardCubicBezier;}
+.background--forward{ z-index: 1; opacity: 0.9; transition: 1.5s $standardCubicBezier;}
 
 .expandCard {
-	margin: 0;
 	position: fixed;
-	top: 0;
-	right: 0;
-	left: 0;
 	bottom: 0;
-	width: 100vw;
-	height: 100vh;
+	left: 0;
+	right: 0;
+	top: auto;
 	z-index: 2;
 	color: white;
-	transition: width height 2s 2s;
+	width: grid(24);
+	height: 100vh;
+	margin-bottom: 0;
 }
 
 .expandImage{
-	position: relative;
-	top:0;
 	bottom: 0;
 	z-index: 2;
 	padding: 0;
+	left: 0;
+	right: 0;
+	animation: expand 2s .5s $specialCubicBezier forwards;
 	img{
 		width: 100vw;
 		height: grid(24 * 0.5625);
-		transform-origin: center;
-		// transform: rotate(90deg);
 		transition: 2s $specialCubicBezier .4s;
 	}
-
 	&+p{ opacity: 0;  transition: opacity .4s $standardCubicBezier; padding: 0; }
-	&.work__card__image{
-		&--small{
-			// margin-top: calc((100vh - ((100vw / 24) * 7)) / 2);
-
-		}
-		&--medium{
-			// margin-top: calc((100vh - ((100vw / 24) * 8)) / 2);
-		}
-		&--large{
-			// margin-top: calc((100vh - ((100vw / 24) * 9)) / 2);
-		}
 	}
-}
 
-.column1 .expandImage{
-	left: grid(2);
-	animation: fromLeftToCenter 2.5s $specialCubicBezier forwards;
+.column1.expandCard{
+	animation: leftToCenter 2.5s  $standardCubicBezier forwards;
 }
-.column2 .expandImage{
-	margin-left: grid(9);
-	animation: fromCenter 2.5s $specialCubicBezier forwards;
+.column2.expandCard{
+	animation: slideToCenter 2.5s  $standardCubicBezier forwards;
 }
-
-.column3 .expandImage{
-	// clip-path: polygon( grid(16 10), grid(22 10), grid(22 10), grid(16 10));
-
-	// clip-path: polygon( grid(9 2), grid(15 2), grid(15 8), grid(9 8));
-	animation: fromRightToCenter 2.5s $specialCubicBezier forwards;
+.column3.expandCard{
+	animation: rightToCenter 2.5s  $standardCubicBezier forwards;
 }
 
 .expandBackground{ opacity: 1; transition: .4s $standardCubicBezier; z-index: 1; pointer-events: auto;}
 
-@keyframes fromRightToCenter {
-	0%{
-		clip-path: polygon( grid(16 10), grid(22 10), grid(22 10), grid(16 10));
-		transition: none;
-	}
-	4%{
-		clip-path: polygon( grid(16 10), grid(22 10), grid(22 10), grid(16 10));
-	}
-	16%{
 
+
+@keyframes leftToCenter {
+	0%{
+		padding-left: grid(2);
+		padding-right: grid(16);
+		top: grid(2);
 	}
 	20%{
-		clip-path: polygon( grid(9 2), grid(15 2), grid(15 8), grid(9 8));
+		padding-left: grid(9);
+		padding-right: grid(9);
+		top: grid(2);
 	}
 	100%{
-		clip-path: polygon(0 grid(28), 0 0, grid(28) 0, grid(28) grid(28));
+		width: grid(24);
+		top: 0;
 	}
 }
-//
-// @keyframes fromLeftToCenter {
-// 	4%{
-// 		left: grid(2);
-// 		right: grid(16);
-// 		transform-origin: center;
-//
-// 	}
-// 	16%{
-// 		width: grid(6);
-// 	}
-// 	20%{
-// 		left: grid(9);
-// 		right: grid(9);
-// 	}
-// 	100%{
-// 		width: 100vh;
-// 		height: 100vw;
-// 		left: grid(9);
-// 		right: grid(9);
-// 		top: 0;
-// 		bottom:0;
-// 		margin: 0;
-// 		transform: rotate(-90deg);
-// 		transform-origin: center;
-// 		background: rgba( 255, 255, 255, 0.5);
-// 	}
-// }
-//
-// @keyframes fromCenter {
-// 	16%{
-// 		width: grid(6);
-// 		transform-origin: center;
-//
-// 	}
-// 	100%{
-// 		width: 100vh;
-// 		height: 100vw;
-// 		left: grid(9);
-// 		right: grid(9);
-// 		top: 0;
-// 		bottom:0;
-// 		margin: 0;
-// 		transform: rotate(-90deg);
-// 		transform-origin: center;
-// 		background: rgba( 255, 255, 255, 0.5);
-// 	}
-// }
+
+@keyframes slideToCenter {
+	0%{
+		padding-left: grid(9);
+		padding-right: grid(9);
+		top: grid(2);
+	}
+	20%{
+		top: grid(2);
+		padding-left: grid(9);
+		padding-right: grid(9);
+	}
+	100%{
+		width: grid(24);
+		top: 0;
+	}
+}
+
+@keyframes rightToCenter {
+	0%{
+		padding-left: grid(16);
+		padding-right: grid(2);
+		top: grid(2);
+	}
+	20%{
+		padding-left: grid(9);
+		padding-right: grid(9);
+		top: grid(2);
+	}
+	100%{
+		width: grid(24);
+		top: 0;
+	}
+}
+
+@keyframes expand {
+	0%{
+		--y: calc((100vw / 24) * (var(--height)));
+		height: --height;
+		position: absolute;
+		width: 100vw;
+		top: 0;
+		clip-path: polygon(grid(9 0), grid(15 0), grid(15) var(--y), grid(9) var(--y));
+	}
+	5%{
+		margin: 0 auto;
+		clip-path: polygon(grid(9 0), grid(15 0), grid(15) var(--y), grid(9) var(--y));
+	}
+	100%{
+		position: absolute;
+		height: 100vh;
+		width: 100vw;
+		top: 0;
+		clip-path: polygon(0 grid(24), 0 0, grid(24) 0, grid(24) grid(24));
+	}
+}
