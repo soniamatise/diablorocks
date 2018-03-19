@@ -38,6 +38,14 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 		&:before{
 			content: '';
 		}
+		@media #{$medium-down}{
+			height: 80vh;
+			width: calc(80vh * 1.5625);
+		}
+		@media #{$mobile}{
+			height: 50vh;
+			width: calc(50vh * 1.5625);
+		}
 
 		&-container{
 			width: grid(6);
@@ -84,7 +92,11 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 }
 
 .background-canvas { position: fixed; top: 0; left: 0; bottom: 0; right: 0; z-index: -1; transition: 1s $standardCubicBezier; opacity: 0; background: white; pointer-events: none;}
-.card--hover{ z-index: 2; position: relative; color: white; transition: 1s $standardCubicBezier;}
+.card--hover{ z-index: 2; position: relative; transition: 1s $standardCubicBezier;
+	p{
+		color: white; transition: .5s $standardCubicBezier;
+	}
+}
 .background--forward{ z-index: 1; opacity: 0.9; transition: 1s $standardCubicBezier;}
 
 .expandCard {
@@ -111,18 +123,31 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 		width: 100vw;
 		height: grid(24 * 0.5625);
 		transition: 2s $specialCubicBezier .4s;
+		@media #{$medium-down}{
+			height: 100vh;
+			width: calc(100vh * 1.5625);
+		}
 	}
 	&+p{ opacity: 0;  transition: opacity .4s $standardCubicBezier; padding: 0; }
 	}
 
 .column1.expandCard{
 	animation: leftToCenter 2.5s  $standardCubicBezier forwards;
+	@media #{$medium-down} {
+		animation: slideToCenter 2.5s  $standardCubicBezier forwards;
+	}
 }
 .column2.expandCard{
 	animation: slideToCenter 2.5s  $standardCubicBezier forwards;
+	@media #{$medium-down} {
+		animation: slideToCenter 2.5s  $standardCubicBezier forwards;
+	}
 }
 .column3.expandCard{
 	animation: rightToCenter 2.5s  $standardCubicBezier forwards;
+	@media #{$medium-down} {
+		animation: slideToCenter 2.5s  $standardCubicBezier forwards;
+	}
 }
 
 .expandBackground{ opacity: 1; transition: .4s $standardCubicBezier; z-index: 1; pointer-events: auto;}
@@ -148,14 +173,14 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 
 @keyframes slideToCenter {
 	0%{
-		padding-left: grid(9);
-		padding-right: grid(9);
-		top: grid(2);
+		padding-left: var(--margin);
+		padding-right: var(--margin);
+		top: var(--top);
 	}
 	20%{
-		top: grid(2);
-		padding-left: grid(9);
-		padding-right: grid(9);
+		top: var(--top);
+		padding-left: var(--margin);
+		padding-right: var(--margin);
 	}
 	100%{
 		width: grid(24);
@@ -182,22 +207,25 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 
 @keyframes expand {
 	0%{
-		--y: calc((100vw / 24) * (var(--height)));
-		height: --height;
+		--y: var(--height);
+		--xleft: var(--margin);
+		--xright: calc(var(--margin) + var(--width));
+		height: var(--height);
+
 		position: absolute;
 		width: 100vw;
 		top: 0;
-		clip-path: polygon(grid(9 0), grid(15 0), grid(15) var(--y), grid(9) var(--y));
+		clip-path: polygon(var(--xleft) 0, var(--xright) 0, var(--xright) var(--y), var(--xleft) var(--y));
 	}
 	5%{
 		margin: 0 auto;
-		clip-path: polygon(grid(9 0), grid(15 0), grid(15) var(--y), grid(9) var(--y));
+		clip-path: polygon(var(--xleft) 0, var(--xright) 0, var(--xright) var(--y), var(--xleft) var(--y));
 	}
 	100%{
 		position: absolute;
 		height: 100vh;
 		width: 100vw;
 		top: 0;
-		clip-path: polygon(0 grid(24), 0 0, grid(24) 0, grid(24) grid(24));
+		clip-path: polygon(0 100vh, 0 0, 100vw 0, 100vw 100vh);
 	}
 }

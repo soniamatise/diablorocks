@@ -84,6 +84,7 @@ setTimeout(function(){
 	let column;
 	let activeColumn;
 	let columnClass;
+	let deviceSize;
 	let savedWidth = window.innerWidth;
 
 	window.addEventListener('resize', function(){
@@ -93,18 +94,21 @@ setTimeout(function(){
 
 
 	let checkColumns = function(){
-		if (window.innerWidth < 375 && savedWidth != 375){
+		if (window.innerWidth < 750 && savedWidth != 750){
 			columns = images.length;
-			savedWidth = 375;
-			assignColumns(columns)
-		} else if ((window.innerWidth < 960 && window.innerWidth > 375) && savedWidth != 960){
+			savedWidth = 750;
+			assignColumns(columns);
+			deviceSize = 'small';
+		} else if ((window.innerWidth < 960 && window.innerWidth > 750) && savedWidth != 960){
 			columns = Math.ceil(images.length / 2);
 			savedWidth = 960;
-			assignColumns(columns)
+			assignColumns(columns);
+			deviceSize = 'medium';
 		} else {
 			columns = images.length / 3;
 			savedWidth = 1440;
-			assignColumns(columns)
+			assignColumns(columns);
+			deviceSize = 'large';
 		}
 	}
 	let assignColumns = function(columns) {
@@ -158,18 +162,33 @@ setTimeout(function(){
 
 	let clickAnim = function(image){
 		image.addEventListener('click', function(e) {
-			if(e.target.parentElement.classList.contains('work__card__image-container--small')){
-				e.target.parentElement.style = '--height: 7;'
-			} else if(e.target.parentElement.classList.contains('work__card__image-container--medium')){
-				e.target.parentElement.style = '--height: 8;'
+			if (deviceSize === 'large'){
+				if (e.target.parentElement.classList.contains('work__card__image-container--small')) {
+					e.target.parentElement.parentElement.style = `--height: ${getGrid(7)}vw; --width: ${getGrid(6)}vw; --margin: ${getGrid(9)}vw; --top: ${getGrid(2)}vw;`
+				} else if (e.target.parentElement.classList.contains('work__card__image-container--medium')) {
+					e.target.parentElement.parentElement.style = `--height: ${getGrid(8)}vw; --width: ${getGrid(6)}vw; --margin: ${getGrid(9)}vw; --top: ${getGrid(2)}vw;`
+				} else {
+					e.target.parentElement.parentElement.style = `--height: ${getGrid(9)}vw; --width: ${getGrid(6)}vw; --margin: ${getGrid(9)}vw; --top: ${getGrid(2)}vw;`
+				}
+			} else if (deviceSize === 'medium'){
+				if (e.target.parentElement.classList.contains('work__card__image-container--small')) {
+					e.target.parentElement.parentElement.style = `--height: ${getGrid(10)}vw; --width: ${getGrid(9.25)}vw; --margin: ${getGrid(7.375)}vw; --top: ${getGrid(4)}vw;`;
+				} else if (e.target.parentElement.classList.contains('work__card__image-container--medium')) {
+					e.target.parentElement.parentElement.style = `--height: ${getGrid(12)}vw; --width: ${getGrid(9.25)}vw; --margin: ${getGrid(7.375)}vw; --top: ${getGrid(4)}vw;`;
+				} else {
+					e.target.parentElement.parentElement.style = `--height: ${getGrid(14)}vw; --width: ${getGrid(9.25)}vw; --margin: ${getGrid(7.375)}vw; --top: ${getGrid(4)}vw;`;
+				}
 			} else {
-				e.target.parentElement.style = '--height: 9;'
+				e.target.parentElement.parentElement.style = `--height: ${getGrid(20)}vw; --width: ${getGrid(20)}vw; --margin: ${getGrid(2)}vw; --top: ${getGrid(3)}vw;`;
 			}
 			e.target.parentElement.parentElement.classList.add('expandCard');
 			e.target.parentElement.classList.add('expandImage');
 			background.classList.add('expandBackground');
 			image.parentElement.parentElement.classList.remove('card--hover');
 		});
+	}
+	function getGrid(value){
+		return (100 / 24) * value;
 	}
 	onHover();
 	checkColumns();
