@@ -1,18 +1,63 @@
 .work {
 	.video-container {
+		height: 100vh;
+		margin-bottom: grid(5);
 		background-color: color(Black);
+		background-size: cover;
+		background-position: center center;
+		background-repeat: no-repeat;
 		position: relative;
 
 		video {
 			cursor: pointer;
 		}
 
-		.controls {
+		.control-pannel {
 			width: grid(24);
 			height: grid(3/2);
 			position: absolute;
 			bottom: 0;
 			background-color: color(Black);
+
+			.controls {
+				height: grid(3/2);
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: space-evenly;
+				.control {
+					cursor: pointer;
+
+					&.timeline {
+						max-width: grid(12);
+						width: 100%;
+						height: rem(2);
+						background-color: color(Light, 0.25);
+						position: relative;
+
+						.timeline__drag {
+							width: 1px;
+							height: 20px;
+							top: -10px;
+							background-color: transparent;
+							position: absolute;
+							z-index: 2;
+							transform-origin: 0 0;
+						}
+
+						.timeline__progress {
+							display: block;
+							width: 100%;
+							height: 100%;
+							background-color: color(Light);
+						    transform: scaleX(0.3);
+							transform-origin: 0 0;
+							position: relative;
+							z-index: 1;
+						}
+					}
+				}// https://codepen.io/StudioEP/pen/BZYLmp
+			}
 		}
 
 		.case-text-inner {

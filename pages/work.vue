@@ -1,16 +1,29 @@
 <template>
 	<main-layout class="work">
-		<section class="video-container">
+		<section class="video-container" style="background-image: url('/_nuxt/img/fullVideo.04fb794.png');">
 			<div class="row center">
 				<div class="column column-24">
-					<video class="video" width="100%" height="100%" controls>
+				<!-- 	<video class="video" width="100%" height="100%" controls>
 						<source src="../assets/videos/demo.mp4" type="video/mp4">
-					</video>
-					<div class="controls">
-						<div class="pause" id="pause">Pause</div>
-						<div class="timeline">timeline</div>
-						<div class="fullsize">fullsize</div>
-						<div class="volume">volume</div>
+					</video> -->
+					<div class="control-pannel">
+						<div class="row center">
+							<div class="column column-16 controls">
+								<div class="control pause" id="pause">
+									<img src="../assets/images/pause.svg">
+								</div>
+								<div class="control timeline">
+									<div class="timeline__drag"></div>
+									<span class="timeline__progress"></span>
+								</div>
+								<div class="control fullsize">
+									<img src="../assets/images/fullscreen.svg">
+								</div>
+								<div class="control volume">
+									<img src="../assets/images/sound.svg">
+								</div>
+							</div>
+						</div>
 					</div>
 					<div id="case-text-inner" class="textCenter play case-text-inner">
 						<div class="next-text">
