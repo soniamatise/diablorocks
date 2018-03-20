@@ -8,10 +8,10 @@
         </div>
         <nav class="nav top__nav" aria-label="Top navigation">
           <ul>
-            <li class="nav__list-item__top main-link"><a href="/culture">Culture</a></li>
-            <li class="nav__list-item__top main-link"><a href="/work">Work</a></li>
-            <li class="nav__list-item__top main-link"><a href="/what-we-do">What we do</a></li>
-            <li class="nav__list-item__top main-link"><a href="/who-we-are">Who we are</a></li>
+            <li class="nav__list-item__top main-link"><nuxt-link to="/culture">Culture</nuxt-link></li>
+            <li class="nav__list-item__top main-link"><nuxt-link to="/work">Work</nuxt-link></li>
+            <li class="nav__list-item__top main-link"><nuxt-link to="/whatwedo">What we do</nuxt-link></li>
+            <li class="nav__list-item__top main-link"><nuxt-link to="/whoweare">Who we are</nuxt-link></li>
             <li id="logo" class="nav__list-item__top logo"><a href="/"><img src="../assets/images/logo.svg"></a></li>
           </ul>
           <section class="top__contact-us">
