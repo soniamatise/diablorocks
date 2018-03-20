@@ -1,27 +1,11 @@
 <template>
 	<main-layout class="work-detail">
-		<NextCase caseName="Hello world"/>
-		<section id="next-case" class="next-case">
-			<div class="row center textCenter">
-				<div class="column column-24">
-					<div id="case-text-inner" class="case-text-inner">
-						<div class="next-text">
-							<div id="next-text">
-								<p> &nbsp;—&nbsp;Next case</p>
-							</div>
-						</div>
-						<div id="case-text" class="case-text"><p>BBB Cycling</p></div>
-					</div>
-					<div id="case-image" class="case-image">
-						<img src="../assets/images/kalkhoff.png">
-					</div>
-				</div>
-			</div>
-		</section>
+		<NextCase caseName="BBB Cycling" image="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"/>
 	</main-layout>
 </template>
 <script>
 import MainLayout from '../layouts/MainLayout.vue'
+import NextCase from '@/components/NextCase'
 import OneColumn from '~/layouts/OneColumn.vue'
 import TwoColumn from '~/layouts/TwoColumn.vue'
 import PayoffCredits from '~/layouts/PayoffCredits.vue'
@@ -30,49 +14,8 @@ export default {
 		OneColumn,
 		TwoColumn,
 		PayoffCredits,
-		MainLayout
+		MainLayout,
+		NextCase
 	}
 }
-
-// document.addEventListener('DOMContentLoaded', () => {
-// 	const caseTextInner = document.getElementById('case-text-inner');
-// 	const nextText = document.getElementById('next-text');
-// 	const caseText = document.getElementById('case-text');
-// 	const bgDiv = document.getElementById('next-case');
-// 	const caseImage = document.getElementById('case-image');
-
-// 	function toggleWidth() {
-// 		const currentWidthInner = caseTextInner.offsetWidth;
-// 		const currentWidthNext = nextText.offsetWidth;
-// 		const currentWidthCase = caseText.offsetWidth;
-// 		const currentWidthNextParent = nextText.parentElement;
-
-// 		caseTextInner.style.width = 'calc(2px + ' + currentWidthInner + 'px)';
-// 		nextText.style.width = currentWidthNext + 'px';
-// 		caseText.style.width = 'calc(1px + ' + currentWidthCase + 'px)';
-// 		currentWidthNextParent.style.width = currentWidthNext + 'px';
-// 	}
-// 	toggleWidth();
-	
-// 	function bgColorOfCase() {
-// 		bgDiv.style.backgroundColor = '#524d40';//TODO: PLACEHOLDER COLOR OF THE CASE!!!!
-// 	}
-// 	function bgColorOfNormal() {
-// 		bgDiv.style.backgroundColor = 'black';
-// 	}
-// 	function active() {
-// 		bgDiv.classList.add('active');
-// 		// caseImage.style.width = '100vh';
-// 		// caseImage.style.height = '100vw';
-// 		setTimeout(function(){ 
-// 			caseImage.style.transformOrigin = 'center !important';
-// 			bgDiv.classList.add('rotation');
-// 		}, 500);
-// 	}
-// 	window.addEventListener('resize', toggleWidth);
-// 	bgDiv.addEventListener('mouseover', bgColorOfCase);
-// 	bgDiv.addEventListener('mouseout', bgColorOfNormal);
-// 	bgDiv.addEventListener('click', active);
-// });
-
 </script>
