@@ -3,7 +3,7 @@
     <div class="row center">
       <div class="column column-20">
         <input id="menu-trigger" type="checkbox"/>
-        <div class="sidekick"><a class="logo"><img src="../assets/images/logo.svg"></a>
+        <div class="sidekick"><a class="logo"><img src="~/assets/img/logo.svg"></a>
           <label class="trigger" for="menu-trigger"><span></span></label>
         </div>
         <nav class="nav top__nav" aria-label="Top navigation">
@@ -12,7 +12,7 @@
             <li class="nav__list-item__top main-link"><nuxt-link to="/work">Work</nuxt-link></li>
             <li class="nav__list-item__top main-link"><nuxt-link to="/whatwedo">What we do</nuxt-link></li>
             <li class="nav__list-item__top main-link"><nuxt-link to="/whoweare">Who we are</nuxt-link></li>
-            <li id="logo" class="nav__list-item__top logo"><a href="/"><img src="../assets/images/logo.svg"></a></li>
+            <li id="logo" class="nav__list-item__top logo"><a href="/"><img src="~/assets/img/logo.svg"></a></li>
           </ul>
           <section class="top__contact-us">
             <ul>
