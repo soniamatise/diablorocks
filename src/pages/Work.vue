@@ -90,9 +90,6 @@ document.addEventListener('DOMContentLoaded', function() {
 	window.addEventListener('resize', function(){
 		checkColumns();
 	});
-
-
-
 	let checkColumns = function(){
 		if (window.innerWidth < 750 && savedWidth != 750){
 			columns = images.length;
@@ -159,7 +156,6 @@ document.addEventListener('DOMContentLoaded', function() {
 			image.parentElement.parentElement.classList.remove('card--hover');
 		});
 	}
-
 	let clickAnim = function(image){
 		image.addEventListener('click', function(e) {
 			if (deviceSize === 'large'){
