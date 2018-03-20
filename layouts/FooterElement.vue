@@ -8,10 +8,10 @@
 		<ul class="row list--row ">
 			<li class="mobile-hide nav__list-item__footer nav__list-item__footer--active font-medium"><a href="/culture">Culture</a></li>
 			<li class="mobile-hide nav__list-item__footer font-medium"><a href="/work">Work</a></li>
-			<li class="mobile-hide nav__list-item__footer font-medium"><a href="/who-we-are">Who we are</a></li>
+			<li class="mobile-hide nav__list-item__footer font-medium"><a href="/whoweare">Who we are</a></li>
 			<li class="mobile-hide nav__list-item__footer font-medium"><a href="/what-we-do">What we do</a></li>
-			<li class="nav__list-item__footer font-medium"><a href="/news">News</a></li>
-			<li class="nav__list-item__footer font-medium"><a href="/careers">Careers</a></li>
+			<li class="nav__list-item__footer font-medium"><a href="#">News</a></li>
+			<li class="nav__list-item__footer font-medium"><a href="#">Careers</a></li>
 		</ul>
 	</nav>
 

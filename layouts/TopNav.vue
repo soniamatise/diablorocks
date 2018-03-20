@@ -10,8 +10,8 @@
           <ul>
             <li class="nav__list-item__top main-link"><a href="/culture">Culture</a></li>
             <li class="nav__list-item__top main-link"><a href="/work">Work</a></li>
-            <li class="nav__list-item__top main-link"><a href="/what-we-do">What we do</a></li>
-            <li class="nav__list-item__top main-link"><a href="/who-we-are">Who we are</a></li>
+            <li class="nav__list-item__top main-link"><a href="/whatwedo">What we do</a></li>
+            <li class="nav__list-item__top main-link"><a href="/whoweare">Who we are</a></li>
             <li id="logo" class="nav__list-item__top logo"><a href="/"><img src="../assets/images/logo.svg"></a></li>
           </ul>
           <section class="top__contact-us">
