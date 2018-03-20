@@ -1,10 +1,12 @@
 <template>
-	<main-layout>
-		<div class="row center">
-			<div class="column column-12">
-				<p>BBB Cycling — This is what happens when commerce and emotion collide and come together.</p>
+	<main-layout class="work-detail">
+		<section class="intro">
+			<div class="row center">
+				<div class="column column-12">
+					<p><span>BBB Cycling</span> This is what happens when commerce and emotion collide and come together.</p>
+				</div>
 			</div>
-		</div>
+		</section>
 		<div class="row center">
 			<div class="column column-24">
 				<p>ik ben een work detail page</p>
