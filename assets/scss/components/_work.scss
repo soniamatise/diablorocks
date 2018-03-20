@@ -1,0 +1,5 @@
+.work{
+	.content{ opacity: 0; transition: 300ms;
+		&.show{ opacity: 1; }
+	}
+}

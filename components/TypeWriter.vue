@@ -10,7 +10,6 @@ export default {
 		let self = this;
 		// get data from slot
 		const dataText = self.$slots.default[0].text;
-		console.log(self.$el.innerHTML);
 		// console.log(this.$slots.default[0].innerHTML)
 		if(!self.delay){
 			self.typeWriter(dataText, 0);
@@ -34,11 +33,8 @@ export default {
 			}else{
 				var typestroke = document.getElementById('typestroke');
 				typestroke.style.border = 'white';
-				// content moet dus ook white worden?
-				// var index = 0, length = content.length;
-				// for ( ; index < length; index++) {
-				// 	content[index].style.opacity = '1';
-				// }
+
+				this.$emit('doneTyping');
 			}
 		}
 	}
