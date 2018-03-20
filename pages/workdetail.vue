@@ -1,5 +1,6 @@
 <template>
 	<main-layout class="work-detail">
+		<NextCase caseName="Hello world"/>
 		<section id="next-case" class="next-case">
 			<div class="row center textCenter">
 				<div class="column column-24">

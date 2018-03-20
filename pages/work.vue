@@ -1,5 +1,6 @@
 <template>
 	<main-layout>
+		<NextCase caseName="Hello world"/>
 		<payoff-credits></payoff-credits>
 		<one-column></one-column>
 		<two-column></two-column>
