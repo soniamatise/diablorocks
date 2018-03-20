@@ -10,7 +10,7 @@
       </div>
 			<div class="swiper-slide">
 				<div class="contentHolder">
-					<img src="~/static/img/placeholderMob.png" alt="placeholder">
+					<img src="~/assets/img/placeholderMob.png" alt="placeholder">
 				</div>
       </div>
     </div>
