@@ -6,56 +6,56 @@
 		<section class="work__grid">
 			<article class="work__card " case="kalkhoff">
 				<div class="work__card__image-container">
-					<img class="work__card__image" src="/static/img/kalkhoff.png">
+					<img class="work__card__image" src="~assets/img/kalkhoff.png">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Kalkhoff Bikes</span> When your bikes are eye-catchers, your website should be too.</p>
 			</article>
 			<article class="work__card" case="aangenaam">
 				<div class="work__card__image-container">
-					<img class="work__card__image" src="/static/img/boz.png">
+					<img class="work__card__image" src="~assets/img/boz.png">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Aangenaam Bergen op Zoom</span> Original stories from a ‘gezellige’ community.</p>
 			</article>
 			<article class="work__card" case="expeditiewadden">
 				<div class="work__card__image-container">
-					<img class="work__card__image" src="/static/img/wadden.png">
+					<img class="work__card__image" src="~assets/img/wadden.png">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Expeditie Wadden</span> A journey through time and space.</p>
 			</article>
 
 			<article class="work__card" case="nielson">
 				<div class="work__card__image-container">
-					<img class="work__card__image" src="/static/img/nielson.png">
+					<img class="work__card__image" src="~assets/img/nielson.png">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Sony Music Netherlands</span> A new digital home for Nielson, an artist that reinvented himself.</p>
 			</article>
 			<article class="work__card" case="ticketchaser">
 				<div class="work__card__image-container">
-					<img class="work__card__image" src="/static/img/dvlm.png">
+					<img class="work__card__image" src="~assets/img/dvlm.png">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Sony Music Netherlands & DVLM</span> Scavenger hunts are the future of giveaway campaigns.</p>
 			</article>
 			<article class="work__card" case="stadsmakelaar">
 				<div class="work__card__image-container">
-					<img class="work__card__image" src="/static/img/boz.png">
+					<img class="work__card__image" src="~assets/img/boz.png">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Stadsmakelaar</span>Finding the place of your dreams in Bergen op Zoom.</p>
 			</article>
 			<article class="work__card" case="bbbcycling">
 				<div class="work__card__image-container">
-					<img class="work__card__image" src="/static/img/bbb.png">
+					<img class="work__card__image" src="~assets/img/bbb.png">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">BBB Cycling</span> This is what happens when commerce and emotion collide and come together.</p>
 			</article>
 			<article class="work__card" case="viacom">
 				<div class="work__card__image-container">
-					<img class="work__card__image" src="/static/img/mtv.png">
+					<img class="work__card__image" src="~assets/img/mtv.png">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Viacom Out of Office</span> Getting your out of office as fun as actually being out of office.</p>
 			</article>
 			<article class="work__card" case="natwerk">
 				<div class="work__card__image-container">
-					<img class="work__card__image" src="/static/img/natwerk.png">
+					<img class="work__card__image" src="~assets/img/natwerk.png">
 				</div>
 				<p class="work__card__description"><span class="work__card__description--bold">Natwerk</span>I GIF this website a 10/10.</p>
 			</article>
