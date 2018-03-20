@@ -1,7 +1,9 @@
 .work {
 	.video-container {
 		height: 100vh;
-		margin-bottom: grid(5);
+		@media #{$mobile} {
+			height: 50vh;
+		}
 		background-color: color(Black);
 		background-size: cover;
 		background-position: center center;
@@ -65,7 +67,10 @@
 			transform: translate(-50%, -50%);
 			left: 50%;
 			top: 50%;
-			p{ font-size: 2rem; color: color(Light);}
+			p{ 
+				font-size: 2rem; color: color(Light);
+				@media #{$mobile} {font-size: rem(20);}
+			}
 			.next-text {
 				float: left;
 				position: relative;
@@ -89,6 +94,16 @@
 				float: right;
 				transition: width 0.2s cubic-bezier(.42,0,.58,1) 0.2s;
 			}
+			@media #{$mobile} {
+				// .case-text-inner {
+				// }
+				// .next-text, .case-text {
+				// 	float: left;
+				// 	width: 100%;
+				// 	text-align:left;
+				// }
+			}
+
 		}
 		&:hover {
 			.next-text {
