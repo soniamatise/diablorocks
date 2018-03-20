@@ -2,16 +2,17 @@
 	<main-layout class="work-detail">
 		<section class="intro">
 			<div class="row center">
-				<div class="column column-12">
+				<div class="column small-full medium-16 large-12">
 					<p><span>BBB Cycling</span> This is what happens when commerce and emotion collide and come together.</p>
 				</div>
 			</div>
 		</section>
-		<div class="row center">
-			<div class="column column-24">
-				<p>ik ben een work detail page</p>
+		<section class="intro-image" style="background-image: url('../assets/images/test.png');">
+			<div class="row center">
+				<div class="column column-24">
+				</div>
 			</div>
-		</div>
+		</section>
 	</main-layout>
 </template>
 <script>

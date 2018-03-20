@@ -1,7 +1,19 @@
 .work-detail {
+	@media #{$mobile}{
+		padding: rem(96 64 63);
+	}
 	.intro {
 		p {
 			font-size: 1.5rem;
+			@media #{$large-up}{
+				font-size: 2rem;
+				line-height: 3rem;
+			}
 		}
+	}
+	.intro-image {
+		height: grid(12);
+		background-size: cover;
+		background-position: bootm center; 
 	}
 }
