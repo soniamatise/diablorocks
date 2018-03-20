@@ -7,9 +7,10 @@
 				</div>
 			</div>
 		</section>
-		<section class="intro-image" style="background-image: url('../assets/images/test.png');">
+		<section class="intro-image" style="background-image: url('/_nuxt/img/bbb.22d3225.png');">
 			<div class="row center">
 				<div class="column column-24">
+<!-- 					<img src="../assets/images/work/bbb.png"> -->
 				</div>
 			</div>
 		</section>
