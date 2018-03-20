@@ -1,5 +1,5 @@
 <template>
-	<section v-on:mouseover="clickAnim()" id="next-case" class="next-case " :case="caseName">
+	<section v-on:click="clickAnim()" id="next-case" class="next-case " :case="caseName">
 		<div class="row center textCenter">
 			<div class="column column-24">
 				<div id="case-text-inner" class="case-text-inner">
@@ -22,14 +22,11 @@
 export default {
 	props: ['caseName','image'],
 	methods: {
-    clickAnim: function (event) {
-      // `this` inside methods points to the Vue instance
-      // alert('Hello ' + this + '!')
-      // // `event` is the native DOM event
-      // if (event) {
-      //   alert(event.target.tagName)
-      // }
-		const caseTextInner = document.getElementById('case-text-inner');
+	    clickAnim: function (event) {
+	    }
+	},
+	mounted:function(){
+	    const caseTextInner = document.getElementById('case-text-inner');
 		const nextText = document.getElementById('next-text');
 		const caseText = document.getElementById('case-text');
 		const bgDiv = document.getElementById('next-case');
@@ -67,8 +64,7 @@ export default {
 		bgDiv.addEventListener('mouseover', bgColorOfCase);
 		bgDiv.addEventListener('mouseout', bgColorOfNormal);
 		bgDiv.addEventListener('click', active);
-    }
-  }
+	}
 }
 
 
