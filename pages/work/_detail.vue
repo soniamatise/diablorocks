@@ -1,5 +1,5 @@
 <template>
-	<main-layout class="work">
+	<main-layout class="work-detail">
 		<section class="video-container" style="background-image: url('/_nuxt/img/fullVideo.04fb794.png');">
 			<div class="row center">
 				<div class="column column-24">
@@ -41,9 +41,8 @@
 		<two-column></two-column>
 	</main-layout>
 </template>
-
 <script>
-import MainLayout from '../layouts/MainLayout.vue'
+import MainLayout from '~/layouts/MainLayout.vue'
 import OneColumn from '~/layouts/OneColumn.vue'
 import TwoColumn from '~/layouts/TwoColumn.vue'
 import PayoffCredits from '~/layouts/PayoffCredits.vue'
