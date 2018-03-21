@@ -1,7 +1,12 @@
 
 <template>
-	<main-layout>
-
+	<main-layout class="work">
+		<div class="row center textCenter intro">
+			<div class="column column-8">
+				<type-writer delay="250" v-on:doneTyping="showContent">Work</type-writer>
+				<p class="content" v-bind:class="{show: displayContent}">Our latest and greatest for brands we believe in.</p>
+			</div>
+		</div>
 <div class="background-canvas"></div>
 		<section class="work__grid">
 
@@ -85,16 +90,30 @@
 </template>
 
 <script>
-import Vue from 'vue'
+import MainLayout from '~/layouts/MainLayout.vue'
+import OneColumn from '~/layouts/OneColumn.vue'
+import TwoColumn from '~/layouts/TwoColumn.vue'
+import PayoffCredits from '~/layouts/PayoffCredits.vue'
+import TypeWriter from '~/components/TypeWriter.vue'
 import WorkCard from '@/components/WorkCard'
-import MainLayout from '@/layouts/MainLayout.vue'
-
 export default {
 	components: {
+		OneColumn,
+		TwoColumn,
+		PayoffCredits,
 		MainLayout,
+		TypeWriter,
 		WorkCard
 	},
+	data() {
+		return {
+			displayContent: false
+		}
+	},
 	methods: {
+		showContent: function(){
+			this.displayContent = true;
+		}
 	}
 }
 
