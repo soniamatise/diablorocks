@@ -42,8 +42,6 @@ export default {
 			nextText.style.width = currentWidthNext + 'px';
 			caseText.style.width = 'calc(1px + ' + currentWidthCase + 'px)';
 			currentWidthNextParent.style.width = currentWidthNext + 'px';
-
-			console.log(currentWidthNext);
 		}
 		toggleWidth();
 
@@ -55,14 +53,12 @@ export default {
 		}
 		function active() {
 			bgDiv.classList.add('active');
-			// caseImage.style.width = '100vh';
-			// caseImage.style.height = '100vw';
 			setTimeout(function(){ 
 				caseImage.style.transformOrigin = 'center !important';
 				bgDiv.classList.add('rotation');
 			}, 500);
 		}
-		window.addEventListener('resize', toggleWidth);
+		// window.addEventListener('resize', toggleWidth);
 		bgDiv.addEventListener('mouseover', bgColorOfCase);
 		bgDiv.addEventListener('mouseout', bgColorOfNormal);
 		bgDiv.addEventListener('click', active);
