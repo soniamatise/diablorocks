@@ -1,5 +1,5 @@
 <template>
-	<section v-on:click="clickAnim()" id="next-case" class="next-case " :case="caseName">
+	<section v-on:click="rotationAnimation()" @mouseover="bgOfCase()" @mouseleave="bgToNormal()" id="next-case" class="next-case " :case="caseName">
 		<div class="row center textCenter">
 			<div class="column column-24">
 				<div id="case-text-inner" class="case-text-inner">
@@ -20,51 +20,44 @@
 
 <script>
 export default {
-	props: ['caseName','image'],
+	props: ['caseName','image','caseColor'],
 	methods: {
-	    clickAnim: function (event) {
-	    }
+	    rotationAnimation: () => {
+			const bgDiv = document.getElementById('next-case');
+			const caseImage = document.getElementById('case-image');
+
+			bgDiv.classList.add('active');
+			setTimeout(function(){ 
+				caseImage.style.transformOrigin = 'center !important';
+				bgDiv.classList.add('rotation');
+			}, 500);
+	    },
+	    bgOfCase: function () {
+	    	const bgDiv = document.getElementById('next-case');
+			bgDiv.style.backgroundColor = this.caseColor;
+	    },
+	    bgToNormal: () => {
+	    	const bgDiv = document.getElementById('next-case');
+			bgDiv.style.backgroundColor = 'black';
+	    },
 	},
-	mounted:function(){
+	mounted: () => {
 	    const caseTextInner = document.getElementById('case-text-inner');
 		const nextText = document.getElementById('next-text');
 		const caseText = document.getElementById('case-text');
-		const bgDiv = document.getElementById('next-case');
-		const caseImage = document.getElementById('case-image');
 
 		function toggleWidth() {
 			const currentWidthInner = caseTextInner.offsetWidth;
 			const currentWidthNext = nextText.offsetWidth;
 			const currentWidthCase = caseText.offsetWidth;
 			const currentWidthNextParent = nextText.parentElement;
-
 			caseTextInner.style.width = 'calc(2px + ' + currentWidthInner + 'px)';
 			nextText.style.width = currentWidthNext + 'px';
 			caseText.style.width = 'calc(1px + ' + currentWidthCase + 'px)';
 			currentWidthNextParent.style.width = currentWidthNext + 'px';
 		}
 		toggleWidth();
-
-		function bgColorOfCase() {
-			bgDiv.style.backgroundColor = '#524d40';//TODO: PLACEHOLDER COLOR OF THE CASE!!!!
-		}
-		function bgColorOfNormal() {
-			bgDiv.style.backgroundColor = 'black';
-		}
-		function active() {
-			bgDiv.classList.add('active');
-			setTimeout(function(){ 
-				caseImage.style.transformOrigin = 'center !important';
-				bgDiv.classList.add('rotation');
-			}, 500);
-		}
 		// window.addEventListener('resize', toggleWidth);
-		bgDiv.addEventListener('mouseover', bgColorOfCase);
-		bgDiv.addEventListener('mouseout', bgColorOfNormal);
-		bgDiv.addEventListener('click', active);
 	}
 }
-
-
-
 </script>
