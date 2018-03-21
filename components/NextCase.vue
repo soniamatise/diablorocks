@@ -42,6 +42,8 @@ export default {
 			nextText.style.width = currentWidthNext + 'px';
 			caseText.style.width = 'calc(1px + ' + currentWidthCase + 'px)';
 			currentWidthNextParent.style.width = currentWidthNext + 'px';
+
+			console.log(currentWidthNext);
 		}
 		toggleWidth();
 

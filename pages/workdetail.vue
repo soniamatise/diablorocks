@@ -1,7 +1,6 @@
 <template>
 	<main-layout class="work-detail">
 		<NextCase caseName="BBB Cycling" image="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"/>
-		<NextCase caseName="Hello world"/>
 	</main-layout>
 </template>
 <script>
