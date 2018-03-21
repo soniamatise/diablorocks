@@ -10,12 +10,25 @@
 		background-color: color(Black);
 		overflow: hidden;
 		transition: background-color 1s cubic-bezier(.42,0,.58,1);
-
+		@media #{$medium-down}{
+			height: auto;
+			padding: grid(5) 0;
+		}
+		@media #{$small-only}{
+			height: 50vh;
+		}
 		.case-text-inner {
 			position: absolute;
-			transform: translate(-50%);
+			transform: translate(-50%,-50%);
+			top: 50%;
 			left: 50%;
-			p{ font-size: 2rem;}
+			p{ 
+				font-size: 2rem;
+				@media #{$small-only}{
+					line-height: 1.5;
+				    font-size: 20px;
+				}
+			}
 			.next-text {
 				float: left;
 				position: relative;
@@ -38,6 +51,19 @@
 				top: 0;
 				float: right;
 				transition: width 0.2s cubic-bezier(.42,0,.58,1) 0.2s;
+			}
+			@media #{$small-only}{
+				width: 100% !important;
+				padding: rem(0 64);
+				.next-text, .case-text {
+					width: 100% !important;
+					text-align: left;
+					float: left;
+					left: 0;
+					#next-text {
+						float: left;
+					}
+				}
 			}
 		}
 		.case-image {
