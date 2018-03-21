@@ -1,14 +1,10 @@
-@import 'color/color';
-@import '~matise-stack/_stack.scss', '~matise-grid/grid.scss';
-@import 'settings/settings';
-@import 'typography/typography';
-@import 'layout/layout', 'components/components', 'components/menu', 'components/header';
-@import 'layout/footer';
-@import 'layout/one-column';
-@import 'layout/two-column';
-@import 'layout/payoff-credits';
-@import 'layout/buttons';
-
+@import 'color/index',
+'~matise-stack/_stack.scss',
+'~matise-grid/grid.scss',
+'settings/settings',
+'typography/index',
+'layout/index',
+'components/index';
 
 body {
 	padding-top: grid(5);
@@ -24,5 +20,26 @@ body {
 @media #{$mobile} {
 	.mobile-hide{
 		display: none;
+	}
+}
+
+// Create Background Classes
+@each $name,$value in $colors{
+	$name-lowercase: to-lower-case($name);
+	.bg-#{$name}, .bg-#{$name-lowercase}{
+		background-color: $value; color: contra($value);
+		hr{
+			background-color: contra($value); color: contra($value);
+		}
+	}
+	.text-#{$name}, .text-#{$name-lowercase}, .content .text-#{$name-lowercase}{
+		color: $value !important;
+	}
+	$opacity: (0.9,0.8,0.75,0.7,0.6,0.5,0.4,0.3,0.25,0.2,0.1);
+	@each $opacity-value in $opacity{
+		$opacity-name: "0#{$opacity-value * 100}";
+		.bg-#{$name}-#{$opacity-name}, .bg-#{$name-lowercase}-#{$opacity-name}{
+			background-color: color($name,$opacity-value); color: $value;
+		}
 	}
 }
