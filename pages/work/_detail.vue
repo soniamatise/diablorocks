@@ -1,41 +1,8 @@
 <template>
 	<main-layout class="work-detail">
-		<section class="video-container" style="background-image: url('/_nuxt/img/fullVideo.04fb794.png');">
-			<div class="row center">
-				<div class="column column-24">
-				<!-- 	<video class="video" width="100%" height="100%" controls>
-						<source src="../assets/videos/demo.mp4" type="video/mp4">
-					</video> -->
-					<div class="control-pannel">
-						<div class="row center">
-							<div class="column column-16 controls">
-								<div class="control pause" id="pause">
-									<img src="../assets/images/pause.svg">
-								</div>
-								<div class="control timeline">
-									<div class="timeline__drag"></div>
-									<span class="timeline__progress"></span>
-								</div>
-								<div class="control fullsize">
-									<img src="../assets/images/fullscreen.svg">
-								</div>
-								<div class="control volume">
-									<img src="../assets/images/sound.svg">
-								</div>
-							</div>
-						</div>
-					</div>
-					<div id="case-text-inner" class="textCenter play case-text-inner">
-						<div class="next-text">
-							<div id="next-text">
-								<p> &nbsp;—&nbsp;BBB Cycling</p>
-							</div>
-						</div>
-						<div id="case-text" class="case-text"><p>Play</p></div>
-					</div>
-				</div>
-			</div>
-		</section>
+		<video-player 
+			image="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
+		/>
 		<payoff-credits></payoff-credits>
 		<one-column></one-column>
 		<two-column></two-column>
@@ -46,12 +13,14 @@ import MainLayout from '~/layouts/MainLayout.vue'
 import OneColumn from '~/layouts/OneColumn.vue'
 import TwoColumn from '~/layouts/TwoColumn.vue'
 import PayoffCredits from '~/layouts/PayoffCredits.vue'
+import VideoPlayer from '~/components/VideoPlayer.vue'
 export default {
 	components: {
 		OneColumn,
 		TwoColumn,
 		PayoffCredits,
-		MainLayout
+		MainLayout,
+		VideoPlayer
 	}
 }
 
