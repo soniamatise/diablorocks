@@ -6,7 +6,7 @@
         <div class="sidekick"><a class="logo"><img src="~/assets/img/logo.svg"></a>
           <label v-on:click="toggleScrollBody()" class="trigger" for="menu-trigger"><span></span></label>
         </div>
-        <nav class="nav top__nav" aria-label="Top navigation">
+        <nav class="nav top__nav" aria-label="Top navigation" ref="topNav">
           <ul>
             <li class="nav__list-item__top main-link"><nuxt-link to="/culture">Culture</nuxt-link></li>
             <li class="nav__list-item__top main-link"><nuxt-link to="/work">Work</nuxt-link></li>
@@ -46,6 +46,12 @@ export default {
     toggleScrollBody: function(){
       this.isMenuOpen = !this.isMenuOpen;
     }
+  },
+  mounted(){
+    let topNav = this.$refs.topNav;
+    setTimeout(function(){
+      topNav.classList.add('show');
+    },500);
   }
 }
 </script>
