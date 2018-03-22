@@ -12,12 +12,11 @@
 		}
 
 		.item {
-			a {
-				padding: rem(24) 0;
-			}
-
+			a,
 			p {
-				padding: rem(24) 0;
+				padding: rem(26) 0;
+				font-size: rem(16);
+				line-height: auto;
 
 				&.medium {
 					padding-left: grid(0.2625);
@@ -40,7 +39,7 @@
 		.line {
 			background-color: color(Gray, .25);
 			width: grid(12);
-			height: rem(2);
+			height: rem(1);
 			margin: auto;
 			@media #{$medium-down} {
 				width: grid(16);
@@ -56,11 +55,19 @@
 				margin-top: calc(64px - 24px);
 			}
 
-			p:before {
-				content: '*';
-				display: inline-block;
-				padding-left: grid(0.2625);
-				padding-right: rem(13);
+			p {
+				position: relative;
+				margin-left: grid(0.2625);
+
+				span {
+					display: inline-block;
+					position: absolute;
+					left: grid(-0.2625);
+
+					&:after {
+						display: none;
+					}
+				}
 			}
 		}
 	}
