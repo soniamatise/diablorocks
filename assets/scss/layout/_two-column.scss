@@ -74,7 +74,13 @@
 							right: 1rem;
 							bottom: 0;
 						}
-						@media #{$small-only}{ display: none; }
+						@media #{$small-only} {
+							top: 1rem;
+							left: 1rem;
+							right: 1rem;
+							bottom: 0;
+							box-shadow: 0 rem(8) rem(24) rem(8) color(Dark, .2);
+						}
 					}
 
 					img {
@@ -92,8 +98,6 @@
 						@media #{$small-only} {
 							width: rem(279)!important;
 							height: rem(558);
-							box-shadow: 0 grid(.25) grid(.75) grid(.25) color(Dark, .2);
-
 						}
 					}
 					@media #{$medium-only} {
@@ -108,7 +112,8 @@
 			}
 		}
 	}
-	p{
+
+	p {
 		@media #{$small-only} {
 			margin-top: rem(32);
 		}
