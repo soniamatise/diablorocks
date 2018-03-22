@@ -2,7 +2,7 @@
 	.intro {
 		.intro-text {
 			@media #{$mobile}{
-				padding: rem(96 64 63);
+				padding: rem(96 64);
 			}
 			padding-bottom: rem(120);
 			@media #{$large-up}{
@@ -10,9 +10,13 @@
 			}
 			p {
 				font-size: 1.5rem;
+				color: color(Light);
 				@media only screen and (max-width: 9999px) and (min-width: 1920px){
 					font-size: 2rem;
 					line-height: 3rem;
+				}
+				@media #{$medium-down}{
+					font-size: rem(20);
 				}
 			}
 		}

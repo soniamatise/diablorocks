@@ -3,7 +3,8 @@
 		<case-heading 
 			caseName="BBB Cycling"
 			caseQuote="This is what happens when commerce and emotion collide and come together."
-			image="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
+			caseImage="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
+			caseColor="#524d40"
 		/>
 	</main-layout>
 </template>

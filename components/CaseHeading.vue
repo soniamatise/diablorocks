@@ -1,5 +1,5 @@
 <template>
-	<section class="intro">
+	<section class="intro" :style="{ 'background-color': '' + caseColor + '' }">
 		<div class="intro-text">
 			<div class="row center">
 				<div class="column small-full medium-16 large-12">
@@ -7,7 +7,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="intro-image" :style="{ 'background-image': 'url(' + image + ')' }">
+		<div class="intro-image" :style="{ 'background-image': 'url(' + caseImage + ')' }">
 			<div class="row center">
 				<div class="column column-24">
 				</div>
@@ -18,7 +18,7 @@
 
 <script>
 export default {
-	props: ['caseName', 'caseQuote', 'image'],
+	props: ['caseName', 'caseQuote', 'caseImage', 'caseColor'],
 	mounted() {
 	},
 	methods: {
