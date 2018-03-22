@@ -10,6 +10,9 @@
 		@media #{$medium-down} {
 			margin-top: calc(64px - 24px);
 		}
+		@media #{$small-only}{
+		margin-top:rem(64);
+		}
 
 		.item {
 			a,
@@ -17,6 +20,9 @@
 				padding: rem(26) 0;
 				font-size: rem(16);
 				line-height: auto;
+				@media #{$medium-down}{
+					padding: rem(4) 0;
+				}
 
 				&.medium {
 					padding-left: grid(0.2625);
@@ -43,6 +49,7 @@
 			margin: auto;
 			@media #{$medium-down} {
 				width: grid(16);
+				margin: rem(24) 0 ;
 			}
 			@media #{$small-only} {
 				width: 100%;
@@ -58,11 +65,17 @@
 			p {
 				position: relative;
 				margin-left: grid(0.2625);
+				@media #{$medium-down}{
+					margin-left: rem(14);
+				}
 
 				span {
 					display: inline-block;
 					position: absolute;
 					left: grid(-0.2625);
+					@media #{$medium-down}{
+						left: rem(-14);
+					}
 
 					&:after {
 						display: none;
