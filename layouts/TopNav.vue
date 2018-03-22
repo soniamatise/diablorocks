@@ -4,7 +4,7 @@
       <div class="column small-16 large-20 column-20">
         <input id="menu-trigger" type="checkbox"/>
         <div class="sidekick"><a class="logo"><img src="~/assets/img/logo.svg"></a>
-          <label class="trigger" for="menu-trigger"><span></span></label>
+          <label v-on:click="toggleScrollBody()" class="trigger" for="menu-trigger"><span></span></label>
         </div>
         <nav class="nav top__nav" aria-label="Top navigation">
           <ul>
@@ -29,4 +29,23 @@
 </template>
 
 <script>
+export default {
+  data () {
+    return {
+      isMenuOpen: false
+    }
+  },
+  head () {
+    return {
+      bodyAttrs: {
+        class: this.isMenuOpen ? 'scroll-disable' : ''
+      }
+    }
+  },
+  methods: {
+    toggleScrollBody: function(){
+      this.isMenuOpen = !this.isMenuOpen;
+    }
+  }
+}
 </script>
