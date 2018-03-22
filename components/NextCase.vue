@@ -5,10 +5,10 @@
 				<div id="case-text-inner" class="case-text-inner">
 					<div class="next-text">
 						<div id="next-text">
-							<p> &nbsp;—&nbsp;Next case</p>
+							<h2 class="font-medium"> &nbsp;—&nbsp;Next case</h2>
 						</div>
 					</div>
-					<div id="case-text" class="case-text"><p>{{ caseName }}</p></div>
+					<div id="case-text" class="case-text"><h2>{{ caseName }}</h2></div>
 				</div>
 				<div id="case-image" class="case-image">
 					<img :src="image">

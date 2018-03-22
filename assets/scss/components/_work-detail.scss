@@ -22,7 +22,7 @@
 			transform: translate(-50%,-50%);
 			top: 50%;
 			left: 50%;
-			p{ 
+			h2{ 
 				font-size: 2rem;
 				@media #{$small-only}{
 					line-height: 1.5;
@@ -42,7 +42,7 @@
 					float: right;
 					overflow-x:hidden;
 					transition: width 0.4s cubic-bezier(.42,0,.58,1) 0.4s;
-					p {direction: rtl;}
+					h2 {direction: rtl;}
 				}
 			}
 			.case-text {
