@@ -1,7 +1,7 @@
 <template>
   <header id="header" class="header">
     <div class="row center">
-      <div class="column column-20">
+      <div class="column small-16 large-20 column-20">
         <input id="menu-trigger" type="checkbox"/>
         <div class="sidekick"><a class="logo"><img src="~/assets/img/logo.svg"></a>
           <label class="trigger" for="menu-trigger"><span></span></label>
@@ -16,10 +16,10 @@
           </ul>
           <section class="top__contact-us">
             <ul>
-              <li class="nav__list-item__top"><a href=""><b>Contact</b></a></li>
+              <li class="nav__list-item__top title"><a>Contact</a></li>
               <li class="nav__list-item__top info-link"><a href="mailto:office@matise.nl">office@matise.nl</a></li>
-              <li class="nav__list-item__top info-link"><a href="">+31 20 845 37 99</a></li>
-              <li class="nav__list-item__top info-link"><a href="">Entrepotdok 78, Amsterdam</a></li>
+              <li class="nav__list-item__top info-link"><a href="tel:+31 20 845 37 99">+31 20 845 37 99</a></li>
+              <li class="nav__list-item__top info-link"><a target="blank" href="http://maps.google.com/?q=Entrepotdok 78, Amsterdam, the Netherlands">Entrepotdok 78, Amsterdam</a></li>
             </ul>
           </section>
         </nav>

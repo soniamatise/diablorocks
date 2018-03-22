@@ -3,6 +3,7 @@
 		&__top, &__footer {
 			a{ font-size: rem(14);
 				position: relative;
+				font-weight: $font-medium;
 				&:before{
 					content: "";
 					position: absolute;
@@ -25,7 +26,7 @@
 			}
 		}
 		&__top {
-			margin-right: rem(45);
+			margin-right: grid(3/4);
 			@media #{$small-only}{
 				width: 100%;
 			}
@@ -61,7 +62,6 @@
 			}
 		}
 		&__footer {
-			font-weight: $font-medium;
 			margin-right: grid(.75);
 			@media #{$medium-down}{
 				margin-right: grid(1);
@@ -104,9 +104,18 @@
 				display: block;
 			}
 			.nav__list-item__top {
-				a {font-size: rem(14);}
+				a {font-size: rem(14);
+				}
 				&.info-link {
 				    margin: -2.5px 0;
+				    a{ font-weight: $font-regular;}
+				}
+				&.title {
+					 a{ font-weight: $font-medium;
+					 	&::before {
+				    		display: none !important;
+				    	}
+					 }
 				}
 			}
 		}
