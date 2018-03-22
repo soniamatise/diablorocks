@@ -1,5 +1,6 @@
 <template>
 	<main-layout>
+		<h1>Hoi</h1>
 		<payoff-credits></payoff-credits>
 		<one-column></one-column>
 		<two-column></two-column>
