@@ -30,6 +30,9 @@
 				overflow: hidden;
 				border-radius: rem(4);
 				z-index: 1;
+				@media #{$small-only} {
+					border-radius: rem(2);
+				}
 			}
 			&:after {
 				z-index: 0;
@@ -46,6 +49,7 @@
 					left: 1rem;
 					right: 1rem;
 					bottom: 0;
+					box-shadow: 0 rem(8) rem(24) rem(8) color(Dark, .2);
 				}
 			}
 			img {
