@@ -161,6 +161,7 @@ $time: 0.6;
 		background-color: color(Light);
 		position: relative;
 		span {
+			left: 23px !important;
 			@include menu(1rem, 0.125rem, 0.1875rem,  color(Black));
 			& {
 				background-color: color(Light);
@@ -204,7 +205,6 @@ $time: 0.6;
 	100% {
 		background-color: color(Black);
 		width: 1.5rem;
-		left: 23px;
 	}
 }
 @keyframes goDownAfter {
@@ -237,6 +237,7 @@ input#menu-trigger {
 			overflow: hidden;
 			.trigger {
 				span {
+					left: 27px !important;
 					& {
 						background-color: color(Black);
 						animation: rotateSpan #{$time}s #{$time}s forwards;
