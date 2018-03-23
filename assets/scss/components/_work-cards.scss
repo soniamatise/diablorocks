@@ -108,11 +108,13 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 .background--forward{ z-index: 1; opacity: 0.9; transition: 1s $standardCubicBezier;}
 
 .expandCard {
+	--top: calc((100vh - var(--height)) / 2);
+	padding-top: var(--top);
+	background-size: var(--top);
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	top: auto;
 	z-index: 2;
 	color: white;
 	width: grid(24);
@@ -126,6 +128,12 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 	padding: 0;
 	left: 0;
 	right: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	--y: calc(var(--height) + var(--top));
+	--xleft: var(--margin);
+	--xright: calc(var(--margin) + var(--width));
 	animation: expand 2s .5s $specialCubicBezier forwards;
 	img{
 		width: 100vw;
@@ -166,12 +174,17 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 	0%{
 		padding-left: grid(2);
 		padding-right: grid(16);
-		top: grid(2);
+		top: 0;
+	}
+	19%{
+		top: 0;
 	}
 	20%{
 		padding-left: grid(9);
 		padding-right: grid(9);
-		top: grid(2);
+	}
+	21%{
+		top: 0;
 	}
 	100%{
 		width: grid(24);
@@ -183,10 +196,13 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 	0%{
 		padding-left: var(--margin);
 		padding-right: var(--margin);
-		top: var(--top);
+		top: 0;
+	}
+	19%{
+		margin-top: 0;
+		top: 0;
 	}
 	20%{
-		top: var(--top);
 		padding-left: var(--margin);
 		padding-right: var(--margin);
 	}
@@ -198,14 +214,14 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 
 @keyframes rightToCenter {
 	0%{
+		top: 0;
 		padding-left: grid(16);
 		padding-right: grid(2);
-		top: grid(2);
 	}
 	20%{
+		top: 0;
 		padding-left: grid(9);
 		padding-right: grid(9);
-		top: grid(2);
 	}
 	100%{
 		width: grid(24);
@@ -222,18 +238,16 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 
 @keyframes expand {
 	0%{
-		--y: var(--height);
-		--xleft: var(--margin);
-		--xright: calc(var(--margin) + var(--width));
-		height: var(--height);
+		height: 100vh;
 		position: absolute;
 		width: 100vw;
 		top: 0;
-		clip-path: polygon(var(--xleft) 0, var(--xright) 0, var(--xright) var(--y), var(--xleft) var(--y));
+		clip-path: polygon(var(--xleft) var(--top), var(--xright) var(--top), var(--xright) var(--y), var(--xleft) var(--y));
 	}
 	5%{
 		margin: 0 auto;
-		clip-path: polygon(var(--xleft) 0, var(--xright) 0, var(--xright) var(--y), var(--xleft) var(--y));
+		height: 100vh;
+		clip-path: polygon(var(--xleft) var(--top), var(--xright) var(--top), var(--xright) var(--y), var(--xleft) var(--y));
 	}
 	100%{
 		position: absolute;
