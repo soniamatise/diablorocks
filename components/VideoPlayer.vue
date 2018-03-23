@@ -2,35 +2,37 @@
 	<section class="video-container" :style="{ 'background-image': 'url(' + image + ')' }">
 		<div class="row center">
 			<div class="column column-24">
-			<!-- 	<video class="video" width="100%" height="100%" controls>
+				<video class="video hide" ref="video" width="100%" height="100%" controls preload>
 					<source src="../assets/videos/demo.mp4" type="video/mp4">
-				</video> -->
-				<div class="control-pannel">
+				</video>
+				<div class="control-pannel hide" ref="controls">
 					<div class="row center">
-						<div class="column column-16 controls">
-							<!-- <div class="control pause" id="pause">
-								<img src="./assets/images/pause.svg">
+						<div class="column column-16 controls" @click="PausePlayVideo()">
+							<div class="control pause" ref="playPause">
+								<img src="~/assets/images/pause.svg">
 							</div>
 							<div class="control timeline">
 								<div class="timeline__drag"></div>
 								<span class="timeline__progress"></span>
 							</div>
 							<div class="control fullsize">
-								<img src="./assets/images/fullscreen.svg">
+								<img src="~/assets/images/fullscreen.svg">
 							</div>
 							<div class="control volume">
-								<img src="./assets/images/sound.svg">
-							</div> -->
+								<img src="~/assets/images/sound.svg">
+							</div>
 						</div>
 					</div>
 				</div>
-				<div id="case-text-inner" class="textCenter play case-text-inner">
-					<div class="next-text">
-						<div id="next-text">
-							<p> &nbsp;—&nbsp;BBB Cycling</p>
+				<div class="video-info" ref="videoInfo" @click="showPlayVideo()">
+					<div id="case-text-inner" class="textCenter play case-text-inner">
+						<div class="next-text">
+							<div id="next-text">
+								<p> &nbsp;—&nbsp;BBB Cycling</p>
+							</div>
 						</div>
+						<div id="case-text" class="case-text"><p>Play</p></div>
 					</div>
-					<div id="case-text" class="case-text"><p>Play</p></div>
 				</div>
 			</div>
 		</div>
@@ -60,8 +62,27 @@ export default {
 		toggleWidth();
 	},
 	methods: {
-		typeWriter: function(text,i, fnCallback){
+		showPlayVideo: function () {
+			let video = this.$refs.video;
+			let videoInformation = this.$refs.videoInfo;
+			let videoControls = this.$refs.controls;
+
+			videoControls.style.opacity = 0;
+			videoControls.style.transition = 'opacity 300ms';
+
+			videoInformation.classList.add('hide');
+			video.classList.remove('hide');
+			videoControls.classList.remove('hide');
+			setTimeout(function(){ videoControls.style.opacity = 1; }, 100);
+			video.play();
+		},
+		PausePlayVideo: function () {
+			let video = this.$refs.video;
+			return video.paused ? video.play() : video.pause();
 		}
+	},
+	render: {
+
 	}
 }
 </script>
