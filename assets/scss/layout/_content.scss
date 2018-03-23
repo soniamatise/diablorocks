@@ -15,11 +15,11 @@
   }
 }
 
-p{
-  a{ position: relative;
-    @extend %link-hover;
-  }
-}
+// p{
+//   a{ position: relative;
+//     @extend %link-hover;
+//   }
+// }
 .external{
   p a{   @extend %link-hover-ext; }
 }
