@@ -2,7 +2,7 @@
 	<section class="video-container" :style="{ 'background-image': 'url(' + image + ')' }">
 		<div class="row center">
 			<div class="column column-24">
-				<video class="video hide" ref="video" width="100%" height="100%" controls preload>
+				<video @timeupdate="seekBar()" class="video hide" ref="video" width="100%" height="100%" controls preload>
 					<source src="../assets/videos/demo.mp4" type="video/mp4">
 				</video>
 				<div class="control-pannel hide" ref="controls">
@@ -12,14 +12,14 @@
 								<img src="~/assets/images/pause.svg">
 							</div>
 							<div class="control timeline">
-								<div class="timeline__drag"></div>
-								<span class="timeline__progress" value="0"></span>
+								<progress id='progress-bar' class="timeline-bar" ref="timeline" min='0' max='100' value='0'>0% played</progress>
 							</div>
 							<div class="control fullsize" @click="makeFullScreen()">
 								<img src="~/assets/images/fullscreen.svg">
 							</div>
-							<div class="control volume" ref="mute" @click="muteVideo()">
-								<img src="~/assets/images/sound.svg">
+							<div class="control volume on" ref="mute" @click="muteVideo()">
+								<img class="sound" src="~/assets/images/sound.svg">
+								<img class="mute" src="~/assets/images/mute.svg">
 							</div>
 						</div>
 					</div>
@@ -98,11 +98,21 @@ export default {
 			let muteBtn = this.$refs.mute;
 			if (video.muted == false) {
 				video.muted = true;
-				muteBtn.innerHTML = 'Unmute';
+				muteBtn.classList.add('off');
+				muteBtn.classList.remove('on');
 			} else {
 				video.muted = false;
-				muteBtn.innerHTML = 'Mute';
+				muteBtn.innerHTML = '<img src="~/assets/images/mute.svg">';
+				muteBtn.classList.remove('off');
+				muteBtn.classList.add('on');
 			}
+		},
+		seekBar: function () {
+			let video = this.$refs.video;
+			let timeline = this.$refs.timeline;
+			let percentage = Math.floor((100 / video.duration) *
+			video.currentTime);
+			timeline.value = percentage;
 		}
 	},
 }
