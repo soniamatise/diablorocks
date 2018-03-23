@@ -10,14 +10,18 @@
 		@media #{$medium-down} {
 			margin-top: calc(64px - 24px);
 		}
+		@media #{$small-only}{
+		margin-top:rem(64);
+		}
 
 		.item {
-			a {
-				padding: rem(24) 0;
-			}
-
+			a,
 			p {
-				padding: rem(24) 0;
+				padding: rem(26) 0;
+				font-size: rem(16);
+				@media #{$medium-down}{
+					padding: rem(4) 0;
+				}
 
 				&.medium {
 					padding-left: grid(0.2625);
@@ -40,10 +44,11 @@
 		.line {
 			background-color: color(Gray, .25);
 			width: grid(12);
-			height: rem(2);
+			height: rem(1);
 			margin: auto;
 			@media #{$medium-down} {
 				width: grid(16);
+				margin: rem(24) 0 ;
 			}
 			@media #{$small-only} {
 				width: 100%;
@@ -56,11 +61,25 @@
 				margin-top: calc(64px - 24px);
 			}
 
-			p:before {
-				content: '*';
-				display: inline-block;
-				padding-left: grid(0.2625);
-				padding-right: rem(13);
+			p {
+				position: relative;
+				margin-left: grid(0.2625);
+				@media #{$medium-down}{
+					margin-left: rem(14);
+				}
+
+				span {
+					display: inline-block;
+					position: absolute;
+					left: grid(-0.2625);
+					@media #{$medium-down}{
+						left: rem(-14);
+					}
+
+					&:after {
+						display: none;
+					}
+				}
 			}
 		}
 	}
