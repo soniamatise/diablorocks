@@ -67,6 +67,10 @@
 						}
 					}
 					&.volume {
+						position: relative;
+						img {
+							position: absolute;
+						}
 						&.on {
 							.sound {display:block;}
 							.mute { display:none;}
