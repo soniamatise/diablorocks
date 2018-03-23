@@ -153,8 +153,7 @@ export default {
 			this.displayContent = true;
 		},
 		expand: function(item){
-			console.log(this)
-			this.$refs[item].expandCard(item);
+			this.$refs[item].expandCard(this.$refs[item].size);
 			this._data.background = `bg-${item} expandBackground`;
 			this._data.click = true
 		},
