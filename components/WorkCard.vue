@@ -1,10 +1,10 @@
 <template>
 
 
-	<article :class="'work__card column-' + columnNr + ' ' + expand" :case="caseName" :style="custom">
+	<article :class="'work__card column' + columnNr + ' ' + expand" :case="caseName" :style="custom">
 		<!-- <nuxt-link :to="'/work/' + slug "> -->
 			<div :class="'work__card__image-container work__card__image-container--'+ size ">
-				<img v-on:click="clickAnim()" v-on:mouseout="onHover()" class="work__card__image" :src="image">
+				<img class="work__card__image" :src="image">
 			</div>
 		<!-- </nuxt-link> -->
 		<p class="work__card__description"><span class="work__card__description--bold">{{ client }}</span> {{ description }}</p>
@@ -15,6 +15,10 @@
 export default {
 	props: ['columnNr', 'caseName', 'size', 'image', 'client', 'description', 'slug', 'custom', 'expand'],
 	methods: {
+		expandCard: function(item) {
+			console.log('click')
+			console.log(item)
+		},
     clickAnim: function () {
     	console.log(this._self);
 			// if (deviceSize === 'large'){
@@ -45,7 +49,7 @@ export default {
 			}
     },
 		onHover: function (){
-			console.log(this);
+			// console.log(this);
 		},
   }
 }
