@@ -69,10 +69,13 @@ export default {
 
 			videoControls.style.opacity = 0;
 			videoControls.style.transition = 'opacity 300ms';
+			video.style.opacity = 0;
+			video.style.transition = 'opacity 300ms';
 
 			videoInformation.classList.add('hide');
 			video.classList.remove('hide');
 			videoControls.classList.remove('hide');
+			setTimeout(function(){ video.style.opacity = 1; }, 100);
 			setTimeout(function(){ videoControls.style.opacity = 1; }, 100);
 			video.play();
 		},
@@ -81,8 +84,5 @@ export default {
 			return video.paused ? video.play() : video.pause();
 		}
 	},
-	render: {
-
-	}
 }
 </script>
