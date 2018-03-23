@@ -7,18 +7,18 @@
 				</video>
 				<div class="control-pannel hide" ref="controls">
 					<div class="row center">
-						<div class="column column-16 controls" @click="PausePlayVideo()">
-							<div class="control pause" ref="playPause">
+						<div class="column column-16 controls">
+							<div class="control pause" ref="playPause" @click="PausePlayVideo()">
 								<img src="~/assets/images/pause.svg">
 							</div>
 							<div class="control timeline">
 								<div class="timeline__drag"></div>
-								<span class="timeline__progress"></span>
+								<span class="timeline__progress" value="0"></span>
 							</div>
-							<div class="control fullsize">
+							<div class="control fullsize" @click="makeFullScreen()">
 								<img src="~/assets/images/fullscreen.svg">
 							</div>
-							<div class="control volume">
+							<div class="control volume" ref="mute" @click="muteVideo()">
 								<img src="~/assets/images/sound.svg">
 							</div>
 						</div>
@@ -28,10 +28,10 @@
 					<div id="case-text-inner" class="textCenter play case-text-inner">
 						<div class="next-text">
 							<div id="next-text">
-								<p> &nbsp;—&nbsp;BBB Cycling</p>
+								<h2> &nbsp;—&nbsp;BBB Cycling</h2>
 							</div>
 						</div>
-						<div id="case-text" class="case-text"><p>Play</p></div>
+						<div id="case-text" class="case-text"><h2>Play</h2></div>
 					</div>
 				</div>
 			</div>
@@ -82,6 +82,27 @@ export default {
 		PausePlayVideo: function () {
 			let video = this.$refs.video;
 			return video.paused ? video.play() : video.pause();
+		},
+		makeFullScreen: function () {
+			let video = this.$refs.video;
+			if (video.requestFullscreen) {
+				video.requestFullscreen();
+			} else if (video.mozRequestFullScreen) {
+				video.mozRequestFullScreen(); // Firefox
+			} else if (video.webkitRequestFullscreen) {
+				video.webkitRequestFullscreen(); // Chrome and Safari
+			}
+		},
+		muteVideo: function () {
+			let video = this.$refs.video;
+			let muteBtn = this.$refs.mute;
+			if (video.muted == false) {
+				video.muted = true;
+				muteBtn.innerHTML = 'Unmute';
+			} else {
+				video.muted = false;
+				muteBtn.innerHTML = 'Mute';
+			}
 		}
 	},
 }

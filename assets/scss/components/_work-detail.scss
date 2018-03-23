@@ -63,7 +63,7 @@
 							z-index: 1;
 						}
 					}
-				}// https://codepen.io/StudioEP/pen/BZYLmp
+				}
 			}
 		}
 		.video-info {
@@ -76,7 +76,7 @@
 			transform: translate(-50%, -50%);
 			left: 50%;
 			top: 50%;
-			p{ 
+			h2{ 
 				font-size: 2rem; color: color(Light);
 				@media #{$mobile} {font-size: rem(20);}
 			}
@@ -93,7 +93,7 @@
 					float: right;
 					overflow-x:hidden;
 					transition: width 0.4s cubic-bezier(.42,0,.58,1) 0.4s;
-					p {direction: rtl;}
+					h2 {direction: rtl;}
 				}
 			}
 			.case-text {
