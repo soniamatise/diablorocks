@@ -1,11 +1,9 @@
 <template>
-
-
-	<article :class="'work__card column' + columnNr + ' ' + expand" :case="caseName" :style="custom">
+	<article :class="['work__card column', 'column'+ columnNr, this._data.cardClass]" :case="caseName" :style="[{hoi: this._data.customSmall == 'small'}]">
 		<!-- <nuxt-link :to="'/work/' + slug "> -->
-			<div :class="'work__card__image-container work__card__image-container--'+ size ">
-				<img class="work__card__image" :src="image">
-			</div>
+		<div :class="'work__card__image-container work__card__image-container--'+ size ">
+			<img class="work__card__image" :src="image">
+		</div>
 		<!-- </nuxt-link> -->
 		<p class="work__card__description"><span class="work__card__description--bold">{{ client }}</span> {{ description }}</p>
 	</article>
@@ -13,45 +11,103 @@
 
 <script>
 export default {
-	props: ['columnNr', 'caseName', 'size', 'image', 'client', 'description', 'slug', 'custom', 'expand'],
+	data() {
+		return {
+			cardClass: '',
+			deviceSize: '',
+			customSmall: '',
+			customMedium: '',
+			customLarge: '',
+			mobile: ''
+		}
+	},
+	props: ['columnNr', 'caseName', 'size', 'image', 'client', 'description', 'slug'],
 	methods: {
 		expandCard: function(item) {
-			console.log('click')
-			console.log(item)
+			this._data.cardClass = 'expandCard';
 		},
-    clickAnim: function () {
-    	console.log(this._self);
-			// if (deviceSize === 'large'){
-			// 	if (e.target.parentElement.classList.contains('work__card__image-container--small')) {
-			// 		e.target.parentElement.parentElement.style = `--height: ${getGrid(7)}vw; --width: ${getGrid(6)}vw; --margin: ${getGrid(9)}vw; --top: ${getGrid(2)}vw;`
-			// 	} else if (e.target.parentElement.classList.contains('work__card__image-container--medium')) {
-			// 		e.target.parentElement.parentElement.style = `--height: ${getGrid(8)}vw; --width: ${getGrid(6)}vw; --margin: ${getGrid(9)}vw; --top: ${getGrid(2)}vw;`
-			// 	} else {
-			// 		e.target.parentElement.parentElement.style = `--height: ${getGrid(9)}vw; --width: ${getGrid(6)}vw; --margin: ${getGrid(9)}vw; --top: ${getGrid(2)}vw;`
-			// 	}
-			// } else if (deviceSize === 'medium'){
-			// 	if (e.target.parentElement.classList.contains('work__card__image-container--small')) {
-			// 		e.target.parentElement.parentElement.style = `--height: ${getGrid(10)}vw; --width: ${getGrid(9.25)}vw; --margin: ${getGrid(7.375)}vw; --top: ${getGrid(4)}vw;`;
-			// 	} else if (e.target.parentElement.classList.contains('work__card__image-container--medium')) {
-			// 		e.target.parentElement.parentElement.style = `--height: ${getGrid(12)}vw; --width: ${getGrid(9.25)}vw; --margin: ${getGrid(7.375)}vw; --top: ${getGrid(4)}vw;`;
-			// 	} else {
-					// e.target.parentElement.parentElement.style = `--height: ${getGrid(14)}vw; --width: ${getGrid(9.25)}vw; --margin: ${getGrid(7.375)}vw; --top: ${getGrid(4)}vw;`;
-				// }
-			// } else {
-			// document.querySelectorAll('article[case=' + this.caseName +']') = `--height: ${getGrid(20)}vw; --width: ${getGrid(20)}vw; --margin: ${getGrid(2)}vw; --top: ${getGrid(3)}vw;`;
-			// }
-			// document.querySelectorAll('article[case=' + this.caseName +']').classList.add('expandCard');
-			// e.target.parentElement.classList.add('expandImage');
-			// document.querySelector('background').classList.add('expandBackground');
-			// image.parentElement.parentElement.classList.remove('card--hover');
-			function getGrid(value){
-				return (100 / 24) * value;
+		doHover: function (item){
+			if (this._data.cardClass !== 'expandCard') {
+				this._data.cardClass = 'card--hover';
 			}
-    },
-		onHover: function (){
-			// console.log(this);
 		},
-  }
+		dontHover: function(){
+			if (this._data.cardClass !== 'expandCard') {
+				this._data.cardClass = '';
+			}
+		}
+	},
+	mounted() {
+		let savedWidth = window.innerWidth;
+		let self = this;
+		let deviceSize;
+		let counter = 0;
+// TODO: replace images with dynamically loaded items from backend
+		let images = 9;
+		let columns;
+		let activeColumn;
+		let columnClass;
+
+		window.addEventListener('resize', function(){
+			checkColumns();
+		});
+
+		let checkColumns = function(){
+			console.log(savedWidth);
+			if (window.innerWidth < 750 && savedWidth != 750){
+				columns = images.length;
+				savedWidth = 750;
+				// assignColumns(columns);
+				addVariables();
+				deviceSize = 'small';
+				self._data.deviceSize = deviceSize;
+			} else if ((window.innerWidth < 960 && window.innerWidth > 750) && savedWidth != 960){
+				columns = Math.ceil(images.length / 2);
+				savedWidth = 960;
+				// assignColumns(columns);
+				addVariables();
+				deviceSize = 'medium';
+				self._data.deviceSize = deviceSize;
+			} else {
+				columns = images.length / 3;
+				savedWidth = 1440;
+				// assignColumns(columns);
+				addVariables();
+				deviceSize = 'large';
+				self._data.deviceSize = deviceSize;
+			}
+		}
+		function getGrid(value){
+			return (100 / 24) * value;
+		}
+
+		let addVariables = function(){
+			if (deviceSize === 'large'){
+				console.log('large');
+				if (self.$props.size === 'small') {
+					self._data.custom = `--height: ${getGrid(7)}vw; --width: ${getGrid(6)}vw; --margin: ${getGrid(9)}vw; --top: ${getGrid(2)}vw;`
+				} else if (self.$props.size == 'medium') {
+					self._data.custom = `--height: ${getGrid(8)}vw; --width: ${getGrid(6)}vw; --margin: ${getGrid(9)}vw; --top: ${getGrid(2)}vw;`
+				} else {
+					self._data.custom = `--height: ${getGrid(9)}vw; --width: ${getGrid(6)}vw; --margin: ${getGrid(9)}vw; --top: ${getGrid(2)}vw;`
+				}
+			} else if (deviceSize === 'medium'){
+				console.log('medium');
+				if (self.$props.size == 'small') {
+					self._data.custom = `--height: ${getGrid(10)}vw; --width: ${getGrid(9.25)}vw; --margin: ${getGrid(7.375)}vw; --top: ${getGrid(4)}vw;`;
+				} else if (self.$props.size == 'medium') {
+					self._data.custom = `--height: ${getGrid(12)}vw; --width: ${getGrid(9.25)}vw; --margin: ${getGrid(7.375)}vw; --top: ${getGrid(4)}vw;`;
+				} else {
+					self._data.custom = `--height: ${getGrid(14)}vw; --width: ${getGrid(9.25)}vw; --margin: ${getGrid(7.375)}vw; --top: ${getGrid(4)}vw;`;
+				}
+			} else {
+				console.log('small');
+				self._data.custom = `--height: ${getGrid(20)}vw; --width: ${getGrid(20)}vw; --margin: ${getGrid(2)}vw; --top: ${getGrid(3)}vw;`;
+			}
+		}
+
+		checkColumns();
+	}
 }
 
 
