@@ -62,11 +62,12 @@ export default {
 				deviceSize = 'small';
 				targetSize = 'small';
 				self._data.deviceSize = deviceSize;
+				self._data.targetSize = targetSize;
 				// addVariables();
 			} else if ((window.innerWidth < 960 && window.innerWidth > 750) && savedWidth != 960){
 				columns = Math.ceil(images.length / 2);
 				savedWidth = 960;
-				deviceSize = medium;
+				deviceSize = 'medium';
 				// assignColumns(columns);
 				if (self.$props.size === 'small') {
 					targetSize = 'medium-small';
@@ -98,14 +99,17 @@ export default {
 	},
 	watch: {
 		target: function (){
+			console.log('changed');
 			function getGrid(value){
 				return (100 / 24) * value;
 			}
 			let custom;
 			let self = this;
 			let targetSize = self.targetSize;
+			console.log(targetSize);
 
 			let addVariables = function (){
+				console.log(targetSize);
 				if (targetSize === 'small'){
 					custom = `--height: ${getGrid(20)}vw; --width: ${getGrid(20)}vw; --margin: ${getGrid(2)}vw;`;
 				} else if (targetSize === 'medium-small') {
