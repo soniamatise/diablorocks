@@ -194,7 +194,7 @@ $time: 0.6;
 			& {
 				width: rem(24);
 				margin: 0;
-
+				animation: spanWidth #{$time}s 0s forwards;
 			}
 
 			&:before {
@@ -211,36 +211,45 @@ $time: 0.6;
 		}
 	}
 }
+@keyframes spanWidth {
+	50% {
+		width: rem(16);
+	}
+
+	100% {
+		width: rem(24);
+	}
+}
 @keyframes goUpBefore {
 	0% {
 		transform: rotate(-45deg) translate(0, 5px);
-		width: 1rem;
+		width: rem(16);
 	}
 
 	50% {
 		transform: rotate(0deg) translate(0, 5px);
-		width: 1.5rem;
+		width: rem(16);
 	}
 
 	100% {
 		transform: rotate(0deg) translate(0, 0);
-		width: 1.5rem;
+		width: rem(24);
 	}
 }
 @keyframes goDownAfter {
 	0% {
-		transform: rotate(45deg) translate(0, -5px) ;
-		width: 1rem;
+		transform: rotate(45deg) translate(0, -5px);
+		width: rem(16);
 	}
 
 	50% {
 		transform: rotate(0deg) translate(0, -5px);
-		width: 1.5rem;
+		width: rem(16);
 	}
 
 	100% {
 		transform: rotate(0deg) translate(0, 0);
-		width: 1.5rem;
+		width: rem(24);
 	}
 }
 
@@ -265,7 +274,7 @@ input#menu-trigger {
 				span {
 					& {
 						background-color: color(Black);
-						animation: rotateSpan #{$time}s #{$time}s forwards;
+						animation: rotateSpan 0.6s forwards;
 					}
 
 					&:before {
@@ -300,62 +309,60 @@ input#menu-trigger {
 }
 @keyframes goLeft {
 	0% {
-		transform: rotate(0deg) translateX(0) scale(1);
-		width: 1.5rem;
+		transform: rotate(0deg) translateX(0);
+		width: rem(24);
 	}
 
 	50% {
-		transform: rotate(0deg) translateX(-5rem) scale(1);
-		width: 1.5rem;
-	}
-
-	51% {
-		top: 0;
-		transform: rotate(0deg) translateX(0) scale(1);
-		width: 1rem;
-	}
-
-	100% {
-		top: 0;
-		transform: rotate(45deg) translateX(0) scale(1);
-		width: 1rem;
-	}
-}
-@keyframes goRight {
-	0% {
-		transform: rotate(0deg) translateX(0) scale(1);
-		width: 1.5rem;
-	}
-
-	50% {
-		transform: rotate(0deg) translateX(5rem) scale(1);
-		width: 1.5rem;
+		transform: rotate(0deg) translateX(-5rem);
+		width: rem(24);
 	}
 
 	51% {
 		top: 0;
 		transform: rotate(0deg) translateX(0);
-		width: 1rem;
+		width: rem(16);
 	}
 
 	100% {
 		top: 0;
-		transform: rotate(-45deg) translateX(0) ;
-		width: 1rem;
+		transform: rotate(45deg) translateX(0);
+		width: rem(16);
 	}
 }
-
-// close icon
-@keyframes rotateSpan {
-	10%,
-	33% {
-		background-color: black;
-			width: 1rem;
+@keyframes goRight {
+	0% {
+		transform: rotate(0deg) translateX(0);
+		width: rem(24);
 	}
 
-	100%,
-	33% {
+	50% {
+		transform: rotate(0deg) translateX(5rem);
+		width: rem(24);
+	}
+
+	51% {
+		top: 0;
+		transform: rotate(0deg) translateX(0);
+		width: rem(16);
+	}
+
+	100% {
+		top: 0;
+		transform: rotate(-45deg) translateX(0);
+		width: rem(16);
+	}
+}
+// rotate span
+@keyframes rotateSpan {
+
+	0% {
+		background-color: color(Dark);
+		width: rem(16);
+	}
+
+	100%{
 		background-color: color(Light);
-		width: 1rem;
+		width: rem(16);
 	}
 }
