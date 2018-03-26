@@ -1,4 +1,6 @@
 #home-slider {
+	background-color: color(Black);
+	transition: background-color 1s cubic-bezier(0.42, 0, 0.58, 1);
 	.swiper-container {
 		overflow: visible;
 
@@ -47,15 +49,20 @@
 					display: flex;
 					align-items: center;
 					justify-content: center;
+					transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s;
 
 					img {
 						display: table-row; 
 						width: grid(16) !important;
 						margin: 0 auto;
+						// transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s;
 					}
 
 					&:hover {
 						transform: rotate(-15deg);
+						img {
+							// transform: rotate(15deg) !important;
+						}
 					}
 				}
 			}

@@ -1,10 +1,11 @@
 <template>
-<div id="home-slider" class="row center">
+<div id="home-slider" ref="homeSlider" class="row center">
 	<div class="column large-full medium-full small-full">
 		<div v-swiper:mySwiper="swiperOption">
 			<div class="swiper-wrapper">
 				<slot></slot>
 			</div>
+			<div class="swiper-pagination"></div>
 		</div>
 	</div>
 </div>
@@ -26,15 +27,17 @@ export default {
 				centeredSlides: true,
 				spaceBetween: 420,
 				parallax: true,
+				pagination: {
+					el: '.swiper-pagination',
+    				type: 'bullets',
+				}
 			}
 		}
 	},
 	mounted() {
 	},
 	methods: {
-		typeWriter: function(){
-
-		}
+		
 	}
 }
 </script>
