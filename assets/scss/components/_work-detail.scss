@@ -36,11 +36,21 @@
 				.control {
 					cursor: pointer;
 
+					&.pause {
+						width: grid(2);
+						height: grid(3/2);
+						background-repeat: no-repeat;
+						background-position: left center;
+						background-image: url("~/assets/images/pause.svg");
+						&.paused {
+							background-image: url("~/assets/images/play.svg");
+						}
+					}
+
 					&.timeline {
 						max-width: grid(12);
 						width: 100%;
 						height: rem(2);
-						// background-color: color(Light, 0.25);
 						position: relative;
 
 						progress {
@@ -68,17 +78,24 @@
 					}
 					&.volume {
 						position: relative;
-						img {
-							position: absolute;
-						}
+						width: grid(1);
+						height: grid(3/2);
+						background-repeat: no-repeat;
+						background-position: 1rem center;
 						&.on {
-							.sound {display:block;}
-							.mute { display:none;}
+							background-image: url("~/assets/images/sound.svg");
 						}
 						&.off {
-							.sound {display:none;}
-							.mute { display:block;}
+							background-image: url("~/assets/images/mute.svg");
 						}
+					}
+
+					&.fullsize {
+						width: grid(1);
+						height: grid(3/2);
+						background-repeat: no-repeat;
+						background-position: right center;
+						background-image: url("~/assets/images/fullscreen.svg");
 					}
 				}
 			}

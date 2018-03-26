@@ -23,33 +23,4 @@ export default {
 		VideoPlayer
 	}
 }
-
-// document.addEventListener('DOMContentLoaded',  () => {
-
-// 	const caseTextInner = document.getElementById('case-text-inner');
-// 	const playBtn = document.getElementById('next-text');
-// 	const caseText = document.getElementById('case-text');
-
-// 	function toggleWidth() {
-// 		const currentWidthInner = caseTextInner.offsetWidth;
-// 		const currentWidthNext = playBtn.offsetWidth;
-// 		const currentWidthCase = caseText.offsetWidth;
-// 		const currentWidthNextParent = playBtn.parentElement;
-
-// 		caseTextInner.style.width = 'calc(2px + ' + currentWidthInner + 'px)';
-// 		playBtn.style.width = currentWidthNext + 'px';
-// 		caseText.style.width = 'calc(1px + ' + currentWidthCase + 'px)';
-// 		currentWidthNextParent.style.width = currentWidthNext + 'px';
-// 	}
-// 	toggleWidth();
-	
-// 	const videos = document.getElementsByClassName('video');
-// 	for(let i = 0; i < videos.length; i++)
-// 	{
-// 		const play = document.getElementById('case-text-inner');
-// 		play.addEventListener('click', () => {
-// 			videos[i].play();
-// 		})
-// 	}
-// });
 </script>

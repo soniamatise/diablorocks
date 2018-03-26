@@ -8,18 +8,14 @@
 				<div class="control-pannel hide" ref="controls">
 					<div class="row center">
 						<div class="column column-16 controls">
-							<div class="control pause" ref="playPause" @click="PausePlayVideo()">
-								<img src="~/assets/images/pause.svg">
+							<div class="control pause" :class="{'paused': paused}" ref="playPause" v-on:click="PausePlayVideo()" @click="paused = !paused">
 							</div>
 							<div class="control timeline">
 								<progress id='progress-bar' class="timeline-bar" ref="timeline" min='0' max='100' value='0'>0% played</progress>
 							</div>
 							<div class="control fullsize" @click="makeFullScreen()">
-								<img src="~/assets/images/fullscreen.svg">
 							</div>
 							<div class="control volume on" ref="mute" @click="muteVideo()">
-								<img class="sound" src="~/assets/images/sound.svg">
-								<img class="mute" src="~/assets/images/mute.svg">
 							</div>
 						</div>
 					</div>
@@ -42,6 +38,11 @@
 <script>
 export default {
 	props: ['caseName', 'video', 'image'],
+	data: function() {
+		return {
+			paused: false
+		}
+	},
 	mounted: () => {
 	    const caseTextInner = document.getElementById('case-text-inner');
 		const nextText = document.getElementById('next-text');
@@ -102,7 +103,6 @@ export default {
 				muteBtn.classList.remove('on');
 			} else {
 				video.muted = false;
-				muteBtn.innerHTML = '<img src="~/assets/images/mute.svg">';
 				muteBtn.classList.remove('off');
 				muteBtn.classList.add('on');
 			}
