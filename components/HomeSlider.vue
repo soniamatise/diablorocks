@@ -1,5 +1,13 @@
 <template>
-	<div><slot><h1>Hello world I am a HomeSLider</h1></slot></div>
+<div id="home-slider" class="row center">
+	<div class="column large-full medium-full small-full">
+		<div v-swiper:mySwiper="swiperOption">
+			<div class="swiper-wrapper">
+				<slot></slot>
+			</div>
+		</div>
+	</div>
+</div>
 </template>
 
 <script>
@@ -10,6 +18,17 @@ export default {
 		HomeSliderItem,
 	},
 	props: [''],
+	data() {
+		return {
+			swiperOption: {
+				slidesPerView: 'auto',
+				touchRatio: 1,
+				centeredSlides: true,
+				spaceBetween: 420,
+				parallax: true,
+			}
+		}
+	},
 	mounted() {
 	},
 	methods: {
