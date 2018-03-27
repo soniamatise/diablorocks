@@ -153,14 +153,18 @@ export default {
 			this.displayContent = true;
 		},
 		expand: function(item){
-			this.$refs[item].expandCard(this.$refs[item].size);
-			this._data.background = `bg-${item} expandBackground`;
-			this._data.click = true
+			if (this.displayContent = true){
+				this.$refs[item].expandCard(this.$refs[item]);
+				this._data.background = `bg-${item} expandBackground`;
+				this._data.click = true;
+			}
 		},
 		onHover: function(item){
-			this.$refs[item].doHover(item);
-			if (this._data.click == false) {
-				this._data.background = `bg-${item} background--forward` ;
+			if (this.displayContent = true){
+				this.$refs[item].doHover(item);
+				if (this._data.click == false) {
+					this._data.background = `bg-${item} background--forward`;
+				}
 			}
 		},
 		notHover: function(item){

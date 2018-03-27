@@ -1,10 +1,15 @@
+@root{
+	--height: 0;
+	--margin: 0;
+	--width: 0;
+	--height: 0;
+}
 $standardCubicBezier: cubic-bezier(0.42, 0.58, 0, 1);
 $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 .work__grid{
 	column-count: 3;
 	column-gap: grid(1);
 	padding: grid(2);
-	// position: relative;
 	@media #{$medium-down}{
 		column-count: 2;
 	}
@@ -33,25 +38,17 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 	}
 
 	&__image{
-		width: grid(24 * 0.675);
-		height: grid((24 * 0.675) * 0.5625);
-		&:before{
-			content: '';
-		}
-		@media #{$medium-down}{
-			height: 80vh;
-			width: calc(80vh * 1.5625);
-		}
-		@media #{$mobile}{
-			height: 50vh;
-			width: calc(50vh * 1.5625);
-		}
-
 		&-container{
 			width: grid(6);
 			display: flex;
 			justify-content: center;
 			overflow: hidden;
+			@media #{$medium-down}{
+				background-size: 80vh !important;
+			}
+			@media #{$mobile}{
+				background-size: 85vh !important;
+			}
 			@media #{$medium-down}{
 				width: grid(9.25);
 			}
@@ -99,19 +96,16 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 	}
 }
 
-.background-canvas { position: fixed; top: 0; left: 0; bottom: 0; right: 0; z-index: -1; transition: 1s $standardCubicBezier; opacity: 0; background: white; pointer-events: none;}
+.background-canvas { position: fixed; top: 0; left: 0; bottom: 0; right: 0; z-index: 1; transition: 1s $standardCubicBezier; opacity: 0; background: white; pointer-events: none;}
 .card--hover{ z-index: 2; position: relative; transition: 1s $standardCubicBezier;
 	p{
 		color: white; transition: .5s $standardCubicBezier;
 	}
 }
-.background--forward{ z-index: 1; opacity: 0.9; transition: 1s $standardCubicBezier;}
+.background--forward{ z-index: 1; opacity: 0.9; transition: opacity 1s $standardCubicBezier;}
 
 .expandCard {
 	--top: calc((100vh - var(--height)) / 2);
-	padding-top: var(--top) !important;
-	// transition: padding-top .2s $standardCubicBezier .1s;
-	background-size: var(--top);
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -122,6 +116,7 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 	width: grid(24);
 	height: 100vh;
 	margin-bottom: 0;
+	animation: slideToCenter 2.5s $standardCubicBezier forwards;
 }
 
 .expandCard .work__card__image-container{
@@ -136,93 +131,38 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 	--y: calc(var(--height) + var(--top));
 	--xleft: var(--margin);
 	--xright: calc(var(--margin) + var(--width));
-	animation: expand 2s .5s $specialCubicBezier forwards;
-	img{
-		width: 100vw;
-		height: grid(24 * 0.5625);
-		transition: 2s $specialCubicBezier .4s;
-		@media #{$medium-down}{
-			height: 100vh;
-			width: calc(100vh * 1.5625);
-		}
+	transition: background-size 2s .4s $specialCubicBezier;
+	background-size: 100vw !important;
+	@media #{$medium-down}{
+		background-size: 175vh !important;
 	}
+	animation: expand 2s .4s $specialCubicBezier forwards;
 	&+p{ opacity: 0;  transition: opacity .4s $standardCubicBezier; padding: 0; }
 	}
 
-.column1.expandCard{
-	animation: leftToCenter 2.5s  $standardCubicBezier forwards;
-	@media #{$medium-down} {
-		animation: slideToCenter 2.5s  $standardCubicBezier forwards;
-	}
-}
-.column2.expandCard{
-	animation: slideToCenter 2.5s  $standardCubicBezier forwards;
-	@media #{$medium-down} {
-		animation: slideToCenter 2.5s  $standardCubicBezier forwards;
-	}
-}
-.column3.expandCard{
-	animation: rightToCenter 2.5s  $standardCubicBezier forwards;
-	@media #{$medium-down} {
-		animation: slideToCenter 2.5s  $standardCubicBezier forwards;
-	}
-}
-
-.expandBackground{ opacity: 1; transition: .4s $standardCubicBezier; z-index: 1; pointer-events: auto;}
-
-
-
-@keyframes leftToCenter {
-	0%{
-		padding-left: grid(2);
-		padding-right: grid(16);
-	}
-	20%{
-		padding-left: grid(9);
-		padding-right: grid(9);
-	}
-	100%{
-		width: grid(24);
-	}
-}
+.expandBackground{ opacity: 1; z-index: 1; pointer-events: auto;}
 
 @keyframes slideToCenter {
 	0%{
-		padding-left: var(--margin);
-		padding-right: var(--margin);
+		padding-top: var(--offsetY);
+		padding-left: var(--offsetLeft);
+		padding-right: var(--offsetRight);
 	}
-	19%{
-		margin-top: 0;
+	10%{
+		padding-top: var(--top);
+		padding-left: var(--offsetLeft);
+		padding-right: var(--offsetRight);
 	}
-	20%{
+	16%{
 		padding-left: var(--margin);
 		padding-right: var(--margin);
 	}
 	100%{
 		width: grid(24);
+		padding-top: var(--top)
 	}
 }
 
-@keyframes rightToCenter {
-	0%{
-		padding-left: grid(16);
-		padding-right: grid(2);
-	}
-	20%{
-		padding-left: grid(9);
-		padding-right: grid(9);
-	}
-	100%{
-		width: grid(24);
-	}
-}
-
-@root{
-	--height: 0;
-	--margin: 0;
-	--width: 0;
-	--height: 0;
-}
 
 @keyframes expand {
 	0%{
