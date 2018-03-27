@@ -1,25 +1,25 @@
-@import 'font-embed', 'font-size', 'font-rules', 'font-elements';
-
-// font colors
-.dark{ color: color(Dark); }
-.light{ color: color(Light); }
-.gray{ color: color(Gray); }
-.opacity{ opacity: 0.5; }
-.medium{ font-weight: $font-medium; }
-
-//span = medium font-weight
-span, .font-medium{ font-weight: $font-medium; }
-
-ol, ul{ margin: 0; padding: 0; display: inline-block;
-  li{ font-family: $body-font; font-size: rem(16); line-height: rem(28); color: color(Dark);
-    //breakpoint 640px
-    // @media only screen and (max-width : 640px){ font-size: rem(14); line-height: rem(24); }
-  }
-}
-
-// make certain fonts larger on large screens
-.large-font{
-	@media #{$large-up}{
-		font-size: rem(18);
-	}
-}
+// @import 'font-embed', 'font-size', 'font-rules', 'font-elements';
+//
+// // font colors
+// .dark{ color: color(Dark); }
+// .light{ color: color(Light); }
+// .gray{ color: color(Gray); }
+// .opacity{ opacity: 0.5; }
+// .medium{ font-weight: $font-medium; }
+//
+// //span = medium font-weight
+// span, .font-medium{ font-weight: $font-medium; }
+//
+// ol, ul{ margin: 0; padding: 0; display: inline-block;
+//   li{ font-family: $body-font; font-size: rem(16); line-height: rem(28); color: color(Dark);
+//     //breakpoint 640px
+//     // @media only screen and (max-width : 640px){ font-size: rem(14); line-height: rem(24); }
+//   }
+// }
+//
+// // make certain fonts larger on large screens
+// .large-font{
+// 	@media #{$large-up}{
+// 		font-size: rem(18);
+// 	}
+// }
