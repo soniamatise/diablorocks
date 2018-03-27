@@ -2,40 +2,53 @@
 	<main-layout>
 		<home-slider>
 			<home-slider-item 
-				caseName="Ik ben case 1"
-				caseDescription="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
-				caseImage="http://animals.sandiegozoo.org/sites/default/files/2016-11/animals_hero_giraffe_1_0.jpg"
-				caseColor="#400c0e"
+				caseName="Kalkhoff Bikes"
+				caseDescription="When your bikes are eye-catchers, your website should be too."
+				caseImage="/_nuxt/img/Hero_Kalkhoff.2c75bd4.jpg"
+				caseColor="#787069"
+				caseImageHeight="full-height"
 			/>
 			<home-slider-item 
-				caseName="Ik ben case 1"
-				caseDescription="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
-				caseImage="https://thumbs-prod.si-cdn.com/HJRZtXkna1wrB0il2dNQG3-4mgI=/800x600/filters:no_upscale()/https://public-media.smithsonianmag.com/filer/32/f2/32f24473-b380-43f5-94df-da0e58644439/16301090250_acf80be87f_o.jpg"
+				caseName="Sony Music Netherlands"
+				caseDescription="A new digital home for Nielson, an artist that reinvented himself."
+				caseImage="/_nuxt/img/Hero_Nielsonair.78675a9.jpg"
 				caseColor="#400c0e"
+				caseImageHeight="small-height"
 			/>
 			<home-slider-item 
-				caseName="Ik ben case 1"
-				caseDescription="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
-				caseImage="http://animals.sandiegozoo.org/sites/default/files/2016-11/animals_hero_giraffe_1_0.jpg"
-				caseColor="#400c0e"
+				caseName="BBB Cycling"
+				caseDescription="This is what happens when commerce and emotion collide and come together."
+				caseImage="/_nuxt/img/Hero_BBB.b4179a9.jpg"
+				caseColor="#524d40"
+				caseImageHeight="medium-height"
 			/>
 			<home-slider-item 
-				caseName="Ik ben case 1"
+				caseName="Aangenaam Bergen op Zoom"
 				caseDescription="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
-				caseImage="http://animals.sandiegozoo.org/sites/default/files/2016-11/animals_hero_giraffe_1_0.jpg"
-				caseColor="#400c0e"
+				caseImage="/_nuxt/img/Hero_BoZ.17ef676.jpg"
+				caseColor="#81919a"
+				caseImageHeight="medium-height"
 			/>
 			<home-slider-item 
-				caseName="Ik ben case 1"
+				caseName="Sony Music Netherlands & DVLM"
 				caseDescription="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
-				caseImage="http://animals.sandiegozoo.org/sites/default/files/2016-11/animals_hero_giraffe_1_0.jpg"
-				caseColor="#400c0e"
+				caseImage="/_nuxt/img/Hero_TicketChaser.c5d1344.jpg"
+				caseColor="#747577"
+				caseImageHeight="small-height"
 			/>
 			<home-slider-item 
-				caseName="Ik ben case 1"
+				caseName="Viacom Out of Office"
 				caseDescription="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
-				caseImage="http://animals.sandiegozoo.org/sites/default/files/2016-11/animals_hero_giraffe_1_0.jpg"
-				caseColor="#400c0e"
+				caseImage="/_nuxt/img/Hero_Viacom.daa8599.jpg"
+				caseColor="#9fc1c1"
+				caseImageHeight="full-height"
+			/>
+			<home-slider-item 
+				caseName="Expeditie Wadden"
+				caseDescription="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
+				caseImage="/_nuxt/img/Hero_ExpeditieWadden.45d8d0a.jpg"
+				caseColor="#a8a59c"
+				caseImageHeight="small-height"
 			/>
 		</home-slider>
 	</main-layout>
