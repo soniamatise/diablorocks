@@ -108,7 +108,6 @@ export default {
 			let scrollOffsetY = document.querySelector(`.${self.case}`).getBoundingClientRect().top;
 			let offsetLeft = document.querySelector(`.${self.case}`).getBoundingClientRect().left;
 			let offsetRight = document.querySelector(`.${self.case}`).getBoundingClientRect().right;
-			console.log(scrollOffsetY);
 			let addVariables = function (){
 				if (targetSize === 'small'){
 					custom = `--height: ${getGrid(20)}vw; --width: ${getGrid(20)}vw; --margin: ${getGrid(2)}vw; --offsetY: ${scrollOffsetY}px; --offsetLeft: ${offsetLeft}px; --offsetRight: ${offsetRight}px;`;

@@ -21,6 +21,8 @@ $transition-time: 0.2; //
 $transition: #{$transition-time}s; //
 $cubic-bezier: cubic-bezier(0.75, 0.75, 0.25, 0.5); //
 $bezier: $cubic-bezier;
+$standardCubicBezier: cubic-bezier(0.42, 0.58, 0, 1);
+$specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 
 /*  Grid Specific values */
 $grid-row-width: 2048px; //
