@@ -4,6 +4,19 @@
 	&>.column{
 		margin: 0 auto;
 	}
+	&__title h2{
+		font-weight: $font-medium;
+	}
+	nav {
+		ul li{
+			&+ li a{
+				@media #{$mobile}{
+					margin-right: rem(32);
+				}
+			}
+		}
+	}
+
 	@media #{$medium-down}{
 		padding: grid(5 0 2);
 	}

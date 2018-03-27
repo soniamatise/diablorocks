@@ -81,7 +81,7 @@
 			<!-- end row -->
 		</div>
 		<div class="row column large-12 medium-16 small-full link">
-			<p class="gray"><span>*</span>Learn how Matise guaranteed top-notch front-end development, without actually developing. <a class="button plainText gray" href="/sil-article" target="_blank">Read Sil van Diepen’s article</a></p>
+			<p class="text-gray"><span>*</span>Learn how Matise guaranteed top-notch front-end development, without actually developing. <a class="button plainText text-gray" href="/sil-article" target="_blank">Read Sil van Diepen’s article</a></p>
 		</div>
 	</div>
 </section>
