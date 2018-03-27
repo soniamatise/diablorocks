@@ -32,12 +32,20 @@
 
 				&.nuxt-link-active {
 					position: relative;
-
+					// active link
 					&:before {
 						position: absolute;
 						left: 0;
 						right: auto;
 						width: 100%;
+					}
+					// active link hover
+					&:hover {
+						&:before {
+							right: 0;
+							left: auto;
+							width: 0%;
+						}
 					}
 				}
 			}
