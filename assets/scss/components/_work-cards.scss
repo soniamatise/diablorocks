@@ -110,6 +110,7 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 .expandCard {
 	--top: calc((100vh - var(--height)) / 2);
 	padding-top: var(--top) !important;
+	// transition: padding-top .2s $standardCubicBezier .1s;
 	background-size: var(--top);
 	position: fixed;
 	top: 0;
@@ -162,7 +163,7 @@ $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 }
 .column3.expandCard{
 	animation: rightToCenter 2.5s  $standardCubicBezier forwards;
-	@media #{$medium-down} {w
+	@media #{$medium-down} {
 		animation: slideToCenter 2.5s  $standardCubicBezier forwards;
 	}
 }

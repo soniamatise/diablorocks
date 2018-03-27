@@ -8,7 +8,7 @@
 			</div>
 		</div>
 <div :class="[this._data.background ,'background-canvas']"></div>
-		<section class="work__grid">
+		<section class="work__grid content" v-bind:class="{show: displayContent}">
 
 			<WorkCard
 			ref="kalkhoff"
