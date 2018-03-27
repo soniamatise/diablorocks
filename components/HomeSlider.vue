@@ -20,6 +20,11 @@
 import HomeSliderItem from '~/components/HomeSliderItem.vue'
 
 export default {
+	head: {
+		bodyAttrs: {
+			class: 'scroll-disable'
+		}
+	},
 	components: {
 		HomeSliderItem,
 	},
@@ -28,6 +33,7 @@ export default {
 		return {
 			swiperOption: {
 				slidesPerView: 'auto',
+				// direction: 'horizontal',
 				touchRatio: 1,
 				centeredSlides: true,
 				spaceBetween: 420,
@@ -39,7 +45,27 @@ export default {
 				},
 				mousewheel: {
 					invert: true,
+					sensitivity: 10,
 				},
+				breakpoints: {
+					750: {
+						slidesPerView: 'auto',
+						direction: 'vertical',
+						touchRatio: 1,
+						centeredSlides: true,
+						// spaceBetween: 420,
+						parallax: true,
+						scrollbar: {
+							el: '.swiper-scrollbar',
+							draggable: true,
+							dragSize: '70',
+						},
+						mousewheel: {
+							invert: true,
+							sensitivity: 10,
+						},
+					},
+				}
 			}
 		}
 	},

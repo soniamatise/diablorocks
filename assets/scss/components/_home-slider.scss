@@ -3,7 +3,6 @@
 	transition: background-color 1s cubic-bezier(0.42, 0, 0.58, 1);
 	.swiper-container {
 		overflow: hidden;
-
 		.home-bg-parallax {
 			height: 100vh;
 			width: 100vw;
@@ -20,7 +19,6 @@
 				}
 			}
 		}
-
 		.swiper-wrapper {
 			display: flex;
 			justify-content: space-between;
@@ -28,31 +26,40 @@
 			width: grid(24);
 
 			.swiper-slide {
-				width: grid(10)!important;
+				width: grid(10);
 				display: flex;
 				align-items: center;
 				justify-content: center;
-
+				@media #{$small-only} {
+					width: 100%;
+				}
 				.content {
 					position: absolute;
 					transform-origin: 0 0;
 					top: 50%;
 					width: 100%;
 					padding: 0 grid(2);
+					transform: rotate(90deg) translate(-50%, -100%);
 					&.name {
-						right: 0%;
-						transform: rotate(90deg) translate(-50%, -100%);
+					    left: 4%;
 					}
-
 					&.description{
 					    left: 93%;
-						transform: rotate(90deg) translate(-50%, -100%);
 					}
-
+					@media #{$small-only} {
+						transform: rotate(0deg) translate(0%, 0%);
+						top: 80%;
+						&.name {
+						    left: 0%;
+						}
+						&.description{
+							display: none;
+						    left: 0%;
+						}
+					}
 					p{ color: color(Light); }
 
 				}
-
 				.contentHolder {
 					width: grid(8)!important;
 					overflow: hidden;
@@ -73,6 +80,12 @@
 					&.small-height {
 						height: 45vh;
 					}
+					@media #{$small-only} {
+						width: 100% !important;
+						&.full-height, &.medium-height, &.small-height {
+							height: 50vh;
+						}
+					}
 					.rotator {
 						img {
 							display: table-row; 
@@ -80,7 +93,6 @@
 							transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s;
 						}
 					}
-
 					&:hover {
 						transform: rotate(-15deg);
 						box-shadow: none;
@@ -121,12 +133,9 @@
 				border-radius: 0;
 				background-color: color(Light);
 			}
-		}
-	}
-
-	p {
-		@media #{$small-only} {
-			margin-top: rem(32);
+			@media #{$small-only} {
+				display: none;
+			}
 		}
 	}
 }
