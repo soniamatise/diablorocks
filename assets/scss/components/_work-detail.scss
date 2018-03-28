@@ -1,5 +1,4 @@
 .work-detail {
-<<<<<<< HEAD
 	.next-case {
 		height: 100vh;
 		display: flex;
@@ -127,8 +126,7 @@
 			}
 		}
 	}
-}
-=======
+// }
 	.intro {
 		padding-top: grid(5);
 		@media only screen and (max-width: 1024px) and (min-width: 768px){
@@ -163,9 +161,8 @@
 				height: rem(600);
 			}
 			background-size: cover;
-			background-position: bottom center; 
+			background-position: bottom center;
 			background-repeat: no-repeat;
 		}
 	}
 }
->>>>>>> develop

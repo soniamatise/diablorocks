@@ -1,17 +1,15 @@
 <template>
 	<main-layout class="work-detail">
-<<<<<<< HEAD
-		<NextCase 
-			caseName="BBB Cycling" 
-			image="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
-=======
-		<case-heading 
+		<case-heading
 			caseName="BBB Cycling"
 			caseQuote="This is what happens when commerce and emotion collide and come together."
 			caseImage="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
->>>>>>> develop
-			caseColor="#524d40"
-		/>
+			caseColor="#524d40">
+		</case-heading>
+		<NextCase
+			caseName="BBB Cycling"
+			image="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg">
+		</NextCase>
 	</main-layout>
 </template>
 
@@ -28,11 +26,8 @@ export default {
 		TwoColumn,
 		PayoffCredits,
 		MainLayout,
-<<<<<<< HEAD
-		NextCase
-=======
+		NextCase,
 		CaseHeading
->>>>>>> develop
 	}
 }
 </script>
