@@ -48,6 +48,24 @@ export default {
 					sensitivity: 10,
 				},
 				breakpoints: {
+
+					2000: {
+						slidesPerView: 'auto',
+						direction: 'horizontal',
+						touchRatio: 1,
+						centeredSlides: true,
+						spaceBetween: 420,
+						parallax: true,
+						scrollbar: {
+							el: '.swiper-scrollbar',
+							draggable: true,
+							dragSize: '70',
+						},
+						mousewheel: {
+							invert: true,
+							sensitivity: 10,
+						},
+					},
 					750: {
 						slidesPerView: 'auto',
 						direction: 'vertical',

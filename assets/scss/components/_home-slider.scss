@@ -15,7 +15,7 @@
 				@media #{$small-only} {
 			        padding-left: 0;
 				    position: absolute;
-				    top: 208vh; //TODO: dit kloppend maken
+				    top: 100vh; //TODO: dit kloppend maken
 				    left: 50%;
 				    transform-origin: left bottom;
 				    transform: rotate(90deg) translate(-50%);
@@ -42,7 +42,7 @@
 				align-items: center;
 				justify-content: center;
 				z-index: 1;
-				@media only screen and (max-width: 1200px) and (min-width: 750px)  {
+				@media #{$medium-only} {
 					width: grid(12);
 					flex-direction: column;
 				}
@@ -63,7 +63,7 @@
 					&.description{  left: 93%; }
 					p{ color: color(Light); }
 
-					@media only screen and (max-width: 1200px) and (min-width: 750px)  {
+					@media #{$medium-only} {
 					    position: static;
 						padding: 0 0 0 0;
 						transform: rotate(0deg) translate(0%, 0%);
@@ -92,7 +92,7 @@
 					&.full-height { height: 80vh; }
 					&.medium-height { height: 60vh; }
 					&.small-height { height: 45vh; }
-					@media only screen and (max-width: 1200px) and (min-width: 750px)  {
+					@media #{$medium-only} {
 						margin: 0 0 rem(32) 0;
 						width: grid(12)!important;
 						&.full-height { height: 60vh; }
