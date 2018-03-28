@@ -6,10 +6,15 @@
 'layout/index',
 'components/index';
 
-body {
-
+section.intro {
+	padding-top: grid(5);
+	@media only screen and (max-width: 1024px) and (min-width: 768px){
+		padding-top: grid(7);
+	}
+	@media #{$mobile}{
+		padding: 0;
+	}
 }
-
 
 .link{
 	&--external{
