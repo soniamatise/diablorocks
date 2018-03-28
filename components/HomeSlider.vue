@@ -33,7 +33,7 @@ export default {
 		return {
 			swiperOption: {
 				slidesPerView: 'auto',
-				// direction: 'horizontal',
+				direction: 'horizontal',
 				touchRatio: 1,
 				centeredSlides: true,
 				spaceBetween: 420,
@@ -53,7 +53,7 @@ export default {
 						direction: 'vertical',
 						touchRatio: 1,
 						centeredSlides: true,
-						// spaceBetween: 420,
+						spaceBetween: 90,
 						parallax: true,
 						scrollbar: {
 							el: '.swiper-scrollbar',

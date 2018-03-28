@@ -1,15 +1,16 @@
 <template>
 	<div class="swiper-slide">
+		<div class="contentHolder" v-bind:class="caseImageHeight" @mouseover="bgOfCase()" @mouseleave="bgToNormal()">
+			<div class="rotator" data-swiper-parallax="750">
+				<img v-bind:src="caseImage">
+			</div>
+		</div>
+
 		<div class="content name">
 			<p><b>{{ caseName }}</b></p>
 		</div>
 		<div class="content description">
 			<p>{{ caseDescription }}</p>
-		</div>
-		<div class="contentHolder" v-bind:class="caseImageHeight" @mouseover="bgOfCase()" @mouseleave="bgToNormal()">
-			<div class="rotator" data-swiper-parallax="750">
-				<img v-bind:src="caseImage">
-			</div>
 		</div>
 	</div>
 </template>
