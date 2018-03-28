@@ -1,6 +1,7 @@
 <template>
 	<main-layout>
 		<home-slider>
+			<!-- <img src="~/assets/images/home/Hero_Kalkhoff.jpg"> -->
 			<home-slider-item 
 				caseName="Kalkhoff Bikes"
 				caseDescription="When your bikes are eye-catchers, your website should be too."
