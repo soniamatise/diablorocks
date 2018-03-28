@@ -10,7 +10,7 @@
 			display: flex;
 			align-items: center;
 
-			span {
+			.cooleText {
 				padding-left: grid(2);
 				@media #{$small-only} {
 			        padding-left: 0;
@@ -29,6 +29,21 @@
 					}
 				}
 			}
+			.typestroke {
+				width: rem(5);
+				height: 60vh;
+				background-color: color(White);
+				position: absolute;
+				left: 0;
+				animation: caret 1s steps(1) infinite;
+			}
+
+			@keyframes caret {
+				50% {
+					background-color: color(Black);
+				}
+			}
+
 		}
 		.swiper-wrapper {
 			display: flex;
