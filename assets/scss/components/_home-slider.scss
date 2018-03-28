@@ -13,11 +13,12 @@
 			span {
 				padding-left: grid(2);
 				@media #{$small-only} {
-				    padding-left: 0;
+			        padding-left: 0;
 				    position: absolute;
-				    top: 73vh;
-				    transform: rotate(90deg);
-				    transform-origin: 20% -1000%; //TODO: dit mooi maken
+				    top: 208vh; //TODO: dit kloppend maken
+				    left: 50%;
+				    transform-origin: left bottom;
+				    transform: rotate(90deg) translate(-50%);
 				}
 				p {
 				    white-space: nowrap;
@@ -139,6 +140,7 @@
 			transform: translate(-50%);
 			left: 50%;
 			z-index:0;
+			overflow:hidden;
 			.bullet {
 				width: #{$blackPointWidth};
 				height: 100%;
