@@ -1,9 +1,11 @@
 <template>
-	<div>
-		<top-nav></top-nav>
+<div>
+	<top-nav></top-nav>
+	<main>
 		<slot></slot>
-		<footer-element></footer-element>
-	</div>
+	</main>
+	<footer-element></footer-element>
+</div>
 </template>
 
 <script>
