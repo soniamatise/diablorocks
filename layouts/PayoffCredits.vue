@@ -75,14 +75,13 @@
 					<div class="column large-16 medium-full small-full">
 						<a class="button plainText" href="http://bbbcycling.com" target="_blank">bbbcycling.com</a>
 					</div>
-					<div class="line"></div>
 				</div>
 				<!-- end column -->
 			</div>
 			<!-- end row -->
 		</div>
 		<div class="row column large-12 medium-16 small-full link">
-			<p class="gray">Learn how Matise guaranteed top-notch front-end development, without actually developing. <a class="button plainText gray" href="/sil-article" target="_blank">Read Sil van Diepen’s article</a></p>
+			<p class="gray"><span>*</span>Learn how Matise guaranteed top-notch front-end development, without actually developing. <a class="button plainText gray" href="/sil-article" target="_blank">Read Sil van Diepen’s article</a></p>
 		</div>
 	</div>
 </section>

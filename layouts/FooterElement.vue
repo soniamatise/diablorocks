@@ -7,7 +7,7 @@
 	<nav class="nav footer__nav" aria-label="Footer navigation">
 		<ul class="row list--row ">
 			<li class="mobile-hide nav__list-item__footer nav__list-item__footer--active font-medium"><nuxt-link to="/culture">Culture</nuxt-link></li>
-			<li class="mobile-hide nav__list-item__footer font-medium"><nuxt-link to="/work">Work</nuxt-link><a href="/work"></a></li>
+			<li class="mobile-hide nav__list-item__footer font-medium"><nuxt-link to="/work">Work</nuxt-link></li>
 			<li class="mobile-hide nav__list-item__footer font-medium"><nuxt-link to="/whoweare">Who we are</nuxt-link></li>
 			<li class="mobile-hide nav__list-item__footer font-medium"><nuxt-link to="/whatwedo">What we do</nuxt-link></li>
 			<li class="nav__list-item__footer font-medium"><a href="#">News</a></li>

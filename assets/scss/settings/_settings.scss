@@ -188,4 +188,7 @@ html {
   .touch & {
     overflow-x: hidden;
   }
+  &.scroll-disable {
+    overflow: hidden !important;
+  }
 }
