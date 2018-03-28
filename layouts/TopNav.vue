@@ -10,8 +10,9 @@
           <ul>
             <li class="nav__list-item__top main-link"><nuxt-link to="/culture">Culture</nuxt-link></li>
             <li class="nav__list-item__top main-link"><nuxt-link to="/work">Work</nuxt-link></li>
-            <li class="nav__list-item__top main-link"><nuxt-link to="/whatwedo">What we do</nuxt-link></li>
-            <li class="nav__list-item__top main-link"><nuxt-link to="/whoweare">Who we are</nuxt-link></li>
+						<li class="nav__list-item__top main-link"><nuxt-link to="/about">About</nuxt-link></li>
+            <!-- <li class="nav__list-item__top main-link"><nuxt-link to="/whatwedo">What we do</nuxt-link></li>
+            <li class="nav__list-item__top main-link"><nuxt-link to="/whoweare">Who we are</nuxt-link></li> -->
             <li id="logo" class="nav__list-item__top logo"><a href="/"><img src="~/assets/img/logo.svg"></a></li>
           </ul>
           <section class="top__contact-us">
