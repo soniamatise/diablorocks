@@ -22,7 +22,7 @@ import HomeSliderItem from '~/components/HomeSliderItem.vue'
 export default {
 	head: {
 		bodyAttrs: {
-			class: 'scroll-disable'
+			class: 'one-page scroll-disable'
 		}
 	},
 	components: {

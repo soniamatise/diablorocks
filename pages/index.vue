@@ -11,42 +11,42 @@
 			<home-slider-item 
 				caseName="Sony Music Netherlands"
 				caseDescription="A new digital home for Nielson, an artist that reinvented himself."
-				caseImage="/_nuxt/img/Hero_Nielsonair.78675a9.jpg"
+				caseImage="/_nuxt/img/Hero_Kalkhoff.2c75bd4.jpg"
 				caseColor="#400c0e"
 				caseImageHeight="small-height"
 			/>
 			<home-slider-item 
 				caseName="BBB Cycling"
 				caseDescription="This is what happens when commerce and emotion collide and come together."
-				caseImage="/_nuxt/img/Hero_BBB.b4179a9.jpg"
+				caseImage="/_nuxt/img/Hero_Kalkhoff.2c75bd4.jpg"
 				caseColor="#524d40"
 				caseImageHeight="medium-height"
 			/>
 			<home-slider-item 
 				caseName="Aangenaam Bergen op Zoom"
 				caseDescription="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
-				caseImage="/_nuxt/img/Hero_BoZ.17ef676.jpg"
+				caseImage="/_nuxt/img/Hero_Kalkhoff.2c75bd4.jpg"
 				caseColor="#81919a"
 				caseImageHeight="medium-height"
 			/>
 			<home-slider-item 
 				caseName="Sony Music Netherlands & DVLM"
 				caseDescription="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
-				caseImage="/_nuxt/img/Hero_TicketChaser.c5d1344.jpg"
+				caseImage="/_nuxt/img/Hero_Kalkhoff.2c75bd4.jpg"
 				caseColor="#747577"
 				caseImageHeight="small-height"
 			/>
 			<home-slider-item 
 				caseName="Viacom Out of Office"
 				caseDescription="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
-				caseImage="/_nuxt/img/Hero_Viacom.daa8599.jpg"
+				caseImage="/_nuxt/img/Hero_Kalkhoff.2c75bd4.jpg"
 				caseColor="#9fc1c1"
 				caseImageHeight="full-height"
 			/>
 			<home-slider-item 
 				caseName="Expeditie Wadden"
 				caseDescription="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
-				caseImage="/_nuxt/img/Hero_ExpeditieWadden.45d8d0a.jpg"
+				caseImage="/_nuxt/img/Hero_Kalkhoff.2c75bd4.jpg"
 				caseColor="#a8a59c"
 				caseImageHeight="small-height"
 			/>
