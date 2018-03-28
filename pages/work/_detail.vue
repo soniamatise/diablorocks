@@ -6,6 +6,9 @@
 			caseImage="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
 			caseColor="#524d40">
 		</case-heading>
+		<one-column></one-column>
+		<two-column></two-column>
+		<payoff-column></payoff-column>
 		<NextCase
 			caseName="BBB Cycling"
 			image="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg">

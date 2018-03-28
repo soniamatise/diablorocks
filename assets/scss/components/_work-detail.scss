@@ -98,7 +98,7 @@
 				transition: width 0.2s cubic-bezier(.42,0,.58,1) 0.6s;
 			}
 			.case-image {
-				top: grid(11.5);
+				top: 80vh;
 				transition: top 0.3s cubic-bezier(.42,2,.58,1) 0.6s;
 			}
 		}
@@ -126,7 +126,6 @@
 			}
 		}
 	}
-// }
 	.intro {
 		padding-top: grid(5);
 		@media only screen and (max-width: 1024px) and (min-width: 768px){
