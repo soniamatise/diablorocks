@@ -5,67 +5,105 @@
 		align-items: center;
 		justify-content: center;
 		color: color(Light);
-		cursor: pointer;
 		position: relative;
 		background-color: color(Black);
 		overflow: hidden;
 		transition: background-color 1s cubic-bezier(.42,0,.58,1);
-		@media #{$medium-down}{
+		@media #{$medium-down} {
 			height: auto;
 			padding: grid(5) 0;
 		}
-		@media #{$small-only}{
+		@media #{$small-only} {
 			height: 50vh;
 		}
-		.case-text-inner {
+
+		.hover-state {
+			border: 1px solid teal;
+			width: 100%;
+			height: 50vh;
+			cursor: pointer;
+
+			&:hover{
+				.content-holder {
+				.text-holder{
+					&.text-holder-left{ transition: transform 0.3s cubic-bezier(.42,0,.58,1) .5s;
+						.text-hide{ transform: translateX(100%);  transition: transform 0.3s cubic-bezier(.42,0,.58,1) .5s;
+							h2{ transform: translateX(-100%); transition: transform 0.3s cubic-bezier(.42,0,.58,1) .5s; }
+						}
+					}
+					&.text-holder-right{ transition: transform 0.2s cubic-bezier(.42,0,.58,1) .8s; transform: translate(-50%, -50%);
+
+					}
+					.case-text{ transform: translateX(-500%); }
+				}
+			}
+		}
+
+
+		.content-holder {
+			border: 1px solid red;
+			box-sizing: border-box;
 			position: absolute;
 			transform: translate(-50%,-50%);
 			top: 50%;
 			left: 50%;
-			h2{
-				font-size: 2rem;
-				@media #{$small-only}{
-					line-height: 1.5;
-				    font-size: 20px;
-				}
-			}
-			.next-text {
-				float: left;
-				position: relative;
-				margin-left:auto;
-				margin-right:auto;
-				text-align:right;
-				overflow:hidden;
+
+			.text-holder{
+				border: 1px solid blue;
+				box-sizing: border-box;
+				position: absolute;
+				left: 50%;
+				margin: auto;
 				white-space: nowrap;
-				transition: width 0s ease 0.4s;
-				#next-text {
-					float: right;
-					overflow-x:hidden;
-					transition: width 0.4s cubic-bezier(.42,0,.58,1) 0.4s;
-					h2 {direction: rtl;}
+				overflow: hidden;
+				transform: translateY(-50%);
+				&.text-holder-left{ transform: translate(-100%, -50%); transition: transform 0.3s cubic-bezier(.42,0,.58,1) .7s; }
+				&.text-holder-right{ transition: transform 0.2s cubic-bezier(.42,0,.58,1) .5s; }
+			// 	.text-hide {
+			// 		border: 1px solid blue;
+			// 		box-sizing: border-box;
+			// 		position: absolute;
+			// 		transform: translateX(-100%);
+			// 		left: 50%;
+			// 		margin: auto;
+			// 		text-align: right;
+			// 		overflow: hidden;
+			// 		white-space: nowrap;
+			// 		transition: width 0s ease 0.4s;
+			// 		overflow: hidden;
+			// }
+				.text-hide{
+					width: 100%;
+					background: red;
+					position: relative;
+					overflow-x: hidden;
+					transform: translateX(0%);
+					transition: transform 0.3s cubic-bezier(.42,0,.58,1) .7s;
+					h2{ position: relative; display: block; transform: translateX(0%); transition: transform 0.3s cubic-bezier(.42,0,.58,1) .7s;
+						white-space: nowrap;
+					}
 				}
 			}
-			.case-text {
-				position: relative;
-				right: 0;
-				top: 0;
-				float: right;
-				transition: width 0.2s cubic-bezier(.42,0,.58,1) 0.2s;
-			}
-			@media #{$small-only}{
+
+			@media #{$small-only} {
 				width: 100% !important;
 				padding: rem(0 64);
-				.next-text, .case-text {
+
+				.case-text,
+				.next-text {
 					width: 100% !important;
 					text-align: left;
 					float: left;
 					left: 0;
+
 					#next-text {
 						float: left;
 					}
 				}
 			}
 		}
+	}
+
 		.case-image {
 			overflow: hidden;
 			position: absolute;
@@ -80,83 +118,88 @@
 				width: grid(16);
 				position: absolute;
 				transform: translate3d(-50%,-50%,0);
-			 	top: 50%;
+				top: 50%;
 				left: 50%;
 			}
 		}
-		&:hover {
-			.next-text {
-				width: 0px !important;
-				transition: width 0s ease 0.6s;
-				#next-text {
-					width: 0px !important;
-					transition: width 0.4s cubic-bezier(.42,0,.58,1) 0.2s;
-				}
-			}
-			.case-text {
-				width: 100% !important;
-				transition: width 0.2s cubic-bezier(.42,0,.58,1) 0.6s;
-			}
-			.case-image {
-				top: 80vh;
-				transition: top 0.3s cubic-bezier(.42,2,.58,1) 0.6s;
-			}
-		}
+		// &:hover {
+		// 	.next-text {
+		// 		width: 0px !important;
+		// 		transition: width 0s ease 0.6s;
+		// 		#next-text {
+		// 			width: 0px !important;
+		// 			transition: width 0.4s cubic-bezier(.42,0,.58,1) 0.2s;
+		// 		}
+		// 	}
+		// 	.case-text {
+		// 		width: 100% !important;
+		// 		transition: width 0.2s cubic-bezier(.42,0,.58,1) 0.6s;
+		// 	}
+		// 	.case-image {
+		// 		top: 80vh;
+		// 		transition: top 0.3s cubic-bezier(.42,2,.58,1) 0.6s;
+		// 	}
+		// }
 		&.active {
 			.case-image {
 				transition: all 0.4s cubic-bezier(.42,0,.58,1) 0.1s;
 				transform: translate3d(-50%,-50%,0);
-			    top: 50%;
+				top: 50%;
 			}
 		}
+
 		&.rotation {
 			.case-image {
 				transform-origin: center;
 				transition: transform 2s cubic-bezier(.7,0,.3,1), clip-path 2s cubic-bezier(.7,0,.3,1), width 2s cubic-bezier(.7,0,.3,1), height 2s cubic-bezier(.7,0,.3,1);
 				transform: translate3d(-50%,-50%,0) rotate(-90deg);
-    			width: 100vh;
-    			height: 100vw;
+				width: 100vh;
+				height: 100vw;
 
 				img {
 					transition: transform 2s cubic-bezier(.7,0,.3,1), width 2s cubic-bezier(.7,0,.3,1);
 					transform: translate3d(-50%,-50%,0) rotate(90deg);
-				  width: auto;
+					width: auto;
 					height: 100%;
 				}
 			}
 		}
 	}
+
 	.intro {
 		padding-top: grid(5);
-		@media only screen and (max-width: 1024px) and (min-width: 768px){
+		@media only screen and (max-width: 1024px) and (min-width: 768px) {
 			padding-top: grid(7);
 		}
-		@media #{$mobile}{
+		@media #{$mobile} {
 			padding: 0;
 		}
+
 		.intro-text {
-			@media #{$mobile}{
+			@media #{$mobile} {
 				padding: rem(96 64);
 			}
 			padding-bottom: rem(120);
-			@media #{$large-up}{
+			@media #{$large-up} {
 				padding-bottom: grid(2);
 			}
+
 			p {
 				font-size: 1.5rem;
 				color: color(Light);
-				@media only screen and (max-width: 9999px) and (min-width: 1920px){
+				@media only screen and (max-width: 9999px) and (min-width: 1920px) {
 					font-size: 2rem;
 					line-height: 3rem;
 				}
-				@media #{$medium-down}{
+				@media #{$medium-down} {
 					font-size: rem(20);
 				}
 			}
 		}
+
 		.intro-image {
 			height: grid(12);
-			@media #{$mobile}{
+			@media #{$mobile} {
 				height: rem(600);
 			}
 			background-size: cover;

@@ -10,8 +10,9 @@
 		<two-column></two-column>
 		<payoff-column></payoff-column>
 		<NextCase
-			caseName="BBB Cycling"
-			image="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg">
+			caseName="Kalkhoff Bikes"
+			image="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
+			caseColor="#787069">
 		</NextCase>
 	</main-layout>
 </template>
