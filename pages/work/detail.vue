@@ -6,7 +6,9 @@
 			caseImage="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
 			caseColor="#524d40"
 		/>
-		hoi
+		<one-column/>
+		<two-column/>
+		<payoff-credits/>
 	</main-layout>
 </template>
 
