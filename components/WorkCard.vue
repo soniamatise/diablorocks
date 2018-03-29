@@ -1,6 +1,7 @@
 <template>
 	<article :class="['work__card column', 'column'+ columnNr, this._data.cardClass, caseName]" :case="caseName" :style="this._data.customStyle">
 		<!-- <nuxt-link :to="'/work/' + slug "> -->
+		
 		<div :class="'work__card__image-container work__card__image-container--'+ size " :style="'background: url(' + image + ') no-repeat; background-size: 67.5vw; background-position: center;'">
 		</div>
 		<!-- </nuxt-link> -->

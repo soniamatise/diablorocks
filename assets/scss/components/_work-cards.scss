@@ -1,50 +1,49 @@
-.work__grid{
+.work__grid {
 	column-count: 3;
 	column-gap: grid(1);
 	padding: grid(2);
-	@media #{$medium-down}{
+	@media #{$medium-down} {
 		column-count: 2;
 	}
-	@media #{$mobile}{
+	@media #{$mobile} {
 		column-count: 1;
 	}
 }
 
-.work__card{
+.work__card {
 	break-inside: avoid;
 	margin-bottom: grid(1.5);
 
-	&.column1{
-		&:first-of-type{
-			padding-top: grid(1);
-			@media #{$medium-down} {
-				padding-top: 0;
-			}
-		}
-		&+.column2{
-			padding-top: grid(1.5);
-			@media #{$medium-down} {
-				padding-top: grid(.5);
-			}
+	&.column1 {
+		top: grid(.8);
+		position: relative;
+	}
+
+	&.column2 {
+		top: grid(1.5);
+		position: relative;
+		@media #{$medium-down} {
+			padding-top: grid(.5);
 		}
 	}
 
-	&__image{
-		&-container{
+	&__image {
+		&-container {
 			width: grid(6);
 			display: flex;
 			justify-content: center;
 			overflow: hidden;
-			@media #{$medium-down}{
+			@media #{$medium-down} {
 				background-size: 80vh !important;
 			}
-			@media #{$mobile}{
+			@media #{$mobile} {
 				background-size: 85vh !important;
 			}
-			@media #{$medium-down}{
+			@media #{$medium-down} {
 				width: grid(9.25);
 			}
-			&--small{
+
+			&--small {
 				height: grid(7);
 				@media #{$medium-down} {
 					height: grid(10);
@@ -53,7 +52,8 @@
 					height: grid(20);
 				}
 			}
-			&--medium{
+
+			&--medium {
 				height: grid(8);
 				@media #{$medium-down} {
 					height: grid(12);
@@ -62,7 +62,8 @@
 					height: grid(20);
 				}
 			}
-			&--large{
+
+			&--large {
 				height: grid(9);
 				@media #{$medium-down} {
 					height: grid(14);
@@ -71,30 +72,55 @@
 					height: grid(20);
 				}
 			}
-			@media #{$mobile}{
+			@media #{$mobile} {
 				width: grid(20);
 			}
 		}
 	}
-	&__description{
+
+	&__description {
 		width: grid(6);
 		padding: rem(32 30);
-		@media #{$medium-down}{
+		@media #{$medium-down} {
 			width: grid(9.25);
 		}
-		@media #{$mobile}{
+		@media #{$mobile} {
 			width: grid(20);
 		}
 	}
 }
 
-.background-canvas { position: fixed; top: 0; left: 0; bottom: 0; right: 0; z-index: 1; transition: 1s $standardCubicBezier; opacity: 0; background: white; pointer-events: none;}
-.card--hover{ z-index: 2; position: relative; transition: 1s $standardCubicBezier;
-	p{
-		color: white; transition: .5s $standardCubicBezier;
+.background-canvas {
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 1;
+	transition: 1s $standardCubicBezier;
+	opacity: 0;
+	background: white;
+	pointer-events: none;
+}
+
+.card--hover {
+	cursor: pointer;
+	z-index: 2;
+	position: relative;
+	transition: 1s $standardCubicBezier;
+
+	p {
+		color: white;
+		transition: 0.5s $standardCubicBezier;
 	}
 }
-.background--forward{ z-index: 1; opacity: 0.9; transition: opacity 1s $standardCubicBezier;}
+
+.background--forward {
+	z-index: 1;
+	opacity: 0.9;
+	transition:  1s $standardCubicBezier;
+
+}
 
 .expandCard {
 	--top: calc((100vh - var(--height)) / 2);
@@ -111,7 +137,7 @@
 	animation: slideToCenter 2.5s $standardCubicBezier forwards;
 }
 
-.expandCard .work__card__image-container{
+.expandCard .work__card__image-container {
 	bottom: 0;
 	z-index: 2;
 	padding: 0;
@@ -123,53 +149,64 @@
 	--y: calc(var(--height) + var(--top));
 	--xleft: var(--margin);
 	--xright: calc(var(--margin) + var(--width));
-	transition: background-size 2s .4s $specialCubicBezier;
+	transition: background-size 2s 0.4s $specialCubicBezier;
 	background-size: 100vw !important;
-	@media #{$medium-down}{
+	@media #{$medium-down} {
 		background-size: 175vh !important;
 	}
-	animation: expand 2s .4s $specialCubicBezier forwards;
-	&+p{ opacity: 0;  transition: opacity .4s $standardCubicBezier; padding: 0; }
+	animation: expand 2s 0.4s $specialCubicBezier forwards;
+
+	&+p {
+		opacity: 0;
+		transition: opacity 0.4s $standardCubicBezier;
+		padding: 0;
 	}
+}
 
-.expandBackground{ opacity: 1; z-index: 1; pointer-events: auto;}
-
+.expandBackground {
+	opacity: 1;
+	z-index: 1;
+	pointer-events: auto;
+}
 @keyframes slideToCenter {
-	0%{
+	0% {
 		padding-top: var(--offsetY);
 		padding-left: var(--offsetLeft);
 		padding-right: var(--offsetRight);
 	}
-	10%{
+
+	10% {
 		padding-top: var(--top);
 		padding-left: var(--offsetLeft);
 		padding-right: var(--offsetRight);
 	}
-	16%{
+
+	16% {
 		padding-left: var(--margin);
 		padding-right: var(--margin);
 	}
-	100%{
+
+	100% {
 		width: grid(24);
-		padding-top: var(--top)
+		padding-top: var(--top);
 	}
 }
-
-
 @keyframes expand {
-	0%{
+	0% {
 		height: 100vh;
 		position: absolute;
 		width: 100vw;
 		top: 0;
 		clip-path: polygon(var(--xleft) var(--top), var(--xright) var(--top), var(--xright) var(--y), var(--xleft) var(--y));
 	}
-	5%{
+
+	5% {
 		margin: 0 auto;
 		height: 100vh;
 		clip-path: polygon(var(--xleft) var(--top), var(--xright) var(--top), var(--xright) var(--y), var(--xleft) var(--y));
 	}
-	100%{
+
+	100% {
 		position: absolute;
 		height: 100vh;
 		width: 100vw;
