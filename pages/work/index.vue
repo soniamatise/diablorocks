@@ -27,11 +27,6 @@ export default {
 		return {
 			displayContent: false
 		}
-	},
-	methods: {
-		showContent: function(){
-			this.displayContent = true;
-		}
 	}
 }
 </script>
