@@ -4,22 +4,16 @@
 			caseName="BBB Cycling"
 			caseQuote="This is what happens when commerce and emotion collide and come together."
 			caseImage="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
-			caseColor="#524d40">
-		</case-heading>
-		<one-column></one-column>
-		<two-column></two-column>
-		<payoff-column></payoff-column>
-		<NextCase
-			caseName="Kalkhoff Bikes"
-			image="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
-			caseColor="#787069">
-		</NextCase>
+			caseColor="#524d40"
+		/>
+		<one-column/>
+		<two-column/>
+		<payoff-credits/>
 	</main-layout>
 </template>
 
 <script>
 import MainLayout from '~/layouts/MainLayout.vue'
-import NextCase from '@/components/NextCase'
 import OneColumn from '~/layouts/OneColumn.vue'
 import TwoColumn from '~/layouts/TwoColumn.vue'
 import PayoffCredits from '~/layouts/PayoffCredits.vue'
@@ -30,7 +24,6 @@ export default {
 		TwoColumn,
 		PayoffCredits,
 		MainLayout,
-		NextCase,
 		CaseHeading
 	}
 }
