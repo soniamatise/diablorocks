@@ -1,5 +1,6 @@
 <template>
 	<main-layout>
+		<pre-loader />
 		<home-slider>
 			<home-slider-item
 				caseName="Kalkhoff Bikes"
@@ -58,12 +59,14 @@
 import MainLayout from '~/layouts/MainLayout.vue'
 import HomeSlider from '~/components/HomeSlider.vue'
 import HomeSliderItem from '~/components/HomeSliderItem.vue'
+import PreLoader from '~/components/PreLoader.vue'
 
 export default {
 	components: {
 		MainLayout,
 		HomeSlider,
 		HomeSliderItem,
+		PreLoader,
 	},
 	data(){
 		return {
