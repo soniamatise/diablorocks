@@ -2,7 +2,7 @@
 	<div class="swiper-slide">
 		<div class="contentHolder" v-bind:class="caseImageHeight" @mouseover="bgOfCase()" @mouseleave="bgToNormal()">
 			<div class="rotator" data-swiper-parallax="750">
-				<img v-bind:src="caseImage">
+				<img src="/assets/img/Hero_NielsonAir.jpg">
 			</div>
 		</div>
 
