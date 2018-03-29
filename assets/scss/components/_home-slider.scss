@@ -1,6 +1,25 @@
 #home-slider {
 	background-color: color(Black);
 	transition: background-color 1s cubic-bezier(0.42, 0, 0.58, 1);
+
+	.home-cover {
+		background-color: color(Black);
+		top: grid(3/2);
+		height: grid(1);
+		width: grid(20);
+		right: grid(2);
+		position: absolute;
+		animation: menuCoverer 0.5s ease-in forwards 3s;
+		z-index: 11;
+	}
+	@keyframes menuCoverer {
+		0%{
+			width: grid(20);
+		}
+		100% {
+			width: 0%;
+		}
+	}
 	.swiper-container {
 		overflow: hidden;
 		.home-bg-parallax {

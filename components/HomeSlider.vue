@@ -1,5 +1,8 @@
 <template>
 <div id="home-slider" ref="homeSlider" class="row center">
+	<div class="column small-16 large-20 column-20 home-cover">
+		
+	</div>
 	<div class="column large-full medium-full small-full">
 		<div v-swiper:mySwiper="swiperOption">
 			<div
