@@ -20,6 +20,7 @@
 export default {
 	props: ['caseName', 'caseDescription', 'caseImage', 'caseUrl', 'caseColor', 'caseImageHeight'],
 	mounted() {
+
 	},
 	methods: {
 		bgOfCase: function () {
