@@ -1,0 +1,183 @@
+#home-slider {
+	background-color: color(Black);
+	transition: background-color 1s cubic-bezier(0.42, 0, 0.58, 1);
+	.swiper-container {
+		overflow: hidden;
+		.home-bg-parallax {
+			height: 100vh;
+			width: 100vw;
+			position: absolute;
+			display: flex;
+			align-items: center;
+
+			.cooleText {
+				padding-left: grid(2);
+				@media #{$small-only} {
+			        padding-left: 0;
+				    position: absolute;
+				    top: 100vh; //TODO: dit kloppend maken
+				    left: 50%;
+				    transform-origin: left bottom;
+				    transform: rotate(90deg) translate(-50%);
+				}
+				p {
+				    white-space: nowrap;
+					color: color(Light);
+					font-size: rem(480);
+					@media #{$small-only} {
+					    font-size: 12rem;
+					}
+				}
+			}
+			.typestroke {
+				width: rem(5);
+				height: 60vh;
+				background-color: color(White);
+				position: absolute;
+				left: 0;
+				animation: caret 1s steps(1) infinite;
+			}
+
+			@keyframes caret {
+				50% {
+					background-color: color(Black);
+				}
+			}
+
+		}
+		.swiper-wrapper {
+			display: flex;
+			justify-content: space-between;
+			height: 100vh;
+			width: grid(24);
+			z-index:1;
+			.swiper-slide {
+				width: grid(10);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				z-index: 1;
+				@media #{$medium-only} {
+					width: grid(12);
+					flex-direction: column;
+				}
+				@media #{$small-only} {
+					width: 100%;
+					height: auto;
+					flex-direction: column;
+					padding: 0 rem(32);
+				}
+				.content {
+					position: absolute;
+					transform-origin: 0 0;
+					top: 50%;
+					width: 100%;
+					padding: 0 grid(2);
+					transform: rotate(90deg) translate(-50%, -100%);
+					&.name { left: 3%; }
+					&.description{  left: 93%; }
+					p{ color: color(Light); }
+
+					@media #{$medium-only} {
+					    position: static;
+						padding: 0 0 0 0;
+						transform: rotate(0deg) translate(0%, 0%);
+						&.name { left: 0%; }
+						&.description{  left: 0%; }
+					}
+					@media #{$small-only} {
+						position: static;
+						transform: rotate(0deg) translate(0%, 0%);
+						&.name { left: 0%; }
+						&.description{ display: none; }
+					}
+				}
+				.contentHolder {
+					width: grid(8) !important;
+					overflow: hidden;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s,
+								box-shadow 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s;															;
+					box-shadow: 0 0 grid(1) 1px rgba(0,0,0,1);
+					cursor: pointer;
+					z-index: 2;
+
+					&.full-height { height: 80vh; }
+					&.medium-height { height: 60vh; }
+					&.small-height { height: 45vh; }
+					@media #{$medium-only} {
+						margin: 0 0 rem(32) 0;
+						width: grid(12)!important;
+						&.full-height { height: 60vh; }
+						&.medium-height { height: 40vh; }
+						&.small-height { height: 35vh; }
+					}
+					@media #{$small-only} {
+						margin: 0 0 rem(32) 0;
+						width: 100% !important;
+						&.full-height, &.medium-height, &.small-height {
+							height: rem(311);
+						}
+					}
+					.rotator {
+						img {
+							display: table-row; 
+							margin: 0 auto;
+							transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s;
+						}
+					}
+					&:hover {
+						transform: rotate(-15deg);
+						box-shadow: none;
+
+						img {
+							transform: rotate(15deg);
+						}
+
+						@media #{$small-only} {
+							transform: rotate(0deg);
+							img { transform: rotate(0deg); }
+						}
+					}
+				}
+			}
+		}
+		.swiper-scrollbar {
+			$blackPointWidth: 20px;
+			$bulletWidth: 70px;
+			$scrollBarHeight: 2px;
+			width: calc(490px - 20px) !important;
+			height: #{$scrollBarHeight};
+			background-color: color(Light, 0.25);
+			bottom: grid(1);
+			transform: translate(-50%);
+			left: 50%;
+			z-index:0;
+			overflow:hidden;
+			.bullet {
+				width: #{$blackPointWidth};
+				height: 100%;
+				background-color: color(Black);
+				float: left;
+				margin-left: calc(#{$bulletWidth} - #{$blackPointWidth});
+				position: relative;
+				top: -#{$scrollBarHeight};
+				transition: background-color 1s cubic-bezier(0.42, 0, 0.58, 1);
+
+				&.beBlack {
+					background-color: black !important;
+				}
+			}
+			.swiper-scrollbar-drag {
+				width: #{$bulletWidth} !important;
+				border-radius: 0;
+				background-color: color(Light);
+			}
+			@media #{$small-only} {
+				display: none;
+			}
+		}
+	}
+}

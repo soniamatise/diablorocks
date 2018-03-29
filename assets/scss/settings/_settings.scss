@@ -193,4 +193,7 @@ html {
   &.scroll-disable {
     overflow: hidden !important;
   }
+  &.one-page {
+    overflow: hidden !important;
+  }
 }
