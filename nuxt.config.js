@@ -19,6 +19,7 @@ module.exports = {
   loading: { color: '#000000' },
 	plugins: [
 		{ src: '~plugins/swiper.js', ssr: false },
+    { src: '~plugins/velocity.js', ssr: false },
 	],
   /*
   ** Build configuration
@@ -36,7 +37,8 @@ module.exports = {
           exclude: /(node_modules)/
         })
       }
-    }
+    },
+    vendor: ['velocity-animate']
   },
 	css: [{
 		src: '~assets/scss/app.scss',
