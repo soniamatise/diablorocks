@@ -25,20 +25,28 @@ export default {
 	methods: {
 		bgOfCase: function () {
 	    	const bg = this.$parent.$refs.homeSlider;
+	    	let contentHolders = document.getElementsByClassName('contentHolder');
 	    	let bullets = document.getElementsByClassName('bullet');
 			bg.style.backgroundColor = this.caseColor;
 			for (var index = 0; index < bullets.length; index++){
 				bullets[index].classList.remove('beBlack');
 				bullets[index].style.backgroundColor = this.caseColor;
 			}
+			for (var index = 0; index < contentHolders.length; index++){
+				contentHolders[index].style.boxShadow = '0 0 4.16667vw 1px' + this.caseColor;
+			}
 	    },
 	    bgToNormal: function () {
 	    	const bg = this.$parent.$refs.homeSlider;
+	    	let contentHolders = document.getElementsByClassName('contentHolder');
 	    	let bullets = document.getElementsByClassName('bullet');
 			bg.style.backgroundColor = 'black';
 			for (var index = 0; index < bullets.length; index++){
 				bullets[index].classList.add('beBlack');
 				bullets[index].style.backgroundColor = 'black !important';
+			}
+			for (var index = 0; index < contentHolders.length; index++){
+				contentHolders[index].style.boxShadow = '0 0 4.16667vw 1px rgba(0,0,0,1)';
 			}
 	    },
 	}
