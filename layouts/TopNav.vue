@@ -1,10 +1,10 @@
 <template>
-  <header id="header" class="header">
+  <header id="header" class="header" ref="header" v-bind:class="{ fullHeight: headerIsActive }">
     <div class="row center">
       <div class="column small-16 large-20 column-20">
         <input id="menu-trigger" type="checkbox"/>
         <div class="sidekick"><a class="logo"><img src="~/assets/img/logo.svg"></a>
-          <label v-on:click="toggleScrollBody()" class="trigger" for="menu-trigger"><span></span></label>
+          <label v-on:click="toggleScrollBody()" @click="toggleHeaderWidth()" class="trigger" for="menu-trigger"><span></span></label>
         </div>
         <nav class="nav top__nav" aria-label="Top navigation" ref="topNav">
           <ul>
@@ -33,7 +33,8 @@
 export default {
   data () {
     return {
-      isMenuOpen: false
+      isMenuOpen: false,
+      headerIsActive: false
     }
   },
   head () {
@@ -46,7 +47,12 @@ export default {
   methods: {
     toggleScrollBody: function(){
       this.isMenuOpen = !this.isMenuOpen;
-    }
+    },
+    toggleHeaderWidth: function(){
+      // setTimeout(()=>{
+        this.headerIsActive = !this.headerIsActive;
+      // },1000);
+    },
   },
   mounted(){
     let topNav = this.$refs.topNav;
