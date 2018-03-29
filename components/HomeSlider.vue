@@ -9,10 +9,10 @@
 		        <span class="cooleText"><p>Our copy guy was out of office</p></span>
 
 		    </div>
-			<div class="swiper-wrapper content" v-bind:class="{show: displayContent}">
+			<div class="swiper-wrapper contentDisappear" v-bind:class="{show: displayContent}">
 				<slot></slot>
 			</div>
-			<div class="swiper-scrollbar" ref="scrollbar"></div>
+			<div class="swiper-scrollbar contentDisappear" v-bind:class="{show: displayContent}" ref="scrollbar"></div>
 		</div>
 	</div>
 </div>
@@ -115,6 +115,13 @@ export default {
 			setTimeout(function() {
 				self.showContent();
 			}, 2000);
+			setTimeout(function() {
+				let content = document.getElementsByClassName('show');
+				for (var index = 0; index < content.length; index++){
+					console.log(content[index])
+					content[index].classList.remove('contentDisappear');
+				}
+			}, 3000);
 		}
 	}
 }

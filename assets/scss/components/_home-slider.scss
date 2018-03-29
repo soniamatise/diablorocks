@@ -5,7 +5,7 @@
 		overflow: hidden;
 		.home-bg-parallax {
 			height: 100vh;
-			width: 100vw;
+			width: 100%;
 			position: absolute;
 			display: flex;
 			align-items: center;
@@ -30,13 +30,13 @@
 				}
 			}
 			.typestroke {
-				width: 100%;
+				width: grid(22);
 				height: 60vh;
 				background-color: color(Black);
 				border-left: rem(5) solid color(White);
 				position: absolute;
 				right: 0;
-				animation: caret 1s steps(1) infinite;
+				animation: caret 0.5s steps(1) infinite, introTyper 1s ease-in forwards 1s;
 			}
 
 			@keyframes caret {
@@ -48,7 +48,20 @@
 				}
 			}
 			@keyframes introTyper {
-				
+				0% {
+					width: grid(22);
+				}
+				25% {
+					width: grid(11);
+				}
+				62.5% {
+					width: 25%;
+					width: grid(11/2);
+				}
+				100% {
+					width: 0%;
+					border-left: none;
+				}
 			}
 
 		}
@@ -187,7 +200,7 @@
 			}
 		}
 	}
-	.content {
+	.contentDisappear {
 		opacity: 0;
 		transition: opacity 1s cubic-bezier(.42,0,.58,1) !important;
 		&.show{ opacity: 1; }
