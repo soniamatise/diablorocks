@@ -5,12 +5,12 @@
     <div class="swiper-wrapper">
       <div class="swiper-slide">
 				<div class="contentHolder">
-					<img src="~assets/images/placeholderMob.png" alt="placeholder">
+					<img src="~assets/img/placeholderMob.png" alt="placeholder">
 				</div>
       </div>
 			<div class="swiper-slide">
 				<div class="contentHolder">
-					<img src="~/assets/images/placeholderMob.png" alt="placeholder">
+					<img src="~/assets/img/placeholderMob.png" alt="placeholder">
 				</div>
       </div>
     </div>
