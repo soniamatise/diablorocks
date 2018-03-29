@@ -5,11 +5,11 @@
 			<div
 		        class="parallax-bg home-bg-parallax"
 		        data-swiper-parallax="-300%">
-		        <span aria-hidden="true" class="typestroke" style="border: white;"></span>
+		        <div class="typestroke"></div>
 		        <span class="cooleText"><p>Our copy guy was out of office</p></span>
 
 		    </div>
-			<div class="swiper-wrapper">
+			<div class="swiper-wrapper content" v-bind:class="{show: displayContent}">
 				<slot></slot>
 			</div>
 			<div class="swiper-scrollbar" ref="scrollbar"></div>
@@ -86,11 +86,14 @@ export default {
 						},
 					},
 				}
-			}
+			},
+			displayContent: false,
 		}
 	},
 	mounted: function() {
 		let self = this;
+		self.typeAnimation();
+
 		function createBullets() {
 			let slides = document.getElementsByClassName('swiper-slide');
 			let scrollBar = self.$refs.scrollbar;
@@ -104,7 +107,15 @@ export default {
 		createBullets();
 	},
 	methods: {
-		
+		showContent: function(){
+			this.displayContent = true;
+		},
+		typeAnimation: function(){
+			var self = this;
+			setTimeout(function() {
+				self.showContent();
+			}, 2000);
+		}
 	}
 }
 </script>

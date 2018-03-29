@@ -32,16 +32,23 @@
 			.typestroke {
 				width: rem(5);
 				height: 60vh;
-				background-color: color(White);
+				background-color: color(Black);
+				border-left: rem(5) solid color(White);
 				position: absolute;
 				left: 0;
 				animation: caret 1s steps(1) infinite;
 			}
 
 			@keyframes caret {
+				0%{
+					background-color: color(White);
+				}
 				50% {
 					background-color: color(Black);
 				}
+			}
+			@keyframes introTyper {
+				
 			}
 
 		}
@@ -179,5 +186,10 @@
 				display: none;
 			}
 		}
+	}
+	.content {
+		opacity: 0;
+		transition: opacity 1s cubic-bezier(.42,0,.58,1) !important;
+		&.show{ opacity: 1; }
 	}
 }

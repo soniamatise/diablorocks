@@ -1,53 +1,52 @@
 <template>
 	<main-layout>
 		<home-slider>
-			<!-- <img src="~/assets/images/home/Hero_Kalkhoff.jpg"> -->
 			<home-slider-item
 				caseName="Kalkhoff Bikes"
 				caseDescription="When your bikes are eye-catchers, your website should be too."
-				caseImage="Hero_Kalkhoff.jpg"
+				caseImage="http://cdn.sci-news.com/images/enlarge3/image_4179_1e-Reticulated-Giraffe.jpg"
 				caseColor="#787069"
 				caseImageHeight="full-height"
 			/>
 			<home-slider-item
 				caseName="Sony Music Netherlands"
 				caseDescription="A new digital home for Nielson, an artist that reinvented himself."
-				caseImage="~/assets/img/Hero_NielsonAir.jpg"
+				caseImage="http://cdn.sci-news.com/images/enlarge3/image_4179_1e-Reticulated-Giraffe.jpg"
 				caseColor="#400c0e"
 				caseImageHeight="small-height"
 			/>
 			<home-slider-item
 				caseName="BBB Cycling"
 				caseDescription="This is what happens when commerce and emotion collide and come together."
-				caseImage="~/assets/img/Hero_BBB.jpg"
+				caseImage="http://cdn.sci-news.com/images/enlarge3/image_4179_1e-Reticulated-Giraffe.jpg"
 				caseColor="#524d40"
 				caseImageHeight="medium-height"
 			/>
 			<home-slider-item
 				caseName="Aangenaam Bergen op Zoom"
 				caseDescription="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
-				caseImage="~/assets/img/Hero_BoZ.jpg"
+				caseImage="http://cdn.sci-news.com/images/enlarge3/image_4179_1e-Reticulated-Giraffe.jpg"
 				caseColor="#81919a"
 				caseImageHeight="medium-height"
 			/>
 			<home-slider-item
 				caseName="Sony Music Netherlands &amp; DVLM"
 				caseDescription="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
-				caseImage="~/assets/img/Hero_TicketChaser.jpg"
+				caseImage="http://cdn.sci-news.com/images/enlarge3/image_4179_1e-Reticulated-Giraffe.jpg"
 				caseColor="#747577"
 				caseImageHeight="small-height"
 			/>
 			<home-slider-item
 				caseName="Viacom Out of Office"
 				caseDescription="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
-				caseImage="~/assets/img/Hero_Viacom.jpg"
+				caseImage="http://cdn.sci-news.com/images/enlarge3/image_4179_1e-Reticulated-Giraffe.jpg"
 				caseColor="#9fc1c1"
 				caseImageHeight="full-height"
 			/>
 			<home-slider-item
 				caseName="Expeditie Wadden"
 				caseDescription="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
-				caseImage="~/assets/img/Hero_ExpeditieWadden.jpg"
+				caseImage="http://cdn.sci-news.com/images/enlarge3/image_4179_1e-Reticulated-Giraffe.jpg"
 				caseColor="#a8a59c"
 				caseImageHeight="small-height"
 			/>
