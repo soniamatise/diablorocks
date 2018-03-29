@@ -5,7 +5,7 @@
 			<div
 		        class="parallax-bg home-bg-parallax"
 		        data-swiper-parallax="-300%">
-		        <span aria-hidden="true" class="typestroke" style="border: white;"></span>
+		        <!-- <span aria-hidden="true" class="typestroke" style="border: white;"></span> -->
 		        <span class="cooleText"><p>Our copy guy was out of office</p></span>
 
 		    </div>
