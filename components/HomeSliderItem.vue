@@ -1,5 +1,5 @@
 <template>
-	<div class="swiper-slide">
+	<div class="swiper-slide jumpUp">
 		<div class="contentHolder" v-bind:class="caseImageHeight" @mouseover="bgOfCase()" @mouseleave="bgToNormal()">
 			<div class="rotator" data-swiper-parallax="750">
 				<img :src="caseImage" />

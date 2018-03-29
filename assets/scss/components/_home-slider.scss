@@ -142,7 +142,6 @@
 					box-shadow: 0 0 grid(1) 1px rgba(0,0,0,1);
 					cursor: pointer;
 					z-index: 2;
-
 					&.full-height { height: 80vh; }
 					&.medium-height { height: 60vh; }
 					&.small-height { height: 45vh; }
@@ -174,10 +173,21 @@
 						img {
 							transform: rotate(15deg);
 						}
-
 						@media #{$small-only} {
 							transform: rotate(0deg);
 							img { transform: rotate(0deg); }
+						}
+					}
+				}
+				&.jumpUp {
+					top: grid(2);
+					animation: jumpup 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 2.5s;
+					@keyframes jumpup {
+						0%{
+							top: grid(5);
+						}
+						100% {
+							top: 0;
 						}
 					}
 				}
