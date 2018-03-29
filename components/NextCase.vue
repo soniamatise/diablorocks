@@ -1,10 +1,96 @@
 <template>
+<section id="next-case" class="nextCase">
+	<div class="hoverHolder" id="mouseOver" @mouseover="bgOfCase()" @mouseleave="bgToNormal()" :case="caseName">
+		<div class="contentHolder">
+			<div class="textHolder textHolderLeft">
+				<div id="textholder-left" class="mask">
+					<div class="keepPosition">
+						<h2><span>Next case</span></h2>
+					</div>
+				</div>
+			</div>
+			<div class="textHolder textHolderRight">
+				<div id="textholder-right" class="mask">
+					<h2>{{ caseName }}</h2>
+				</div>
+			</div>
+			<div class="textHolder mobile-only">
+				<h2><span>Next case</span> {{ caseName }}</h2>
+			</div>
+		</div>
+	</div>
+	<div id="case-image" class="caseImage">
+		<img :src="image">
+	</div>
+</section>
+</template>
+
+<script>
+export default {
+	props: ['caseName', 'image', 'caseColor'],
+	methods: {
+		bgOfCase: function() {
+
+			//case color on mouseover
+			const bgDiv = document.getElementById('next-case');
+			bgDiv.style.backgroundColor = this.caseColor;
+
+
+			//text animation on mouseover
+			const leftText = document.getElementById('textholder-left');
+			const rightText = document.getElementById('textholder-right');
+
+			const currentWidthInner = leftText.offsetWidth / 2;
+			rightText.style.transform = 'translateX(' + -currentWidthInner + 'px)';
+
+			//case image animation on mouseover
+			const caseImage = document.getElementById('case-image');
+
+			//get grid size for image height on mouseover
+			const getGrid = window.innerWidth / 12;
+
+			//case image animation on mouseover
+			caseImage.style.transform = 'translate(-50%,' + -getGrid + 'px)';
+		},
+		bgToNormal: () => {
+
+			//black color on mouseleave
+			const bgDiv = document.getElementById('next-case');
+			bgDiv.style.backgroundColor = 'black';
+
+			//text animation on mouseleave
+			const rightText = document.getElementById('textholder-right');
+			rightText.style.transform = 'translateX(0px)';
+
+			//case image animation on mouseleave
+			const caseImage = document.getElementById('case-image');
+			caseImage.style.transform = 'translate(-50%, 0)';
+		},
+	},
+	mounted: () => {
+		//do the math for width
+		const leftText = document.getElementById('textholder-left');
+		const rightText = document.getElementById('textholder-right');
+
+		function toggleWidth() {
+			const currentWidthInner = leftText.offsetWidth / 2;
+			rightText.style.transform = 'translateX(' + -currentWidthInner + 'px)';
+		}
+	}
+}
+</script>
+
+
+
+
+
+<!-- <template>
 	<section id="next-case" class="next-case">
 		<div class="row center textCenter">
 			<div class="column column-24">
-				<!-- @mouseleave="bgToNormal()"  :case="caseName" v-on:click="rotationAnimation()" -->
+				< @mouseleave="bgToNormal()"  :case="caseName" v-on:click="rotationAnimation()" -->
 				<!-- v-on:click="rotationAnimation()" @mouseover="bgOfCase()" @mouseleave="bgToNormal()"  -->
-				<div class="hover-state" id="mouseOver" @mouseover="bgOfCase()" @mouseleave="bgToNormal()" :case="caseName">
+				<!-- <div class="hover-state" id="mouseOver" @mouseover="bgOfCase()" @mouseleave="bgToNormal()" :case="caseName">
 
 					<div class="content-holder">
 						<div class="text-holder text-holder-left">
@@ -28,12 +114,11 @@
 			</div>
 		</div>
 	</section>
-</template>
+</template> -->
 
-<script>
-export default {
-	props: ['caseName','image','caseColor'],
-	methods: {
+<!-- // export default {
+// 	props: ['caseName','image','caseColor'],
+// 	methods: {
 	    // rotationAnimation: () => {
 			// const bgDiv = document.getElementById('next-case');
 			// const caseImage = document.getElementById('case-image');
@@ -44,15 +129,15 @@ export default {
 			// 	bgDiv.classList.add('rotation');
 			// }, 500);
 	    // },
-	    bgOfCase: function () {
-	    	const bgDiv = document.getElementById('next-case');
-				bgDiv.style.backgroundColor = this.caseColor;
-	    },
-	    bgToNormal: () => {
-	    	const bgDiv = document.getElementById('next-case');
-				bgDiv.style.backgroundColor = 'black';
-	    },
-		},
+	  //   bgOfCase: function () {
+	  //   	const bgDiv = document.getElementById('next-case');
+		// 		bgDiv.style.backgroundColor = this.caseColor;
+	  //   },
+	  //   bgToNormal: () => {
+	  //   	const bgDiv = document.getElementById('next-case');
+		// 		bgDiv.style.backgroundColor = 'black';
+	  //   },
+		// },
 		// mounted: () => {
 		// 	const caseTextInner = document.getElementById('case-text-inner');
 		// 	const nextText = document.getElementById('next-text');
@@ -71,5 +156,4 @@ export default {
 		// 	toggleWidth();
 		// 	window.addEventListener('resize', toggleWidth);
 		// }
-}
-</script>
+// } -->
