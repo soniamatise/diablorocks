@@ -118,7 +118,6 @@ export default {
 			setTimeout(function() {
 				let content = document.getElementsByClassName('show');
 				for (var index = 0; index < content.length; index++){
-					console.log(content[index])
 					content[index].classList.remove('contentDisappear');
 				}
 			}, 3000);
