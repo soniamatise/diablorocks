@@ -30,12 +30,12 @@
 				}
 			}
 			.typestroke {
-				width: rem(5);
+				width: 100%;
 				height: 60vh;
 				background-color: color(Black);
 				border-left: rem(5) solid color(White);
 				position: absolute;
-				left: 0;
+				right: 0;
 				animation: caret 1s steps(1) infinite;
 			}
 
