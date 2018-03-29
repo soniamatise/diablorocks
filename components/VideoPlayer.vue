@@ -1,9 +1,9 @@
 <template>
-	<section class="video-container" :style="{ 'background-image': 'url(' + image + ')' }">
+	<section class="video-container" :style="{ 'background-image': 'url(' + caseImage + ')' }">
 		<div class="row center">
 			<div class="column column-24">
 				<video @timeupdate="seekBar()" class="video hide" ref="video" width="100%" height="100%" controls preload>
-					<source src="../assets/videos/demo.mp4" type="video/mp4">
+					<source v-bind:src="caseVideo" type="video/mp4">
 				</video>
 				<div class="control-pannel hide" ref="controls">
 					<div class="row center">
@@ -24,7 +24,7 @@
 					<div id="case-text-inner" class="textCenter play case-text-inner">
 						<div class="next-text">
 							<div id="next-text">
-								<h2> &nbsp;—&nbsp;BBB Cycling</h2>
+								<h2> &nbsp;—&nbsp;{{ caseName }}</h2>
 							</div>
 						</div>
 						<div id="case-text" class="case-text"><h2>Play</h2></div>
@@ -37,7 +37,7 @@
 
 <script>
 export default {
-	props: ['caseName', 'video', 'image'],
+	props: ['caseName', 'caseVideo', 'caseImage'],
 	data: function() {
 		return {
 			paused: false

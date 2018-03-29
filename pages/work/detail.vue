@@ -8,10 +8,12 @@
 		/>
 		<one-column/>
 		<two-column/>
-		<video-player 
-			image="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
-		/>
 		<payoff-credits/>
+		<video-player 
+			caseName="BBB Cycling"
+			caseImage="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
+			caseVideo="http://video.dailymail.co.uk/video/mol/2018/02/04/2470370974756523998/1024x576_MP4_2470370974756523998.mp4"
+		/>
 	</main-layout>
 </template>
 
@@ -29,7 +31,7 @@ export default {
 		PayoffCredits,
 		MainLayout,
 		CaseHeading,
-		VideoPlayer
+		VideoPlayer,
 	}
 }
 </script>
