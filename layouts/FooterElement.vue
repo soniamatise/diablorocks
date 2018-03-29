@@ -7,9 +7,10 @@
 	<nav class="nav footer__nav" aria-label="Footer navigation">
 		<ul class="row list--row ">
 			<li class="mobile-hide nav__list-item__footer nav__list-item__footer--active font-medium"><nuxt-link to="/culture">Culture</nuxt-link></li>
-			<li class="mobile-hide nav__list-item__footer font-medium"><nuxt-link to="/work">Work</nuxt-link><a href="/work"></a></li>
-			<li class="mobile-hide nav__list-item__footer font-medium"><nuxt-link to="/whoweare">Who we are</nuxt-link></li>
-			<li class="mobile-hide nav__list-item__footer font-medium"><nuxt-link to="/whatwedo">What we do</nuxt-link></li>
+			<li class="mobile-hide nav__list-item__footer font-medium"><nuxt-link to="/work">Work</nuxt-link></li>
+			<li class="mobile-hide nav__list-item__footer font-medium"><nuxt-link to="/about">About</nuxt-link></li>
+			<!-- <li class="mobile-hide nav__list-item__footer font-medium"><nuxt-link to="/whoweare">Who we are</nuxt-link></li> -->
+			<!-- <li class="mobile-hide nav__list-item__footer font-medium"><nuxt-link to="/whatwedo">What we do</nuxt-link></li> -->
 			<li class="nav__list-item__footer font-medium"><a href="#">News</a></li>
 			<li class="nav__list-item__footer font-medium"><a href="#">Careers</a></li>
 		</ul>
@@ -24,10 +25,10 @@
 		</ul>
 
 		<ul class="column list--column footer__social">
-			<li class="footer__social__item"><a class="font-large link--external" href="https://www.instagram.com/matiseamsterdam/" target="_blank">Instagram</a></li>
-			<li class="footer__social__item"><a class="font-large link--external" href="https://www.facebook.com/MatiseAmsterdam/" target="_blank">Facebook</a></li>
-			<li class="footer__social__item"><a class="font-large link--external" href="https://www.linkedin.com/company/matise/" target="_blank">LinkedIn</a></li>
-			<li class="footer__social__item"><a class="font-large link--external" href="https://github.com/MatiseAms" target="_blank">Github</a></li>
+			<li class="footer__social__item"><a class="button plainText lightGray" href="https://www.instagram.com/matiseamsterdam/" target="_blank">Instagram</a></li>
+			<li class="footer__social__item"><a class="button plainText lightGray" href="https://www.facebook.com/MatiseAmsterdam/" target="_blank">Facebook</a></li>
+			<li class="footer__social__item"><a class="button plainText lightGray" href="https://www.linkedin.com/company/matise/" target="_blank">LinkedIn</a></li>
+			<li class="footer__social__item"><a class="button plainText lightGray" href="https://github.com/MatiseAms" target="_blank">Github</a></li>
 		</ul>
 	</section>
 

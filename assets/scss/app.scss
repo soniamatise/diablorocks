@@ -7,10 +7,19 @@
 'components/index',
 'components/work';
 
-body {
-	padding-top: grid(5);
-}
+// body {
+// 	padding-top: grid(5);
+// }
 
+section.intro {
+	padding-top: grid(5);
+	@media only screen and (max-width: 1024px) and (min-width: 768px){
+		padding-top: grid(7);
+	}
+	@media #{$mobile}{
+		padding: 0;
+	}
+}
 
 .link{
 	&--external{

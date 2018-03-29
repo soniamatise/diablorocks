@@ -160,4 +160,42 @@
 	.hide {
 		display: none;
 	}
+	.intro {
+		padding-top: grid(5);
+		@media only screen and (max-width: 1024px) and (min-width: 768px){
+			padding-top: grid(7);
+		}
+		@media #{$mobile}{
+			padding: 0;
+		}
+		.intro-text {
+			@media #{$mobile}{
+				padding: rem(96 64);
+			}
+			padding-bottom: rem(120);
+			@media #{$large-up}{
+				padding-bottom: grid(2);
+			}
+			p {
+				font-size: 1.5rem;
+				color: color(Light);
+				@media only screen and (max-width: 9999px) and (min-width: 1920px){
+					font-size: 2rem;
+					line-height: 3rem;
+				}
+				@media #{$medium-down}{
+					font-size: rem(20);
+				}
+			}
+		}
+		.intro-image {
+			height: grid(12);
+			@media #{$mobile}{
+				height: rem(600);
+			}
+			background-size: cover;
+			background-position: bottom center; 
+			background-repeat: no-repeat;
+		}
+	}
 }

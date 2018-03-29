@@ -28,5 +28,10 @@
 				background-color: color(Gray);
 			}
 		}
+		&.lightGray {
+			&:after {
+				background-color: color(Gray , .5);
+			}
+		}
 	}
 }
