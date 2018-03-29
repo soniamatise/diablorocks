@@ -69,7 +69,7 @@ export default {
 		return {
 			images: {
 				kalkhoff: require('~/assets/img/home/Hero_Kalkhoff.jpg'),
-				nielson: require('~/assets/img/home/Hero_NielsonAir.jpg'),
+				nielson: require('~/assets/img/home/Hero_Nielsonair.jpg'),
 				bbb: require('~/assets/img/home/Hero_BBB.jpg'),
 				boz: require('~/assets/img/home/Hero_BoZ.jpg'),
 				ticketchaser: require('~/assets/img/home/Hero_TicketChaser.jpg'),
