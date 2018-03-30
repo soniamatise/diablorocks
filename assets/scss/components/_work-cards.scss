@@ -88,6 +88,57 @@
 			width: grid(20);
 		}
 	}
+	&.card--hover {
+		cursor: pointer;
+		z-index: 2;
+		position: relative;
+		transition: 1s $standardCubicBezier;
+
+		p {
+			color: white;
+			transition: 0.5s $standardCubicBezier;
+		}
+	}
+	&.expandCard {
+		--top: calc((100vh - var(--height)) / 2);
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 2;
+		color: white;
+		width: grid(24);
+		height: 100vh;
+		margin-bottom: 0;
+		animation: slideToCenter 2.5s $standardCubicBezier forwards;
+	}
+
+	&.expandCard .work__card__image-container {
+		bottom: 0;
+		z-index: 2;
+		padding: 0;
+		left: 0;
+		right: 0;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		--y: calc(var(--height) + var(--top));
+		--xleft: var(--margin);
+		--xright: calc(var(--margin) + var(--width));
+		transition: background-size 2s 0.4s $specialCubicBezier;
+		background-size: 100vw !important;
+		@media #{$medium-down} {
+			background-size: 175vh !important;
+		}
+		animation: expand 2s 0.4s $specialCubicBezier forwards;
+
+		&+p {
+			opacity: 0;
+			transition: opacity 0.4s $standardCubicBezier;
+			padding: 0;
+		}
+	}
 }
 
 .background-canvas {
@@ -103,17 +154,6 @@
 	pointer-events: none;
 }
 
-.card--hover {
-	cursor: pointer;
-	z-index: 2;
-	position: relative;
-	transition: 1s $standardCubicBezier;
-
-	p {
-		color: white;
-		transition: 0.5s $standardCubicBezier;
-	}
-}
 
 .background--forward {
 	z-index: 1;
@@ -122,52 +162,12 @@
 
 }
 
-.expandCard {
-	--top: calc((100vh - var(--height)) / 2);
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	z-index: 2;
-	color: white;
-	width: grid(24);
-	height: 100vh;
-	margin-bottom: 0;
-	animation: slideToCenter 2.5s $standardCubicBezier forwards;
-}
-
-.expandCard .work__card__image-container {
-	bottom: 0;
-	z-index: 2;
-	padding: 0;
-	left: 0;
-	right: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	--y: calc(var(--height) + var(--top));
-	--xleft: var(--margin);
-	--xright: calc(var(--margin) + var(--width));
-	transition: background-size 2s 0.4s $specialCubicBezier;
-	background-size: 100vw !important;
-	@media #{$medium-down} {
-		background-size: 175vh !important;
-	}
-	animation: expand 2s 0.4s $specialCubicBezier forwards;
-
-	&+p {
-		opacity: 0;
-		transition: opacity 0.4s $standardCubicBezier;
-		padding: 0;
-	}
-}
-
 .expandBackground {
 	opacity: 1;
 	z-index: 1;
 	pointer-events: auto;
 }
+
 @keyframes slideToCenter {
 	0% {
 		padding-top: var(--offsetY);
