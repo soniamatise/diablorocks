@@ -35,12 +35,20 @@
 
 				&.nuxt-link-active {
 					position: relative;
-
+					// active link
 					&:before {
 						position: absolute;
 						left: 0;
 						right: auto;
 						width: 100%;
+					}
+					// active link hover
+					&:hover {
+						&:before {
+							right: 0;
+							left: auto;
+							width: 0%;
+						}
 					}
 				}
 			}
@@ -97,7 +105,7 @@
 			position: absolute;
 			top: 0;
 			left: 0;
-			height: 100%;
+			height: 100vh;
 			width: 100%;
 			background-color: color(Black);
 			padding: grid(1);
@@ -111,6 +119,8 @@
 			display: none;
 			@media #{$small-only} {
 				display: block;
+				position: absolute;
+				bottom: rem(90);
 			}
 
 			.nav__list-item__top {
@@ -157,7 +167,7 @@ $time: 0.6;
 	right: 0;
 	top: 50%;
 	width: rem(54);
-	z-index: 10;
+	z-index: 2;
 	transform: translateY(-50%);
 	display: none;
 	@media #{$small-only} {
@@ -281,11 +291,11 @@ input#menu-trigger {
 					}
 
 					&:before {
-						animation: goLeft #{$time*2}s 0s forwards;
+						animation: goLeft #{$time}s 0s forwards;
 					}
 
 					&:after {
-						animation: goRight #{$time*2}s 0s forwards;
+						animation: goRight #{$time}s 0s forwards;
 					}
 				}
 			}
