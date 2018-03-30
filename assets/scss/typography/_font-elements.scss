@@ -43,14 +43,19 @@ p {
 }
 
 a {
-	@extend %p;
+// Dit kan niet, als je styling op de specifieke P zet. -- after
+//	@extend %p;
 }
 
 li {
-	@extend %p;
+// Dit kan niet, als je styling op de specifieke P zet. -- after
+//	@extend %p;
 }
 
 
 blockquote {
   @extend %blockquote;
+}
+strong{
+	@extend %strong; 
 }
