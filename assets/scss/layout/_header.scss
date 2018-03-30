@@ -1,21 +1,21 @@
-header#header{
-	@media #{$small-only}{
-		padding: 0 20px;
-	}
-	padding: 0 grid(1); display: flex; background-color: color(Black); position: fixed; width: 100%; box-shadow: 0 0 60px 0 color(Black); z-index: 1;
-	.logo{
-		margin: 20px grid(0.5) 20px 0; text-indent: -9999px; background-image: url("../img/logo.svg"); display: inline-block; height: 80px; width: 80px; background-size: contain; background-repeat: no-repeat; background-position: center;
-		@media #{$small-only}{
-			margin: 0; width: 60px; height: 60px;
-		}
-		@media #{$medium-only}{
-			height: rem(50); width: rem(50); margin: 20px;
-		}
-		a{
-			display: block; height: 80px; width: 80px;
-			@media #{$small-only}{
-				height: 60px; width: 60px;
-			}
-		}
-	}
-}
+// header#header{
+// 	@media #{$small-only}{
+// 		padding: 0 20px;
+// 	}
+// 	padding: 0 grid(1); display: flex; background-color: color(Black); position: fixed; width: 100%; box-shadow: 0 0 60px 0 color(Black); z-index: 1;
+// 	.logo{
+// 		margin: 20px grid(0.5) 20px 0; text-indent: -9999px; background-image: url("../img/logo.svg"); display: inline-block; height: 80px; width: 80px; background-size: contain; background-repeat: no-repeat; background-position: center;
+// 		@media #{$small-only}{
+// 			margin: 0; width: 60px; height: 60px;
+// 		}
+// 		@media #{$medium-only}{
+// 			height: rem(50); width: rem(50); margin: 20px;
+// 		}
+// 		a{
+// 			display: block; height: 80px; width: 80px;
+// 			@media #{$small-only}{
+// 				height: 60px; width: 60px;
+// 			}
+// 		}
+// 	}
+// }

@@ -1,7 +1,9 @@
 <template>
 <section id="next-case" class="nextCase">
-	<div class="hoverHolder"  @mouseenter="bgOfCase()" @mouseleave="bgToNormal()" :case="caseName">
-		<div class="contentHolder">
+	<text-transition text-left="Next case" :text-right="caseName" onloadedmetadata="" @mouseenter="bgOfCase()" @mouseleave="bgToNormal()"></text-transition>
+
+	<!-- <div class="hoverHolder"  @mouseenter="bgOfCase()" @mouseleave="bgToNormal()" :case="caseName"> -->
+		<!-- <div class="contentHolder">
 			<div class="textHolder textHolderLeft">
 				<div id="textholder-left" class="mask">
 					<div class="keepPosition">
@@ -17,8 +19,9 @@
 			<div class="textHolder mobile-only">
 				<h2><span>Next case</span> {{ caseName }}</h2>
 			</div>
-		</div>
-	</div>
+		</div> -->
+
+	<!-- </div> -->
 	<div id="caseImage" class="caseImage">
 		<img :src="image">
 	</div>
@@ -26,64 +29,63 @@
 </template>
 
 <script>
+import TextTransition from '~/components/TextTransition.vue'
+
 export default {
+	components:{
+		TextTransition
+	},
 	props: ['caseName', 'image', 'caseColor'],
 	data() {
 		return {
 			Velocity: this.$velocity
 		}
 	},
+	mounted() {
+
+	},
 	methods: {
 		bgOfCase: function() {
-
-			console.log('hoi of case');
-
-			//case color on mouseover
+			console.log('hoi to normal');
 			const bgDiv = document.getElementById('next-case');
 			bgDiv.style.backgroundColor = this.caseColor;
-
-			//text animation on mouseover
-			const leftText = document.getElementById('textholder-left');
-			const rightText = document.getElementById('textholder-right');
-
-			const currentWidthInner = leftText.offsetWidth / 2;
-			rightText.style.transform = 'translateX(' + -currentWidthInner + 'px)';
-
-			//case image animation on mouseover
-			const caseImage = document.getElementById('caseImage');
-
-			//get grid size for image height on mouseover
-			const getGrid = window.innerWidth / 12;
-
-			//case image animation on mouseover
-			this.Velocity(caseImage, { transform: 'translate(-50%, ' + -getGrid + 'px)' }, 600, [180, 16]);
-			// caseImage.style.transform = 'translate(-50%,' + -getGrid + 'px)';
 		},
 		bgToNormal: function() {
-			console.log('hoi to normal');
-			//black color on mouseleave
 			const bgDiv = document.getElementById('next-case');
 			bgDiv.style.backgroundColor = 'black';
-
-			//text animation on mouseleave
-			const rightText = document.getElementById('textholder-right');
-			rightText.style.transform = 'translateX(0px)';
-
-			//case image animation on mouseleave
-			const caseImage = document.getElementById('caseImage');
-			this.Velocity(caseImage, { transform: 'translate(-50%, 0)' }, 600, [180, 16]);
-			// caseImage.style.transform = 'translate(-50%, 0)';
 		},
-	},
-	mounted: () => {
-		//do the math for width
-		const leftText = document.getElementById('textholder-left');
-		const rightText = document.getElementById('textholder-right');
 
-		function toggleWidth() {
-			const currentWidthInner = leftText.offsetWidth / 2;
-			rightText.style.transform = 'translateX(' + -currentWidthInner + 'px)';
-		}
+
+
+		// bgOfCase: function() {
+		//
+		// 	console.log('hoi of case');
+		//
+		// 	//case color on mouseover
+		// 	const bgDiv = document.getElementById('next-case');
+		// 	bgDiv.style.backgroundColor = this.caseColor;
+		//
+		//
+		// 	//case image animation on mouseover
+		// 	const caseImage = document.getElementById('caseImage');
+		//
+		// 	//get grid size for image height on mouseover
+		// 	const getGrid = window.innerWidth / 12;
+		//
+		// 	//case image animation on mouseover
+		// 	this.Velocity(caseImage, { transform: 'translate(-50%, ' + -getGrid + 'px)' }, 600, [180, 16]);
+		// },
+		// bgToNormal: function() {
+		// 	console.log('hoi to normal');
+		//
+		// 	//black color on mouseleave
+		// 	const bgDiv = document.getElementById('next-case');
+		// 	bgDiv.style.backgroundColor = 'black';
+		//
+		// 	//case image animation on mouseleave
+		// 	const caseImage = document.getElementById('caseImage');
+		// 	this.Velocity(caseImage, { transform: 'translate(-50%, 0)' }, 600, [180, 16]);
+		// },
 	}
 }
 </script>
