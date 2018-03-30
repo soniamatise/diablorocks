@@ -40,6 +40,9 @@ module.exports = {
     },
     vendor: ['velocity-animate']
   },
+  env: {
+    baseUrl: process.env.BASE_URL || 'http://api.matise.nl/wp-json/wp/v2'
+  },
 	css: [{
 		src: '~assets/scss/app.scss',
 		lang: 'scss'

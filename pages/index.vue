@@ -58,8 +58,15 @@
 import MainLayout from '~/layouts/MainLayout.vue'
 import HomeSlider from '~/components/HomeSlider.vue'
 import HomeSliderItem from '~/components/HomeSliderItem.vue'
+import axios from 'axios'
 
 export default {
+	asyncData ({ params }) {
+    return axios.get(`http://api.matise.nl/wp-json/wp/v2/pages/54`)
+    .then((res) => {
+			console.log(res.data);
+    })
+  },
 	components: {
 		MainLayout,
 		HomeSlider,

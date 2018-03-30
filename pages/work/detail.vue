@@ -1,10 +1,10 @@
 <template>
 	<main-layout class="work-detail">
 		<case-heading
-			caseName="BBB Cycling"
-			caseQuote="This is what happens when commerce and emotion collide and come together."
-			caseImage="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
-			caseColor="#524d40"
+			:caseName="client"
+			:caseQuote="description"
+			:caseImage="image"
+			:caseColor="color"
 		/>
 		<one-column/>
 		<two-column/>
@@ -23,6 +23,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 import MainLayout from '~/layouts/MainLayout.vue'
 import OneColumn from '~/layouts/OneColumn.vue'
 import TwoColumn from '~/layouts/TwoColumn.vue'
@@ -30,6 +32,7 @@ import PayoffCredits from '~/layouts/PayoffCredits.vue'
 import CaseHeading from '@/components/CaseHeading.vue'
 import NextCase from '~/components/NextCase.vue'
 import VideoPlayer from '~/components/VideoPlayer.vue'
+
 export default {
 	components: {
 		OneColumn,
@@ -39,6 +42,22 @@ export default {
 		CaseHeading,
 		VideoPlayer,
 		NextCase,
-	}
+	},
+	asyncData ({ params }) {
+    return axios.get(`${process.env.baseUrl}/case?slug=bbb-cycling-magento2&_embed`)
+    .then((res) => {
+			return {
+				layout: res.data[0].layout,
+				client: res.data[0].client_name,
+				description: res.data[0].case_description,
+				color: res.data[0].case_background_color,
+				image: res.data[0]._embedded['wp:featuredmedia'][0].source_url
+			}
+    })
+  },
+
 }
+
+
+
 </script>
