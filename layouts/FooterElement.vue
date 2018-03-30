@@ -20,7 +20,7 @@
 		<ul class="column list--column footer__contact">
 			<li class="footer__contact__item"><a href="mailto:office@matise.nl">office@matise.nl</a></li>
 			<li class="footer__contact__item"><a href="tel:+31208453799">+31 20 845 37 99</a></li>
-			<li class="footer__contact__item">Entrepotdok 78, Amsterdam</li>
+			<li class="footer__contact__item"><a href="https://goo.gl/maps/eLQdbzhUEAQ2" target="_blank">Entrepotdok 78, Amsterdam</a></li>
 			<li class="footer__contact__item">Open till 6pm today</li>
 		</ul>
 

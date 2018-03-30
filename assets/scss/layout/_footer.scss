@@ -97,7 +97,7 @@
 
 		&__item {
 			font-size: rem(16);
-			margin-right: rem(45);
+			margin-right: grid(.75);
 			color: color(Gray, 0.5);
 
 			a {
