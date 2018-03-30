@@ -1,6 +1,6 @@
 <template>
 <section id="next-case" class="nextCase">
-	<div class="hoverHolder" id="mouseOver" @mouseenter="bgOfCase()" @mouseleave="bgToNormal()" :case="caseName">
+	<div class="hoverHolder"  @mouseenter="bgOfCase()" @mouseleave="bgToNormal()" :case="caseName">
 		<div class="contentHolder">
 			<div class="textHolder textHolderLeft">
 				<div id="textholder-left" class="mask">
