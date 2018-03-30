@@ -82,41 +82,6 @@
 		&__link{
 			&:before{ background-color: color(Black); }
 		}
-<<<<<<< HEAD
-		@media #{$medium-down} {
-			margin-right: grid(2);
-		}
-	}
-
-	&__social {
-		&__item {
-			color: color(Gray, 0.5);
-			line-height: rem(32);
-		}
-		@media (max-width: rem(450)) {
-			margin-top: grid(1);
-		}
-	}
-
-	&__practical {
-		margin-top: grid(1.5);
-		@media #{$medium-down} {
-			margin-top: grid(2);
-		}
-		@media #{$mobile} {
-			margin-top: rem(32);
-		}
-
-		&__item {
-			font-size: rem(16);
-			margin-right: grid(.75);
-			color: color(Gray, 0.5);
-
-			a {
-				font-size: rem(16);
-				position: relative;
-
-=======
   }
   .nav__social {
     .nav__text {
@@ -141,7 +106,6 @@
 				transition-timing-function: ease-out;
 			}
 			&:hover {
->>>>>>> develop
 				&:before {
 					right: 0;
 					left: auto;
