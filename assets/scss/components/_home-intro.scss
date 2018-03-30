@@ -10,6 +10,7 @@
 			transform: translateX(-100%);
 		}
 		&.active{
+			z-index: 1;
 			width: auto;
 			height: 100%;
 			animation: moveContainer 1.9s .8s $specialCubicBezier;
