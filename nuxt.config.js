@@ -21,6 +21,10 @@ module.exports = {
 		{ src: '~plugins/swiper.js', ssr: false },
     { src: '~plugins/velocity.js', ssr: false },
 	],
+	router: {
+		linkActiveClass: 'nav__link--parent-active',
+		linkExactActiveClass: 'nav__link--active'
+	},
   /*
   ** Build configuration
   */
