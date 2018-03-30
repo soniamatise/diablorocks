@@ -2,9 +2,9 @@
 %p{
 	font-family: $body-font-family; font-size: rem(18); line-height: rem(32); margin: 0; padding: 0;
 	@media #{$large-down}{ font-size: rem(16); line-height: rem(30); }
-	span{
-		&:after{ content: ' —'; font-weight: $font-regular; }
-	}
+	// span{
+	// 	&:after{ content: ' —'; font-weight: $font-regular; }
+	// }
 }
 
 // headers

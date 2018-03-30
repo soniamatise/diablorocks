@@ -1,163 +1,24 @@
-.nav {
-	// general nav styling
-	.nav__list-item {
-		&__footer,
-		&__top {
-			a {
-				margin-right: grid(.75);
-				font-size: rem(14);
-				position: relative;
-				font-weight: $font-medium;
-				line-height: 1.14;
-				@media #{$mobile}{
-					margin-right: rem(32);
-				}
-				&:before {
-					content: "";
-					position: absolute;
-					right: 0;
-					width: 0;
-					bottom: -4px;
-					background-color: color(Black);
-					height: 1px;
-					transition-property: width;
-					transition-duration: 0.3s;
-					transition-timing-function: ease-out;
-				}
+#header {
+  .nav {
+    top: grid(1.5);
+    left: grid(2);
+    position: absolute;
+    mix-blend-mode: difference;
 
-				&:hover {
-					&:before {
-						left: 0;
-						right: auto;
-						width: 100%;
-					}
-				}
-
-				&.nuxt-link-active {
-					position: relative;
-					// active link
-					&:before {
-						position: absolute;
-						left: 0;
-						right: auto;
-						width: 100%;
-					}
-					// active link hover
-					&:hover {
-						&:before {
-							right: 0;
-							left: auto;
-							width: 0%;
-						}
-					}
-				}
-			}
-		}
-
-		&__top {
-			@media #{$small-only} {
-				width: 100%;
-			}
-
-			a {
-				@media #{$small-only} {
-					color: color(Light);
-
-					&:before {
-						background-color: color(Light);
-					}
-				}
-			}
-
-			&.logo {
-				background: color(Black);
-				position: absolute;
-				margin-right: 0;
-				height: rem(50);
-				right: 0;
-				top: 0;
-				@media #{$small-only} {
-					display: none;
-				}
-
-				a {
-					margin-right: 0;
-
-					&:before {
-						display: none;
-					}
-				}
-			}
-
-			&.main-link {
-				a {
-					@media #{$small-only} {
-						font-size: 1.3rem;
-						line-height: 3rem;
-					}
-				}
-			}
-		}
-	}
-	//header nav styling
-	&.top__nav {
-		@media #{$small-only} {
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100vh;
-			width: 100%;
-			background-color: color(Black);
-			padding: grid(1);
-			transition: clip-path 0.3s;
-			color: color(Light);
-			animation: closeMenu 0.5s ease-in-out forwards;
-			padding: rem(87) rem(64) rem(90);
-		}
-
-		.top__contact-us {
-			display: none;
-			@media #{$small-only} {
-				display: block;
-				position: absolute;
-				bottom: rem(90);
-			}
-
-			.nav__list-item__top {
-				a {
-					font-size: rem(14);
-				}
-
-				&.info-link {
-					margin: -2.5px 0;
-
-					a {
-						font-weight: $font-regular;
-					}
-				}
-
-				&.title {
-					a {
-						font-weight: $font-medium;
-
-						&::before {
-							display: none !important;
-						}
-					}
-				}
-			}
-		}
-	}
-	// footer nav styling
-	&.footer__nav {
-		margin-top: rem(30);
-		@media #{$xxlarge-only} {
-			margin-top: rem(40);
-		}
-		@media #{$medium-down} {
-			margin-top: rem(24);
-		}
-	}
+    @media #{$small-only} {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100%;
+      background-color: color(Black);
+      padding: grid(1);
+      transition: clip-path 0.3s;
+      color: color(Light);
+      animation: closeMenu 0.5s ease-in-out forwards;
+      padding: rem(87) 4rem rem(90) 4rem;
+    }
+  }
 }
 
 $logo-height: 54px;
@@ -165,29 +26,15 @@ $time: 0.6;
 
 .nav {
   // general nav styling
-  mix-blend-mode: difference;
-  @media #{$small-only} {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100%;
-    background-color: color(Black);
-    padding: grid(1);
-    transition: clip-path 0.3s;
-    color: color(Light);
-    animation: closeMenu 0.5s ease-in-out forwards;
-    padding: rem(87) 4rem rem(90) 4rem;
-  }
 
   &__logo {
     background-color: color(Black);
     position: absolute;
     right: 0px;
     top: grid(1.5);
-		z-index: 12;
+    z-index: 12;
     height: rem($logo-height);
-		-webkit-backface-visibility: visible;
+    -webkit-backface-visibility: visible;
 
     @media #{$small-only} {
       top: 50vh;
@@ -205,6 +52,7 @@ $time: 0.6;
     @media #{$medium-up} {
       & + .nav__item {
         margin-left: grid(0.75);
+				@include min-('margin-left',.75,32);
       }
     }
 
@@ -264,12 +112,6 @@ $time: 0.6;
   }
 
   &__contact {
-    display: none;
-		position: absolute; bottom: 5.75rem;
-    // Will only show on mobile
-		@media #{$small-only}{
-			display: block;
-		}
   }
 }
 
@@ -365,10 +207,18 @@ input#menu-trigger {
   margin: 0;
   padding: 0;
   visibility: hidden;
+  & ~ #header {
+		@media #{$small-only}{
+    pointer-events: none;
+	}
+  }
 
   &:checked {
-    & ~ #header .nav {
-      animation: openMenu 0.3s ease-in-out forwards;
+    & ~ #header {
+	    pointer-events: all;
+      .nav {
+        animation: openMenu 0.3s ease-in-out forwards;
+      }
     }
 
     & ~ .nav__logo {
