@@ -1,7 +1,7 @@
 <template>
 	<main-layout>
+		<home-intro />
 		<home-slider>
-			<home-intro />
 			<home-slider-item
 				caseName="Kalkhoff Bikes"
 				caseDescription="When your bikes are eye-catchers,  your website should be too."
@@ -56,16 +56,17 @@
 </template>
 
 <script>
-import MainLayout from '~/layouts/MainLayout.vue';
-import HomeIntro from '~/components/HomeIntro.vue';
-import HomeSlider from '~/components/HomeSlider.vue';
-import HomeSliderItem from '~/components/HomeSliderItem.vue';
+import MainLayout from '~/layouts/MainLayout';
+import HomeIntro from '~/components/HomeIntro';
+import HomeSlider from '~/components/HomeSlider';
+import HomeSliderItem from '~/components/HomeSliderItem';
 
 export default {
 	components: {
 		MainLayout,
 		HomeSlider,
 		HomeSliderItem,
+		HomeIntro
 	},
 	data(){
 		return {
