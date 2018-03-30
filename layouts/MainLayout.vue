@@ -1,5 +1,5 @@
 <template>
-<div>
+<div id="main-layout">
 	<input id="menu-trigger" type="checkbox"/>
 	<logo></logo>
 	<top-nav></top-nav>

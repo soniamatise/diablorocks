@@ -16,7 +16,7 @@ $time: 0.6;
 .nav {
   // general nav styling
 
-  // mix-blend-mode: difference;
+  mix-blend-mode: difference;
   @media #{$small-only} {
     position: absolute;
     top: 0;
@@ -104,7 +104,6 @@ $time: 0.6;
   }
   &__text {
     // Styling for text (span in a) attribute
-    mix-blend-mode: difference;
     font-size: rem(14);
     line-height: rem(50);
     color: color(White);
@@ -117,7 +116,7 @@ $time: 0.6;
 
   &__contact {
     display: none;
-		position: absolute; bottom: 5.75rem; 
+		position: absolute; bottom: 5.75rem;
     // Will only show on mobile
 		@media #{$small-only}{
 			display: block;
@@ -242,7 +241,7 @@ $time: 0.6;
   position: absolute;
   cursor: pointer;
   right: 0;
-  z-index: 10;
+  // z-index: 10;
   top: 0;
   display: none;
   transform: translateX(100%) rotate(90deg);

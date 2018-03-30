@@ -2,17 +2,16 @@
   width: 100%;
   position: absolute;
   // top: grid(1.5);
-  z-index: 8;
-	.nav{
-		z-index: 10;
-	}
-  // @media #{$medium-up}{
-  // 	mix-blend-mode: difference;
-  // }
+  z-index: 10;
+	// .nav{
+	// 	z-index: 10;
+	// }
+  @media #{$medium-up}{
+  	mix-blend-mode: difference;
+  }
   @media #{$small-only} {
     width: 100vw;
     height: 100vh;
-    pointer-events: none;
     top: 0;
     left: 0;
   }
