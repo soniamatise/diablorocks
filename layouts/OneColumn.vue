@@ -4,7 +4,7 @@
 		<div class="holder full">
 			<!-- img paceholder for principle anime-->
 			<div class="contentHolder">
-				<img src="~/static/img/placeholder.png" alt="placeholder">
+				<img src="~assets/img/placeholder.png" alt="placeholder">
 			</div>
 		</div>
 	</div>
