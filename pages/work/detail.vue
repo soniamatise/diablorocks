@@ -6,9 +6,13 @@
 			:caseImage="image"
 			:caseColor="color"
 		/>
+		<div v-for="value in layout" :key="value.acf_fc_layout">
+			
+			<payoff-credits v-if="value.acf_fc_layout==='info_table'" />
+		</div>
 		<one-column/>
 		<two-column/>
-		<payoff-credits/>
+
 		<next-case
 		caseName="Aangenaam Bergen op Zoom"
 		image="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
