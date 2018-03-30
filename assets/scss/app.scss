@@ -8,6 +8,10 @@
 'components/work';
 
 
+body{
+	font-family: $body-font;
+}
+
 #page{
 	width: 100vw;
 	height: 100vh;
