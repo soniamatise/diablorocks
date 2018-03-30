@@ -13,7 +13,7 @@
 	height: 100vh;
 	overflow: scroll;
 	position: relative;
-	background-color: white; 
+	background-color: white;
 }
 
 section.intro {
@@ -33,7 +33,13 @@ section.intro {
 	}
 }
 
+@media #{$medium-up}{
+	.hide-desktop{
+		display: none;
+	}
+}
 @media #{$mobile} {
+	.hide-mobile,
 	.mobile-hide{
 		display: none;
 	}
