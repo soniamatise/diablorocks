@@ -22,7 +22,7 @@
       </ul>
       <div class="nav__contact">
 				<p>
-					<strong>Contact us</strong><br />
+					<strong>Contact</strong><br />
 					<a href="mailto:office@matise.nl">office@matise.nl</a><br />
 					<a href="tel:+31 20 845 37 99">+31 20 845 37 99</a><br />
 					<a href="http://maps.google.com/?q=Entrepotdok 78, Amsterdam, the Netherlands">Entrepotdok 78, Amsterdam</a>

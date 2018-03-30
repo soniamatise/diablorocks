@@ -15,7 +15,6 @@ $time: 0.6;
 
 .nav {
   // general nav styling
-
   mix-blend-mode: difference;
   @media #{$small-only} {
     position: absolute;
@@ -124,114 +123,6 @@ $time: 0.6;
   }
 }
 
-// .nav__list-item {
-//   &__footer,
-//
-//   &__top {
-//     @media #{$small-only} {
-//       width: 100%;
-//     }
-//
-//     a {
-//       @media #{$small-only} {
-//         color: color(Light);
-//
-//         &:before {
-//           background-color: color(Light);
-//         }
-//       }
-//     }
-//
-//     &.logo {
-//       background: color(Black);
-//       position: absolute;
-//       margin-right: 0;
-//       height: rem(50);
-//       right: 0;
-//       top: 0;
-//       @media #{$small-only} {
-//         display: none;
-//       }
-//
-//       a {
-//         margin-right: 0;
-//
-//         &:before {
-//           display: none;
-//         }
-//       }
-//     }
-//
-//     &.main-link {
-//       a {
-//         @media #{$small-only} {
-//           font-size: 1.3rem;
-//           line-height: 3rem;
-//         }
-//       }
-//     }
-//   }
-// }
-//header nav styling
-// &.top__nav {
-//   @media #{$small-only} {
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     height: 100vh;
-//     width: 100%;
-//     background-color: color(Black);
-//     padding: grid(1);
-//     transition: clip-path 0.3s;
-//     color: color(Light);
-//     animation: closeMenu 0.5s ease-in-out forwards;
-//     padding: rem(87) rem(64) rem(90);
-//   }
-//
-//   .top__contact-us {
-//     display: none;
-//     @media #{$small-only} {
-//       display: block;
-//       position: absolute;
-//       bottom: rem(90);
-//     }
-//
-//     .nav__list-item__top {
-//       a {
-//         font-size: rem(14);
-//       }
-//
-//       &.info-link {
-//         margin: -2.5px 0;
-//
-//         a {
-//           font-weight: $font-regular;
-//         }
-//       }
-//
-//       &.title {
-//         a {
-//           font-weight: $font-medium;
-//
-//           &::before {
-//             display: none !important;
-//           }
-//         }
-//       }
-//     }
-//   }
-// }
-// footer nav styling
-//   &.footer__nav {
-//     margin-top: rem(30);
-//     @media #{$xxlarge-only} {
-//       margin-top: rem(40);
-//     }
-//     @media #{$medium-down} {
-//       margin-top: rem(24);
-//     }
-//   }
-// }
 // MOBILE TRIGGER MENU HAMBURGER
 
 .trigger {

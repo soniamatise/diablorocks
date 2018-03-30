@@ -56,3 +56,6 @@ li {
 blockquote {
   @extend %blockquote;
 }
+strong{
+	@extend %strong; 
+}
