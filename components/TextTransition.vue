@@ -47,12 +47,11 @@ export default {
 		textAnimationOn: function() {
 			// console.log('hoi textAnimationOn');
 			this.elements.right.style.transform = 'translateX(' + ((this.elements.left.offsetWidth / 2) * -1) + 'px)';
+
 		},
 		//text animation on mouseleave
 		textAnimationOff: function() {
-
 			// console.log('hoi textAnimationOff');
-			//text animation on mouseleave
 			this.elements.right.style.transform = 'translateX(0px)';
 		}
 	}

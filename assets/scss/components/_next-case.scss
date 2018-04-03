@@ -1,5 +1,4 @@
-// heb ik nodig
-$easeboth: cubic-bezier(.42,0,.58,1); // epic
+$easeboth: cubic-bezier(.42,0,.58,1);
 
 .nextCase {
 	width: 100vw;
@@ -11,108 +10,6 @@ $easeboth: cubic-bezier(.42,0,.58,1); // epic
 	@media #{$small-only} {
 		height: auto;
 	}
-
-	// .hoverHolder {
-	// 	cursor: pointer;
-	// 	width: 100vw;
-	// 	height: 50vh;
-	// 	position: relative;
-	// 	left: 50%;
-	// 	top: 50%;
-	// 	transform: translate(-50%, -50%);
-	// 	@media #{$small-only} {
-	// 		transform: translate(0%);
-	// 		left: 0;
-	// 	}
-	//
-	// 	.contentHolder {
-	// 		left: 50%;
-	// 		top: 50%;
-	// 		transform: translate(-50%, -50%);
-	// 		position: absolute;
-	// 		height: 50vh;
-	// 		width: auto;
-	// 		@media #{$medium-down} {
-	// 			position: relative;
-	// 			display: inline-block;
-	// 		}
-	// 		@media #{$small-only} {
-	// 			height: auto;
-	// 		}
-	//
-	// 		.textHolder {
-	// 			top: 50%;
-	// 			position: relative;
-	// 			transform: translateY(-50%);
-	// 			box-sizing: border-box;
-	// 			width: initial;
-	//
-	// 			&.mobile-only {
-	// 				display: none;
-	// 				@media #{$small-only} {
-	// 					display: block;
-	// 					padding: 0 rem(64);
-	// 					color: color(Light);
-	// 					transform: translateY(0%);
-	// 					top: 0;
-	// 				}
-	// 			}
-	//
-	// 			&.textHolderLeft {
-	// 				display: block;
-	// 				position: relative;
-	// 				float: left;
-	// 				overflow: hidden;
-	// 				@media #{$small-only} {
-	// 					display: none;
-	// 				}
-	//
-	// 				.mask {
-	// 					position: relative;
-	// 					display: block;
-	// 					width: 100%;
-	// 					overflow: hidden;
-	// 					transition: transform 0.3s $easeboth 0.7s;
-	//
-	// 					.keepPosition {
-	// 						position: relative;
-	// 						display: block;
-	// 						width: 100%;
-	// 						overflow: hidden;
-	// 						transition: transform 0.3s $easeboth 0.7s;
-	//
-	// 						h2 {
-	// 							color: color(Light);
-	// 							display: block;
-	// 							white-space: nowrap;
-	// 							position: relative;
-	// 						}
-	// 					}
-	// 				}
-	// 			}
-	//
-	// 			&.textHolderRight {
-	// 				display: block;
-	// 				float: right;
-	// 				@media #{$small-only} {
-	// 					display: none;
-	// 				}
-	//
-	// 				.mask {
-	// 					position: relative;
-	// 					display: block;
-	// 					transform: translateX(0);
-	// 					left: 0;
-	// 					transition: transform 0.2s $easeboth 0.5s;
-	// 				}
-	//
-	// 				h2 {
-	// 					color: color(Light);
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// }
 
 	.caseImage {
 		width: grid(6);
@@ -135,41 +32,3 @@ $easeboth: cubic-bezier(.42,0,.58,1); // epic
 		}
 	}
 }
-
-// .nextCase {
-// 	.hoverHolder {
-// 		&:hover {
-// 			.contentHolder {
-// 				.textHolder {
-// 					&.textHolderLeft {
-// 						.mask {
-// 							transform: translateX(100%);
-// 							transition: transform 0.3s $easeboth 0.5s;
-//
-// 							.keepPosition {
-// 								transform: translateX(-100%);
-// 								transition: transform 0.3s $easeboth 0.5s;
-// 							}
-// 						}
-// 					}
-//
-// 					&.textHolderRight {
-// 						.mask {
-// 							transition: transform 0.2s $easeboth 0.8s;
-// 						}
-// 					}
-// 				}
-// 			}
-// 		}
-// 	}
-// }
-// // animations
-// @keyframes maskNextCase {
-// 	0% {
-// 		transform: translateX(0);
-// 	}
-//
-// 	100% {
-// 		transform: translateX(100%);
-// 	}
-// }
