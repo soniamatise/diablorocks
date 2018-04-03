@@ -3,7 +3,7 @@
 		<div class="row center">
 			<div class="column column-24">
 				<video @timeupdate="seekBar()" class="video hide" ref="video" width="100%" height="100%" controls preload>
-					<source v-bind:src="caseVideo" type="video/mp4">
+					<source :src="caseVideo" type="video/mp4">
 				</video>
 				<div class="control-pannel hide" ref="controls">
 					<div class="row center">
