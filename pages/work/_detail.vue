@@ -64,7 +64,7 @@ export default {
 		NextCase,
 	},
 	asyncData ({ params }) {
-    return axios.get(`${process.env.baseUrl}/case?slug=bbb-cycling-magento2&_embed`)
+    return axios.get(`${process.env.baseUrl}/case?slug=${params.detail}&_embed`)
     .then((res) => {
 			return {
 				layout: res.data[0].layout,

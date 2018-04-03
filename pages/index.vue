@@ -12,7 +12,7 @@
 			/>
 			<home-slider-item
 				caseName="Sony Music Netherlands"
-				caseDescription="A new digital home for Nielson, an 
+				caseDescription="A new digital home for Nielson, an
 artist that reinvented himself."
 				:caseImage="images.nielson"
 				caseColor="#400c0e"
@@ -20,7 +20,7 @@ artist that reinvented himself."
 			/>
 			<home-slider-item
 				caseName="BBB Cycling"
-				caseDescription="This is what happens when commerce 
+				caseDescription="This is what happens when commerce
 and emotion collide and come together."
 				:caseImage="images.bbb"
 				caseColor="#524d40"
@@ -69,7 +69,7 @@ export default {
 	asyncData ({ params }) {
     return axios.get(`http://api.matise.nl/wp-json/wp/v2/pages/54`)
     .then((res) => {
-			console.log(res.data);
+			// console.log(res.data);
     })
   },
 	components: {

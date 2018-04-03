@@ -1,3 +1,5 @@
+const axios = require('axios')
+
 module.exports = {
 	/*
 	 ** Headers of the page
@@ -65,6 +67,16 @@ module.exports = {
 		},
 		vendor: ['velocity-animate']
 	},
+	generate: {
+    routes: function () {
+      return axios.get('http://api.matise.nl/wp-json/wp/v2/case')
+      .then((res) => {
+        return res.data.map((item) => {
+          return '/work/' + item.slug
+        })
+      })
+    }
+  },
   env: {
     baseUrl: process.env.BASE_URL || 'http://api.matise.nl/wp-json/wp/v2'
   },
