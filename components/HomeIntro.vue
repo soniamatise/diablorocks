@@ -1,11 +1,11 @@
 <template>
 	<section class="home-intro">
-		<div class="bg-white white-intro">
+		<div class="bg-white white-intro" ref="whiteIntro">
 			<div class="white-intro--text">
 				<h2 class="medium">Not your average Agency</h2>
 			</div>
 		</div>
-		<div :class="['bg-black', 'black-intro', {flowAway: go}]">
+		<div :class="['bg-black', 'black-intro', {flowAway: go}]" ref="blackIntro">
 			<div v-for="(text, index) in texts" :class="['black-intro--overflow', {'active--last': go}] " :id="index" :key="index">
 				<h2 :class="['medium', 'text-' + index, 'text-white']">{{ text }}</h2>
 			</div>
@@ -29,6 +29,8 @@ export default {
 	},
 	mounted(){
 		const self = this;
+		const whiteIntro = this.$refs.whiteIntro;
+		const blackIntro = this.$refs.blackIntro;
 		let changeText = function(){
 			for(let i = 0; i < self._data.texts.length; i++){
 				(function(index) {
@@ -40,6 +42,9 @@ export default {
 							}, 1900);
 							setTimeout(function(){
 								document.querySelector('.nav__logo').classList.add('high-z');
+								whiteIntro.classList.add('low-z');
+								blackIntro.classList.add('low-z');
+								
 							}, 3200);
 						} else {
 							self._data.activeIndex = i;

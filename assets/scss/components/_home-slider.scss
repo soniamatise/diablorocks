@@ -1,4 +1,6 @@
+// HAS 4 s more
 #home-slider {
+	z-index: 2;
 	background-color: color(Black);
 	transition: background-color 1s cubic-bezier(0.42, 0, 0.58, 1);
 
@@ -9,7 +11,7 @@
 		width: grid(20);
 		right: grid(2);
 		position: absolute;
-		animation: menuCoverer 0.5s ease-in forwards 9s;
+		animation: menuCoverer 0.5s ease-in forwards 13s;
 		z-index: 11;
 		@media #{$small-only} {
 			display: none;
@@ -59,7 +61,7 @@
 				border-left: rem(5) solid color(White);
 				position: absolute;
 				right: 0;
-				animation: caret 0.5s steps(1) infinite, introTyper 1s ease-in forwards 7s;
+				animation: caret 0.5s steps(1) infinite, introTyper 1s ease-in forwards 11s;
 
 				@media #{$small-only} {
 					display: none;
@@ -69,10 +71,10 @@
 
 			@keyframes caret {
 				0%{
-					background-color: color(White);
+					border-left-color: color(White);
 				}
 				50% {
-					background-color: color(Black);
+					border-left-color: color(Black);
 				}
 			}
 			@keyframes introTyper {
@@ -185,7 +187,7 @@
 				}
 				&.jumpUp {
 					top: grid(5);
-					animation: jumpup 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 8.5s;
+					animation: jumpup 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 12.5s;
 					@keyframes jumpup {
 						0%{
 							top: grid(5);
