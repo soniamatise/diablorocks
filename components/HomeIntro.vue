@@ -7,7 +7,7 @@
 		</div>
 		<div :class="['bg-black', 'black-intro', {flowAway: go}]">
 			<div v-for="(text, index) in texts" :class="['black-intro--overflow', {'active--last': go}] " :id="index" :key="index">
-				<h2 :class="['medium', 'bg-black', 'text-' + index, 'text-white']">{{ text }}</h2>
+				<h2 :class="['medium', 'text-' + index, 'text-white']">{{ text }}</h2>
 			</div>
 		</div>
 
@@ -52,7 +52,7 @@ export default {
 		}
 		setTimeout(function() {
 			changeText();
-		}, 300)
+		}, 100)
 	}
 }
 </script>
