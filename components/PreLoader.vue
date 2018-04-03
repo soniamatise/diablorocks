@@ -21,16 +21,11 @@ export default {
 		}
 	},
 	props: [''],
-	data() {
-		return {
-			
-		}
-	},
 	mounted: function() {
 	
 	},
 	methods: {
-		
+
 	}
 }
 </script>

@@ -18,6 +18,11 @@
 <script>
 
 export default {
+	data() {
+		return {
+			Velocity: this.$velocity
+		}
+	},
 	props: ['caseName', 'caseDescription', 'caseImage', 'caseUrl', 'caseColor', 'caseImageHeight'],
 	mounted() {
 
@@ -25,9 +30,14 @@ export default {
 	methods: {
 		bgOfCase: function () {
 	    	const bg = this.$parent.$refs.homeSlider;
+	    	const rotatedElement = this;
 	    	let contentHolders = document.getElementsByClassName('contentHolder');
 	    	let bullets = document.getElementsByClassName('bullet');
+	    	const getGrid = window.innerWidth / 12;
 			bg.style.backgroundColor = this.caseColor;
+			console.log(rotatedElement);
+			this.Velocity(rotatedElement, { transform: 'rotate(-15deg)' }, 600, [180, 16]);
+
 			for (var index = 0; index < bullets.length; index++){
 				bullets[index].classList.remove('beBlack');
 				bullets[index].style.backgroundColor = this.caseColor;
@@ -47,6 +57,8 @@ export default {
 			}
 			for (var index = 0; index < contentHolders.length; index++){
 				contentHolders[index].style.boxShadow = '0 0 4.16667vw 1px rgba(0,0,0,1)';
+				// this.Velocity(contentHolders[index], { transform: 'rotate(0deg)' }, 600, [180, 16]);
+				// console.log(this.contentHolders[index]);
 			}
 	    },
 	}

@@ -9,7 +9,7 @@
 		        class="parallax-bg home-bg-parallax"
 		        data-swiper-parallax="-300%">
 		        <div class="typestroke"></div>
-		        <span class="cooleText"><p>Our copy guy was out of office</p></span>
+		        <span class="cooleText"><h6>Our copy guy was out of office</h6></span>
 
 		    </div>
 			<div class="swiper-wrapper contentDisappear" v-bind:class="{show: displayContent}">
