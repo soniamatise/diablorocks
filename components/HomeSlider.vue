@@ -117,13 +117,13 @@ export default {
 			var self = this;
 			setTimeout(function() {
 				self.showContent();
-			}, 2000);
+			}, 8000);
 			setTimeout(function() {
 				let content = document.getElementsByClassName('show');
 				for (var index = 0; index < content.length; index++){
 					content[index].classList.remove('contentDisappear');
 				}
-			}, 3000);
+			}, 9000);
 		}
 	}
 }

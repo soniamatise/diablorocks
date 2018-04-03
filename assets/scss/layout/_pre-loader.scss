@@ -1,7 +1,7 @@
 #pre-loader {
 	position: absolute;
 	top: 0;
-	left: 0;
+	right: 0;
 	background: color(Black);
 	width: 100%;
 	height: 100%;
@@ -9,41 +9,114 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	overflow: hidden;
+	animation: zoofOut 1s ease-in 6s forwards;
+	// display: none;
+	@keyframes zoofOut {
+		0%{
+			width: 100%;
+			right: 0 !important;
+		}
+		100%{
+			width: 0%;
+			right: 0 !important;
+			clip: rect(auto, auto, auto, auto);
+			backface-visibility: hidden;
+		}
+	}
 
 	.intro-quote-inner {
 		text-align: center;
 		position: relative;
+		animation: becomeFixed 0s ease-in 6s forwards;
+		@keyframes becomeFixed {
+			from {position: relative;}
+			to {
+				position: fixed;
+				transform: translate(-50%,-50%);
+				left: 50%;
+				top:50%;
+			}
+		}
 		h2 {
 			color: color(Light);
+			z-index:1;
+			&:after {
+				content: "Emphatic Branding";
+				opacity: 1;
+				animation: textChange 4s ease-in 0.5s forwards;
+			}
+			@keyframes textChange {
+				0%{
+					content: "Emphatic Branding";
+					opacity: 1;
+				}
+				12.5%{ opacity: 0;}
+				25%{
+					content: "Creative Strategy";
+					opacity: 1;
+				}
+				37.5% {opacity: 0;}
+				50%{
+					content: "Innovative Digital";
+					opacity: 1;
+				}
+				62.5% {opacity: 0;}
+				75%{
+					content: "Aspiring rental box mogul";
+					opacity: 1;
+				}
+				87.5% {opacity: 0;}
+				100% {
+					content: "Not your average Agency";
+					color: color(Black);
+					opacity: 1;
+				}
+			}
 		}
 		.zoofer {
+			$zooferWidth: grid(3);
 			background: color(Black);
 			height: 100%;
-			opacity: 0.5;
-			width: 0%;
+			width: #{$zooferWidth};
 			position: absolute;
 			top: 0;
-			// left:0;
-			animation: zoof 1s ease-in 4 0.5s;
-			transition: width 0.5 ease;
+			left: -#{$zooferWidth};
+			animation: zoof 1s ease-in 3 0.5s forwards;
+			transition: left 0.5 ease-in-out;
+			z-index: 2;
+			opacity:1;
 
 			@keyframes zoof {
 				0%{
-					width: 0%;
-					background: color(Black);
-					left:0;
+					left: -#{$zooferWidth};
+					opacity: 1;
 				}
-
-				50% {
-					width: 40%;
-					right:0;
+				99.9% {
+					opacity: 1;
 				}
-
 				100% {
-					background: color(Red);
-					right:0;
-					width: 0%;
+					left: grid(6);
+					opacity: 0;
 				}
+			}
+		}
+	}
+	.zooferWhite {
+		position: absolute;
+		background: color(Light);
+		height: 100%;
+		width: 0%;
+		left: 0%;
+		top: 0;
+		animation: zoofWhiteIn 1s ease-in 3.5s forwards;
+		@keyframes zoofWhiteIn {
+			0%{
+				width: 0%;
+			}
+			100%{
+				width: 100%;
+				right: 0 !important;
 			}
 		}
 	}
