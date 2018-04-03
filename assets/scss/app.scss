@@ -3,17 +3,20 @@
 '~matise-grid/grid.scss',
 'settings/settings',
 'typography/index',
-'layout/index',
 'components/index',
-'components/work';
+'layout/index';
 
+
+body{
+	font-family: $body-font;
+}
 
 #page{
 	width: 100vw;
 	height: 100vh;
 	overflow: scroll;
 	position: relative;
-	background-color: white; 
+	background-color: white;
 }
 
 section.intro {
@@ -33,7 +36,13 @@ section.intro {
 	}
 }
 
+@media #{$medium-up}{
+	.hide-desktop{
+		display: none;
+	}
+}
 @media #{$mobile} {
+	.hide-mobile,
 	.mobile-hide{
 		display: none;
 	}

@@ -1,134 +1,117 @@
+.nav__list-item__footer{
+	font-size: rem(14); line-height: 1.14;
+}
+
 .footer {
-	background: white;
-	padding: grid(4 0 1.5);
+  background-color: color(White);
+  padding: grid(4 0 1.5 0);
 
-	& > .column {
-		margin: 0 auto;
-	}
-	@media #{$medium-down} {
-		padding: grid(5 0 2);
-	}
-	@media #{$mobile} {
-		padding: rem(96 64 63);
+  @media #{$small-only} {
+    padding: 6rem 4rem 4rem 4rem;
+  }
+
+	// Title Section
+	&__title{
+		// Hoppa, helemaal niks :) Zoals het hoort!
 	}
 
-	&__contact-us {
-		margin-top: grid(1.5);
-		@media #{$medium-down} {
-			margin-top: grid(2);
+  // Navigation Section
+  &__nav {
+    margin-top: grid(0.5);
+  }
+  &__content {
+    margin-top: grid(1.5);
+
+		// Specific text styling for the content
+    font-size: 18px;
+    line-height: 2rem;
+    color: color(Gray, 0.5);
+
+		// Spacing between columns
+		@media #{$small-only}{font-size: 1rem;
+			display: block;
+			.column + .column{ margin-top: 2rem; }
 		}
-		@media #{$mobile} {
-			margin-top: rem(32);
+    @media #{$medium-up} {
+      .column {
+        & + .column {
+          margin-left: grid(1.5);
+        }
+      }
+    }
+  }
+
+	// The bottom section, you know, the one on the bottom with the terms and stuff..
+  &__bottom {
+    margin-top: grid(1.5);
+    p {
+      color: color(Gray, 0.5);
+      a {
+        margin-left: grid(0.5);
+				@media #{$small-only}{ display: block; font-size: 1rem;
+				margin: 0; }
+      }
+			& + p{
+				margin: 0;
+				@media #{$small-only}{
+					font-size: rem(14); margin-top: 2rem;
+				}
+			}
+    }
+  }
+
+
+	// Overruling Navigation styles --- overruling over _menu.scss
+  .nav {
+    margin-top: grid(0.5);
+    mix-blend-mode: normal;
+    &__item {
+      line-height: 1;
+      height: auto;
+			@media #{$small-only}{ display: inline-block;
+				&.mobile-hide {
+					display: none;
+				}
+			}
+			& + .nav__item{ padding-right: 2rem; }
+    }
+    &__text {
+      color: color(Black);
+			@media #{$small-only}{ font-size: rem(14); }
+    }
+		&__link{
+			&:before{ background-color: color(Black); }
 		}
-	}
-
-	&__contact {
-		margin-right: grid(1.5);
-
-		&__item {
-			line-height: rem(32);
-			color: color(Gray, 0.5);
-
-			a {
-				position: relative;
-
+  }
+  .nav__social {
+    .nav__text {
+      font-size: 18px;
+      font-weight: $font-regular;
+      color: color(Gray, 0.5);
+      line-height: 2rem;
+			@media #{$small-only}{ font-size: 1rem; }
+    }
+		.nav__link{
+			&:before {
+				content: '';
+				position: absolute;
+				// right: 0;
+				left: 0;
+				width: 100%;
+				bottom: -4px;
+				background-color: color(Gray,.5);
+				height: 1px;
+				transition-property: width;
+				transition-duration: 0.3s;
+				transition-timing-function: ease-out;
+			}
+			&:hover {
 				&:before {
-					content: "";
-					position: absolute;
 					right: 0;
-					width: 0;
-					bottom: -4px;
-					background-color: color(Gray , .5);
-					height: 1px;
-					transition-property: width;
-					transition-duration: 0.3s;
-					transition-timing-function: ease-out;
-				}
-
-				&:hover {
-					&:before {
-						left: 0;
-						right: auto;
-						width: 100%;
-					}
+					left: auto;
+					width: 0%;
 				}
 			}
 		}
-		@media #{$medium-down} {
-			margin-right: grid(2);
-		}
-	}
-
-	&__social {
-		&__item {
-			color: color(Gray, 0.5);
-			line-height: rem(32);
-		}
-		@media (max-width: rem(450)) {
-			margin-top: grid(1);
-		}
-	}
-
-	&__practical {
-		margin-top: grid(1.5);
-		@media #{$medium-down} {
-			margin-top: grid(2);
-		}
-		@media #{$mobile} {
-			margin-top: rem(32);
-		}
-
-		&__item {
-			margin-right: rem(45);
-			color: color(Gray, 0.5);
-
-			a {
-				font-size: rem(16);
-				position: relative;
-
-				&:before {
-					content: "";
-					position: absolute;
-					right: 0;
-					width: 0;
-					bottom: -4px;
-					background-color: color(Gray , .5);
-					height: 1px;
-					transition-property: width;
-					transition-duration: 0.3s;
-					transition-timing-function: ease-out;
-				}
-
-				&:hover {
-					&:before {
-						left: 0;
-						right: auto;
-						width: 100%;
-					}
-				}
-			}
-		}
-		@media #{$medium-down} {
-			flex-direction: column;
-
-			&__item {
-				order: 1;
-			}
-
-			.copyright {
-				order: 3;
-				margin-top: grid(62/32);
-			}
-		}
-		@media #{$mobile} {
-			&__item {
-				margin-right: 0;
-			}
-
-			.copyright {
-				margin-top: rem(32);
-				font-size: rem(14);
-			}
-		}
-	}
+  }
 }
