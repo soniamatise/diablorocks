@@ -181,8 +181,8 @@
 					}
 				}
 				&.jumpUp {
-					top: grid(2);
-					animation: jumpup 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 8.5s;
+					top: grid(5);
+					animation: jumpup 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 8.5s;
 					@keyframes jumpup {
 						0%{
 							top: grid(5);
