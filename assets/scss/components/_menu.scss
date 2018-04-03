@@ -24,6 +24,8 @@
 $logo-height: 54px;
 $time: 0.6;
 
+
+
 .nav {
   // general nav styling
 
@@ -32,7 +34,7 @@ $time: 0.6;
     position: absolute;
     right: 0px;
     top: grid(1.5);
-    z-index: 12;
+    z-index: 3;
     height: rem($logo-height);
     -webkit-backface-visibility: visible;
 
