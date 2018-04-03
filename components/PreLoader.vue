@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
 <div id="pre-loader">
 	<div class="row center">
 		<div class="column column-sixth">
@@ -29,3 +29,4 @@ export default {
 	}
 }
 </script>
+ -->

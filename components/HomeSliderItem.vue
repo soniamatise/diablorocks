@@ -1,8 +1,8 @@
 <template>
 	<div class="swiper-slide jumpUp">
-		<div class="contentHolder" v-bind:class="caseImageHeight" @mouseover="bgOfCase()" @mouseleave="bgToNormal()">
+		<div class="contentHolder" ref="contentHolderActive" v-bind:class="caseImageHeight" @mouseover="bgOfCase()" @mouseleave="bgToNormal()">
 			<div class="rotator" data-swiper-parallax="750">
-				<img :src="caseImage" />
+				<img :src="caseImage" ref="imgActive" />
 			</div>
 		</div>
 
@@ -30,13 +30,12 @@ export default {
 	methods: {
 		bgOfCase: function () {
 	    	const bg = this.$parent.$refs.homeSlider;
-	    	const rotatedElement = this;
+	    	const contentHolderActive = this.$refs.contentHolderActive;
+	    	const imgActive = this.$refs.imgActive;
 	    	let contentHolders = document.getElementsByClassName('contentHolder');
 	    	let bullets = document.getElementsByClassName('bullet');
 	    	const getGrid = window.innerWidth / 12;
 			bg.style.backgroundColor = this.caseColor;
-			console.log(rotatedElement);
-			this.Velocity(rotatedElement, { transform: 'rotate(-15deg)' }, 600, [180, 16]);
 
 			for (var index = 0; index < bullets.length; index++){
 				bullets[index].classList.remove('beBlack');
@@ -45,9 +44,13 @@ export default {
 			for (var index = 0; index < contentHolders.length; index++){
 				contentHolders[index].style.boxShadow = '0 0 4.16667vw 1px' + this.caseColor;
 			}
+			this.Velocity(contentHolderActive, { transform: 'rotate(-15deg)' }, 600, [180, 16]);
+			this.Velocity(imgActive, { transform: 'rotate(15deg)' }, 600, [180, 16]);
 	    },
 	    bgToNormal: function () {
 	    	const bg = this.$parent.$refs.homeSlider;
+	    	const contentHolderActive = this.$refs.contentHolderActive;
+	    	const imgActive = this.$refs.imgActive;
 	    	let contentHolders = document.getElementsByClassName('contentHolder');
 	    	let bullets = document.getElementsByClassName('bullet');
 			bg.style.backgroundColor = 'black';
@@ -57,9 +60,9 @@ export default {
 			}
 			for (var index = 0; index < contentHolders.length; index++){
 				contentHolders[index].style.boxShadow = '0 0 4.16667vw 1px rgba(0,0,0,1)';
-				// this.Velocity(contentHolders[index], { transform: 'rotate(0deg)' }, 600, [180, 16]);
-				// console.log(this.contentHolders[index]);
 			}
+			this.Velocity(contentHolderActive, { transform: 'rotate(0deg)' }, 600, [180, 16]);
+			this.Velocity(imgActive, { transform: 'rotate(0deg)' }, 600, [180, 16]);
 	    },
 	}
 }
