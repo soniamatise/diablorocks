@@ -8,7 +8,10 @@
 .medium{ font-weight: $font-medium; }
 
 //span = medium font-weight
-span, .font-medium{ font-weight: $font-medium; }
+
+// Dit gaan we dus niet doen he?!
+// span, .font-medium{ font-weight: $font-medium; }
+
 
 ol, ul{ margin: 0; padding: 0; display: inline-block;
   li{ font-family: $body-font; font-size: rem(16); line-height: rem(28); color: color(Dark);
