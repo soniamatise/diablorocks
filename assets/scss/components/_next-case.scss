@@ -116,12 +116,13 @@ $easeboth: cubic-bezier(.42,0,.58,1); // epic
 
 	.caseImage {
 		width: grid(6);
+		margin-left: grid(-3);
 		height: 50vh;
 		position: absolute;
 		overflow: hidden;
 		top: 100vh;
 		left: 50%;
-		transform: translate(-50%, 0);
+		transform: translateY(0);
 		@media #{$medium-down} {
 			display: none;
 		}
