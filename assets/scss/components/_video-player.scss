@@ -1,5 +1,4 @@
-// heb ik nodig
-$easeboth: cubic-bezier(.42,0,.58,1); // epic
+$easeboth: cubic-bezier(.42,0,.58,1);
 
 .video-container {
 	height: 100vh;
@@ -12,6 +11,14 @@ $easeboth: cubic-bezier(.42,0,.58,1); // epic
 	@media #{$mobile} {
 		height: 50vh;
 	}
+
+	.hoverContainer {
+		position: absolute;
+		top: 50%;
+		transform: translate(0 , -50%);
+		height: 50vh;
+	}
+
 	video {
 		position: absolute;
 		width: 100%;

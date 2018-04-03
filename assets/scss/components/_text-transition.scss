@@ -85,6 +85,7 @@ h2 {
 				position: relative;
 				float: left;
 				overflow: hidden;
+				h2{ font-weight: $font-medium; }
 				@media #{$small-only} {
 					display: none;
 				}

@@ -11,6 +11,13 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 		height: auto;
 	}
 
+	.hoverContainer {
+		position: absolute;
+		top: 50%;
+		transform: translate(0 , -50%);
+		height: 50vh;
+	}
+
 	.caseImage {
 		width: grid(6);
 		margin-left: grid(-3);

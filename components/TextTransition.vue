@@ -34,7 +34,7 @@ export default {
 		this.elements.left = this.$refs.textElementLeft;
 
 		// console.log(this.elements);
-		// console.log(this.inverse);
+		console.log(this.inverse);
 
 		this.toggleWidth();
 	},
@@ -45,13 +45,13 @@ export default {
 		},
 		//text animation on mouseenter
 		textAnimationOn: function() {
-			// console.log('hoi textAnimationOn');
+			console.log('hoi textAnimationOn');
 			this.elements.right.style.transform = 'translateX(' + ((this.elements.left.offsetWidth / 2) * -1) + 'px)';
 
 		},
 		//text animation on mouseleave
 		textAnimationOff: function() {
-			// console.log('hoi textAnimationOff');
+			console.log('hoi textAnimationOff');
 			this.elements.right.style.transform = 'translateX(0px)';
 		}
 	}

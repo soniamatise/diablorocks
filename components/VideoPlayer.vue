@@ -1,7 +1,9 @@
 <template>
 <section id="video-player" class="video-container" :style="{ 'background-image': 'url(' + caseImage + ')' }">
 
-	<text-transition text-left="Play" :text-right="caseName"></text-transition>
+	<div class="hoverContainer">
+		<text-transition text-left="Play" :text-right="caseName"></text-transition>
+	</div>
 
 	<video @timeupdate="seekBar()" class="video hide" ref="video" width="100%" height="100%" controls preload>
 		<source v-bind:src="caseVideo" type="video/mp4">
