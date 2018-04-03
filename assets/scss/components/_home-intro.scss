@@ -1,8 +1,8 @@
-.home-intro{
-	z-index: 2;
+.black-intro, .white-intro {
+	z-index: 3;
 	position: fixed; top: 0; left: 0; right: 0; bottom: 0;
 	display: flex; justify-content: center; align-items: center;
-	&--overflow{
+	&--overflow {
 		position: absolute;
 		overflow: hidden;
 		top: 50%;
@@ -20,15 +20,54 @@
 				white-space: nowrap;
 				width: max-content;
 			}
+			&--last {
+				z-index: 1;
+				width: auto;
+				height: 100%;
+				animation: moveLastContainer 1.9s .8s $specialCubicBezier forwards;
+				h2 {
+					animation: showLastHeading 1.9s .8s $specialCubicBezier forwards;
+					white-space: nowrap;
+					width: max-content;
+				}
+			}
 		}
 	}
-
 }
+.white-intro{
+	z-index: 2;
+	&--text{
+		position: absolute;
+		overflow: hidden;
+		top: 50%;
+	}
+}
+
+.flowAway {
+	animation: flowAway 3s $standardCubicBezier forwards;
+	overflow-x: hidden;
+	.black-intro--overflow{
+		width: 100vw;
+		overflow:visible;
+		display: flex;
+		h2{
+			text-align: center;
+			animation: stay 3s $standardCubicBezier forwards;
+			width: 100%;
+		}
+	}
+}
+
+.high-z {
+	z-index: 4;
+}
+
 .saved{
 	position: absolute;
 	position: fixed; top: 0; left: 0; right: 0; bottom: 0;
 	display: flex; justify-content: center; align-items: center;
 }
+
 @keyframes showHeading {
 	0% { transform: translateX(100%);}
 	25% { transform: translateX(0);}
@@ -43,4 +82,54 @@
 	40% { transform: translateX(0);}
 	80% { transform: translateX(0);}
 	100%{ transform: translateX(100%);}
+}
+
+@keyframes showLastHeading {
+	0% { transform: translateX(100%);}
+	25% { transform: translateX(0);}
+	100% { transform: translateX(0);}
+}
+
+@keyframes moveLastContainer{
+	0% { transform: translateX(-100%);}
+	25% { transform: translateX(0);}
+	100% { transform: translateX(0);}
+}
+
+@keyframes flowAway{
+	0% {
+		transform: translateX(0);
+		// transform: translateY(100%);
+	}
+	50%{
+		transform: translateX(100%);
+		// transform: translateY(100%);
+
+	}
+	51%{
+		transform: translateX(100%);
+		// transform: translateY(-100%);
+	}
+	52%{
+		transform: translateX(-100%);
+		// transform: translateY(-100%);
+	}
+	53%{
+		transform: translateX(-100%);
+		// transform: translateY(0);
+	}
+	100%{
+		transform: translateX(0);
+	}
+}
+@keyframes stay{
+	0% {
+		transform: translateX(0);
+	}
+	50%{
+		transform: translateX(-100%);
+	}
+	100%{
+		transform: translateX(-100%);
+	}
 }
