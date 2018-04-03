@@ -66,7 +66,6 @@ export default {
 	asyncData ({ params }) {
     return axios.get(`${process.env.baseUrl}/case?slug=bbb-cycling-magento2&_embed`)
     .then((res) => {
-			console.log(res);
 			return {
 				layout: res.data[0].layout,
 				client: res.data[0].client_name,
