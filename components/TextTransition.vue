@@ -22,7 +22,6 @@ export default {
 	props: ['textLeft', 'textRight'],
 	data: function() {
 		return {
-			// invers: this.$props.inverse || false,
 			elements: {
 				left: null,
 				right: null
