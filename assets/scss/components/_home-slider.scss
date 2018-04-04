@@ -194,7 +194,7 @@
 				}
 				&.jumpUp {
 					top: 100%;
-					animation: jumpup 0.3s cubic-bezier(0.42, -1, 0.58, 1) forwards 0.5s;
+					animation: jumpup 0.5s cubic-bezier(0.42, -1, 0.58, 1) forwards 0.5s;
 					@keyframes jumpup {
 						0%{
 							top: 100%;
