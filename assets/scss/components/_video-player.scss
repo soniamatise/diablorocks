@@ -11,121 +11,6 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 	@media #{$mobile} {
 		height: 50vh;
 	}
-
-	.hoverHolderVideo {
-		cursor: pointer;
-		width: 100vw;
-		height: 50vh;
-		position: relative;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-
-		&:hover {
-			.contentHolder {
-				.textHolder {
-					&.textHolderLeft {
-						.mask {
-							transform: translateX(100%);
-							transition: transform 0.3s $easeboth 0.5s;
-
-							// &.keepPosition {
-							// 	transform: translateX(-100%);
-							// 	transition: transform 0.3s $easeboth 0.5s;
-							// }
-						}
-					}
-
-					&.textHolderRight {
-						.mask {
-							transition: transform 0.2s $easeboth 0.8s;
-							transform: translateX(100%);
-						}
-					}
-				}
-			}
-		}
-		@media #{$small-only} {
-			transform: translate(0%);
-			left: 0;
-		}
-
-		.contentHolder {
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
-			position: absolute;
-			height: 50vh;
-			width: auto;
-			@media #{$medium-down} {
-				position: relative;
-				display: inline-block;
-			}
-			@media #{$small-only} {
-				height: auto;
-			}
-
-			.textHolder {
-				top: 50%;
-				position: relative;
-				transform: translateY(-50%);
-				box-sizing: border-box;
-				width: initial;
-
-				&.mobile-only {
-					display: none;
-					@media #{$small-only} {
-						display: block;
-						padding: 0 rem(64);
-						color: color(Light);
-						transform: translateY(0%);
-						top: 0;
-					}
-				}
-
-				&.textHolderLeft {
-					background-color: green;
-					width: 50%;
-					display: block;
-					position: absolute;
-					float: left;
-					overflow: hidden;
-					h2{ font-weight: $font-medium; }
-					@media #{$small-only} {
-						display: none;
-					}
-
-					.mask {
-						position: relative;
-						display: block;
-						width: 100%;
-						overflow: hidden;
-						transition: transform 0.3s $easeboth 0.7s;
-					}
-				}
-
-				&.textHolderRight {
-					background-color: red;
-					display: block;
-					float: right;
-					overflow: hidden;
-					@media #{$small-only} {
-						display: none;
-					}
-
-					.mask {
-						position: relative;
-						display: block;
-						transform: translateX(0);
-						right: 0;
-						transition: transform 0.2s $easeboth 0.5s;
-
-					}
-				}
-			}
-		}
-	}
-
 	video {
 		position: absolute;
 		width: 100%;
@@ -218,60 +103,65 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 		}
 	}
 
-	// .video-info {
-	// 	height: 100vh;
-	// 	width: 100%;
-	// 	cursor: pointer;
-	// }
-	// .case-text-inner {
-	// 	position: absolute;
-	// 	transform: translate(-50%, -50%);
-	// 	left: 50%;
-	// 	top: 50%;
-	// 	h2{
-	// 		font-size: 2rem; color: color(Light);
-	// 		@media #{$mobile} {font-size: rem(20);}
-	// 	}
-	// 	.next-text {
-	// 		float: left;
-	// 		position: relative;
-	// 		margin-left:auto;
-	// 		margin-right:auto;
-	// 		text-align:right;
-	// 		overflow:hidden;
-	// 		white-space: nowrap;
-	// 		transition: width 0s ease 0.4s;
-	// 		#next-text {
-	// 			float: right;
-	// 			overflow-x:hidden;
-	// 			transition: width 0.4s cubic-bezier(.42,0,.58,1) 0.4s;
-	// 			h2 {direction: rtl;}
-	// 		}
-	// 	}
-	// 	.case-text {
-	// 		position: relative;
-	// 		right: 0;
-	// 		top: 0;
-	// 		float: right;
-	// 		transition: width 0.2s cubic-bezier(.42,0,.58,1) 0.2s;
-	// 	}
-	// }
-	// &:hover {
-	// 	.next-text {
-	// 		width: 0px !important;
-	// 		transition: width 0s ease 0.6s;
-	// 		#next-text {
-	// 			width: 0px !important;
-	// 			transition: width 0.4s cubic-bezier(.42,0,.58,1) 0.2s;
-	// 		}
-	// 	}
-	// 	.case-text {
-	// 		width: 100% !important;
-	// 		transition: width 0.2s cubic-bezier(.42,0,.58,1) 0.6s;
-	// 	}
-	// 	.case-image {
-	// 		top: 90vh;
-	// 		transition: top 0.3s cubic-bezier(.42,2,.58,1) 0.6s;
-	// 	}
-	// }
+	.case-text-inner {
+		position: absolute;
+		transform: translate(-50%, -50%);
+		left: 50%;
+		top: 50%;
+		.next-text {
+			float: left;
+			position: relative;
+			margin-left:auto;
+			margin-right:auto;
+			text-align:right;
+			overflow:hidden;
+			white-space: nowrap;
+			transition: width 0s $easeboth 0.4s;
+			span{
+				&:after{
+					display: none;
+				}
+			}
+			#next-text {
+				float: right;
+				overflow-x:hidden;
+				transition: width 0.4s $easeboth 0.4s;
+			}
+		}
+		.case-text {
+			position: relative;
+			right: 0;
+			top: 0;
+			float: left;
+			transition: width 0.2s $easeboth 0.2s;
+		}
+	}
+
+	.video-hover {
+		position: absolute;
+		height: 50vh;
+		top: 50%;
+		transform: translate(0, -50%);
+		width: 100%;
+		cursor: pointer;
+		&:hover {
+			.next-text {
+				width: 0px !important;
+				transition: width 0s ease 0.6s;
+				#next-text {
+					width: 0px !important;
+					transition: width 0.4s $easeboth 0.2s;
+				}
+			}
+			.case-text {
+				width: 100% !important;
+				transition: width 0.2s $easeboth 0.6s;
+			}
+			.case-image {
+				top: 90vh;
+				transition: top 0.3s $easeboth 0.6s;
+			}
+		}
+	}
+
 }
