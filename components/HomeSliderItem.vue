@@ -28,13 +28,15 @@ export default {
 		bgOfCase: function () {
 	    	const bg = this.$parent.$refs.homeSlider;
 	    	const homeCover = this.$parent.$refs.homeCover;
+	    	const typestroke = this.$parent.$refs.typestroke;
 	    	const contentHolderActive = this.$refs.contentHolderActive;
 	    	const imgActive = this.$refs.imgActive;
 	    	let contentHolders = document.getElementsByClassName('contentHolder');
 	    	let bullets = document.getElementsByClassName('bullet');
 	    	const getGrid = window.innerWidth / 12;
 			bg.style.backgroundColor = this.caseColor;
-			// homeCover.style.backgroundColor = this.caseColor;
+			typestroke.style.backgroundColor = this.caseColor;
+			homeCover.style.backgroundColor = this.caseColor;
 
 			for (var index = 0; index < bullets.length; index++){
 				bullets[index].classList.remove('beBlack');
@@ -49,12 +51,14 @@ export default {
 	    bgToNormal: function () {
 	    	const bg = this.$parent.$refs.homeSlider;
 	    	const homeCover = this.$parent.$refs.homeCover;
+	    	const typestroke = this.$parent.$refs.typestroke;
 	    	const contentHolderActive = this.$refs.contentHolderActive;
 	    	const imgActive = this.$refs.imgActive;
 	    	let contentHolders = document.getElementsByClassName('contentHolder');
 	    	let bullets = document.getElementsByClassName('bullet');
 			bg.style.backgroundColor = 'black';
-			// homeCover.style.backgroundColor = 'black';
+			homeCover.backgroundColor = 'black';
+			typestroke.style.backgroundColor = 'black';
 			for (var index = 0; index < bullets.length; index++){
 				bullets[index].classList.add('beBlack');
 				bullets[index].style.backgroundColor = 'black !important';

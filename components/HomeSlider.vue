@@ -8,7 +8,7 @@
 			<div
 		        class="parallax-bg home-bg-parallax"
 		        data-swiper-parallax="-300%">
-		        <div class="typestroke"></div>
+		        <div class="typestroke" ref="typestroke"></div>
 		        <span class="cooleText"><h6>Our copy guy was out of office</h6></span>
 
 		    </div>

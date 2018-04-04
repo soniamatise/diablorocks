@@ -6,6 +6,7 @@
 
 	.home-cover {
 		background-color: color(Black);
+		transition: background-color 1s cubic-bezier(0.42, 0, 0.58, 1);
 		top: grid(3/2);
 		height: grid(1);
 		width: grid(20);
@@ -68,7 +69,8 @@
 				border-left: rem(5) solid color(White);
 				position: absolute;
 				right: 0;
-				animation: caret 0.5s steps(1) infinite, introTyper 1s ease-in forwards 11s;
+				transition: background-color 1s cubic-bezier(0.42, 0, 0.58, 1);
+				animation: caret 0.5s steps(1) infinite, introTyper 1s ease-in-out forwards 11s;
 
 				@media #{$small-only} {
 					display: none;
@@ -88,12 +90,29 @@
 				0% {
 					width: grid(22);
 				}
-				25% {
+				20% {
+					width: grid(17);
+				}
+				22%{
+					width: grid(17);
+				}
+				40% {
 					width: grid(11);
 				}
-				62.5% {
-					width: 25%;
-					width: grid(11/2);
+				42% {
+					width: grid(11);
+				}
+				60% {
+					width: grid(7);
+				}
+				62% {
+					width: grid(7);
+				}
+				80% {
+					width: grid(3);
+				}
+				82% {
+					width: grid(3);
 				}
 				100% {
 					width: 0%;
@@ -213,7 +232,7 @@
 			width: calc(490px - 20px) !important;
 			height: #{$scrollBarHeight};
 			background-color: color(Light, 0.25);
-			bottom: grid(1);
+			bottom: rem(50);
 			transform: translate(-50%);
 			left: 50%;
 			z-index:0;
