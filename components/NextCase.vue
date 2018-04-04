@@ -42,13 +42,14 @@ export default {
 		},
 		//black color and animation img on mouseleave
 		bgToNormal: function() {
+			var self = this;
 			// console.log('hoi to normal');
 			const bgDiv = document.getElementById('next-case');
 			bgDiv.style.backgroundColor = 'black';
 
 			const caseImage = document.getElementById('caseImage');
 
-			this.Velocity(caseImage, {
+			self.Velocity(caseImage, {
 				transform: 'translateY(0px)'
 			}, 800, [180, 18]);
 		},
