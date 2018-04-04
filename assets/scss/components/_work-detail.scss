@@ -29,6 +29,7 @@
 		}
 		.intro-image {
 			height: grid(12);
+			margin-bottom: grid(6);
 			@media #{$mobile}{
 				height: rem(600);
 			}
