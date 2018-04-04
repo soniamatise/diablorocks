@@ -5,7 +5,8 @@
 			<div class="textHolder textHolderLeft">
 				<div id="textholder-left" class="mask">
 					<div class="keepPosition">
-						<h2><span>Next case</span>&nbsp;</h2>
+						<!-- <h2><span>Next case</span>&nbsp;</h2> -->
+						<h2><span>{{ leftText }}</span>&nbsp;</h2>
 					</div>
 				</div>
 			</div>
@@ -27,7 +28,7 @@
 
 <script>
 export default {
-	props: ['caseName', 'image', 'caseColor'],
+	props: ['caseName', 'leftText', 'image', 'caseColor'],
 	data() {
 		return {
 			Velocity: this.$velocity
