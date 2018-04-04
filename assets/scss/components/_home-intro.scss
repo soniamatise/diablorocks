@@ -1,5 +1,5 @@
 .black-intro, .white-intro {
-	z-index: 3;
+	z-index: 5;
 	position: fixed; top: 0; left: 0; right: 0; bottom: 0;
 	display: flex; justify-content: center; align-items: center;
 	&--overflow {
@@ -38,7 +38,7 @@
 	}
 }
 .white-intro{
-	z-index: 2;
+	z-index: 4;
 	&--text{
 		position: absolute;
 		overflow: hidden;
@@ -62,7 +62,7 @@
 }
 
 .high-z {
-	z-index: 4;
+	z-index: 6;
 }
 
 .low-z {

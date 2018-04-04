@@ -117,14 +117,42 @@ export default {
 			var self = this;
 			setTimeout(function() {
 				self.showContent();
-			}, 8000);
+			}, 12000);
 			setTimeout(function() {
-				let content = document.getElementsByClassName('show');
-				for (var index = 0; index < content.length; index++){
-					content[index].classList.remove('contentDisappear');
-				}
-			}, 9000);
+				// let content = document.getElementsByClassName('show');
+
+				// for (var index = 0; index < content.length; index++){
+				// 	console.log(content[index]);
+				// 	setTimeout( function timer(){
+				// 		// alert("hello world");
+				// 		content[index].classList.remove('contentDisappear');
+				// 	}, index*3000 );
+				// 	// content[index].classList.remove('contentDisappear');
+				// }
+				var content = document.querySelectorAll('.show');
+				console.log(content);
+				var i = 0; 
+				var interval = setInterval(function() { 
+					content[i++].classList.remove('contentDisappear');
+					if (i === content.length) { 
+						clearInterval(interval); 
+					}
+				}, 500);
+			}, 13000);
+			//
+			// var i = 0, howManyTimes = 10;
+			// function f() {
+			//     console.log( "hi" );
+			//     i++;
+			//     if( i < howManyTimes ){
+			//         setTimeout( f, 1000 );
+			//     }
+			// }
+			// f();
 		}
 	}
 }
+
+
+// this.Velocity(contentHolderActive, { transform: 'rotate(0deg)' }, 600, [160, 18]);
 </script>
