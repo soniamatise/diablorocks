@@ -15,6 +15,7 @@
 			caseVideo="http://video.dailymail.co.uk/video/mol/2018/02/04/2470370974756523998/1024x576_MP4_2470370974756523998.mp4"
 		/>
 		<next-case
+		leftText="Next case"
 		caseName="Aangenaam Bergen op Zoom"
 		image="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
 		caseColor="#81919a"
