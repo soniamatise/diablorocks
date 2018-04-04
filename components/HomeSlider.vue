@@ -1,6 +1,6 @@
 <template>
 <div id="home-slider" ref="homeSlider" class="row center">
-	<div class="column small-16 large-20 column-20 home-cover">
+	<div class="column small-16 large-20 column-20 home-cover" ref="homeCover">
 		
 	</div>
 	<div class="column large-full medium-full small-full">
@@ -36,6 +36,7 @@ export default {
 	props: [''],
 	data() {
 		return {
+			Velocity: this.$velocity,
 			swiperOption: {
 				slidesPerView: 'auto',
 				direction: 'horizontal',
@@ -68,7 +69,7 @@ export default {
 						},
 						mousewheel: {
 							invert: true,
-							sensitivity: 10,
+							sensitivity: 4,
 						},
 					},
 					750: {
@@ -113,46 +114,34 @@ export default {
 		showContent: function(){
 			this.displayContent = true;
 		},
+		showSlides: function(){
+			let self = this;
+			let content = document.querySelectorAll('.swiper-slide');
+			let i = 0; 
+			let interval = setInterval(function() {
+				content[i++].classList.add('show', 'jumpUp'); 
+				if (i === content.length) { 
+					clearInterval(interval); 
+				}
+			}, 200);
+		},
 		typeAnimation: function(){
 			var self = this;
 			setTimeout(function() {
 				self.showContent();
 			}, 12000);
 			setTimeout(function() {
-				// let content = document.getElementsByClassName('show');
-
-				// for (var index = 0; index < content.length; index++){
-				// 	console.log(content[index]);
-				// 	setTimeout( function timer(){
-				// 		// alert("hello world");
-				// 		content[index].classList.remove('contentDisappear');
-				// 	}, index*3000 );
-				// 	// content[index].classList.remove('contentDisappear');
-				// }
-				var content = document.querySelectorAll('.show');
-				console.log(content);
-				var i = 0; 
-				var interval = setInterval(function() { 
-					content[i++].classList.remove('contentDisappear');
-					if (i === content.length) { 
-						clearInterval(interval); 
-					}
-				}, 500);
+				self.showSlides();
+			}, 12000);
+			setTimeout(function() {
+				let content = document.getElementsByClassName('show');
+				for (var index = 0; index < content.length; index++){
+					content[index].classList.remove('contentDisappear');
+				}
 			}, 13000);
-			//
-			// var i = 0, howManyTimes = 10;
-			// function f() {
-			//     console.log( "hi" );
-			//     i++;
-			//     if( i < howManyTimes ){
-			//         setTimeout( f, 1000 );
-			//     }
-			// }
-			// f();
-		}
+		},
 	}
 }
 
 
-// this.Velocity(contentHolderActive, { transform: 'rotate(0deg)' }, 600, [160, 18]);
 </script>

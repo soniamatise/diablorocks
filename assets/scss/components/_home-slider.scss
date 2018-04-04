@@ -13,6 +13,7 @@
 		position: absolute;
 		animation: menuCoverer 0.5s ease-in forwards 13s;
 		z-index: 3;
+		opacity:1;
 		@media #{$small-only} {
 			display: none;
 			animation: none;
@@ -21,6 +22,12 @@
 	@keyframes menuCoverer {
 		0%{
 			width: grid(20);
+		}
+		20% {
+			opacity:1;
+		}
+		21%{
+			opacity:0;
 		}
 		100% {
 			width: 0%;
@@ -186,14 +193,14 @@
 					}
 				}
 				&.jumpUp {
-					top: grid(5);
-					animation: jumpup 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards 12.5s;
+					top: 100%;
+					animation: jumpup 0.3s cubic-bezier(0.42, -1, 0.58, 1) forwards 0.5s;
 					@keyframes jumpup {
 						0%{
-							top: grid(5);
+							top: 100%;
 						}
 						100% {
-							top: 0;
+							top: 0%;
 						}
 					}
 				}
