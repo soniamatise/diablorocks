@@ -4,7 +4,7 @@
 		<div class="textHolder textHolderLeft">
 			<div class="textholder-left mask" ref="textElementLeft">
 				<div class="keepPosition">
-					<h2><span>{{ textLeft }}</span></h2>
+					<h2><span>{{ textLeft }}</span>&nbsp;</h2>
 				</div>
 			</div>
 		</div>
@@ -19,10 +19,10 @@
 
 <script>
 export default {
-	props: ['textLeft', 'textRight', 'inverse'],
+	props: ['textLeft', 'textRight'],
 	data: function() {
 		return {
-			invers: this.$props.inverse || false,
+			// invers: this.$props.inverse || false,
 			elements: {
 				left: null,
 				right: null
@@ -33,9 +33,6 @@ export default {
 		this.elements.right = this.$refs.textElementRight;
 		this.elements.left = this.$refs.textElementLeft;
 
-		// console.log(this.elements);
-		console.log(this.inverse);
-
 		this.toggleWidth();
 	},
 	methods: {
@@ -45,13 +42,11 @@ export default {
 		},
 		//text animation on mouseenter
 		textAnimationOn: function() {
-			console.log('hoi textAnimationOn');
 			this.elements.right.style.transform = 'translateX(' + ((this.elements.left.offsetWidth / 2) * -1) + 'px)';
 
 		},
 		//text animation on mouseleave
 		textAnimationOff: function() {
-			console.log('hoi textAnimationOff');
 			this.elements.right.style.transform = 'translateX(0px)';
 		}
 	}

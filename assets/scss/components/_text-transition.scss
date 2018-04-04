@@ -1,4 +1,4 @@
-$easeboth: cubic-bezier(.42,0,.58,1); // epic
+$easeboth: cubic-bezier(.42,0,.58,1);
 
 h2 {
 	color: color(Light);
@@ -8,7 +8,6 @@ h2 {
 }
 
 .hoverHolder {
-	background-color: purple;
 	cursor: pointer;
 	width: 100vw;
 	height: 50vh;
@@ -61,7 +60,6 @@ h2 {
 		}
 
 		.textHolder {
-			border: 1px solid red;
 			top: 50%;
 			position: relative;
 			transform: translateY(-50%);
@@ -80,7 +78,6 @@ h2 {
 			}
 
 			&.textHolderLeft {
-				background-color: green;
 				display: block;
 				position: relative;
 				float: left;
@@ -115,7 +112,6 @@ h2 {
 				}
 
 				.mask {
-					background-color: blue;
 					position: relative;
 					display: block;
 					transform: translateX(0);

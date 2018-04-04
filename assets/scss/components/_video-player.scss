@@ -12,11 +12,118 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 		height: 50vh;
 	}
 
-	.hoverContainer {
-		position: absolute;
-		top: 50%;
-		transform: translate(0 , -50%);
+	.hoverHolderVideo {
+		cursor: pointer;
+		width: 100vw;
 		height: 50vh;
+		position: relative;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+
+		&:hover {
+			.contentHolder {
+				.textHolder {
+					&.textHolderLeft {
+						.mask {
+							transform: translateX(100%);
+							transition: transform 0.3s $easeboth 0.5s;
+
+							// &.keepPosition {
+							// 	transform: translateX(-100%);
+							// 	transition: transform 0.3s $easeboth 0.5s;
+							// }
+						}
+					}
+
+					&.textHolderRight {
+						.mask {
+							transition: transform 0.2s $easeboth 0.8s;
+							transform: translateX(100%);
+						}
+					}
+				}
+			}
+		}
+		@media #{$small-only} {
+			transform: translate(0%);
+			left: 0;
+		}
+
+		.contentHolder {
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			position: absolute;
+			height: 50vh;
+			width: auto;
+			@media #{$medium-down} {
+				position: relative;
+				display: inline-block;
+			}
+			@media #{$small-only} {
+				height: auto;
+			}
+
+			.textHolder {
+				top: 50%;
+				position: relative;
+				transform: translateY(-50%);
+				box-sizing: border-box;
+				width: initial;
+
+				&.mobile-only {
+					display: none;
+					@media #{$small-only} {
+						display: block;
+						padding: 0 rem(64);
+						color: color(Light);
+						transform: translateY(0%);
+						top: 0;
+					}
+				}
+
+				&.textHolderLeft {
+					background-color: green;
+					width: 50%;
+					display: block;
+					position: absolute;
+					float: left;
+					overflow: hidden;
+					h2{ font-weight: $font-medium; }
+					@media #{$small-only} {
+						display: none;
+					}
+
+					.mask {
+						position: relative;
+						display: block;
+						width: 100%;
+						overflow: hidden;
+						transition: transform 0.3s $easeboth 0.7s;
+					}
+				}
+
+				&.textHolderRight {
+					background-color: red;
+					display: block;
+					float: right;
+					overflow: hidden;
+					@media #{$small-only} {
+						display: none;
+					}
+
+					.mask {
+						position: relative;
+						display: block;
+						transform: translateX(0);
+						right: 0;
+						transition: transform 0.2s $easeboth 0.5s;
+
+					}
+				}
+			}
+		}
 	}
 
 	video {
