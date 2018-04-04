@@ -47,7 +47,7 @@
 }
 
 .flowAway {
-	animation: flowAway 1.5s $standardCubicBezier forwards;
+	animation: flowAway 3s $standardCubicBezier forwards;
 	overflow-x: hidden;
 	.black-intro--overflow{
 		width: 100vw;
@@ -55,7 +55,7 @@
 		display: flex;
 		h2{
 			text-align: center;
-			animation: stay 1.5s $standardCubicBezier forwards;
+			animation: stay 3s $standardCubicBezier forwards;
 			width: 100%;
 		}
 	}

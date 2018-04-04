@@ -213,7 +213,7 @@
 				}
 				&.jumpUp {
 					top: 100%;
-					animation: jumpup 0.5s cubic-bezier(0.42, -1, 0.58, 1) forwards 0.5s;
+					animation: jumpup 0.8s cubic-bezier(0.42, -1, 0.58, 1) forwards 0.5s;
 					@keyframes jumpup {
 						0%{
 							top: 100%;
@@ -266,4 +266,8 @@
 		transition: opacity 1s cubic-bezier(.42,0,.58,1) !important;
 		&.show{ opacity: 1; }
 	}
+}
+
+#home-slider.start {
+
 }

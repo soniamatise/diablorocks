@@ -31,6 +31,7 @@ export default {
 		const self = this;
 		const whiteIntro = this.$refs.whiteIntro;
 		const blackIntro = this.$refs.blackIntro;
+		const homeSlider = document.getElementById('home-slider');
 		let changeText = function(){
 			for(let i = 0; i < self._data.texts.length; i++){
 				(function(index) {
@@ -44,8 +45,7 @@ export default {
 								document.querySelector('.nav__logo').classList.add('high-z');
 								whiteIntro.classList.add('low-z');
 								blackIntro.classList.add('low-z');
-								
-							}, 3200);
+							}, 4500);
 						} else {
 							self._data.activeIndex = i;
 							self._data.text = self._data.texts[i];
