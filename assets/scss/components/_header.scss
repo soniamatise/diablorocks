@@ -1,11 +1,7 @@
 .header {
   width: 100%;
   position: absolute;
-  // top: grid(1.5);
-  z-index: 10;
-  // .nav{
-  // 	z-index: 10;
-  // }
+  z-index: 2;
   @media #{$medium-up} {
     mix-blend-mode: difference;
   }

@@ -10,7 +10,7 @@
 <div :class="[this._data.background ,'background-canvas']"></div>
 		<section class="work__grid content" v-bind:class="{show: displayContent}">
 
-			<WorkCard
+			<work-card
 			ref="kalkhoff"
 			columnNr="1"
 			caseName="kalkhoff"
@@ -22,7 +22,7 @@
 			v-on:click.native="expand('kalkhoff')"
 			v-on:mouseover.native="onHover('kalkhoff')"
 			v-on:mouseout.native="notHover('kalkhoff')"/>
-			<WorkCard
+			<work-card
 			ref="aangenaam"
 			columnNr="1"
 			caseName="aangenaam"
@@ -34,7 +34,7 @@
 			v-on:click.native="expand('aangenaam')"
 			v-on:mouseover.native="onHover('aangenaam')"
 			v-on:mouseout.native="notHover('aangenaam')"/>
-			<WorkCard
+			<work-card
 			ref="expeditiewadden"
 			columnNr="1"
 			caseName="expeditiewadden"
@@ -47,7 +47,7 @@
 			v-on:mouseover.native="onHover('expeditiewadden')"
 			v-on:mouseout.native="notHover('expeditiewadden')"/>
 
-			<WorkCard
+			<work-card
 			ref="nielson"
 			columnNr="2"
 			caseName="nielson"
@@ -59,7 +59,7 @@
 			v-on:click.native="expand('nielson')"
 			v-on:mouseover.native="onHover('nielson')"
 			v-on:mouseout.native="notHover('nielson')"/>
-			<WorkCard
+			<work-card
 			ref="ticketchaser"
 			columnNr="2"
 			caseName="ticketchaser"
@@ -71,7 +71,7 @@
 			v-on:click.native="expand('ticketchaser')"
 			v-on:mouseover.native="onHover('ticketchaser')"
 			v-on:mouseout.native="notHover('ticketchaser')"/>
-			<WorkCard
+			<work-card
 			ref="stadsmakelaar"
 			columnNr="2"
 			caseName="stadsmakelaar"
@@ -84,7 +84,7 @@
 			v-on:mouseover.native="onHover('stadsmakelaar')"
 			v-on:mouseout.native="notHover('stadsmakelaar')"/>
 
-			<WorkCard
+			<work-card
 			ref="bbbcycling"
 			columnNr="3"
 			caseName="bbbcycling"
@@ -96,7 +96,7 @@
 			v-on:click.native="expand('bbbcycling')"
 			v-on:mouseover.native="onHover('bbbcycling')"
 			v-on:mouseout.native="notHover('bbbcycling')"/>
-			<WorkCard
+			<work-card
 			ref="viacom"
 			columnNr="3"
 			caseName="viacom"
@@ -108,7 +108,7 @@
 			v-on:click.native="expand('viacom')"
 			v-on:mouseover.native="onHover('viacom')"
 			v-on:mouseout.native="notHover('viacom')"/>
-			<WorkCard
+			<work-card
 			ref="natwerk"
 			columnNr="3"
 			caseName="natwerk"
