@@ -16,7 +16,7 @@ export default {
 	components: {
 		TextTransition
 	},
-	props: ['caseName', 'image', 'caseColor'],
+	props: ['caseName', 'leftText', 'image', 'caseColor'],
 	data() {
 		return {
 			Velocity: this.$velocity

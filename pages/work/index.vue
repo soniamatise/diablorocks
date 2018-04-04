@@ -120,8 +120,13 @@
 			v-on:click.native="expand('natwerk')"
 			v-on:mouseover.native="onHover('natwerk')"
 			v-on:mouseout.native="notHover('natwerk')"/>
-
 		</section>
+
+		<next-case
+		leftText="It’s not all work"
+		caseName="Find out who we are"
+		/>
+
 	</main-layout>
 </template>
 
@@ -131,6 +136,7 @@ import OneColumn from '~/layouts/OneColumn.vue'
 import TwoColumn from '~/layouts/TwoColumn.vue'
 import PayoffCredits from '~/layouts/PayoffCredits.vue'
 import TypeWriter from '~/components/TypeWriter.vue'
+import NextCase from '~/components/NextCase.vue'
 import WorkCard from '@/components/WorkCard'
 export default {
 	components: {
@@ -139,6 +145,7 @@ export default {
 		PayoffCredits,
 		MainLayout,
 		TypeWriter,
+		NextCase,
 		WorkCard
 	},
 	data() {
