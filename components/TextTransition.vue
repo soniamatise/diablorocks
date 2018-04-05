@@ -1,0 +1,56 @@
+<template>
+<div class="hoverHolder" @mouseenter="textAnimationOn()" @mouseleave="textAnimationOff()">
+	<div class="contentHolder">
+		<div class="textHolder textHolderLeft">
+			<div class="textholder-left mask" ref="textElementLeft">
+				<div class="keepPosition">
+					<h2><span>{{ textLeft }}</span>&nbsp;</h2>
+				</div>
+			</div>
+		</div>
+		<div class="textHolder textHolderRight">
+			<div class="textholder-right mask" ref="textElementRight">
+				<h2>{{ textRight }}</h2>
+			</div>
+		</div>
+		<div class="textHolder mobile-only">
+			<h2><span class="medium">{{ textLeft }}</span>&nbsp;{{ textRight }}</h2>
+		</div>
+	</div>
+</div>
+</template>
+
+<script>
+export default {
+	props: ['textLeft', 'textRight'],
+	data: function() {
+		return {
+			elements: {
+				left: null,
+				right: null
+			}
+		}
+	},
+	mounted() {
+		this.elements.right = this.$refs.textElementRight;
+		this.elements.left = this.$refs.textElementLeft;
+
+		this.toggleWidth();
+	},
+	methods: {
+		toggleWidth: function() {
+			this.elements.right.style.transform = 'translateX(0px)';
+
+		},
+		//text animation on mouseenter
+		textAnimationOn: function() {
+			this.elements.right.style.transform = 'translateX(' + ((this.elements.left.offsetWidth / 2) * -1) + 'px)';
+
+		},
+		//text animation on mouseleave
+		textAnimationOff: function() {
+			this.elements.right.style.transform = 'translateX(0px)';
+		}
+	}
+}
+</script>
