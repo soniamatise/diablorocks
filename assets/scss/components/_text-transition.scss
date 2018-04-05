@@ -5,6 +5,10 @@ h2 {
 	display: block;
 	white-space: nowrap;
 	position: relative;
+		@media #{$small-only} {
+			white-space: normal;
+			span{ display: inline-flex; }
+		}
 }
 
 .hoverHolder {
@@ -17,6 +21,7 @@ h2 {
 	transform: translate(-50%, -50%);
 
 	&:hover {
+			@media #{$small-only} { display: none; }
 		.contentHolder {
 			.textHolder {
 				&.textHolderLeft {
@@ -56,7 +61,8 @@ h2 {
 			display: inline-block;
 		}
 		@media #{$small-only} {
-			height: auto;
+			// height: auto;
+			top: 0%;
 		}
 
 		.textHolder {
@@ -72,8 +78,8 @@ h2 {
 					display: block;
 					padding: 0 rem(64);
 					color: color(Light);
-					transform: translateY(0%);
-					top: 0;
+					transform: translateY(-50%);
+					top: 50%;
 				}
 			}
 

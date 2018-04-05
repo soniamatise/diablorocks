@@ -15,20 +15,11 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-
-	<!-- <div class="video-hover" ref="videoInfo" @click="showPlayVideo()">
-		<div id="case-text-inner" class="textCenter play case-text-inner">
-			<div id="case-text" class="case-text">
-				<h2 class="medium">Play</h2></div>
-			<div class="next-text">
-				<div id="next-text">
-					<h2><span class="medium">&nbsp;—&nbsp;</span>{{ caseName }}</h2>
-				</div>
+			<div class="textHolder mobile-only">
+				<h2><span>Play</span>&nbsp;{{ rightText }}</h2>
 			</div>
 		</div>
-	</div> -->
+	</div>
 
 	<video @timeupdate="seekBar()" class="video hide" ref="video" width="100%" height="100%" controls preload>
 					<source v-bind:src="caseVideo" type="video/mp4">

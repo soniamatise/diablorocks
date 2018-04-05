@@ -1,6 +1,6 @@
 <template>
 	<main-layout class="work-detail">
-		<!-- <case-heading
+		<case-heading
 			caseName="BBB Cycling"
 			caseQuote="This is what happens when commerce and emotion collide and come together."
 			caseImage="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
@@ -8,8 +8,7 @@
 		/>
 		<one-column/>
 		<two-column/>
-		<payoff-credits/> -->
-
+		<payoff-credits/>
 		<video-player
 			rightText="Release video"
 			caseImage="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"

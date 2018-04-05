@@ -13,6 +13,9 @@
 				<h2>{{ textRight }}</h2>
 			</div>
 		</div>
+		<div class="textHolder mobile-only">
+			<h2><span class="medium">{{ textLeft }}</span>&nbsp;{{ textRight }}</h2>
+		</div>
 	</div>
 </div>
 </template>
