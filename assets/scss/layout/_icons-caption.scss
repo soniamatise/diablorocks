@@ -1,0 +1,67 @@
+#IconsCaption {
+	margin-bottom: grid(5);
+	@media #{$small-only} {
+		margin-bottom: rem(96);
+	}
+
+	.holder {
+		width: 100%;
+		height: grid(6);
+		display: block;
+		margin-bottom: grid(2);
+		position: relative;
+		padding: grid(1.5) grid(2);
+		@media #{$medium-down} {
+			height: grid(17);
+			padding: grid(5);
+		}
+		@media #{$small-only} {
+			width: calc(100% - 64px);
+			margin: 0 auto rem(64);
+			padding: 0;
+		}
+
+		ul:first-child {
+			margin-bottom: grid(.9);
+			@media #{$medium-down} {
+				margin-bottom: rem(80);
+			}
+			@media #{$small-only} {
+				margin-bottom: 0;
+			}
+		}
+
+		ul {
+			width: 100%;
+			margin: 0;
+			position: relative;
+
+			li {
+				&.contentHolder {
+					position: relative;
+					height: grid(1);
+					width: grid(1);
+					display: inline-block;
+					margin: 2rem;
+
+					img {
+						background-size: contain;
+						height: 100%;
+						width: 100%;
+						background-position: center center;
+						position: absolute;
+					}
+					@media #{$medium-down} {
+						height: grid(2.5);
+						width: grid(2.5);
+						margin: 0;
+					}
+					@media #{$small-only} {
+						height: rem(64);
+						width: rem(64);
+					}
+				}
+			}
+		}
+	}
+}

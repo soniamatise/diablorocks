@@ -24,7 +24,7 @@ export default {
       showingImages: []
     };
   },
-  props: ['images', 'timeout', 'limit'],
+  props: ['images', 'timeout', 'limit' , 'caseColor'],
   methods: {
     changeImage: function() {
       let that = this;

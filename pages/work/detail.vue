@@ -7,7 +7,9 @@
 			caseColor="#524d40"
 		/>
 		<payoff-credits/>
-		<icons-caption :images="icons.images" timeout="1000" limit="8"/>
+		<icons-caption :images="icons.images" timeout="1000" limit="8"
+		caseColor="#81919a"
+		/>
 		<one-column/>
 		<two-column/>
 		<video-player
@@ -28,9 +30,9 @@
 import MainLayout from '~/layouts/MainLayout.vue'
 import OneColumn from '~/layouts/OneColumn.vue'
 import TwoColumn from '~/layouts/TwoColumn.vue'
-import IconsCaption from '~/components/IconsCaption.vue'
+import IconsCaption from '~/layouts/IconsCaption.vue'
 import PayoffCredits from '~/layouts/PayoffCredits.vue'
-import CaseHeading from '@/components/CaseHeading.vue'
+import CaseHeading from '~/components/CaseHeading.vue'
 import NextCase from '~/components/NextCase.vue'
 import VideoPlayer from '~/components/VideoPlayer.vue'
 export default {
@@ -62,15 +64,15 @@ export default {
 			}
 		}
 	},
-	components: {
-		OneColumn,
-		TwoColumn,
-		IconsCaption,
-		PayoffCredits,
-		MainLayout,
-		CaseHeading,
-		VideoPlayer,
-		NextCase,
+		components: {
+			OneColumn,
+			TwoColumn,
+			IconsCaption,
+			PayoffCredits,
+			MainLayout,
+			CaseHeading,
+			VideoPlayer,
+			NextCase,
 	}
 }
 </script>
