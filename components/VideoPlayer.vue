@@ -1,18 +1,18 @@
 <template>
 <section class="video-container" :style="{ 'background-image': 'url(' + caseImage + ')' }">
-<!-- @mouseenter="test1()" @mouseleave="test2()"  -->
+	<!-- @mouseenter="test1()" @mouseleave="test2()"  -->
 	<div class="hoverContainer" ref="videoInfo" @click="showPlayVideo()" @mouseenter="textAnimationenter()" @mouseleave="textAnimationleaf()">
 		<div class="contentHolder">
 			<div class="textHolder textHolderLeft">
-				<div class="textholder-left mask" ref="textElementLeft">
-					<div class="keepPosition">
-						<h2><span>Play</span>&nbsp;</h2>
-					</div>
+				<div class="textholder-left mask" ref="leftTextElement">
+					<h2>Play</h2>
 				</div>
 			</div>
 			<div class="textHolder textHolderRight">
-				<div class="textholder-right mask" ref="textElementRight">
-					<h2>{{ textRight }}</h2>
+				<div class="textholder-right mask" ref="rightTextElement">
+					<div class="keepPosition">
+						<h2><span>&nbsp;</span>&nbsp;{{ rightText }}</h2>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -54,7 +54,7 @@
 
 <script>
 export default {
-	props: ['caseName', 'caseVideo', 'caseImage', 'textRight'],
+	props: ['caseName', 'caseVideo', 'caseImage', 'rightText'],
 	data: function() {
 		return {
 			paused: false,
@@ -64,33 +64,33 @@ export default {
 			}
 		}
 	},
-	mounted: () => {
-
-		this.elements.right = this.$refs.textElementRight;
-		this.elements.left = this.$refs.textElementLeft;
+	mounted() {
+		this.elements.left = this.$refs.leftTextElement;
+		this.elements.right = this.$refs.rightTextElement;
 
 		this.toggleWidth();
-
-
 	},
+
 	methods: {
 
-
 		toggleWidth: function() {
-			this.elements.right.style.transform = 'translateX(0px)';
+			this.elements.right.style.transform = 'translateX(0%)';
 
 		},
 		//text animation on mouseenter
 		textAnimationenter: function() {
-			this.elements.right.style.transform = 'translateX(' + ((this.elements.left.offsetWidth / 2) * -1) + 'px)';
+			this.elements.right.style.transform = 'translateX(' + ((this.elements.right.offsetWidth / 2) * -1) + 'px)';
+			this.elements.left.style.transform = 'translateX(' + ((this.elements.right.offsetWidth / 2) * 1) + 'px)';
+
 
 		},
 		//text animation on mouseleave
-		textAnimationleave: function() {
-			this.elements.right.style.transform = 'translateX(0px)';
+		textAnimationleaf: function() {
+			this.elements.right.style.transform = 'translateX(0%)';
+			this.elements.left.style.transform = 'translateX(0%)';
 		},
 
-
+		// video
 		showPlayVideo: function() {
 			let video = this.$refs.video;
 			let videoInformation = this.$refs.videoInfo;
