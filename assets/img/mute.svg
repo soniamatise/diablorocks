@@ -1,21 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="19px" height="20px" viewBox="0 0 19 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 49.1 (51147) - http://www.bohemiancoding.com/sketch -->
-    <title>sound</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <rect id="path-1" x="7.12325018" y="-1.66031782" width="3" height="19.5799999"></rect>
-    </defs>
-    <g id="animations" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="1920matise.caseBBB-browser-video:clicked" transform="translate(-1551.000000, -1010.000000)">
-            <g id="sound" transform="translate(1552.000000, 1012.000000)">
-                <rect id="Rectangle" fill="#FFFFFF" x="0" y="5" width="5" height="6"></rect>
-                <polygon id="Rectangle-Copy" fill="#FFFFFF" points="8 5.01158231 16 0 16 16 8 10.9884177"></polygon>
-                <g id="Rectangle-Copy-2" transform="translate(8.623250, 8.129682) rotate(-45.000000) translate(-8.623250, -8.129682) ">
-                    <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
-                    <rect stroke="#000000" stroke-width="1" x="6.62325018" y="-2.16031782" width="4" height="20.5799999"></rect>
-                </g>
-            </g>
-        </g>
-    </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="16px" height="16px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:#F9F7F7;stroke:#000000;}
+</style>
+<title>sound</title>
+<desc>Created with Sketch.</desc>
+<g id="animations">
+	<g id="_x31_920matise.caseBBB-browser-video:clicked" transform="translate(-1551.000000, -1010.000000)">
+		<g id="sound" transform="translate(1552.000000, 1012.000000)">
+			<rect id="Rectangle" x="-1" y="3" class="st0" width="5" height="6"/>
+			<polygon id="Rectangle-Copy" class="st0" points="7,3 15,-2 15,14 7,9 			"/>
+			<polygon class="st1" points="14.5,11.1 2,-1 -0.1,1.1 12.6,13.5 13.7,13.5 14.5,13.5 14.5,12.7 			"/>
+		</g>
+	</g>
+</g>
 </svg>

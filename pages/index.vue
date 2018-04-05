@@ -1,24 +1,23 @@
 <template>
 	<main-layout>
-		<home-intro />
 		<home-slider>
 			<home-slider-item
 				caseName="Kalkhoff Bikes"
-				caseDescription="When your bikes are eye-catchers,  your website should be too."
+				caseDescription="When your bikes are eye-catchers, your website should be too."
 				:caseImage="images.kalkhoff"
 				caseColor="#787069"
 				caseImageHeight="full-height"
 			/>
 			<home-slider-item
 				caseName="Sony Music Netherlands"
-				caseDescription="A new digital home for Nielson, an  artist that reinvented himself."
+				caseDescription="A new digital home for Nielson, an artist that reinvented himself."
 				:caseImage="images.nielson"
 				caseColor="#400c0e"
 				caseImageHeight="small-height"
 			/>
 			<home-slider-item
 				caseName="BBB Cycling"
-				caseDescription="This is what happens when commerce  and emotion collide and come together."
+				caseDescription="This is what happens when commerce and emotion collide and come together."
 				:caseImage="images.bbb"
 				caseColor="#524d40"
 				caseImageHeight="medium-height"
@@ -56,17 +55,15 @@
 </template>
 
 <script>
-import MainLayout from '~/layouts/MainLayout';
-import HomeIntro from '~/components/HomeIntro';
-import HomeSlider from '~/components/HomeSlider';
-import HomeSliderItem from '~/components/HomeSliderItem';
+import MainLayout from '~/layouts/MainLayout.vue'
+import HomeSlider from '~/components/HomeSlider.vue'
+import HomeSliderItem from '~/components/HomeSliderItem.vue'
 
 export default {
 	components: {
 		MainLayout,
 		HomeSlider,
 		HomeSliderItem,
-		HomeIntro
 	},
 	data(){
 		return {
