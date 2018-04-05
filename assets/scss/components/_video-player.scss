@@ -19,7 +19,10 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 		position: relative;
 		@media #{$small-only} {
 			white-space: normal;
-			span{ display: inline-flex; }
+
+			span {
+				display: inline-flex;
+			}
 		}
 	}
 	//hover container
@@ -36,6 +39,7 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 			@media #{$small-only} {
 				display: none;
 			}
+
 			.contentHolder {
 				.textHolder {
 					&.textHolderLeft {
@@ -61,7 +65,7 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 			}
 		}
 		@media #{$small-only} {
-			transform: translate(0%  , -50%);
+			transform: translate(0% , -50%);
 			left: 0;
 			top: 50%;
 		}
@@ -104,6 +108,7 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 					position: relative;
 					float: left;
 					z-index: 10;
+
 					h2 {
 						font-weight: $font-medium;
 					}
@@ -172,6 +177,10 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 		bottom: 0;
 		background-color: color(Black);
 		opacity: 1;
+		@media #{$small-only} {
+			height: rem(48);
+			width: 100vw;
+		}
 
 		.controls {
 			height: grid(3/2);
@@ -179,7 +188,11 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 			flex-direction: row;
 			align-items: center;
 			justify-content: space-evenly;
+			@media #{$small-only} {
+				height: rem(48);
+				width: 100vw;
 
+			}
 			.control {
 				cursor: pointer;
 
@@ -189,9 +202,19 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 					background-repeat: no-repeat;
 					background-position: left center;
 					background-image: url("~/assets/img/pause.svg");
-
+					@media #{$small-only} {
+						background-size: contain;
+						height: rem(14);
+						width: rem(14);
+						padding: 0 rem(12);
+					}
 					&.paused {
 						background-image: url("~/assets/img/play.svg");
+						@media #{$small-only} {
+							background-size: contain;
+							height: rem(14);
+							width: rem(14);
+						}
 					}
 				}
 
@@ -204,6 +227,11 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 					progress {
 						top: 0;
 						position: absolute;
+						@media #{$small-only} {
+							top: 50%;
+							transform: translate(0% , -50%);
+						}
+
 					}
 
 					progress[value]::-webkit-progress-bar {
@@ -233,6 +261,13 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 					height: grid(3/2);
 					background-repeat: no-repeat;
 					background-position: 1rem center;
+					@media #{$small-only} {
+						background-size: contain;
+						height: rem(14);
+						width: rem(14);
+						background-position: center;
+
+					}
 
 					&.on {
 						background-image: url("~/assets/img/sound.svg");
@@ -249,69 +284,14 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 					background-repeat: no-repeat;
 					background-position: right center;
 					background-image: url("~/assets/img/fullscreen.svg");
+					@media #{$small-only} {
+						background-size: contain;
+						height: rem(14);
+						width: rem(14);
+						margin: 0 rem(8);
+					}
 				}
 			}
 		}
 	}
-	// .case-text-inner {
-	// 	position: absolute;
-	// 	transform: translate(-50%, -50%);
-	// 	left: 50%;
-	// 	top: 50%;
-	// 	.next-text {
-	// 		background-color: green;
-	// 		float: left;
-	// 		position: relative;
-	// 		margin-left:auto;
-	// 		margin-right:auto;
-	// 		text-align:right;
-	// 		overflow:hidden;
-	// 		white-space: nowrap;
-	// 		transition: width 0s $easeboth 0.4s;
-	// 		span{
-	// 			&:after{
-	// 				display: none;
-	// 			}
-	// 		}
-	// 		#next-text {
-	// 			//float: right;
-	// 			overflow-x:hidden;
-	// 			transition: width 0.4s $easeboth 0.4s;
-	// 		}
-	// 	}
-	// 	.case-text {
-	// 		background-color: red;
-	// 		position: relative;
-	// 		right: 0;
-	// 		top: 0;
-	// 		float: left;
-	// 		transition: width 0.2s $easeboth 0.2s;
-	// 	}
-	// }
-	// .video-hover {
-	// 	position: absolute;
-	// 	height: 50vh;
-	// 	top: 50%;
-	// 	transform: translate(0, -50%);
-	// 	width: 100%;
-	// 	cursor: pointer;
-	// 	&:hover {
-	// 		.next-text {
-	// 			width: 0px !important;
-	// 			transition: width 0s ease 0.6s;
-	// 			#next-text {
-	// 				width: 0px !important;
-	// 				transition: width 0.4s $easeboth 0.2s;
-	// 			}
-	// 		}
-	// 		.case-text {
-	// 			width: 100% !important;
-	// 			transition: width 0.2s $easeboth 0.6s;
-	// 		}
-	// 		.case-image {
-	// 			top: 90vh;
-	// 			transition: top 0.3s $easeboth 0.6s;
-	// 		}
-	// 	}
-	// }
 }
