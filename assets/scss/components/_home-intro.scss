@@ -66,10 +66,12 @@
 	z-index: 6;
 }
 
-.low-z {
+.low-z-white {
 	z-index: -1 !important;
 }
-
+.low-z-black {
+	z-index: -1 !important;
+}
 .saved{
 	position: absolute;
 	position: fixed; top: 0; left: 0; right: 0; bottom: 0;

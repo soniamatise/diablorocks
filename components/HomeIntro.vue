@@ -43,8 +43,11 @@ export default {
 							}, 1900);
 							setTimeout(function(){
 								document.querySelector('.nav__logo').classList.add('high-z');
-								whiteIntro.classList.add('low-z');
-								blackIntro.classList.add('low-z');
+							}, 4200);
+							setTimeout(function(){
+								// document.querySelector('.nav__logo').classList.add('high-z');
+								whiteIntro.classList.add('low-z-white');
+								blackIntro.classList.add('low-z-black');
 							}, 4500);
 						} else {
 							self._data.activeIndex = i;
