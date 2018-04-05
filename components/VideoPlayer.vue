@@ -16,7 +16,7 @@
 				</div>
 			</div>
 			<div class="textHolder mobile-only">
-				<h2><span>Play</span>&nbsp;{{ rightText }}</h2>
+				<h2><span class="medium">Play&nbsp;</span>&nbsp;{{ rightText }}</h2>
 			</div>
 		</div>
 	</div>
