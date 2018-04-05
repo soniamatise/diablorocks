@@ -16,16 +16,16 @@
 					<li class="iconHolder">
 						<img class="img" alt="icon" src="https://picsum.photos/g/100/100" />
 					</li>
-					<li class="iconHolder hide-on-mobile">
+					<li class="iconHolder">
 						<img class="img" alt="icon" src="https://picsum.photos/g/100/100" />
 					</li>
-					<li class="iconHolder hide-on-mobile">
+					<li class="iconHolder">
 						<img class="img" alt="icon" src="https://picsum.photos/g/100/100" />
 					</li>
-					<li class="iconHolder hide-on-mobile">
+					<li class="iconHolder">
 						<img class="img" alt="icon" src="https://picsum.photos/g/100/100" />
 					</li>
-					<li class="iconHolder hide-on-mobile">
+					<li class="iconHolder">
 						<img class="img" alt="icon" src="https://picsum.photos/g/100/100" />
 					</li>
 				</ul>
