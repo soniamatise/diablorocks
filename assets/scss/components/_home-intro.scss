@@ -1,0 +1,143 @@
+.black-intro, .white-intro {
+	z-index: 5;
+	position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+	display: flex; justify-content: center; align-items: center;
+	&--overflow {
+		position: absolute;
+		overflow: hidden;
+		top: 50%;
+		h2{
+			transform: translateX(-100%);
+		}
+		&.active{
+			z-index: 1;
+			width: auto;
+			height: 100%;
+			animation: moveContainer 1.9s .8s $specialCubicBezier;
+			h2 {
+				animation: showHeading 1.9s .8s $specialCubicBezier;
+				right: 0;
+				white-space: nowrap;
+				width: max-content;
+			}
+			&--last {
+				background: color(Black);
+				transition: background .1s;
+				transition-delay: 1s;
+				z-index: 1;
+				width: auto;
+				height: 100%;
+				animation: moveLastContainer 1.9s .8s $specialCubicBezier forwards;
+				h2 {
+					animation: showLastHeading 1.9s .8s $specialCubicBezier forwards;
+					white-space: nowrap;
+					width: max-content;
+				}
+			}
+		}
+	}
+}
+.white-intro{
+	z-index: 4;
+	&--text{
+		position: absolute;
+		overflow: hidden;
+		top: 50%;
+		h2 {color: color(Black);}
+	}
+}
+
+.flowAway {
+	animation: flowAway 3s $standardCubicBezier forwards;
+	overflow-x: hidden;
+	.black-intro--overflow{
+		width: 100vw;
+		overflow:visible;
+		display: flex;
+		h2{
+			text-align: center;
+			animation: stay 3s $standardCubicBezier forwards;
+			width: 100%;
+		}
+	}
+}
+.high-z {
+	z-index: 6;
+}
+.low-z-white {
+	z-index: -1 !important;
+}
+.low-z-black {
+	z-index: -1 !important;
+}
+.saved{
+	position: absolute;
+	position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+	display: flex; justify-content: center; align-items: center;
+}
+
+@keyframes showHeading {
+	0% { transform: translateX(100%);}
+	25% { transform: translateX(0);}
+	40% { transform: translateX(0);}
+	80% { transform: translateX(0);}
+	100%{ transform: translateX(-100%);}
+}
+
+@keyframes moveContainer{
+	0% { transform: translateX(-100%);}
+	25% { transform: translateX(0);}
+	40% { transform: translateX(0);}
+	80% { transform: translateX(0);}
+	100%{ transform: translateX(100%);}
+}
+
+@keyframes showLastHeading {
+	0% { transform: translateX(100%);}
+	25% { transform: translateX(0);}
+	100% { transform: translateX(0);}
+}
+
+@keyframes moveLastContainer{
+	0% { transform: translateX(-100%);}
+	25% { transform: translateX(0);}
+	100% { transform: translateX(0);}
+}
+
+@keyframes flowAway{
+	0% {
+		transform: translateX(0);
+		top:0;
+	}
+	50%{
+		transform: translateX(100%);
+		top:0;
+	}
+	51%{
+		transform: translateX(100%);
+		top:100%;
+	}
+	52%{
+		transform: translateX(-100%);
+		top:100%;
+	}
+	53%{
+		transform: translateX(-100%);
+		top: 0;
+	}
+	100%{
+		transform: translateX(0);
+
+	}
+}
+@keyframes stay{
+	0% {
+		transform: translateX(0);
+	}
+	50%{
+		transform: translateX(-100%);
+	}
+	100%{
+		transform: translateX(-100%);
+	}
+}

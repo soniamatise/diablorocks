@@ -5,12 +5,9 @@
 <script>
 export default {
 	props: ['delay'],
-	// mounted is sort of like domready
 	mounted() {
 		let self = this;
-		// get data from slot
 		const dataText = self.$slots.default[0].text;
-		// console.log(this.$slots.default[0].innerHTML)
 		if(!self.delay){
 			self.typeWriter(dataText, 0);
 		}else{
@@ -18,7 +15,6 @@ export default {
 				self.typeWriter(dataText, 0);
 			}, self.delay);
 		}
-
 	},
 	methods: {
 		typeWriter: function(text,i, fnCallback){
