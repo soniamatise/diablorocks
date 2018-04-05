@@ -114,6 +114,9 @@
 				82% {
 					width: grid(3);
 				}
+				99% {
+					border-left: rem(5) solid color(White);
+				}
 				100% {
 					width: 0%;
 					border-left: none;
