@@ -109,6 +109,7 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 		left: 50%;
 		top: 50%;
 		.next-text {
+			background-color: green;
 			float: left;
 			position: relative;
 			margin-left:auto;
@@ -129,6 +130,7 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 			}
 		}
 		.case-text {
+			background-color: red;
 			position: relative;
 			right: 0;
 			top: 0;

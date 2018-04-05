@@ -1,7 +1,24 @@
 <template>
 <section class="video-container" :style="{ 'background-image': 'url(' + caseImage + ')' }">
+<!-- @mouseenter="test1()" @mouseleave="test2()"  -->
+	<div class="hoverHolder" ref="videoInfo" @click="showPlayVideo()">
+		<div class="contentHolder">
+			<div class="textHolder textHolderLeft">
+				<div class="textholder-left mask" ref="textElementLeft">
+					<div class="keepPosition">
+						<h2><span>{{ textLeft }}</span>&nbsp;</h2>
+					</div>
+				</div>
+			</div>
+			<div class="textHolder textHolderRight">
+				<div class="textholder-right mask" ref="textElementRight">
+					<h2>{{ textRight }}</h2>
+				</div>
+			</div>
+		</div>
+	</div>
 
-	<div class="video-hover" ref="videoInfo" @click="showPlayVideo()">
+	<!-- <div class="video-hover" ref="videoInfo" @click="showPlayVideo()">
 		<div id="case-text-inner" class="textCenter play case-text-inner">
 			<div id="case-text" class="case-text">
 				<h2 class="medium">Play</h2></div>
@@ -11,7 +28,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<video @timeupdate="seekBar()" class="video hide" ref="video" width="100%" height="100%" controls preload>
 					<source v-bind:src="caseVideo" type="video/mp4">
@@ -37,30 +54,30 @@
 
 <script>
 export default {
-	props: ['caseName', 'caseVideo', 'caseImage'],
+	props: ['caseName', 'caseVideo', 'caseImage' 'textLeft', 'textRight'],
 	data: function() {
 		return {
 			paused: false
 		}
 	},
 	mounted: () => {
-		const caseTextInner = document.getElementById('case-text-inner');
-		const nextText = document.getElementById('next-text');
-		const caseText = document.getElementById('case-text');
-		const caseImage = document.getElementById('case-image');
-
-		function toggleWidth() {
-			const currentWidthInner = caseTextInner.offsetWidth;
-			const currentWidthNext = nextText.offsetWidth;
-			const currentWidthCase = caseText.offsetWidth;
-			const currentWidthNextParent = nextText.parentElement;
-
-			caseTextInner.style.width = 'calc(2px + ' + currentWidthInner + 'px)';
-			nextText.style.width = currentWidthNext + 'px';
-			caseText.style.width = 'calc(1px + ' + currentWidthCase + 'px)';
-			currentWidthNextParent.style.width = currentWidthNext + 'px';
-		}
-		toggleWidth();
+		// const caseTextInner = document.getElementById('case-text-inner');
+		// const nextText = document.getElementById('next-text');
+		// const caseText = document.getElementById('case-text');
+		// const caseImage = document.getElementById('case-image');
+		//
+		// function toggleWidth() {
+		// 	const currentWidthInner = caseTextInner.offsetWidth;
+		// 	const currentWidthNext = nextText.offsetWidth;
+		// 	const currentWidthCase = caseText.offsetWidth;
+		// 	const currentWidthNextParent = nextText.parentElement;
+		//
+		// 	caseTextInner.style.width = 'calc(2px + ' + currentWidthInner + 'px)';
+		// 	nextText.style.width = currentWidthNext + 'px';
+		// 	caseText.style.width = 'calc(1px + ' + currentWidthCase + 'px)';
+		// 	currentWidthNextParent.style.width = currentWidthNext + 'px';
+		// }
+		// toggleWidth();
 	},
 	methods: {
 		showPlayVideo: function() {

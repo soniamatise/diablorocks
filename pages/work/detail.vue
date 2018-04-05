@@ -16,6 +16,7 @@
 		caseColor="#81919a"
 		/>
 		<video-player
+			leftText="Play"
 			caseName="BBB Cycling website release video"
 			caseImage="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
 			caseVideo="http://video.dailymail.co.uk/video/mol/2018/02/04/2470370974756523998/1024x576_MP4_2470370974756523998.mp4"
