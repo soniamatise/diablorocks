@@ -1,12 +1,12 @@
 <template>
 <section class="video-container" :style="{ 'background-image': 'url(' + caseImage + ')' }">
 <!-- @mouseenter="test1()" @mouseleave="test2()"  -->
-	<div class="hoverHolder" ref="videoInfo" @click="showPlayVideo()">
+	<div class="hoverContainer" ref="videoInfo" @click="showPlayVideo()" @mouseenter="textAnimationenter()" @mouseleave="textAnimationleaf()">
 		<div class="contentHolder">
 			<div class="textHolder textHolderLeft">
 				<div class="textholder-left mask" ref="textElementLeft">
 					<div class="keepPosition">
-						<h2><span>{{ textLeft }}</span>&nbsp;</h2>
+						<h2><span>Play</span>&nbsp;</h2>
 					</div>
 				</div>
 			</div>
@@ -54,32 +54,43 @@
 
 <script>
 export default {
-	props: ['caseName', 'caseVideo', 'caseImage' 'textLeft', 'textRight'],
+	props: ['caseName', 'caseVideo', 'caseImage', 'textRight'],
 	data: function() {
 		return {
-			paused: false
+			paused: false,
+			elements: {
+				left: null,
+				right: null
+			}
 		}
 	},
 	mounted: () => {
-		// const caseTextInner = document.getElementById('case-text-inner');
-		// const nextText = document.getElementById('next-text');
-		// const caseText = document.getElementById('case-text');
-		// const caseImage = document.getElementById('case-image');
-		//
-		// function toggleWidth() {
-		// 	const currentWidthInner = caseTextInner.offsetWidth;
-		// 	const currentWidthNext = nextText.offsetWidth;
-		// 	const currentWidthCase = caseText.offsetWidth;
-		// 	const currentWidthNextParent = nextText.parentElement;
-		//
-		// 	caseTextInner.style.width = 'calc(2px + ' + currentWidthInner + 'px)';
-		// 	nextText.style.width = currentWidthNext + 'px';
-		// 	caseText.style.width = 'calc(1px + ' + currentWidthCase + 'px)';
-		// 	currentWidthNextParent.style.width = currentWidthNext + 'px';
-		// }
-		// toggleWidth();
+
+		this.elements.right = this.$refs.textElementRight;
+		this.elements.left = this.$refs.textElementLeft;
+
+		this.toggleWidth();
+
+
 	},
 	methods: {
+
+
+		toggleWidth: function() {
+			this.elements.right.style.transform = 'translateX(0px)';
+
+		},
+		//text animation on mouseenter
+		textAnimationenter: function() {
+			this.elements.right.style.transform = 'translateX(' + ((this.elements.left.offsetWidth / 2) * -1) + 'px)';
+
+		},
+		//text animation on mouseleave
+		textAnimationleave: function() {
+			this.elements.right.style.transform = 'translateX(0px)';
+		},
+
+
 		showPlayVideo: function() {
 			let video = this.$refs.video;
 			let videoInformation = this.$refs.videoInfo;
