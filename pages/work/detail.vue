@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
 	<main-layout class="work-detail">
 		<case-heading
 			caseName="BBB Cycling"
@@ -15,7 +14,7 @@
 		<one-column/>
 		<two-column/>
 		<video-player
-			caseName="BBB Cycling"
+			rightText="Release video"
 			caseImage="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
 			caseVideo="http://video.dailymail.co.uk/video/mol/2018/02/04/2470370974756523998/1024x576_MP4_2470370974756523998.mp4"
 		/>
@@ -26,17 +25,6 @@
 		caseColor="#81919a"
 		/>
 	</main-layout>
-=======
-<main-layout class="work-detail">
-	<case-heading caseName="BBB Cycling" caseQuote="This is what happens when commerce and emotion collide and come together." caseImage="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg" caseColor="#524d40" />
-	<one-column/>
-	<two-column/>
-	<payoff-credits/>
-	<video-player rightText="Release video" caseImage="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg" caseVideo="http://video.dailymail.co.uk/video/mol/2018/02/04/2470370974756523998/1024x576_MP4_2470370974756523998.mp4"
-	/>
-	<next-case leftText="Next case" caseName="Aangenaam Bergen op Zoom" image="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg" caseColor="#81919a" />
-</main-layout>
->>>>>>> develop
 </template>
 
 <script>
