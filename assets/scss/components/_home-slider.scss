@@ -1,11 +1,44 @@
+// HAS 4 s more
 #home-slider {
+	z-index: 2;
 	background-color: color(Black);
 	transition: background-color 1s cubic-bezier(0.42, 0, 0.58, 1);
+
+	.home-cover {
+		background-color: color(Black);
+		transition: background-color 1s cubic-bezier(0.42, 0, 0.58, 1);
+		top: grid(3/2);
+		height: grid(1);
+		width: grid(20);
+		right: grid(2);
+		position: absolute;
+		animation: menuCoverer 0.5s ease-in forwards 13s;
+		z-index: 3;
+		opacity:1;
+		@media #{$small-only} {
+			display: none;
+			animation: none;
+		}
+	}
+	@keyframes menuCoverer {
+		0%{
+			width: grid(20);
+		}
+		20% {
+			opacity:1;
+		}
+		21%{
+			opacity:0;
+		}
+		100% {
+			width: 0%;
+		}
+	}
 	.swiper-container {
 		overflow: hidden;
 		.home-bg-parallax {
 			height: 100vh;
-			width: 100vw;
+			width: 100%;
 			position: absolute;
 			display: flex;
 			align-items: center;
@@ -20,7 +53,7 @@
 				    transform-origin: left bottom;
 				    transform: rotate(90deg) translate(-50%);
 				}
-				p {
+				h6 {
 				    white-space: nowrap;
 					color: color(Light);
 					font-size: rem(480);
@@ -30,17 +63,63 @@
 				}
 			}
 			.typestroke {
-				width: rem(5);
+				width: grid(22);
 				height: 60vh;
-				background-color: color(White);
+				background-color: color(Black);
+				border-left: rem(5) solid color(White);
 				position: absolute;
-				left: 0;
-				animation: caret 1s steps(1) infinite;
+				right: 0;
+				transition: background-color 1s cubic-bezier(0.42, 0, 0.58, 1);
+				animation: caret 0.5s steps(1) infinite, introTyper 1s ease-in-out forwards 11s;
+
+				@media #{$small-only} {
+					display: none;
+					animation: none;
+				}
 			}
 
 			@keyframes caret {
+				0%{
+					border-left-color: color(White);
+				}
 				50% {
-					background-color: color(Black);
+					border-left-color: color(Black);
+				}
+			}
+			@keyframes introTyper {
+				0% {
+					width: grid(22);
+				}
+				20% {
+					width: grid(17);
+				}
+				22%{
+					width: grid(17);
+				}
+				40% {
+					width: grid(11);
+				}
+				42% {
+					width: grid(11);
+				}
+				60% {
+					width: grid(7);
+				}
+				62% {
+					width: grid(7);
+				}
+				80% {
+					width: grid(3);
+				}
+				82% {
+					width: grid(3);
+				}
+				99% {
+					border-left: rem(5) solid color(White);
+				}
+				100% {
+					width: 0%;
+					border-left: none;
 				}
 			}
 
@@ -52,6 +131,7 @@
 			width: grid(24);
 			z-index:1;
 			.swiper-slide {
+				top: 100%;
 				width: grid(10);
 				display: flex;
 				align-items: center;
@@ -72,7 +152,7 @@
 					transform-origin: 0 0;
 					top: 50%;
 					width: 100%;
-					padding: 0 grid(2);
+					padding: 0 grid(3);
 					transform: rotate(90deg) translate(-50%, -100%);
 					&.name { left: 3%; }
 					&.description{  left: 93%; }
@@ -99,11 +179,10 @@
 					align-items: center;
 					justify-content: center;
 					transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s,
-								box-shadow 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s;															;
+								box-shadow 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);															;
 					box-shadow: 0 0 grid(1) 1px rgba(0,0,0,1);
 					cursor: pointer;
 					z-index: 2;
-
 					&.full-height { height: 80vh; }
 					&.medium-height { height: 60vh; }
 					&.small-height { height: 45vh; }
@@ -129,16 +208,22 @@
 						}
 					}
 					&:hover {
-						transform: rotate(-15deg);
 						box-shadow: none;
-
-						img {
-							transform: rotate(15deg);
-						}
-
 						@media #{$small-only} {
 							transform: rotate(0deg);
 							img { transform: rotate(0deg); }
+						}
+					}
+				}
+				&.jumpUp {
+					top: 100%;
+					animation: jumpup 0.8s cubic-bezier(0.42, -1, 0.58, 1) forwards 0.5s;
+					@keyframes jumpup {
+						0%{
+							top: 100%;
+						}
+						100% {
+							top: 0%;
 						}
 					}
 				}
@@ -151,7 +236,7 @@
 			width: calc(490px - 20px) !important;
 			height: #{$scrollBarHeight};
 			background-color: color(Light, 0.25);
-			bottom: grid(1);
+			bottom: rem(50);
 			transform: translate(-50%);
 			left: 50%;
 			z-index:0;
@@ -180,4 +265,13 @@
 			}
 		}
 	}
+	.contentDisappear {
+		opacity: 0;
+		transition: opacity 1s cubic-bezier(.42,0,.58,1) !important;
+		&.show{ opacity: 1; }
+	}
+}
+
+#home-slider.start {
+
 }
