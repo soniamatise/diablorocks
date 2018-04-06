@@ -1,6 +1,5 @@
 <template>
 	<main-layout>
-		<home-intro refs="wachtff"/>
 		<home-slider >
 			<home-slider-item
 				caseName="Kalkhoff Bikes"
@@ -56,17 +55,15 @@
 </template>
 
 <script>
-import MainLayout from '~/layouts/MainLayout.vue'
-import HomeSlider from '~/components/HomeSlider.vue'
-import HomeSliderItem from '~/components/HomeSliderItem.vue'
-import HomeIntro from '~/components/HomeIntro.vue'
+import MainLayout from '~/layouts/MainLayout.vue';
+import HomeSlider from '~/components/HomeSlider.vue';
+import HomeSliderItem from '~/components/HomeSliderItem.vue';
 
 export default {
 	components: {
 		MainLayout,
 		HomeSlider,
 		HomeSliderItem,
-		HomeIntro,
 	},
 	data(){
 		return {

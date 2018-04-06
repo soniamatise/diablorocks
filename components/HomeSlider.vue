@@ -1,16 +1,29 @@
 <template>
-<div id="home-slider" ref="homeSlider" class="row center">
-<!--  wat doet dit?
-	<div class="column small-16 large-20 column-20 home-cover" ref="homeCover">
-	</div> -->
-	<div class="column large-full medium-full small-full">
-		<div v-swiper:mySwiper="swiperOption">
-			<div class="parallax-bg home-bg-parallax"
+	<div class="home">
+		<section class="home-intro">
+			<div class="bg-white white-intro" ref="whiteIntro">
+				<div class="white-intro--text">
+					<h2 class="medium">Not your average Agency</h2>
+				</div>
+			</div>
+			<div :class="['bg-black', 'black-intro', {flowAway: go}]" ref="blackIntro">
+				<div v-for="(text, index) in texts" :class="['black-intro--overflow', {'active--last': go}] " :id="index" :key="index">
+					<h2 :class="['medium', 'text-' + index, 'text-white']">{{ text }}</h2>
+				</div>
+			</div>
+		</section>
+		<div id="home-slider" ref="homeSlider" class="row center">
+			<!--  wat doet dit?
+			<div class="column small-16 large-20 column-20 home-cover" ref="homeCover">
+		</div> -->
+		<div class="column large-full medium-full small-full">
+			<div v-swiper:mySwiper="swiperOption">
+				<div class="parallax-bg home-bg-parallax"
 				data-swiper-parallax="-300%">
 				<type-writer
-				heading=""
+				heading="Our copy guy was out of office"
+				:wait="wait"
 				sub=""
-				ref="startLater"
 				/>
 			</div>
 			<div class="swiper-wrapper contentDisappear" v-bind:class="{show: displayContent}">
@@ -20,6 +33,7 @@
 		</div>
 	</div>
 
+</div>
 </div>
 </template>
 
@@ -40,9 +54,15 @@ export default {
 	props: [''],
 	data() {
 		return {
+			texts: ['Empathic Branding', 'Creative Strategy', 'Innovative Digital', 'Aspiring rental box mogul'],
+			text: '',
+			wait: true,
+			activeIndex: null,
+			go: false,
+			headingText: '',
 			Velocity: this.$velocity,
 			swiperOption: {
-				headingText: 'Our copy guy was out of office',
+				headingText: '',
 				slidesPerView: 'auto',
 				direction: 'horizontal',
 				touchRatio: 1,
@@ -100,17 +120,47 @@ export default {
 		}
 	},
 	mounted: function() {
-		let self = this;
-		console.log(self);
-		// self.typeAnimation();
+		const self = this;
+		const whiteIntro = this.$refs.whiteIntro;
+		const blackIntro = this.$refs.blackIntro;
+		const homeSlider = document.getElementById('home-slider');
+		let changeText = function(){
+			for(let i = 0; i < self._data.texts.length; i++){
+				(function(index) {
+					setTimeout( function(){
+						if (index == (self._data.texts.length - 1)){
+							document.getElementById(i).classList.add('active--last');
+							setTimeout(function(){
+								self._data.go = true;
+							}, 1900);
+							setTimeout(function(){
+								document.querySelector('.nav__logo').classList.add('high-z');
+							}, 4200);
+							setTimeout(function(){
+								whiteIntro.classList.add('low-z-white');
+								blackIntro.classList.add('low-z-black');
+								self.type();
+							}, 4900);
+						} else {
+							self._data.activeIndex = i;
+							self._data.text = self._data.texts[i];
+						}
+						document.getElementById(i).classList.add('active');
+					}, i * 1900);
+				})(i);
+			}
+		}
+		setTimeout(function() {
+			changeText();
+		}, 100);
 
 		function createBullets() {
 			let slides = document.getElementsByClassName('swiper-slide');
 			let scrollBar = self.$refs.scrollbar;
 			for (var index = 0; index < slides.length; index++){
 				let bullet = document.createElement('span');
-			    bullet.className = 'bullet';
-			    scrollBar.appendChild(bullet);
+				bullet.className = 'bullet';
+				scrollBar.appendChild(bullet);
 			}
 			scrollBar.removeChild(scrollBar.lastChild);
 		}
@@ -118,10 +168,9 @@ export default {
 	},
 	methods: {
 		showContent: function(){
-			this.displayContent = true;
+
 		},
 		showSlides: function(){
-
 			let self = this;
 			let content = document.querySelectorAll('.swiper-slide');
 			let i = 0;
@@ -132,23 +181,15 @@ export default {
 				}
 			}, 200);
 		},
+		type: function(){
+			var self = this;
+			this.displayContent = true;
 
-		// typeAnimation: function(){
-		// 	var self = this;
-		// 	setTimeout(function() {
-		// 		self.showContent();
-		// 	}, 12000);
-		// 	setTimeout(function() {
-		// 		self.showSlides();
-		// 	}, 12000);
-		// 	setTimeout(function() {
-		// 		let content = document.getElementsByClassName('show');
-		// 		for (var index = 0; index < content.length; index++){
-		// 			content[index].classList.remove('contentDisappear');
-		// 		}
-		// 	}, 13000);
-		// },
+			self.showSlides();
+				self._data.wait = false;
+		}
 	}
+
 }
 
 
