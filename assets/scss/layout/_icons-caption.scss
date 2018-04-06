@@ -6,25 +6,47 @@
 
 	.case-color {
 		width: 100%;
-		height: grid(6);
+		height: auto;
 		display: block;
 		position: relative;
 		margin-bottom: grid(2);
 		padding: grid(1.5) grid(2);
 		@media #{$medium-down}{
 			height: auto;
+			padding: rem(180) rem(160);
+			margin: 0 auto rem(64) auto;
 		}
 		@media #{$small-only}{
 			width: calc(100% - 64px);
-			display: flex;
+			padding: rem(80) rem(64);
 		}
 
 		ul {
-			background-color: red;
+			&:last-child{
+				margin-top: grid(1);
+				@media #{$medium-down}{
+					margin-top: rem(80);
+				}
+				li{
+					&:nth-child(3), &:nth-child(4){
+						@media #{$medium-down}{
+							display: none;
+						}
+					}
+				}
+			}
+			height: auto;
 			width: 100%;
 			position: relative;
-			display: inline-flex;
+			display: flex;
 			justify-content: space-between;
+			li{
+				&:nth-child(3), &:nth-child(4){
+					@media #{$medium-down}{
+						display: none;
+					}
+				}
+			}
 			li {
 				&.iconHolder {
 					overflow: hidden;
@@ -32,7 +54,6 @@
 					position: relative;
 					height: rem(80);
 					width: rem(80);
-
 					@media #{$medium-down}{
 						height: rem(80);
 						width: rem(80);

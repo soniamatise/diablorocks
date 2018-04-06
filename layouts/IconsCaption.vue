@@ -16,6 +16,8 @@
 					<li class="iconHolder">
 						<img class="img" alt="icon" src="https://picsum.photos/g/100/100" />
 					</li>
+				</ul>
+				<ul>
 					<li class="iconHolder">
 						<img class="img" alt="icon" src="https://picsum.photos/g/100/100" />
 					</li>
@@ -44,7 +46,7 @@ export default {
     return {
     };
   },
-  props: ['caseColor' , 'caseIcon'],
+  props: ['caseColor' , 'caseIcon' ,''],
 	mounted() {
 	},
 	methods: {
