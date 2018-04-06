@@ -1,38 +1,41 @@
 <template>
-	<h1 id="typeWriterTitle"><slot></slot></h1>
+	<div id="typeWriterTitle" ref="typeWriterTitle">
+		<h1 :class="{caret: caret}" :text="heading">{{ headingText }}</h1>
+		<p :class="{show : show}">{{ sub }}</p>
+	</div>
 </template>
 
 <script>
 export default {
-	props: ['delay'],
+	props: ['delay', 'heading', 'sub'],
+	data() {
+		return {
+			headingText: '',
+			caret: true,
+			show: false
+		}
+	},
 	mounted() {
 		let self = this;
-		const dataText = self.$slots.default[0].text;
-		if(!self.delay){
-			self.typeWriter(dataText, 0);
-		}else{
-			setTimeout(function() {
-				self.typeWriter(dataText, 0);
-			}, self.delay);
+		let heading = self.heading;
+		for (var i = 0; i < heading.length; i++){
+			(function(index) {
+
+				setTimeout(function() {
+					//add one letter at a time
+					self._data.headingText += heading[index];
+					// console.log(heading[index]);
+					// if all letters are typed delete caret
+					if(heading.length == (index + 1)){
+						self._data.caret = false
+						self._data.show = true
+					}
+				}, i * 300)
+			})(i);
 		}
 	},
 	methods: {
-		typeWriter: function(text,i, fnCallback){
-			let self = this;
 
-			if (i < (text.length)) {
-				self.$el.innerHTML = text.substring(0, i+1) +'<span aria-hidden="true" id="typestroke"></span>';
-
-				setTimeout(function() {
-					self.typeWriter(text, i + 1)
-				}, 250);
-			}else{
-				var typestroke = document.getElementById('typestroke');
-				typestroke.style.border = 'white';
-
-				this.$emit('doneTyping');
-			}
-		}
 	}
 }
 </script>

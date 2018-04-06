@@ -1,6 +1,6 @@
 <template>
 	<main-layout>
-		<home-intro />
+		<home-intro/>
 		<home-slider>
 			<home-slider-item
 				caseName="Kalkhoff Bikes"

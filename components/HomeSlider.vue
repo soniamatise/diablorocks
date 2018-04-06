@@ -1,28 +1,30 @@
 <template>
 <div id="home-slider" ref="homeSlider" class="row center">
+<!--  wat doet dit?
 	<div class="column small-16 large-20 column-20 home-cover" ref="homeCover">
-		
-	</div>
+	</div> -->
 	<div class="column large-full medium-full small-full">
 		<div v-swiper:mySwiper="swiperOption">
-			<div
-		        class="parallax-bg home-bg-parallax"
-		        data-swiper-parallax="-300%">
-		        <div class="typestroke" ref="typestroke"></div>
-		        <span class="cooleText"><h6>Our copy guy was out of office</h6></span>
-
-		    </div>
+			<div class="parallax-bg home-bg-parallax"
+				data-swiper-parallax="-300%">
+				<type-writer
+				heading="Our copy guy was out of office"
+				sub=""
+				/>
+			</div>
 			<div class="swiper-wrapper contentDisappear" v-bind:class="{show: displayContent}">
 				<slot></slot>
 			</div>
 			<div class="swiper-scrollbar contentDisappear" v-bind:class="{show: displayContent}" ref="scrollbar"></div>
 		</div>
 	</div>
+
 </div>
 </template>
 
 <script>
 import HomeSliderItem from '~/components/HomeSliderItem.vue'
+import TypeWriter from '~/components/TypeWriter.vue'
 
 export default {
 	head: {
@@ -32,6 +34,7 @@ export default {
 	},
 	components: {
 		HomeSliderItem,
+		TypeWriter
 	},
 	props: [''],
 	data() {
@@ -117,11 +120,11 @@ export default {
 		showSlides: function(){
 			let self = this;
 			let content = document.querySelectorAll('.swiper-slide');
-			let i = 0; 
+			let i = 0;
 			let interval = setInterval(function() {
-				content[i++].classList.add('show', 'jumpUp'); 
-				if (i === content.length) { 
-					clearInterval(interval); 
+				content[i++].classList.add('show', 'jumpUp');
+				if (i === content.length) {
+					clearInterval(interval);
 				}
 			}, 200);
 		},
