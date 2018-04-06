@@ -8,8 +8,9 @@
 			<div class="parallax-bg home-bg-parallax"
 				data-swiper-parallax="-300%">
 				<type-writer
-				heading="Our copy guy was out of office"
+				heading=""
 				sub=""
+				ref="startLater"
 				/>
 			</div>
 			<div class="swiper-wrapper contentDisappear" v-bind:class="{show: displayContent}">
@@ -41,6 +42,7 @@ export default {
 		return {
 			Velocity: this.$velocity,
 			swiperOption: {
+				headingText: 'Our copy guy was out of office',
 				slidesPerView: 'auto',
 				direction: 'horizontal',
 				touchRatio: 1,
@@ -99,7 +101,8 @@ export default {
 	},
 	mounted: function() {
 		let self = this;
-		self.typeAnimation();
+		console.log(self);
+		// self.typeAnimation();
 
 		function createBullets() {
 			let slides = document.getElementsByClassName('swiper-slide');
@@ -118,6 +121,7 @@ export default {
 			this.displayContent = true;
 		},
 		showSlides: function(){
+
 			let self = this;
 			let content = document.querySelectorAll('.swiper-slide');
 			let i = 0;
@@ -128,21 +132,22 @@ export default {
 				}
 			}, 200);
 		},
-		typeAnimation: function(){
-			var self = this;
-			setTimeout(function() {
-				self.showContent();
-			}, 12000);
-			setTimeout(function() {
-				self.showSlides();
-			}, 12000);
-			setTimeout(function() {
-				let content = document.getElementsByClassName('show');
-				for (var index = 0; index < content.length; index++){
-					content[index].classList.remove('contentDisappear');
-				}
-			}, 13000);
-		},
+
+		// typeAnimation: function(){
+		// 	var self = this;
+		// 	setTimeout(function() {
+		// 		self.showContent();
+		// 	}, 12000);
+		// 	setTimeout(function() {
+		// 		self.showSlides();
+		// 	}, 12000);
+		// 	setTimeout(function() {
+		// 		let content = document.getElementsByClassName('show');
+		// 		for (var index = 0; index < content.length; index++){
+		// 			content[index].classList.remove('contentDisappear');
+		// 		}
+		// 	}, 13000);
+		// },
 	}
 }
 

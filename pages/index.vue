@@ -1,7 +1,7 @@
 <template>
 	<main-layout>
-		<home-intro/>
-		<home-slider>
+		<home-intro refs="wachtff"/>
+		<home-slider >
 			<home-slider-item
 				caseName="Kalkhoff Bikes"
 				caseDescription="When your bikes are eye-catchers, your website should be too."

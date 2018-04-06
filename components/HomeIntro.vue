@@ -10,7 +10,6 @@
 				<h2 :class="['medium', 'text-' + index, 'text-white']">{{ text }}</h2>
 			</div>
 		</div>
-
 	</section>
 </template>
 
