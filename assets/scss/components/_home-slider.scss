@@ -2,11 +2,9 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 
 #home-slider {
 	z-index: 2;
-	background-color: color(Black);
 	transition: background-color 1s $easeboth;
 
 	.home-cover {
-		background-color: color(Black);
 		transition: background-color 1s $easeboth;
 		top: grid(3/2);
 		height: grid(1);
@@ -76,7 +74,7 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 			z-index: 1;
 
 			.swiper-slide {
-				top: 100%;
+				top: 100vh;
 				width: grid(10);
 				display: flex;
 				align-items: center;
@@ -148,7 +146,7 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 					align-items: center;
 					justify-content: center;
 					transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s, box-shadow 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-					box-shadow: 0 0 grid(1) 1px rgba(0,0,0,1);
+					box-shadow: 0 0 grid(1) 1px var(--caseColor);
 					cursor: pointer;
 					z-index: 3;
 
@@ -211,8 +209,7 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 				}
 
 				&.jumpUp {
-					top: 100%;
-					animation: jumpup 0.8s cubic-bezier(0.42, -1, 0.58, 1) forwards 0.5s;
+					// animation: jumpup 0.8s cubic-bezier(0.42, -1, 0.58, 1) forwards 0.5s;
 					@keyframes jumpup {
 						0% {
 							top: 100%;
@@ -242,7 +239,6 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 			.bullet {
 				width: #{$blackPointWidth};
 				height: 100%;
-				background-color: color(Black);
 				float: left;
 				margin-left: calc(#{$bulletWidth} - #{$blackPointWidth});
 				position: relative;

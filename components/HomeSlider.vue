@@ -13,9 +13,6 @@
 			</div>
 		</section>
 		<div id="home-slider" ref="homeSlider" class="row center">
-			<!--  wat doet dit?
-			<div class="column small-16 large-20 column-20 home-cover" ref="homeCover">
-		</div> -->
 		<div class="column large-full medium-full small-full">
 			<div v-swiper:mySwiper="swiperOption">
 				<div class="parallax-bg home-bg-parallax"
@@ -26,7 +23,7 @@
 				sub=""
 				/>
 			</div>
-			<div class="swiper-wrapper contentDisappear" v-bind:class="{show: displayContent}">
+			<div class="swiper-wrapper" v-bind:class="{show: displayContent}">
 				<slot></slot>
 			</div>
 			<div class="swiper-scrollbar contentDisappear" v-bind:class="{show: displayContent}" ref="scrollbar"></div>
@@ -67,7 +64,7 @@ export default {
 				direction: 'horizontal',
 				touchRatio: 1,
 				centeredSlides: true,
-				spaceBetween: 420,
+				spaceBetween: 240,
 				parallax: true,
 				scrollbar: {
 					el: '.swiper-scrollbar',
@@ -85,7 +82,7 @@ export default {
 						direction: 'horizontal',
 						touchRatio: 1,
 						centeredSlides: true,
-						spaceBetween: 420,
+						spaceBetween: 240,
 						parallax: true,
 						scrollbar: {
 							el: '.swiper-scrollbar',
@@ -159,7 +156,7 @@ export default {
 			let scrollBar = self.$refs.scrollbar;
 			for (var index = 0; index < slides.length; index++){
 				let bullet = document.createElement('span');
-				bullet.className = 'bullet';
+				bullet.className = ('bullet bg-black');
 				scrollBar.appendChild(bullet);
 			}
 			scrollBar.removeChild(scrollBar.lastChild);
@@ -167,26 +164,26 @@ export default {
 		createBullets();
 	},
 	methods: {
-		showContent: function(){
-
-		},
 		showSlides: function(){
 			let self = this;
 			let content = document.querySelectorAll('.swiper-slide');
-			let i = 0;
-			let interval = setInterval(function() {
-				content[i++].classList.add('show', 'jumpUp');
-				if (i === content.length) {
-					clearInterval(interval);
-				}
-			}, 200);
+			for (let i = 0; i < content.length; i++){
+				(function(index) {
+					setTimeout(function() {
+						content[index].classList.add('show');
+						self.Velocity(content[index], { top: '0' }, 600, [180, 16]);
+					}, i * 200)
+				})(i);
+			}
+
 		},
 		type: function(){
 			var self = this;
 			this.displayContent = true;
-
-			self.showSlides();
-				self._data.wait = false;
+			setTimeout(function () {
+				self.showSlides();
+			}, 1800);
+			self._data.wait = false;
 		}
 	}
 

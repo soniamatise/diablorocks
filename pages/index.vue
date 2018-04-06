@@ -1,69 +1,74 @@
 <template>
-	<main-layout>
+	<main>
+		<input id="menu-trigger" type="checkbox"/>
+		<logo/>
+		<top-nav/>
 		<home-slider >
 			<home-slider-item
 				caseName="Kalkhoff Bikes"
+				slug="kalkhoff"
 				caseDescription="When your bikes are eye-catchers, your website should be too."
 				:caseImage="images.kalkhoff"
-				caseColor="#787069"
 				caseImageHeight="full-height"
 			/>
 			<home-slider-item
 				caseName="Sony Music Netherlands"
+				slug="nielson"
 				caseDescription="A new digital home for Nielson, an artist that reinvented himself."
 				:caseImage="images.nielson"
-				caseColor="#400c0e"
 				caseImageHeight="small-height"
 			/>
 			<home-slider-item
 				caseName="BBB Cycling"
+				slug="bbbcycling"
 				caseDescription="This is what happens when commerce and emotion collide and come together."
 				:caseImage="images.bbb"
-				caseColor="#524d40"
 				caseImageHeight="medium-height"
 			/>
 			<home-slider-item
 				caseName="Aangenaam Bergen op Zoom"
+				slug="aangenaam"
 				caseDescription="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
 				:caseImage="images.boz"
-				caseColor="#81919a"
 				caseImageHeight="medium-height"
 			/>
 			<home-slider-item
 				caseName="Sony Music Netherlands &amp; DVLM"
+				slug="ticketchaser"
 				caseDescription="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
 				:caseImage="images.ticketchaser"
-				caseColor="#747577"
 				caseImageHeight="small-height"
 			/>
 			<home-slider-item
 				caseName="Viacom Out of Office"
+				slug="viacom"
 				caseDescription="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
 				:caseImage="images.viacom"
-				caseColor="#9fc1c1"
 				caseImageHeight="full-height"
 			/>
 			<home-slider-item
 				caseName="Expeditie Wadden"
+				slug="expeditiewadden"
 				caseDescription="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
 				:caseImage="images.expeditiewadden"
-				caseColor="#a8a59c"
 				caseImageHeight="small-height"
 			/>
 		</home-slider>
-	</main-layout>
+	</main>
 </template>
 
 <script>
-import MainLayout from '~/layouts/MainLayout.vue';
-import HomeSlider from '~/components/HomeSlider.vue';
-import HomeSliderItem from '~/components/HomeSliderItem.vue';
+import TopNav from '~/layouts/TopNav';
+import Logo from '~/layouts/Logo';
+import HomeSlider from '~/components/HomeSlider';
+import HomeSliderItem from '~/components/HomeSliderItem';
 
 export default {
 	components: {
-		MainLayout,
 		HomeSlider,
 		HomeSliderItem,
+		TopNav,
+		Logo
 	},
 	data(){
 		return {
@@ -77,6 +82,14 @@ export default {
 				expeditiewadden: require('~/assets/img/home/Hero_ExpeditieWadden.jpg')
 			}
 		}
-	}
+	},
+	mounted(){
+		// console.log(this);
+	},
+	watch: {
+		slideIn: function(){
+			// console.log('change');
+		}
+	},
 }
 </script>
