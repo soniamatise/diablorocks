@@ -58,6 +58,9 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 					width: max-content;
 					height: 100%;
 					font-weight: $font-medium;
+				&.caret:after{
+					border-color: white;
+				}
 				}
 				p{
 					display: none;

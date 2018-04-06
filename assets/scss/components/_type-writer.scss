@@ -29,11 +29,11 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 		&.caret {
 			&:after {
 				content: '';
-				border-right: solid 2px black;
+				border-right: solid 1px black;
 				position: absolute;
 				height: 100%;
 				bottom: 0;
-				right: 2px;
+				right: -2px;
 			}
 		}
 	}
