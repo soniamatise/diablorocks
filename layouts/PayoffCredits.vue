@@ -1,7 +1,7 @@
 <template>
-<section id="PayoffCredits">
+<section id="payoffCredits">
 	<div class="row center">
-		<div class="column large-12 medium-16 small-full" v-html="intro"></div>
+		<div class="column large-12 medium-16 small-full payoff" v-html="intro"></div>
 	</div>
 	<div class="credits">
 		<div class="row item center" v-for="credit in credits" :key="credit.id">

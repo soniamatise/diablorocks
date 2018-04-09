@@ -1,16 +1,5 @@
 $easeboth: cubic-bezier(.42,0,.58,1);
 
-h2 {
-	color: color(Light);
-	display: block;
-	white-space: nowrap;
-	position: relative;
-		@media #{$small-only} {
-			white-space: normal;
-			span{ display: inline-flex; }
-		}
-}
-
 .hoverHolder {
 	cursor: pointer;
 	width: 100vw;
@@ -47,6 +36,17 @@ h2 {
 	@media #{$small-only} {
 		transform: translate(0%);
 		left: 0;
+	}
+
+	h2 {
+		color: color(Light);
+		display: block;
+		white-space: nowrap;
+		position: relative;
+			@media #{$small-only} {
+				white-space: normal;
+				span{ display: inline-flex; }
+			}
 	}
 
 	.contentHolder {

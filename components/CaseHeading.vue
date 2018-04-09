@@ -3,7 +3,7 @@
 		<div class="intro-text">
 			<div class="row center">
 				<div class="column small-full medium-16 large-12">
-					<p><span>{{ caseName }}</span> {{ caseQuote }}</p>
+					<h2><span class="medium">{{ caseName }}</span> {{ caseQuote }}</h2>
 				</div>
 			</div>
 		</div>

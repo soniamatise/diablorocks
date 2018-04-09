@@ -29,7 +29,10 @@ module.exports = {
 	 ** Customize the progress bar color
 	 */
 	loading: {
-		color: '#000000'
+		color: 'fuchsia',
+		opacity: 1,
+		height: '40px',
+
 	},
 	plugins: [{
 			src: '~plugins/swiper.js',

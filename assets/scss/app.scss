@@ -10,14 +10,14 @@
 
 body{
 	font-family: $body-font;
-}
-
-#page{
-	width: 100vw;
-	height: 100vh;
-	overflow: scroll;
-	position: relative;
-	background-color: white;
+	::selection{
+		background: color(Gray);
+		color: color(Light);
+	}
+	::-moz-selection{
+		background: color(Gray);
+		color: color(Light);
+	}
 }
 
 section.intro {
@@ -29,7 +29,6 @@ section.intro {
 		padding: 0;
 	}
 }
-
 
 .link{
 	&--external{
