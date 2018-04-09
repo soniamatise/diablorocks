@@ -32,13 +32,14 @@ body.white-menu { // menu item styling when page is Black
 		}
 	}
 }
-// MOBILE TRIGGER MENU HAMBURGER
+
+// mobile trigger
 $logo-height: 54px;
+$logo-width: 120px;
 $time: 0.6;
 
 .nav {
   // general nav styling
-
   &__logo {
     background-color: color(Black);
     position: absolute;
@@ -46,6 +47,8 @@ $time: 0.6;
     top: grid(1.5);
     z-index: 5;
     height: rem($logo-height);
+    width: rem($logo-width);
+    display: block;
     -webkit-backface-visibility: visible;
 
     @media #{$small-only} {
@@ -53,6 +56,18 @@ $time: 0.6;
       transform-origin: calc(100% + 54px) 100%;
       transform: rotate(90deg) translateX(calc(50% - #{rem($logo-height / 2)}))
         translateY(200%);
+    }
+
+    &__link {
+      background-color: red;
+      position: absolute;
+      right: 0px;
+      top: grid(1.5);
+      z-index: 5;
+      height: rem($logo-height);
+      width: rem($logo-width);
+      display: block;
+      -webkit-backface-visibility: visible;
     }
   }
 
