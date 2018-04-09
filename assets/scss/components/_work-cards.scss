@@ -1,7 +1,7 @@
 .work__grid {
 	column-count: 3;
 	column-gap: grid(1);
-	padding: grid(2);
+	padding: grid(1) grid(2) grid(0) grid(2);
 	@media #{$medium-down} {
 		column-count: 2;
 	}

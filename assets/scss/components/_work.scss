@@ -1,25 +1,17 @@
+$easeboth: cubic-bezier(.42,0,.58,1);
+
 .work{
 	.intro {
+		background-color: color(Light);
 		padding: grid(5) 0 grid(1) 0;
-
-		span {
-			border-right: .05em solid;
-			animation: caret .5s steps(1) infinite;
-		}
-
-		@keyframes caret {
-			50% {
-				border-color: transparent;
-			}
-		}
-
-		h1 + p {
-			padding-top: 1rem;
-		}
 	}
+	// show subtitle when typewriter is done
 	.content {
 		opacity: 0;
-		transition: opacity 1s cubic-bezier(.42,0,.58,1);
-		&.show{ opacity: 1; }
+	  transition: .2s $easeboth opacity .6s;
+		&.displayContent{
+			opacity: 1;
+			transition: .2s $easeboth opacity .6s;
+		}
 	}
 }

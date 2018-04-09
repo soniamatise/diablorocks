@@ -1,28 +1,42 @@
 <template>
-<div id="home-slider" ref="homeSlider" class="row center">
-	<div class="column small-16 large-20 column-20 home-cover" ref="homeCover">
-		
-	</div>
-	<div class="column large-full medium-full small-full">
-		<div v-swiper:mySwiper="swiperOption">
-			<div
-		        class="parallax-bg home-bg-parallax"
-		        data-swiper-parallax="-300%">
-		        <div class="typestroke" ref="typestroke"></div>
-		        <span class="cooleText"><h6>Our copy guy was out of office</h6></span>
-
-		    </div>
-			<div class="swiper-wrapper contentDisappear" v-bind:class="{show: displayContent}">
+	<div class="home">
+		<section class="home-intro">
+			<div class="bg-white white-intro" ref="whiteIntro">
+				<div class="white-intro--text">
+					<h2 class="medium">Not your average Agency</h2>
+				</div>
+			</div>
+			<div :class="['bg-black', 'black-intro', {flowAway: go}]" ref="blackIntro">
+				<div v-for="(text, index) in texts" :class="['black-intro--overflow', {'active--last': go}] " :id="index" :key="index">
+					<h2 :class="['medium', 'text-' + index, 'text-white']">{{ text }}</h2>
+				</div>
+			</div>
+		</section>
+		<div id="home-slider" ref="homeSlider" class="row center">
+		<div class="column large-full medium-full small-full">
+			<div v-swiper:mySwiper="swiperOption">
+				<div class="parallax-bg home-bg-parallax"
+				data-swiper-parallax="-300%">
+				<type-writer
+				heading="Our copy guy was out of office"
+				:wait="wait"
+				sub=""
+				/>
+			</div>
+			<div class="swiper-wrapper" v-bind:class="{show: displayContent}">
 				<slot></slot>
 			</div>
 			<div class="swiper-scrollbar contentDisappear" v-bind:class="{show: displayContent}" ref="scrollbar"></div>
 		</div>
 	</div>
+
+</div>
 </div>
 </template>
 
 <script>
 import HomeSliderItem from '~/components/HomeSliderItem.vue'
+import TypeWriter from '~/components/TypeWriter.vue'
 
 export default {
 	head: {
@@ -32,17 +46,25 @@ export default {
 	},
 	components: {
 		HomeSliderItem,
+		TypeWriter
 	},
 	props: [''],
 	data() {
 		return {
+			texts: ['Empathic Branding', 'Creative Strategy', 'Innovative Digital', 'Aspiring rental box mogul'],
+			text: '',
+			wait: true,
+			activeIndex: null,
+			go: false,
+			headingText: '',
 			Velocity: this.$velocity,
 			swiperOption: {
+				headingText: '',
 				slidesPerView: 'auto',
 				direction: 'horizontal',
 				touchRatio: 1,
 				centeredSlides: true,
-				spaceBetween: 420,
+				spaceBetween: 240,
 				parallax: true,
 				scrollbar: {
 					el: '.swiper-scrollbar',
@@ -60,7 +82,7 @@ export default {
 						direction: 'horizontal',
 						touchRatio: 1,
 						centeredSlides: true,
-						spaceBetween: 420,
+						spaceBetween: 240,
 						parallax: true,
 						scrollbar: {
 							el: '.swiper-scrollbar',
@@ -95,52 +117,76 @@ export default {
 		}
 	},
 	mounted: function() {
-		let self = this;
-		self.typeAnimation();
+		const self = this;
+		const whiteIntro = this.$refs.whiteIntro;
+		const blackIntro = this.$refs.blackIntro;
+		const homeSlider = document.getElementById('home-slider');
+		let changeText = function(){
+			for(let i = 0; i < self._data.texts.length; i++){
+				(function(index) {
+					setTimeout( function(){
+						if (index == (self._data.texts.length - 1)){
+							document.getElementById(i).classList.add('active--last');
+							setTimeout(function(){
+								self._data.go = true;
+							}, 1900);
+							setTimeout(function(){
+								document.querySelector('.nav__logo').classList.add('high-z');
+							}, 4200);
+							setTimeout(function(){
+								whiteIntro.classList.add('low-z-white');
+								blackIntro.classList.add('low-z-black');
+								self.type();
+							}, 4900);
+						} else {
+							self._data.activeIndex = i;
+							self._data.text = self._data.texts[i];
+						}
+						document.getElementById(i).classList.add('active');
+					}, i * 1900);
+				})(i);
+			}
+		}
+		setTimeout(function() {
+			changeText();
+		}, 100);
 
 		function createBullets() {
 			let slides = document.getElementsByClassName('swiper-slide');
 			let scrollBar = self.$refs.scrollbar;
 			for (var index = 0; index < slides.length; index++){
 				let bullet = document.createElement('span');
-			    bullet.className = 'bullet';
-			    scrollBar.appendChild(bullet);
+				bullet.className = ('bullet bg-black');
+				scrollBar.appendChild(bullet);
 			}
 			scrollBar.removeChild(scrollBar.lastChild);
 		}
 		createBullets();
 	},
 	methods: {
-		showContent: function(){
-			this.displayContent = true;
-		},
 		showSlides: function(){
 			let self = this;
 			let content = document.querySelectorAll('.swiper-slide');
-			let i = 0; 
-			let interval = setInterval(function() {
-				content[i++].classList.add('show', 'jumpUp'); 
-				if (i === content.length) { 
-					clearInterval(interval); 
-				}
-			}, 200);
+			for (let i = 0; i < content.length; i++){
+				(function(index) {
+					setTimeout(function() {
+						content[index].classList.add('show');
+						self.Velocity(content[index], { top: '0' }, 600, [180, 16]);
+					}, i * 200)
+				})(i);
+			}
+
 		},
-		typeAnimation: function(){
+		type: function(){
 			var self = this;
-			setTimeout(function() {
-				self.showContent();
-			}, 12000);
-			setTimeout(function() {
+			this.displayContent = true;
+			setTimeout(function () {
 				self.showSlides();
-			}, 12000);
-			setTimeout(function() {
-				let content = document.getElementsByClassName('show');
-				for (var index = 0; index < content.length; index++){
-					content[index].classList.remove('contentDisappear');
-				}
-			}, 13000);
-		},
+			}, 1800);
+			self._data.wait = false;
+		}
 	}
+
 }
 
 

@@ -1,14 +1,17 @@
-
 <template>
 	<main-layout class="work">
-		<div class="row center textCenter intro">
-			<div class="column column-8">
-				<type-writer delay="250" v-on:doneTyping="showContent">Work</type-writer>
-				<p class="content" v-bind:class="{show: displayContent}">Our latest and greatest for brands we believe in.</p>
-			</div>
-		</div>
-<div :class="[this._data.background ,'background-canvas']" :style="style"></div>
-		<section class="work__grid content" v-bind:class="{show: displayContent}">
+
+		<section class="intro">
+			<type-writer
+			heading="Work Work"
+			sub="Our latest and greatest for brands we believe in."
+			v-on:doneTyping="showContent"
+			/>
+		</section>
+
+		<div :class="[this._data.background ,'background-canvas']" :style="style"></div>
+
+		<section class="work__grid content" v-bind:class="{displayContent: displayContent}">
 
 			<WorkCard v-for="value in cases" :key="value.id"
 				:ref="value.slug"
@@ -23,7 +26,8 @@
 				v-on:click.native="expand(value.slug)"
 				v-on:mouseover.native="onHover(value.slug)"
 				v-on:mouseout.native="notHover(value.slug)"
-			></workCard>
+			/>
+
 
 		</section>
 
@@ -53,7 +57,7 @@ export default {
 		MainLayout,
 		TypeWriter,
 		NextCase,
-		WorkCard
+		WorkCard,
 	},
 	data() {
 		return {

@@ -1,11 +1,7 @@
 .header {
   width: 100%;
   position: absolute;
-  // top: grid(1.5);
   z-index: 3;
-  // .nav{
-  // 	z-index: 10;
-  // }
   @media #{$medium-up} {
     mix-blend-mode: difference;
   }
@@ -15,11 +11,10 @@
     top: 0;
     left: 0;
   }
-
   .nav__contact {
     position: absolute;
     bottom: 5.75rem;
-    // Will only show on mobile
+    //only show on mobile
     display: none;
     @media #{$small-only} {
       display: block;
