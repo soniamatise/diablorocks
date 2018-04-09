@@ -4,21 +4,24 @@
 		<home-slider>
 			<home-slider-item
 				caseName="Kalkhoff Bikes"
-				caseDescription="When your bikes are eye-catchers, your website should be too."
+				caseDescription="When your bikes are eye-catchers,
+your website should be too."
 				:caseImage="images.kalkhoff"
 				caseColor="#787069"
 				caseImageHeight="full-height"
 			/>
 			<home-slider-item
 				caseName="Sony Music Netherlands"
-				caseDescription="A new digital home for Nielson, an artist that reinvented himself."
+				caseDescription="A new digital home for Nielson, an
+artist that reinvented himself."
 				:caseImage="images.nielson"
 				caseColor="#400c0e"
 				caseImageHeight="small-height"
 			/>
 			<home-slider-item
 				caseName="BBB Cycling"
-				caseDescription="This is what happens when commerce and emotion collide and come together."
+				caseDescription="This is what happens when commerce
+and emotion collide and come together."
 				:caseImage="images.bbb"
 				caseColor="#524d40"
 				caseImageHeight="medium-height"
@@ -57,11 +60,18 @@
 
 <script>
 import MainLayout from '~/layouts/MainLayout.vue'
+import HomeIntro from '~/components/HomeIntro';
 import HomeSlider from '~/components/HomeSlider.vue'
 import HomeSliderItem from '~/components/HomeSliderItem.vue'
-import HomeIntro from '~/components/HomeIntro.vue'
+import axios from 'axios'
 
 export default {
+	asyncData ({ params }) {
+    return axios.get(`http://api.matise.nl/wp-json/wp/v2/pages/54`)
+    .then((res) => {
+			// console.log(res.data);
+    })
+  },
 	components: {
 		MainLayout,
 		HomeSlider,
