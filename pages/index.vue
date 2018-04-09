@@ -29,7 +29,6 @@ export default {
 	asyncData ({ params }) {
     return axios.get(`${process.env.baseUrl}/page/homepage`)
     .then((res) => {
-			console.log(res.data);
 			return {
 				cases: res.data.cases
 			}
