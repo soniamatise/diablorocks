@@ -62,8 +62,16 @@ import TopNav from '~/layouts/TopNav';
 import Logo from '~/layouts/Logo';
 import HomeSlider from '~/components/HomeSlider';
 import HomeSliderItem from '~/components/HomeSliderItem';
+import axios from 'axios'
+
 
 export default {
+	asyncData ({ params }) {
+    return axios.get(`http://api.matise.nl/wp-json/wp/v2/pages/54`)
+    .then((res) => {
+			// console.log(res.data);
+    })
+  },
 	components: {
 		HomeSlider,
 		HomeSliderItem,

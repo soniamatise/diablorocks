@@ -5,19 +5,16 @@
     <div class="swiper-wrapper">
       <div class="swiper-slide">
 				<div class="contentHolder">
-					<img src="~assets/img/placeholderMob.png" alt="placeholder">
+					<img :src="imgOne.url" :alt="imgOne.alt" />
 				</div>
       </div>
 			<div class="swiper-slide">
 				<div class="contentHolder">
-					<img src="~/assets/img/placeholderMob.png" alt="placeholder">
+					<img :src="imgTwo.url" :alt="imgTwo.alt" />
 				</div>
       </div>
     </div>
   </div>
-	</div>
-	<div class="column large-12 medium-16 small-16">
-		<p><span>Responsive?</span> In the design process we made the choice to kill responsive. A website should be fluid and adapt to all screen sizes from our perspective.</p>
 	</div>
 </div>
 </template>
@@ -33,6 +30,7 @@
 
 <script>
 	export default {
+		props: ['imgOne', 'imgTwo'],
 		data() {
 			return {
 				swiperOption: {
