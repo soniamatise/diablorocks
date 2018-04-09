@@ -1,18 +1,21 @@
 <template>
 <div id="home-slider" ref="homeSlider" class="row center">
+	<div class="column small-16 large-20 column-20 home-cover" ref="homeCover">
+		
+	</div>
 	<div class="column large-full medium-full small-full">
 		<div v-swiper:mySwiper="swiperOption">
 			<div
 		        class="parallax-bg home-bg-parallax"
 		        data-swiper-parallax="-300%">
-		        <!-- <span aria-hidden="true" class="typestroke" style="border: white;"></span> -->
-		        <span class="cooleText"><p>Our copy guy was out of office</p></span>
+		        <div class="typestroke" ref="typestroke"></div>
+		        <span class="cooleText"><h6>Our copy guy was out of office</h6></span>
 
 		    </div>
-			<div class="swiper-wrapper">
+			<div class="swiper-wrapper contentDisappear" v-bind:class="{show: displayContent}">
 				<slot></slot>
 			</div>
-			<div class="swiper-scrollbar" ref="scrollbar"></div>
+			<div class="swiper-scrollbar contentDisappear" v-bind:class="{show: displayContent}" ref="scrollbar"></div>
 		</div>
 	</div>
 </div>
@@ -24,7 +27,7 @@ import HomeSliderItem from '~/components/HomeSliderItem.vue'
 export default {
 	head: {
 		bodyAttrs: {
-			class: 'one-page scroll-disable'
+			class: 'one-page scroll-disable white-menu'
 		}
 	},
 	components: {
@@ -33,6 +36,7 @@ export default {
 	props: [''],
 	data() {
 		return {
+			Velocity: this.$velocity,
 			swiperOption: {
 				slidesPerView: 'auto',
 				direction: 'horizontal',
@@ -65,7 +69,7 @@ export default {
 						},
 						mousewheel: {
 							invert: true,
-							sensitivity: 10,
+							sensitivity: 4,
 						},
 					},
 					750: {
@@ -86,11 +90,14 @@ export default {
 						},
 					},
 				}
-			}
+			},
+			displayContent: false,
 		}
 	},
 	mounted: function() {
 		let self = this;
+		self.typeAnimation();
+
 		function createBullets() {
 			let slides = document.getElementsByClassName('swiper-slide');
 			let scrollBar = self.$refs.scrollbar;
@@ -104,7 +111,37 @@ export default {
 		createBullets();
 	},
 	methods: {
-		
+		showContent: function(){
+			this.displayContent = true;
+		},
+		showSlides: function(){
+			let self = this;
+			let content = document.querySelectorAll('.swiper-slide');
+			let i = 0; 
+			let interval = setInterval(function() {
+				content[i++].classList.add('show', 'jumpUp'); 
+				if (i === content.length) { 
+					clearInterval(interval); 
+				}
+			}, 200);
+		},
+		typeAnimation: function(){
+			var self = this;
+			setTimeout(function() {
+				self.showContent();
+			}, 12000);
+			setTimeout(function() {
+				self.showSlides();
+			}, 12000);
+			setTimeout(function() {
+				let content = document.getElementsByClassName('show');
+				for (var index = 0; index < content.length; index++){
+					content[index].classList.remove('contentDisappear');
+				}
+			}, 13000);
+		},
 	}
 }
+
+
 </script>

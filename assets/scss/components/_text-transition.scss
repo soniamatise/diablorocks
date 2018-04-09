@@ -1,14 +1,17 @@
-$easeboth: cubic-bezier(.42,0,.58,1); // epic
+$easeboth: cubic-bezier(.42,0,.58,1);
 
 h2 {
 	color: color(Light);
 	display: block;
 	white-space: nowrap;
 	position: relative;
+		@media #{$small-only} {
+			white-space: normal;
+			span{ display: inline-flex; }
+		}
 }
 
 .hoverHolder {
-	background-color: purple;
 	cursor: pointer;
 	width: 100vw;
 	height: 50vh;
@@ -18,6 +21,7 @@ h2 {
 	transform: translate(-50%, -50%);
 
 	&:hover {
+			@media #{$small-only} { display: none; }
 		.contentHolder {
 			.textHolder {
 				&.textHolderLeft {
@@ -57,11 +61,11 @@ h2 {
 			display: inline-block;
 		}
 		@media #{$small-only} {
-			height: auto;
+			// height: auto;
+			top: 0%;
 		}
 
 		.textHolder {
-			border: 1px solid red;
 			top: 50%;
 			position: relative;
 			transform: translateY(-50%);
@@ -74,17 +78,17 @@ h2 {
 					display: block;
 					padding: 0 rem(64);
 					color: color(Light);
-					transform: translateY(0%);
-					top: 0;
+					transform: translateY(-50%);
+					top: 50%;
 				}
 			}
 
 			&.textHolderLeft {
-				background-color: green;
 				display: block;
 				position: relative;
 				float: left;
 				overflow: hidden;
+				h2{ font-weight: $font-medium; }
 				@media #{$small-only} {
 					display: none;
 				}
@@ -114,7 +118,6 @@ h2 {
 				}
 
 				.mask {
-					background-color: blue;
 					position: relative;
 					display: block;
 					transform: translateX(0);

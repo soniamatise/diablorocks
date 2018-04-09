@@ -1,5 +1,5 @@
 .black-intro, .white-intro {
-	z-index: 3;
+	z-index: 5;
 	position: fixed; top: 0; left: 0; right: 0; bottom: 0;
 	display: flex; justify-content: center; align-items: center;
 	&--overflow {
@@ -38,11 +38,12 @@
 	}
 }
 .white-intro{
-	z-index: 2;
+	z-index: 4;
 	&--text{
 		position: absolute;
 		overflow: hidden;
 		top: 50%;
+		h2 {color: color(Black);}
 	}
 }
 
@@ -60,11 +61,15 @@
 		}
 	}
 }
-
 .high-z {
-	z-index: 4;
+	z-index: 6;
 }
-
+.low-z-white {
+	z-index: -1 !important;
+}
+.low-z-black {
+	z-index: -1 !important;
+}
 .saved{
 	position: absolute;
 	position: fixed; top: 0; left: 0; right: 0; bottom: 0;

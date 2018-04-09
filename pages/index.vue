@@ -5,7 +5,7 @@
 			<home-slider-item
 				caseName="Kalkhoff Bikes"
 				caseDescription="When your bikes are eye-catchers,
- your website should be too."
+your website should be too."
 				:caseImage="images.kalkhoff"
 				caseColor="#787069"
 				caseImageHeight="full-height"
@@ -76,7 +76,7 @@ export default {
 		MainLayout,
 		HomeSlider,
 		HomeSliderItem,
-		HomeIntro
+		HomeIntro,
 	},
 	data(){
 		return {
