@@ -1,7 +1,9 @@
 <template>
 	<article :class="['work__card column', 'column'+ columnNr, this._data.cardClass, caseName]" :case="caseName" :style="this._data.customStyle">
 		<!-- <nuxt-link :to="'/work/' + slug "> -->
-
+		<slot>
+			
+		</slot>
 		<div :class="'work__card__image-container work__card__image-container--'+ size " :style="'background: url(' + image + ') no-repeat; background-size: 67.5vw; background-position: center;'">
 		</div>
 		<!-- </nuxt-link> -->
@@ -23,14 +25,15 @@ export default {
 			scrollPosition: null
 		}
 	},
-	props: ['columnNr', 'caseName', 'size', 'image', 'client', 'description', 'slug'],
+	props: ['columnNr', 'caseName', 'size', 'image', 'client', 'description', 'slug', 'color'],
 	methods: {
 		expandCard: function(item) {
+			console.log(item);
 			this._data.target = item.size;
 			this._data.case = item.caseName;
 			this._data.cardClass = 'expandCard';
 		},
-		doHover: function (item){
+		doHover: function (){
 			if (this._data.cardClass !== 'expandCard') {
 				this._data.cardClass = 'card--hover';
 			}
