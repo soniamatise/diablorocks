@@ -1,5 +1,5 @@
 <template>
-	<section id="payoffCredits">
+	<div class="payoff_credits">
 
 		<!-- payoff -->
 		<div class="row center">
@@ -29,7 +29,7 @@
 		</div>
 		<!-- end credits -->
 
-	</section>
+	</div>
 </template>
 
 <script>

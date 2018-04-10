@@ -1,15 +1,25 @@
+section.simple_text{
+	// distance to section
+	& + section.boxed_image_video{ margin-top: grid(5);
+		@media #{$medium-down}{ margin-top: grid(5); }
+		@media #{$mobile}{ margin-top: rem(96); }
+	}
+}
+
+
 .work-detail{
 	.intro{ padding-top: grid(5);
 		@media only screen and (max-width: 1024px) and (min-width: 768px){ padding-top: grid(7); }
 		@media #{$mobile}{ padding: 0; }
-		.intro-text{
+		.intro_text{
 			@media #{$large-up}{ padding-bottom: grid(2); }
 			@media #{$large-down}{ padding-bottom: rem(120); }
 			@media #{$mobile}{ padding: rem(96 64); }
 			h2{ color: color(Light); }
 		}
-		.intro-image{ height: grid(12); margin-bottom: grid(6); background-size: cover; background-position: center center; background-repeat: no-repeat;
-			@media #{$mobile}{ height: rem(600); }
+		.intro_image{ height: grid(12); margin-bottom: grid(6); background-size: cover; background-position: center center; background-repeat: no-repeat;
+			@media #{$medium-down}{ margin-bottom: grid(5); }
+			@media #{$mobile}{ margin-bottom: rem(96); height: rem(600); }
 		}
 	}
 	.hide{ display: none; }

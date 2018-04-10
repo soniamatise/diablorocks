@@ -22,7 +22,7 @@ h2{
 }
 
 h3{
-  & + p{
+  & + p, & + .simple_text_content{
     margin-top: 2rem;
   }
 }

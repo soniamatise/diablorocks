@@ -1,16 +1,18 @@
-// CHECK ALL COMMENTED CODE BEFORE PUSH
-section#payoffCredits{ margin-bottom: grid(5);
-	@media #{$small-only}{ width: calc(100% - 128px); margin: 0 auto rem(96); }
+section.info_table{
+	// distance to section
+	& + section.boxed_image_video{ margin-top: grid(4);
+		@media #{$medium-down}{ margin-top: grid(5); }
+		@media #{$mobile}{ margin-top: rem(96); }
+	}
+
+	// @media #{$small-only}{ width: calc(100% - 128px); margin: 0 auto rem(96); }
+
 	// general styles
 	a, p{ padding: rem(28) 0; font-size: rem(16); line-height: rem(28);
 		span.gray{ color: color(Gray); }
 		&.medium{ padding-left: grid(.25); }
-		// @media #{$medium-down}{ padding: rem(4) 0; }
-		// &.medium{ padding-left: grid(.25);
-		// 	@media #{$medium-down}{ padding-left: 0; }
-		// }
 	}
-	a.navLink{ position: relative; color: color(Dark); padding: 0px; cursor: pointer; display: inline-block;
+	a.nav_link{ position: relative; color: color(Dark); padding: 0px; cursor: pointer; display: inline-block;
 		&:before{ content: ''; position: absolute; right: 0; width: 0; background-color: color(Dark); bottom: 4px; height: 1px; transition: width .3s $easeboth; }
 		&:hover{
 			&:before{ left: 0; right: auto; width: 100%; }
@@ -40,9 +42,9 @@ section#payoffCredits{ margin-bottom: grid(5);
 	}
 	// link
 	.link{
-		p{ color: color(Gray); padding-left: grid(.5); position: relative;
+		p{ color: color(Gray); padding-left: grid(.5); padding-bottom: 0; position: relative;
 			&:before{ content: '*'; display: block; position: absolute; left: grid(.25); }
-			a.navLink, span{ color: color(Gray);
+			a.nav_link, span{ color: color(Gray);
 				&:before{ background-color: color(Gray); }
 			}
 		}
