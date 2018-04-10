@@ -1,6 +1,6 @@
 section.simple_text{
 	// distance to section
-	& + section.boxed_image_video{ margin-top: grid(5);
+	& + section.boxed_image_video, & + section.video_slider{ margin-top: grid(5);
 		@media #{$medium-down}{ margin-top: grid(5); }
 		@media #{$mobile}{ margin-top: rem(96); }
 	}

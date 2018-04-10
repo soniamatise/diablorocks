@@ -1,17 +1,30 @@
 <template>
 	<div class="slideVideoContainer">
 		<div class="slideVideo">
-			<video class="slideVideo__video" controls="false" ref="video" muted >
-		  	<source :src="src" type="video/mp4">
+
+			<video class="slideVideo__video" ref="video" autoplay loop preload muted>
+				<source src="https://cdn.matise.nl/content/uploads/2018/04/10132553/startingFile.mp4" type="video/mp4">
 			</video>
-			<div class="slideVideo__scenes">
-				<li class="slideVideo__scene" v-for="(value, key) in scenes" :key="key" :class="{'slideVideo__scene--current' : current.scene === key}">
-					<button v-on:click="goToScene(key)">{{ key }}</button>
-				</li>
+
+			<!-- slide_video_information -->
+			<div class="slide_video_information">
+				<div class="row center">
+					<div class="column large-12">
+						<p><strong>Navigate</strong> — The menu serves both as direct navigation, as well as an inspirational showcase for featured products.</p>
+						<div class="slide_video_scenes">
+							<li class="slideVideo__scene" v-for="(value, key) in scenes" :key="key" :class="{'slideVideo__scene--current' : current.scene === key}">
+								<button v-on:click="goToScene(key)">{{ key }}</button>
+							</li>
+						</div>
+					</div>
+				</div>
 			</div>
+			<!-- end slide_video_information -->
+
 		</div>
 
-		<div class="row debug center" v-if="debug">
+		<div class="row debug center">
+			<!-- v-if="debug" -->
 			<div class="column">
 				<button v-on:click="prevScene">|&#9664;&#9664;</button>
 				<button v-on:click="playVideo" v-if="!isPlaying"><strong>||</strong></button>
@@ -79,7 +92,7 @@ export default {
       increment: 200,
       videoElement: null,
       isPlaying: false,
-      scenes: [0, 10, 20, 30, 120],
+      scenes: [0, 8, 16],
       current: {
         scene: 0,
         time: 0,
@@ -92,7 +105,7 @@ export default {
       goingToNextScene: false
     };
   },
-  props: ['src', 'cuts', 'debug'],
+  props: ['src', 'cuts', 'debug', 'img'],
 
   // The Methods
   methods: {
@@ -103,6 +116,7 @@ export default {
       this.isPlaying = true;
       this.videoElement.play();
       this.ticker();
+			this.videoElement.playbackRate = 1
     },
     /*
 		 Pause the video
@@ -123,28 +137,35 @@ export default {
     /*
 			When clicked on next scene, this function will be envoked to get you to the next scene
 		*/
-    handleNavClick: function(scene) {
-			console.log('::goToScene');
-      this.current.scene = scene;
-      if (this.current.scene > this.scenes.length - 1) {
-        this.goToScene(0);
-      } else {
-        this.videoElement.currentTime = this.scenes[scene];
-      }
-    },
+    // handleNavClick: function(scene) {
+		// 	console.log('::goToScene');
+    //   this.current.scene = scene;
+    //   if (this.current.scene > this.scenes.length - 1) {
+    //     this.goToScene(0);
+    //   } else {
+    //     this.videoElement.currentTime = this.scenes[scene];
+    //   }
+    // },
     /*
 			When clicked on next scene, this function will be envoked to get you to the next scene
 		*/
     goToScene: function(scene, hard) {
 			console.log('::goToScene');
+			// this.videoElement.playbackRate = 1;
 
 			if((this.current.scene + 1) === scene && !hard){
 				this.nextScene();
-			} else {
+			}
+			else if((this.current.scene - 1) === scene && !hard){
+				this.prevScene();
+			}
+			else {
 	      if (this.current.scene > (this.scenes.length - 1)) {
 	        this.goToScene(0);
-	      } else {
+	      }
+				else {
 	        this.videoElement.currentTime = this.scenes[scene];
+					console.log('dit is kut');
 	      }
 			}
     },
@@ -153,8 +174,14 @@ export default {
 		*/
     nextScene: function() {
 			console.log('::nextScene');
+			// console.log(this.scenes[this.current.scene + 1] - this.scenes[this.current.scene]);
       this.goingToNextScene = true;
-      this.playback.rate = 2;
+			// if (this.scenes[this.current.scene + 1] - this.scenes[this.current.scene] === this.scenes[this.current.scene + 1]){
+			// 	this.videoElement.playbackRate = 1;
+			// } else{
+			// 	this.videoElement.playbackRate = 10;
+			// }
+
     },
     /*
 			When clicked on previous scene, this function will be envoked to get you to the previous scene
@@ -227,8 +254,7 @@ export default {
         // if ( that.scenes.indexOf(that.current.time) > -1 && that.current.time > 0 ) {
           if (that.goingToNextScene) {
             that.goingToNextScene = false;
-            that.playback.rate = 1;
-            if (that.current.scene < that.scenes.length) {
+						if (that.current.scene < that.scenes.length) {
               that.current.scene = that.current.scene + 1;
             } else {
             //  that.current.scene = 0;
@@ -248,7 +274,14 @@ export default {
     playback: function(newRate, oldRate) {
       console.log('playback rate has changed', newRate, oldRate);
       this.videoElement.playbackRate = this.playback.rate;
-    }
+    },
+		goingToNextScene: function(){
+			if (this.goingToNextScene === false){
+				this.videoElement.playbackRate = 1;
+			} else{
+				this.videoElement.playbackRate = 4;
+			}
+		},
   },
   beforeMount() {
     console.log('beforemount');
@@ -257,103 +290,7 @@ export default {
   mounted() {
     this.videoElement = this.$refs.video;
     this.playVideo();
+		console.log('vid is mounted');
   }
 };
 </script>
-
-<style lang="scss" scoped>
-// :root {
-//   --scene-current-width: 50%;
-// }
-.slideVideo {
-  width: 100vw;
-  height: 56vw;
-  box-shadow: 0 0 200px 0 rgba(0, 0, 0, 0.25);
-  position: relative;
-  &__video {
-    width: 100%;
-    height: 100%;
-  }
-  &__scenes {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-		width: 100%;
-    display: flex;
-		justify-content: center;
-    padding: 0;
-    margin: 0;
-    padding: 3rem;
-  }
-  &__scene {
-    padding: 0;
-    margin: 0;
-    width: 2rem;
-    & + .slideVideo__scene {
-      margin-left: 1rem;
-    }
-    button {
-      width: 100%;
-      margin: 0;
-      height: 2rem;
-      text-indent: -999em;
-      border: none;
-      background: none;
-      position: relative;
-      &:before,
-      &:after {
-        content: '';
-        display: block;
-        position: absolute;
-        left: 0;
-        top: 50%;
-        height: 3px;
-        background-color: white;
-        width: 100%;
-        //  transition: width 0.1s linear;
-        position: absolute;
-      }
-      &:before {
-        background-color: rgba(0, 0, 0, 0.25);
-      }
-    }
-    &--current {
-      button {
-        &:after {
-          height: 3px;
-					width: 0;
-          width: var(--scene-current-width);
-        }
-      }
-      & ~ .slideVideo__scene button:after {
-        width: 0;
-      }
-    }
-  }
-}
-.row.debug {
-  .column {
-    flex-grow: 1;
-    padding: 1rem;
-		ul{
-			li{
-				display: inline-block;
-			}
-		}
-		table{  border-spacing: 0px;
-    border-collapse: collapse;
-			tr{
-				td{ border-bottom: 1px solid rgba(0,0,0,.25); padding: .5rem;
-				&:first-child{ font-weight: bold; }}
-			}
-		}
-  }
-  button { border-radius: 10px;
-    padding: 0.5rem;
-    font-size: 1rem;
-    &.is-going {
-      border: 1px solid red;
-    }
-  }
-}
-</style>

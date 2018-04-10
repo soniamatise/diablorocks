@@ -7,7 +7,7 @@
 
 				<!-- video -->
 				<div class="content_holder" v-if="img.photo_video === 'Video'">
-					<video @timeupdate="seekBar()" class="video" ref="video" width="100%" height="100%" v-bind:poster="img.image" autoplay loop preload>
+					<video class="video" ref="video" v-bind:poster="img.image" autoplay loop preload>
 						<source v-bind:src="img.video.url" type="video/mp4">
 					</video>
 				</div>

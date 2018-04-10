@@ -5,7 +5,7 @@ module.exports = {
 	 ** Headers of the page
 	 */
 	head: {
-		title: 'Matise | Creative Digital Agency',
+		title: 'Matise - Not your average Agency',
 		meta: [{
 				charset: 'utf-8'
 			},

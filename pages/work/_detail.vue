@@ -22,6 +22,9 @@
 			<one-column v-if="value.acf_fc_layout==='boxed_image_video'" :img="value" />
 
 			<two-column v-if="value.acf_fc_layout==='2_column_images'" :imgOne="value.left_image"  :imgTwo="value.right_image" />
+
+			<slide-video v-if="value.acf_fc_layout==='video_slider'" />
+
 			<video-player
 			 	v-if="value.acf_fc_layout==='video'"
 				:caseName="value.overlay_text"
@@ -48,6 +51,7 @@ import OneColumn from '~/layouts/OneColumn.vue'
 import TwoColumn from '~/layouts/TwoColumn.vue'
 import PayoffCredits from '~/layouts/PayoffCredits.vue'
 import CaseHeading from '@/components/CaseHeading.vue'
+import SlideVideo from '~/components/SlideVideo.vue'
 import NextCase from '~/components/NextCase.vue'
 import VideoPlayer from '~/components/VideoPlayer.vue'
 
@@ -59,6 +63,7 @@ export default {
 		PayoffCredits,
 		MainLayout,
 		CaseHeading,
+		SlideVideo,
 		VideoPlayer,
 		NextCase,
 	},
