@@ -22,14 +22,15 @@ export default {
 			scrollPosition: null
 		}
 	},
-	props: ['columnNr', 'caseName', 'size', 'image', 'client', 'description', 'slug'],
+	props: ['columnNr', 'caseName', 'size', 'image', 'client', 'description', 'slug', 'color'],
 	methods: {
 		expandCard: function(item) {
+			console.log(item);
 			this._data.target = item.size;
 			this._data.case = item.caseName;
 			this._data.cardClass = 'expandCard';
 		},
-		doHover: function (item){
+		doHover: function (){
 			if (this._data.cardClass !== 'expandCard') {
 				this._data.cardClass = 'card--hover';
 			}

@@ -37,6 +37,7 @@ export default {
 							if(heading.length == (index + 1)){
 								self._data.caret = false
 								self._data.show = true
+								self.$emit('doneTyping');
 							}
 						}, i * 300)
 					})(i);
