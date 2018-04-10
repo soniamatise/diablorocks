@@ -1,13 +1,23 @@
 .header {
-	width: 100%;
-	position: fixed;
-	top: grid(1.5);
-    z-index: 10;
-	@media #{$small-only}{
-		width: 100%;
-	    height: 100%;
-	    position: absolute;
-	    top: 0;
-	    left: 0;
-	}
+  width: 100%;
+  position: absolute;
+  z-index: 3;
+  @media #{$medium-up} {
+    mix-blend-mode: difference;
+  }
+  @media #{$small-only} {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  }
+  .nav__contact {
+    position: absolute;
+    bottom: 5.75rem;
+    //only show on mobile
+    display: none;
+    @media #{$small-only} {
+      display: block;
+    }
+  }
 }

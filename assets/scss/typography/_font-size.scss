@@ -2,9 +2,9 @@
 %p{
 	font-family: $body-font-family; font-size: rem(18); line-height: rem(32); margin: 0; padding: 0;
 	@media #{$large-down}{ font-size: rem(16); line-height: rem(30); }
-	span{
-		&:after{ content: ' —'; font-weight: $font-regular; }
-	}
+	// span{
+	// 	&:after{ content: ' —'; font-weight: $font-regular; }
+	// }
 }
 
 // headers
@@ -34,7 +34,10 @@
 %h3{
 	font-size: grid(0.3); font-weight: $font-medium; line-height: 1.5;
 	@extend %header-default;
-	@include min-fontsize(.3,20);
+	@include min-fontsize(.3,24);
+	@media #{$small-only}{
+		font-size: rem(20);
+	}
 }
 
 %h4{
@@ -68,6 +71,9 @@
 	font-weight: $font-regular;
 }
 %font-medium{
+	font-weight: $font-medium;
+}
+%strong{
 	font-weight: $font-medium;
 }
 %font-semibold, %font-bold{

@@ -1,5 +1,5 @@
 /*  Base values */
-$base-img-dir: '../img'; //
+$base-img-dir: '../img/'; //
 $base-font-size: 16; //
 $base-line-height: 1.5; //
 $base-letter-spacing: 50; //
@@ -21,6 +21,8 @@ $transition-time: 0.2; //
 $transition: #{$transition-time}s; //
 $cubic-bezier: cubic-bezier(0.75, 0.75, 0.25, 0.5); //
 $bezier: $cubic-bezier;
+$standardCubicBezier: cubic-bezier(0.42, 0.58, 0, 1);
+$specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1);
 
 /*  Grid Specific values */
 $grid-row-width: 2048px; //
@@ -140,8 +142,8 @@ hr {
 }
 
 a {
+	color: currentColor;
   text-decoration: none;
-  color: inherit;
 }
 
 * {
@@ -153,7 +155,7 @@ a {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  -webkit-backface-visibility: hidden;
+  // -webkit-backface-visibility: hidden; // Neeeds to be of in order to do transforms in safari. Please specify this directly on the element where you might need it.
   &:focus {
     outline: none;
   }
@@ -187,5 +189,11 @@ html {
   font-size: 16px;
   .touch & {
     overflow-x: hidden;
+  }
+  &.scroll-disable {
+    overflow: hidden !important;
+  }
+  &.one-page {
+    overflow: hidden !important;
   }
 }

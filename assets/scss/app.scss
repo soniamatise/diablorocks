@@ -4,10 +4,30 @@
 'settings/settings',
 'typography/index',
 'layout/index',
-'components/index';
+'components/index',
+'components/work';
 
-body {
+
+body{
+	font-family: $body-font;
+}
+
+#page{
+	width: 100vw;
+	height: 100vh;
+	overflow: scroll;
+	position: relative;
+	background-color: white;
+}
+
+section.intro {
 	padding-top: grid(5);
+	@media only screen and (max-width: 1024px) and (min-width: 768px){
+		padding-top: grid(7);
+	}
+	@media #{$mobile}{
+		padding: 0;
+	}
 }
 
 
@@ -17,7 +37,13 @@ body {
 	}
 }
 
+@media #{$medium-up}{
+	.hide-desktop{
+		display: none;
+	}
+}
 @media #{$mobile} {
+	.hide-mobile,
 	.mobile-hide{
 		display: none;
 	}
@@ -29,7 +55,7 @@ body {
 	.bg-#{$name}, .bg-#{$name-lowercase}{
 		background-color: $value; color: contra($value);
 		hr{
-			background-color: contra($value); color: contra($value);
+			background-color: currentColor; color: currentColor;
 		}
 	}
 	.text-#{$name}, .text-#{$name-lowercase}, .content .text-#{$name-lowercase}{

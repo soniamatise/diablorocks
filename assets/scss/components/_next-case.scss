@@ -1,0 +1,42 @@
+$easeboth: cubic-bezier(.42,0,.58,1);
+
+.nextCase {
+	width: 100vw;
+	height: 100vh;
+	transition: background-color 1s $easeboth;
+	background-color: black;
+	overflow: hidden;
+	position: relative;
+	@media #{$small-only} {
+		height: 100%;
+		padding: rem(160) 0;
+	}
+
+	.hoverContainer {
+		position: absolute;
+		top: 50%;
+		transform: translate(0 , -50%);
+		height: 50vh;
+	}
+
+	.caseImage {
+		width: grid(6);
+		margin-left: grid(-3);
+		height: 50vh;
+		position: absolute;
+		overflow: hidden;
+		top: 100vh;
+		left: 50%;
+		transform: translateY(0);
+		@media #{$medium-down} {
+			display: none;
+		}
+
+		img {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	}
+}
