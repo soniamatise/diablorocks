@@ -7,7 +7,7 @@
 			:caseColor="color"
 		/>
 
-		<div v-for="value in layout" :key="value.id">
+		<section v-for="value in layout" :key="value.id" :class="value.acf_fc_layout">
 			<payoff-credits v-if="value.acf_fc_layout==='info_table'"
 				:intro="value.info_table_intro"
 				:credits="value.info_table_row"
@@ -19,17 +19,16 @@
 				<div v-html="value.simple_text_content"></div>
 			</title-text>
 
-			<one-column v-if="value.acf_fc_layout==='big_image_video'" :img="value" />
+			<one-column v-if="value.acf_fc_layout==='boxed_image_video'" :img="value" />
 
 			<two-column v-if="value.acf_fc_layout==='2_column_images'" :imgOne="value.left_image"  :imgTwo="value.right_image" />
-
 			<video-player
 			 	v-if="value.acf_fc_layout==='video'"
 				:caseName="value.overlay_text"
 				caseImage="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
 				:caseVideo="value.video.url"
 			/>
-		</div>
+		</section>
 
 		<next-case
 		caseName="Aangenaam Bergen op Zoom"

@@ -92,11 +92,11 @@
 		cursor: pointer;
 		z-index: 2;
 		position: relative;
-		transition: 1s $standardCubicBezier;
+		transition: 1s $easeboth;
 
 		p {
 			color: white;
-			transition: 0.5s $standardCubicBezier;
+			transition: 0.5s $easeboth;
 		}
 	}
 	&.expandCard {
@@ -111,7 +111,7 @@
 		width: grid(24);
 		height: 100vh;
 		margin-bottom: 0;
-		animation: slideToCenter 2.5s $standardCubicBezier forwards;
+		animation: slideToCenter 2.5s $easeboth forwards;
 	}
 
 	&.expandCard .work__card__image-container {
@@ -135,7 +135,7 @@
 
 		&+p {
 			opacity: 0;
-			transition: opacity 0.4s $standardCubicBezier;
+			transition: opacity 0.4s $easeboth;
 			padding: 0;
 		}
 	}
@@ -148,7 +148,7 @@
 	bottom: 0;
 	right: 0;
 	z-index: 1;
-	transition: 1s $standardCubicBezier;
+	transition: 1s $easeboth;
 	opacity: 0;
 	background: white;
 	pointer-events: none;
@@ -158,7 +158,7 @@
 .background--forward {
 	z-index: 1;
 	opacity: 0.9;
-	transition:  1s $standardCubicBezier;
+	transition:  1s $easeboth;
 
 }
 
