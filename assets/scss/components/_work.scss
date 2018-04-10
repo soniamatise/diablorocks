@@ -7,7 +7,7 @@
 	.content {
 		opacity: 0;
 	  transition: .2s $easeboth opacity .6s;
-		&.show{
+		&.displayContent{
 			opacity: 1;
 			transition: .2s $easeboth opacity .6s;
 		}

@@ -9,4 +9,8 @@ npm-debug.log
 
 # Nuxt generate
 dist
+
+
+# Testing video
+static/video
 .DS_Store
