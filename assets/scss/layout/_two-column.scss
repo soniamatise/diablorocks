@@ -1,121 +1,41 @@
-#twoCol {
-	margin-bottom: grid(5);
-	@media #{$small-only} {
-		margin-bottom: rem(96);
+section.two_column_images{
+	// distance to section
+	& + section.simple_text{ margin-top: grid(2);
+		@media #{$medium-down}{ margin-top: rem(64); }
 	}
 
-	.swiper-container {
-		padding-bottom: grid(2);
-		overflow: visible;
-		@media #{$medium-only} {
-			padding: 0 grid(2) rem(64);
-		}
-		@media #{$small-only} {
-			position: relative;
-			height: calc(558px + 64px);
-			overflow: hidden;
-			padding: rem(32) 0;
-		}
-
-		.swiper-wrapper {
-			display: flex;
-			justify-content: space-between;
-			@media #{$medium-only} {
-				justify-content: center;
-			}
-			@media #{$small-only} {
-				height: rem(558);
-				width: 100%;
-			}
-
-			.swiper-slide {
-				height: grid(12);
-				width: grid(6)!important;
-				@media #{$medium-only} {
-					height: grid(18.5);
-					width: grid(9)!important;
-					margin: 0 grid(1);
-				}
-				@media #{$small-only} {
-					width: rem(279)!important;
-					height: rem(558);
-				}
-
-				&:nth-child(1) {
-					@media #{$small-only} {
-						margin-left: rem(32);
-					}
-				}
-
-				&:nth-child(2) {
-					@media #{$small-only} {
-						margin-right: rem(32);
-					}
-				}
-
-				.contentHolder {
-					height: grid(12);
-					width: grid(6)!important;
-					position: relative;
-
-					&:after {
-						content: '';
-						display: block;
-						position: absolute;
-						z-index: -1;
-						top: grid(.5);
-						left: grid(.5);
-						right: grid(.5);
-						bottom: 0;
-						box-shadow: 0 rem(20) rem(60) rem(20) color(Dark, .2);
-						@media #{$medium-down} {
-							top: 1rem;
-							left: 1rem;
-							right: 1rem;
-							bottom: 0;
-						}
-						@media #{$small-only} {
-							top: 1rem;
-							left: 1rem;
-							right: 1rem;
-							bottom: 0;
-							box-shadow: 0 rem(8) rem(24) rem(8) color(Dark, .2);
-						}
-					}
-
-					img {
-						height: grid(12);
-						width: grid(6)!important;
-						display: block;
-						background-size: cover;
-						background-position: center;
-						background-repeat: no-repeat;
-						z-index: 1;
-						@media #{$medium-only} {
-							height: grid(18.5);
-							width: grid(9)!important;
-						}
-						@media #{$small-only} {
-							width: rem(279)!important;
-							height: rem(558);
-						}
-					}
-					@media #{$medium-only} {
-						height: grid(18.5);
-						width: grid(9)!important;
-					}
-					@media #{$small-only} {
-						width: rem(279)!important;
+	// holder
+	.holder{
+		&.swiper-container{ overflow: visible;
+			@media #{$medium-only} { padding: 0 grid(2) 0; }
+			@media #{$small-only}{ position: relative; height: calc(558px + 64px); overflow: hidden; padding: rem(32) 0; }
+			.swiper-wrapper{ display: flex; justify-content: space-between;
+				@media #{$medium-only}{ justify-content: center; }
+				@media #{$small-only}{ height: rem(558); width: 100%; }
+				.swiper-slide{ height: grid(12); width: grid(6)!important;
+					@media #{$medium-only}{ height: grid(18.5); width: grid(9)!important; margin: 0 grid(1); }
+					@media #{$small-only}{
+						width: calc(100vw - 96px)!important;
 						height: rem(558);
 					}
+					&:nth-child(1){
+						@media #{$small-only}{ margin-left: rem(32); }
+					}
+					&:nth-child(2){
+						@media #{$small-only}{ margin-right: rem(32); }
+					}
+					.content_holder{ height: 100%; width: 100%!important; position: relative;
+						&:after{ content: ''; display: block; position: absolute; z-index: -1; top: grid(.5); left: grid(.5); right: grid(.5); bottom: 0; box-shadow: 0 rem(20) rem(60) rem(20) color(Dark, .2);
+							@media #{$medium-down}{ top: 1rem; left: 1rem; right: 1rem; bottom: 0; }
+							@media #{$small-only}{ top: 1rem; left: 1rem; right: 1rem; bottom: 0; box-shadow: 0 rem(8) rem(24) rem(8) color(Dark, .2); }
+						}
+						img, video{ width: 100%; min-height: 100%; position: absolute; left: 50%; top: 0px; transform: translateX(-50%); display: block; object-fit: cover; }
+						video{ height: 100%; }
+						@media #{$medium-only}{ height: grid(18.5); width: grid(9)!important; }
+						@media #{$small-only}{ width: calc(100vw - 96px)!important; height: rem(558); }
+					}
 				}
 			}
-		}
-	}
-
-	p {
-		@media #{$small-only} {
-			margin-top: rem(32);
 		}
 	}
 }

@@ -1,6 +1,6 @@
 section.simple_text{
 	// distance to section
-	& + section.boxed_image_video, & + section.video_slider{ margin-top: grid(5);
+	& + section.boxed_image_video, & + section.video_slider, & + section.two_column_images, & + section.icon_block, & + section.next_case, & + section.video{ margin-top: grid(5);
 		@media #{$medium-down}{ margin-top: grid(5); }
 		@media #{$mobile}{ margin-top: rem(96); }
 	}
@@ -22,5 +22,5 @@ section.simple_text{
 			@media #{$mobile}{ margin-bottom: rem(96); height: rem(600); }
 		}
 	}
-	.hide{ display: none; }
+	.hide{ display: none; } 
 }

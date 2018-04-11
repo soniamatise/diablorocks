@@ -3,19 +3,21 @@
 		<div class="slideVideo">
 
 			<video class="slideVideo__video" ref="video" autoplay loop preload muted>
-				<source src="https://cdn.matise.nl/content/uploads/2018/04/10132553/startingFile.mp4" type="video/mp4">
+				<source v-bind:src="vid.url" type="video/mp4">
 			</video>
 
 			<!-- slide_video_information -->
 			<div class="slide_video_information">
 				<div class="row center">
 					<div class="column large-12">
-						<p><strong>Navigate</strong> — The menu serves both as direct navigation, as well as an inspirational showcase for featured products.</p>
-						<div class="slide_video_scenes">
-							<li class="slideVideo__scene" v-for="(value, key) in scenes" :key="key" :class="{'slideVideo__scene--current' : current.scene === key}">
-								<button v-on:click="goToScene(key)">{{ key }}</button>
-							</li>
+
+						<!-- information -->
+						<div class="gekkigheid" v-for="(vidScene, index) in vidScenes" :key="vidScene.id">
+							<div v-html="vidScene.scene_description"></div>
+							<button v-on:click="goToScene(index)">knop: {{index}} || duratie: {{vidScene.scene_length}}ms</button>
 						</div>
+						<!-- end information -->
+
 					</div>
 				</div>
 			</div>
@@ -36,14 +38,16 @@
 			<div class="column">
 				go to scene<br />
 				<ul>
-					<li v-for="(value, key) in scenes" :key="key">
-						<button v-on:click="goToScene(key)">
-							<strong>{{key}}</strong> <small>({{value}}s)</small>
+					<!-- <li v-for="(value, key) in scenes" :key="key"> -->
+					<li v-for="(vidScene, index) in vidScenes" :key="vidScene.id">
+						<button v-on:click="goToScene(index)">
+							<strong>{{index}}</strong> <small>({{vidScene.scene_length}}ms)</small>
 						</button>
 					</li>
 				</ul>
 				<hr />
 				{{ scenes }}
+				{{ vidScenes }}
 			</div>
 
 			<div class="column">
@@ -105,7 +109,7 @@ export default {
       goingToNextScene: false
     };
   },
-  props: ['src', 'cuts', 'debug', 'img'],
+  props: ['src', 'cuts', 'debug', 'vid', 'vidScenes'],
 
   // The Methods
   methods: {

@@ -22,7 +22,7 @@
 				</ul>
 				<!-- link -->
 				<div class="link">
-					<p v-html="footer"></p>
+					<p v-html="footer"></p> 
 				</div>
 				<!-- end link -->
 			</div>
