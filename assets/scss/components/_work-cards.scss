@@ -150,7 +150,7 @@
 	z-index: 1;
 	transition: 1s $standardCubicBezier;
 	opacity: 0;
-	background: white;
+	background: var(--background);
 	pointer-events: none;
 }
 
