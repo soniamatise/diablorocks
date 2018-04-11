@@ -12,6 +12,7 @@
 				</div>
 			</div>
 		</section>
+
 		<div id="home-slider" ref="homeSlider" class="row center">
 		<div class="column large-full medium-full small-full">
 			<div v-swiper:mySwiper="swiperOption">

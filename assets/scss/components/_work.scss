@@ -1,17 +1,15 @@
-$easeboth: cubic-bezier(.42,0,.58,1);
-
 .work{
 	.intro {
 		background-color: color(Light);
 		padding: grid(5) 0 grid(1) 0;
 	}
 	// show subtitle when typewriter is done
-	.content {
-		opacity: 0;
-	  transition: .2s $easeboth opacity .6s;
-		&.displayContent{
-			opacity: 1;
-			transition: .2s $easeboth opacity .6s;
+	.work__grid {
+		transform: translateY(100vh);
+		transition: .5s;
+		&.stay {
+			transform: none;
+			transition: 0 .2s;
 		}
 	}
 }
