@@ -1,46 +1,74 @@
 <template>
-<section class="video-container" :style="{ 'background-image': 'url(' + caseImage + ')' }">
-	<!-- @mouseenter="test1()" @mouseleave="test2()"  -->
-	<div class="hoverContainer" ref="videoInfo" @click="showPlayVideo()" @mouseenter="textAnimationenter()" @mouseleave="textAnimationleaf()">
-		<div class="contentHolder">
-			<div class="textHolder textHolderLeft">
-				<div class="textholder-left mask" ref="leftTextElement">
-					<h2>Play</h2>
-				</div>
-			</div>
-			<div class="textHolder textHolderRight">
-				<div class="textholder-right mask" ref="rightTextElement">
-					<div class="keepPosition">
-						<h2><span>&nbsp;</span>&nbsp;{{ rightText }}</h2>
+
+	<!-- vue needed holder -->
+	<div class="make_full">
+
+		<!-- holder -->
+		<div class="holder" ref="holder">
+			<div class="bg_element" :style="{ 'background-image': 'url(' + caseImage + ')' }" ref="bgElement"></div>
+			<!-- @mouseenter="test1()" @mouseleave="test2()"  -->
+
+			<!-- hover element -->
+			<div class="hover_container" ref="videoInfo" @click="showPlayVideo()" @mouseenter="textAnimationenter()" @mouseleave="textAnimationleave()">
+
+				<!-- content_holder -->
+				<div class="content_holder">
+
+					<!-- text left -->
+					<div class="text_holder text_holder_left" ref="leftTextElement">
+						<div class="keep_position">
+							<h2>Play</h2>
+						</div>
 					</div>
+					<!-- end text left -->
+
+					<!-- text right -->
+					<div class="text_holder text_holder_right" ref="rightTextElement">
+							<div class="keep_position">
+								<h2>&nbsp;<span></span>&nbsp;{{caseName}}</h2>
+							</div>
+					</div>
+					<!-- end text right -->
+
+					<!-- mobile text -->
+					<div class="text_holder mobile-only">
+						<h2><span class="medium">Play</span>&nbsp;{{ rightText }}</h2>
+					</div>
+					<!-- end mobile text -->
+
 				</div>
+				<!-- end content_holder -->
+
 			</div>
-			<div class="textHolder mobile-only">
-				<h2><span class="medium">Play&nbsp;</span>&nbsp;{{ rightText }}</h2>
+			<!-- end hover element -->
+
+		</div>
+		<!-- end holder -->
+
+		<!-- video holder -->
+		<div class="video_holder" ref="video_holder">
+			<div class="holder_video_controls">
+			<video @timeupdate="seekBar()" class="video" ref="video" width="100%" height="100%" controls preload>
+						<source v-bind:src="caseVideo" type="video/mp4">
+					</video>
+			<div class="control_panel hide" ref="controls">
+						<div class="control pause" :class="{'paused': paused}" ref="playPause" v-on:click="PausePlayVideo()" @click="paused = !paused">
+						</div>
+						<div class="control timeline">
+							<progress id='progress-bar' class="timeline-bar" ref="timeline" min='0' max='100' value='0'>0% played</progress>
+						</div>
+						<div class="control fullsize" @click="makeFullScreen()">
+						</div>
+						<div class="control volume on" ref="mute" @click="muteVideo()">
+						</div>
 			</div>
 		</div>
-	</div>
-
-	<video @timeupdate="seekBar()" class="video hide" ref="video" width="100%" height="100%" controls preload>
-					<source v-bind:src="caseVideo" type="video/mp4">
-				</video>
-	<div class="control-pannel hide" ref="controls">
-		<div class="row center">
-			<div class="column column-16 controls">
-				<div class="control pause" :class="{'paused': paused}" ref="playPause" v-on:click="PausePlayVideo()" @click="paused = !paused">
-				</div>
-				<div class="control timeline">
-					<progress id='progress-bar' class="timeline-bar" ref="timeline" min='0' max='100' value='0'>0% played</progress>
-				</div>
-				<div class="control fullsize" @click="makeFullScreen()">
-				</div>
-				<div class="control volume on" ref="mute" @click="muteVideo()">
-				</div>
-			</div>
 		</div>
-	</div>
+		<!-- end video holder -->
 
-</section>
+	</div>
+	<!-- end vue needed holder -->
+
 </template>
 
 <script>
@@ -51,11 +79,13 @@ export default {
 			paused: false,
 			elements: {
 				left: null,
-				right: null
+				right: null,
+				bg: null
 			}
 		}
 	},
 	mounted() {
+		this.elements.bg = this.$refs.bgElement;
 		this.elements.left = this.$refs.leftTextElement;
 		this.elements.right = this.$refs.rightTextElement;
 
@@ -65,24 +95,24 @@ export default {
 	methods: {
 
 		toggleWidth: function() {
-			this.elements.right.style.transform = 'translateX(0%)';
+			// this.elements.right.style.transform = 'translateX(0%)';
 
 		},
-		//text animation on mouseenter
+		// text animation on mouseenter
 		textAnimationenter: function() {
-			this.elements.right.style.transform = 'translateX(' + ((this.elements.right.offsetWidth / 2) * -1) + 'px)';
+			this.elements.bg.style.opacity = '.25';
 			this.elements.left.style.transform = 'translateX(' + ((this.elements.right.offsetWidth / 2) * 1) + 'px)';
-
-
 		},
-		//text animation on mouseleave
-		textAnimationleaf: function() {
-			this.elements.right.style.transform = 'translateX(0%)';
+		// text animation on mouseleave
+		textAnimationleave: function() {
+			this.elements.bg.style.opacity = '1';
 			this.elements.left.style.transform = 'translateX(0%)';
 		},
 
 		// video
 		showPlayVideo: function() {
+			let holder = this.$refs.holder;
+			let video_holder = this.$refs.video_holder;
 			let video = this.$refs.video;
 			let videoInformation = this.$refs.videoInfo;
 			let videoControls = this.$refs.controls;
@@ -92,16 +122,23 @@ export default {
 			video.style.opacity = 0;
 			video.style.transition = 'opacity 300ms';
 
+			holder.classList.add('show_video');
+			video_holder.classList.add('show_video');
 			videoInformation.classList.add('hide');
 			video.classList.remove('hide');
 			videoControls.classList.remove('hide');
 			setTimeout(function() {
 				video.style.opacity = 1;
-			}, 100);
+			}, 400);
 			setTimeout(function() {
 				videoControls.style.opacity = 1;
-			}, 100);
-			video.play();
+			}, 400);
+			setTimeout(function() {
+				video.play();
+			}, 400);
+			setTimeout(function() {
+				holder.classList.add('hide');
+			}, 1000);
 		},
 		PausePlayVideo: function() {
 			let video = this.$refs.video;

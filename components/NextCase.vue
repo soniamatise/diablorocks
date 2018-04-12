@@ -1,5 +1,5 @@
 <template>
-<section id="next-case" class="nextCase">
+<section id="next-case" class="next_case">
 	<div class="hoverContainer" @mouseenter="bgOfCase()" @mouseleave="bgToNormal()">
 		<text-transition text-left="Next case" :text-right="caseName" onloadedmetadata=""></text-transition>
 	</div>

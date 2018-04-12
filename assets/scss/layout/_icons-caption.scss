@@ -1,0 +1,30 @@
+section.icon_block{
+	// distance to section
+	& + section.simple_text{ margin-top: grid(2);
+		@media #{$medium-down}{ margin-top: rem(64); }
+	}
+
+	// holder
+	.holder{ height: auto; width: 100%; position: relative; padding: grid(1);
+		@media #{$medium-down}{ padding: 12.5%; }
+		@media #{$small-only}{ width: calc(100vw - 64px); padding: 0; margin: 0 auto; }
+		ul{ width: 100%; position: relative;
+			@media #{$medium-down}{ padding: grid(2) 0; }
+			@media #{$small-only}{ padding: 0; }
+			.icon_holder{ display: block; float: left; margin: grid(.5) grid(1); position: relative; height: grid(1); width: grid(1);
+				@media #{$medium-down}{ height: 16.67%; width: 50%; margin: 0; padding: 12.5%;
+					&:nth-child(odd){ display: none; }
+				}
+				@media #{$small-only}{ width: 64px; height: 64px; margin: 0; padding: 0; border: 1px solid red;
+					&:nth-child(2){ margin-left: 64px; margin-top: 80px; margin-bottom: 48px; }
+					&:nth-child(4){ margin-right: 64px; margin-top: 80px; margin-bottom: 48px; float: right; }
+					&:nth-child(6){ margin-left: 64px; margin-bottom: 80px; }
+					&:nth-child(8){ margin-right: 64px; margin-bottom: 80px; float: right; }
+				}
+				img{ object-fit: cover; height: 100%; width: 100%; display: block; position: relative; margin: auto;
+					@media #{$medium-down}{ width: rem(80); height: rem(80); }
+				}
+			}
+		}
+	}
+}
