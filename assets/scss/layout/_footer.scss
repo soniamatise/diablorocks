@@ -60,7 +60,6 @@
 	// Overruling Navigation styles --- overruling over _menu.scss
   .nav {
     margin-top: grid(0.5);
-    mix-blend-mode: normal;
     &__item {
       line-height: 1;
       height: auto;
@@ -91,7 +90,6 @@
 			&:before {
 				content: '';
 				position: absolute;
-				// right: 0;
 				left: 0;
 				width: 100%;
 				bottom: -4px;

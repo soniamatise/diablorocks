@@ -18,11 +18,11 @@ h4 {
 // }
 
 // make font styles
-.font-bold,
+.bold,
 strong {
   @extend %font-semibold;
 }
-.font-medium {
+.medium {
   @extend %font-medium;
 }
 small {

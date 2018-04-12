@@ -10,29 +10,27 @@
 
 				<nav class="nav footer__nav" aria-label="Footer navigation">
 					<ul class="nav__list">
-						<li class="mobile-hide nav__item">
+						<li class="mobile-hide nav__item medium">
 							<nuxt-link class="nav__link" to="/culture">
 								<span class="nav__text">Culture</span>
 							</nuxt-link>
 						</li>
-						<li class="mobile-hide nav__item font-medium">
+						<li class="mobile-hide nav__item medium">
 							<nuxt-link class="nav__link" to="/work">
 								<span class="nav__text">Work</span>
 							</nuxt-link>
 						</li>
-						<li class="mobile-hide nav__item font-medium">
+						<li class="mobile-hide nav__item medium">
 							<nuxt-link class="nav__link" to="/about">
 								<span class="nav__text">About</span>
 							</nuxt-link>
 						</li>
-						<!-- <li class="mobile-hide nav__item font-medium"><nuxt-link to="/whoweare">Who we are</nuxt-link></li> -->
-						<!-- <li class="mobile-hide nav__item font-medium"><nuxt-link to="/whatwedo">What we do</nuxt-link></li> -->
-						<li class="nav__item font-medium">
+						<li class="nav__item medium">
 							<a class="nav__link" href="#">
 								<span class="nav__text">News</span>
 							</a>
 						</li>
-						<li class="nav__item font-medium">
+						<li class="nav__item medium">
 							<a class="nav__link" href="#">
 								<span class="nav__text">Careers</span>
 							</a>

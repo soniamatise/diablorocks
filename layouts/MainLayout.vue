@@ -3,12 +3,10 @@
 	<input id="menu-trigger" type="checkbox"/>
 	<logo></logo>
 	<top-nav></top-nav>
-	<div id="page">
-		<main>
-			<slot></slot>
-		</main>
-		<footer-element></footer-element>
-	</div>
+	<main>
+		<slot></slot>
+	</main>
+	<footer-element></footer-element>
 </div>
 </template>
 
