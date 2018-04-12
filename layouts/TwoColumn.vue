@@ -11,7 +11,9 @@
 					<!-- imgOne -->
 					<div class="swiper-slide">
 						<div class="content_holder">
-							<img :src="imgOne.url" :alt="imgOne.alt" />
+							<div class="real_holder">
+								<img :src="imgOne.url" :alt="imgOne.alt" />
+							</div>
 						</div>
 		      </div>
 					<!-- end imgOne -->
@@ -19,7 +21,9 @@
 					<!-- imgTwo -->
 					<div class="swiper-slide">
 						<div class="content_holder">
-							<img :src="imgTwo.url" :alt="imgTwo.alt" />
+							<div class="real_holder">
+								<img :src="imgTwo.url" :alt="imgTwo.alt" />
+							</div>
 						</div>
 		      </div>
 					<!-- end imgTwo -->
