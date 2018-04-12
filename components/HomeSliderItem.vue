@@ -1,16 +1,17 @@
 <template>
 	<div class="swiper-slide">
-		<div class="contentHolder" ref="contentHolderActive" v-bind:class="caseImageHeight" @mouseover="bgOfCase()" @mouseleave="bgToNormal()">
-			<div class="rotator" data-swiper-parallax="750">
-				<img :src="caseImage" ref="imgActive" />
+		<div class="content_container" ref="content_container_active" v-bind:class="case_content_size">
+			<div class="content name">
+				<p>{{ caseName }}</p>
 			</div>
-		</div>
-
-		<div class="content name">
-			<p><b>{{ caseName }}</b></p>
-		</div>
-		<div class="content description">
-			<p>{{ caseDescription }}</p>
+			<div class="image_holder" ref="image_holder_active" v-bind:class="case_image_size" @mouseover="bgOfCase()" @mouseleave="bgToNormal()">
+				<div class="rotator" data-swiper-parallax="750">
+					<img :src="caseImage" ref="imgActive" />
+				</div>
+			</div>
+			<div class="content description">
+				<p>{{ caseDescription }}</p>
+			</div>
 		</div>
 	</div>
 </template>
@@ -23,20 +24,21 @@ export default {
 			Velocity: this.$velocity,
 		}
 	},
-	props: ['caseName', 'caseDescription', 'caseImage', 'caseUrl', 'caseColor', 'caseImageHeight', 'slug'],
+	props: ['caseName', 'caseDescription', 'caseImage', 'caseUrl', 'caseColor', 'case_image_size', 'case_content_size', 'slug'],
 	methods: {
 		bgOfCase: function () {
 	    	const bg = this.$parent.$refs.homeSlider;
 	    	const homeCover = this.$parent.$refs.homeCover;
 	    	const typestroke = this.$parent.$refs.typestroke;
-	    	const contentHolderActive = this.$refs.contentHolderActive;
+	    	const image_holder_active = this.$refs.image_holder_active;
 	    	const imgActive = this.$refs.imgActive;
-	    	let contentHolders = document.querySelectorAll('.contentHolder');
+	    	let image_holder = document.querySelectorAll('.image_holder');
 	    	let bullets = document.querySelectorAll('.bullet');
 	    	const getGrid = window.innerWidth / 24;
 				bg.classList.remove('bg-black');
 
 			bg.classList.add(`bg-${this.slug}`);
+
 			// wat doen we hier mee?????
 			// typestroke.classList.add(`bg-${this.slug}`);
 			// homeCover.classList.add(`bg-${this.slug}`);
@@ -46,19 +48,19 @@ export default {
 				bullet.classList = 'bullet';
 				bullet.classList.add(`bg-${self.slug}`);
 			});
-			contentHolders.forEach(function(contentHolder){
-				contentHolder.style = `--caseColor: ${self.slug}`
+			image_holder.forEach(function(image_holder){
+				image_holder.style = `--caseColor: ${self.slug}`
 			})
-			this.Velocity(contentHolderActive, { transform: 'rotate(-15deg)' }, 600, [180, 16]);
+			this.Velocity(image_holder_active, { transform: 'rotate(-15deg)' }, 600, [180, 16]);
 			this.Velocity(imgActive, { transform: 'rotate(15deg)' }, 600, [180, 16]);
 	    },
 	    bgToNormal: function () {
 	    	const bg = this.$parent.$refs.homeSlider;
 	    	const homeCover = this.$parent.$refs.homeCover;
 	    	const typestroke = this.$parent.$refs.typestroke;
-	    	const contentHolderActive = this.$refs.contentHolderActive;
+	    	const image_holder_active = this.$refs.image_holder_active;
 	    	const imgActive = this.$refs.imgActive;
-	    	let contentHolders = document.querySelectorAll('.contentHolder');
+	    	let image_holder = document.querySelectorAll('.image_holder');
 	    	let bullets = document.querySelectorAll('.bullet');
 			bg.classList.remove(`bg-${this.slug}`);
 			bg.classList.add('bg-black');
@@ -69,10 +71,10 @@ export default {
 				bullet.classList.add('bg-black');
 			})
 
-			contentHolders.forEach(function(contentHolder){
-				contentHolder.style = `--caseColor: black`
+			image_holder.forEach(function(image_holder){
+				image_holder.style = `--caseColor: black`
 			})
-			this.Velocity(contentHolderActive, { transform: 'rotate(0deg)' }, 600, [180, 16]);
+			this.Velocity(image_holder_active, { transform: 'rotate(0deg)' }, 600, [180, 16]);
 			this.Velocity(imgActive, { transform: 'rotate(0deg)' }, 600, [180, 16]);
 	    },
 	}

@@ -1,5 +1,6 @@
 <template>
 	<div class="home">
+		<!-- intro home animation -->
 		<section class="home-intro">
 			<div class="bg-white white-intro" ref="whiteIntro">
 				<div class="white-intro--text">
@@ -12,6 +13,7 @@
 				</div>
 			</div>
 		</section>
+		<!-- home slider -->
 		<div id="home-slider" ref="homeSlider" class="row center">
 		<div class="column large-full medium-full small-full">
 			<div v-swiper:mySwiper="swiperOption">
@@ -60,55 +62,64 @@ export default {
 			Velocity: this.$velocity,
 			swiperOption: {
 				headingText: '',
-				slidesPerView: 'auto',
+				slidesPerView: '1',
 				direction: 'horizontal',
 				touchRatio: 1,
 				centeredSlides: true,
-				spaceBetween: 240,
 				parallax: true,
+				lazy: {
+					loadPrevNext: true,
+					loadPrevPrev: true,
+				},
 				scrollbar: {
 					el: '.swiper-scrollbar',
 					draggable: true,
 					dragSize: '70',
 				},
 				mousewheel: {
-					invert: true,
-					sensitivity: 10,
+					// invert: true,
+					// sensitivity: 10,
 				},
 				breakpoints: {
 
 					2000: {
-						slidesPerView: 'auto',
+						slidesPerView: '1',
 						direction: 'horizontal',
 						touchRatio: 1,
 						centeredSlides: true,
-						spaceBetween: 240,
 						parallax: true,
+						lazy: {
+							loadPrevNext: true,
+							loadPrevPrev: true,
+						},
 						scrollbar: {
 							el: '.swiper-scrollbar',
 							draggable: true,
 							dragSize: '70',
 						},
 						mousewheel: {
-							invert: true,
-							sensitivity: 4,
+							// invert: true,
+							// sensitivity: 4,
 						},
 					},
 					750: {
-						slidesPerView: 'auto',
+						slidesPerView: '1',
 						direction: 'vertical',
 						touchRatio: 1,
 						centeredSlides: true,
-						spaceBetween: 90,
 						parallax: true,
+						lazy: {
+							loadPrevNext: true,
+							loadPrevPrev: true,
+						},
 						scrollbar: {
 							el: '.swiper-scrollbar',
 							draggable: true,
 							dragSize: '70',
 						},
 						mousewheel: {
-							invert: true,
-							sensitivity: 10,
+							// invert: true,
+							// sensitivity: 10,
 						},
 					},
 				}
