@@ -1,18 +1,18 @@
 <template>
 	<main-layout>
-		<slide-video :cuts="cuts" src="video/bbb.mp4" debug="true"></slide-video>
+		<!-- <slide-video :cuts="cuts" src="video/bbb.mp4" debug="true"></slide-video> -->
 	</main-layout>
 </template>
 
 
 <script>
 import MainLayout from '~/layouts/MainLayout.vue'
-import SlideVideo from '~/components/SlideVideo.vue'
+// import SlideVideo from '~/components/SlideVideo.vue'
 
 export default {
 	components: {
 		MainLayout,
-		SlideVideo
+		// SlideVideo
 	},
 	data(){
 		return{

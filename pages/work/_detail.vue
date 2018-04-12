@@ -23,11 +23,6 @@
 
 			<two-column v-if="value.acf_fc_layout==='two_column_images'" :imgOne="value.left_image"  :imgTwo="value.right_image" />
 
-			<!-- <slide-video v-if="value.acf_fc_layout==='video_slider'"
-				:vid="value.video"
-				:vidScenes="value.video_scene"
-			/> -->
-
 			<icons-caption v-if="value.acf_fc_layout==='icon_block'"
 				:gridColor="value.icon_background"
 				:gridIcons="value.icons"
@@ -60,7 +55,6 @@ import TwoColumn from '~/layouts/TwoColumn.vue'
 import IconsCaption from '~/layouts/IconsCaption.vue'
 import PayoffCredits from '~/layouts/PayoffCredits.vue'
 import CaseHeading from '@/components/CaseHeading.vue'
-import SlideVideo from '~/components/SlideVideo.vue'
 import NextCase from '~/components/NextCase.vue'
 import VideoPlayer from '~/components/VideoPlayer.vue'
 
@@ -73,7 +67,6 @@ export default {
 		PayoffCredits,
 		MainLayout,
 		CaseHeading,
-		SlideVideo,
 		VideoPlayer,
 		NextCase,
 	},

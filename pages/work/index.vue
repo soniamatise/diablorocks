@@ -99,7 +99,7 @@ export default {
 		}
 	},
 	asyncData ({ params }) {
-    return axios.get(`${process.env.baseUrl}/case?_embed`)
+    return axios.get(`${process.env.baseUrl}/wp/v2/case?_embed`)
     .then((res) => {
 			return {
 				cases: res.data
