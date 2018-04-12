@@ -6,7 +6,6 @@
 		<!-- holder -->
 		<div class="holder" ref="holder">
 			<div class="bg_element" :style="{ 'background-image': 'url(' + caseImage + ')' }" ref="bgElement"></div>
-			<!-- @mouseenter="test1()" @mouseleave="test2()"  -->
 
 			<!-- hover element -->
 			<div class="hover_container" ref="videoInfo" @click="showPlayVideo()" @mouseenter="textAnimationenter()" @mouseleave="textAnimationleave()">
@@ -93,10 +92,8 @@ export default {
 	},
 
 	methods: {
-
 		toggleWidth: function() {
-			// this.elements.right.style.transform = 'translateX(0%)';
-
+			this.elements.right.style.transform = 'translate(0%, -50%)';
 		},
 		// text animation on mouseenter
 		textAnimationenter: function() {

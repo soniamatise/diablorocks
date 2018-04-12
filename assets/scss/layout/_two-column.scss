@@ -26,6 +26,7 @@ section.two_column_images{
 						@media #{$small-only}{ margin-right: rem(32); }
 					}
 					.content_holder{ height: 100%; width: 100%!important; position: relative;
+						.real_holder{ height: 100%; width: 100%!important; position: relative; overflow: hidden; }
 						&:after{ content: ''; display: block; position: absolute; z-index: -1; top: grid(.5); left: grid(.5); right: grid(.5); bottom: 0; box-shadow: 0 rem(20) rem(60) rem(20) color(Dark, .2);
 							@media #{$medium-down}{ top: 1rem; left: 1rem; right: 1rem; bottom: 0; box-shadow: 0 rem(8) rem(24) rem(8) color(Dark, .2); }
 							@media #{$small-only}{ top: 1rem; left: 1rem; right: 1rem; bottom: 0; box-shadow: 0 rem(8) rem(24) rem(8) color(Dark, .2); }

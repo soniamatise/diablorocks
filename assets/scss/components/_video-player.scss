@@ -1,4 +1,5 @@
 section.video{ background-color: color(Dark); height: 100vh; width: 100vw; overflow: hidden;
+	@media #{$medium-down}{ height: 100vw; }
 
 	// needed to do animations
 	.make_full{ height: inherit; position: relative; }
@@ -32,11 +33,17 @@ section.video{ background-color: color(Dark); height: 100vh; width: 100vw; overf
 					}
 				}
 			}
-			.content_holder{ left: 50%; top: 50%; transform: translate(-50%, -50%); position: absolute; height: 100%; display: block; padding: grid(1) grid(2); width: auto;
-				@media #{$medium-down}{ position: relative; display: inline-block; }
+			.content_holder{ left: 50%; top: 50%; transform: translate(-50%, -50%); position: absolute; height: 100%; display: block; padding: grid(1) 0; width: auto;
+				@media #{$medium-down}{ position: relative; display: inline-block; margin-top: rem(100); padding: grid(1) grid(1); }
 				.text_holder{ top: 50%; position: relative; transform: translateY(-50%); box-sizing: border-box; width: initial;
 					&.mobile-only{ display: none;
-						@media #{$small-only}{ display: block; padding: 0 rem(64); transform: translateY(-50%); top: 50%; }
+						@media #{$small-only}{ display: block; padding: 0 rem(64); transform: translateY(-50%); top: 50%;
+							h2{
+								span{
+									&:after{ content: none; }
+								}
+							}
+						}
 					}
 					&.text_holder_left{ display: block; position: relative; float: left; z-index: 10; transform: translateY(0%); transition: transform 0.2s $easeboth 0.4s;
 						h2{ font-weight: $font-medium; }
@@ -66,7 +73,7 @@ section.video{ background-color: color(Dark); height: 100vh; width: 100vw; overf
 			}
 		}
 	}
-	.control_panel{ width: 100%; padding: 0px 10%; height: $logo-height; position: absolute; bottom: 0; background-color: color(DarkGray); opacity: 1; border: 1px solid red;
+	.control_panel{ width: 100%; padding: 0px 10%; height: $logo-height; position: absolute; bottom: 0; background-color: color(DarkGray); opacity: 1;
 			.control{ cursor: pointer; width: 32px; height: $logo-height; background-repeat: no-repeat; background-position: center center; box-shadow: inset 0 0 0 8px red; display: inline-flex;
 				&:hover{ opacity: .5; }
 				@media #{$small-only}{ background-size: contain; height: rem(14); width: rem(14); padding: 0 rem(12); }
