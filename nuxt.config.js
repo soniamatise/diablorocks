@@ -81,7 +81,7 @@ module.exports = {
     }
   },
   env: {
-    baseUrl: process.env.BASE_URL || 'http://api.matise.nl/wp-json/wp/v2'
+    baseUrl: process.env.BASE_URL || 'http://api.matise.nl/wp-json'
   },
 	css: [{
 			src: '~assets/scss/app.scss',
