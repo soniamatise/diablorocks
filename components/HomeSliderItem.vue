@@ -12,6 +12,9 @@
 			<div class="content description">
 				<p>{{ caseDescription }}</p>
 			</div>
+			<div class="content_for_medium">
+				<p><span>{{ caseName }}</span>{{ caseDescription }}</p>
+			</div>
 		</div>
 	</div>
 </template>
@@ -49,7 +52,7 @@ export default {
 				bullet.classList.add(`bg-${self.slug}`);
 			});
 			image_holder.forEach(function(image_holder){
-				image_holder.style = `--caseColor: ${self.slug}`
+				image_holder.style = `--caseColor: ${self.caseColor}`
 			})
 			this.Velocity(image_holder_active, { transform: 'rotate(-15deg)' }, 600, [180, 16]);
 			this.Velocity(imgActive, { transform: 'rotate(15deg)' }, 600, [180, 16]);
