@@ -25,7 +25,8 @@
 %h2{
 	font-size: grid(0.4); font-weight: $font-regular; line-height: 1.5;
 	@extend %header-default;
-	@include min-fontsize(.4,20);
+	@include min-fontsize(.4,24);
+	@media #{$small-only}{ @include min-fontsize(.333,20); }
 	span{
 		&:after{ content: ' —'; font-weight: $font-regular; }
 	}
@@ -36,7 +37,7 @@
 	font-size: grid(0.3); font-weight: $font-medium; line-height: 1.5;
 	@extend %header-default;
 	@include min-fontsize(.3,24);
-	@media #{$small-only}{
+	@media #{$medium-down}{
 		font-size: rem(20);
 	}
 }

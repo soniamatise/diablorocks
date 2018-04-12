@@ -1,7 +1,7 @@
 section.boxed_image_video{
 	// distance to section
 	& + section.simple_text{ margin-top: grid(2);
-		@media #{$medium-down}{ margin-top: rem(64); }
+		@media #{$medium-down}{ margin-top: grid(0); }
 	}
 
 	// holder

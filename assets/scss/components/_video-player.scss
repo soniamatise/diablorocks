@@ -1,15 +1,7 @@
-section.video{ background-color: color(DarkGray); height: 100vh; width: 100vw; overflow: hidden;
-	// distance to section
-	// & + section.simple_text{ margin-top: grid(2);
-	// 	@media #{$medium-down}{ margin-top: rem(64); }
-	// }
+section.video{ background-color: color(Dark); height: 100vh; width: 100vw; overflow: hidden;
 
 	// needed to do animations
 	.make_full{ height: inherit; position: relative; }
-
-	// close video
-	// .close_video{ height: $logo-height; width: $logo-height; position: fixed; right: 0px; z-index: 3; background: fuchsia; top: 0px; }
-	.close_video{ display: none; }
 
 	// holder
 	.holder{ color: color(Light); opacity: 1; z-index: 2; position: relative; height: 100%;

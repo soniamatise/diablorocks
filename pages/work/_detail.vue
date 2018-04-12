@@ -16,7 +16,7 @@
 
 			<title-text v-if="value.acf_fc_layout==='simple_text'" >
 				<h3 v-if="value.simple_text_title" slot="header">{{value.simple_text_title}}</h3>
-				<div class="simple_text_content" v-html="value.simple_text_content"></div> 
+				<div class="simple_text_content" v-html="value.simple_text_content"></div>
 			</title-text>
 
 			<one-column v-if="value.acf_fc_layout==='boxed_image_video'" :img="value" />

@@ -5,7 +5,7 @@
 	@media #{$medium-down} {
 		column-count: 2;
 	}
-	@media #{$mobile} {
+	@media #{$small-only} {
 		column-count: 1;
 	}
 }
@@ -36,7 +36,7 @@
 			@media #{$medium-down} {
 				background-size: 80vh !important;
 			}
-			@media #{$mobile} {
+			@media #{$small-only} {
 				background-size: 85vh !important;
 			}
 			@media #{$medium-down} {
@@ -48,7 +48,7 @@
 				@media #{$medium-down} {
 					height: grid(10);
 				}
-				@media #{$mobile} {
+				@media #{$small-only} {
 					height: grid(20);
 				}
 			}
@@ -58,7 +58,7 @@
 				@media #{$medium-down} {
 					height: grid(12);
 				}
-				@media #{$mobile} {
+				@media #{$small-only} {
 					height: grid(20);
 				}
 			}
@@ -68,11 +68,11 @@
 				@media #{$medium-down} {
 					height: grid(14);
 				}
-				@media #{$mobile} {
+				@media #{$small-only} {
 					height: grid(20);
 				}
 			}
-			@media #{$mobile} {
+			@media #{$small-only} {
 				width: grid(20);
 			}
 		}
@@ -84,7 +84,7 @@
 		@media #{$medium-down} {
 			width: grid(9.25);
 		}
-		@media #{$mobile} {
+		@media #{$small-only} {
 			width: grid(20);
 		}
 	}

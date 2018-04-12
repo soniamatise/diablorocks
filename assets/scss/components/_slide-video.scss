@@ -2,7 +2,7 @@ section.video_slider{
 	// distance to section
 	& + section.boxed_image_video, & + section.two_column_images{ margin-top: grid(4);
 		@media #{$medium-down}{ margin-top: grid(5); }
-		@media #{$mobile}{ margin-top: rem(96); }
+		@media #{$small-only}{ margin-top: rem(96); }
 	}
 
 	.slide_video_information{ position: absolute; z-index: 1; bottom: grid(1.5); color: white; width: 100%;

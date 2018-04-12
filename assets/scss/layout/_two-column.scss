@@ -2,13 +2,14 @@ section.two_column_images{
 	// distance to section
 	& + section.simple_text{ margin-top: grid(2);
 		@media #{$medium-down}{ margin-top: rem(64); }
+		@media #{$small-only}{ margin-top: rem(0); }
 	}
 
 	// holder
 	.holder{
 		&.swiper-container{ overflow: visible;
-			@media #{$medium-only} { padding: 0 grid(2) 0; }
-			@media #{$small-only}{ position: relative; height: calc(558px + 64px); overflow: hidden; padding: rem(32) 0; }
+			@media #{$medium-only}{ padding: 0 grid(2) 0; }
+			@media #{$small-only}{ position: relative; padding: rem(32) 0 rem(64); overflow: hidden; }
 			.swiper-wrapper{ display: flex; justify-content: space-between;
 				@media #{$medium-only}{ justify-content: center; }
 				@media #{$small-only}{ height: rem(558); width: 100%; }
@@ -26,7 +27,7 @@ section.two_column_images{
 					}
 					.content_holder{ height: 100%; width: 100%!important; position: relative;
 						&:after{ content: ''; display: block; position: absolute; z-index: -1; top: grid(.5); left: grid(.5); right: grid(.5); bottom: 0; box-shadow: 0 rem(20) rem(60) rem(20) color(Dark, .2);
-							@media #{$medium-down}{ top: 1rem; left: 1rem; right: 1rem; bottom: 0; }
+							@media #{$medium-down}{ top: 1rem; left: 1rem; right: 1rem; bottom: 0; box-shadow: 0 rem(8) rem(24) rem(8) color(Dark, .2); }
 							@media #{$small-only}{ top: 1rem; left: 1rem; right: 1rem; bottom: 0; box-shadow: 0 rem(8) rem(24) rem(8) color(Dark, .2); }
 						}
 						img, video{ width: 100%; min-height: 100%; position: absolute; left: 50%; top: 0px; transform: translateX(-50%); display: block; object-fit: cover; }

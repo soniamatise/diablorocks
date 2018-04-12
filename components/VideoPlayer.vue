@@ -3,10 +3,6 @@
 	<!-- vue needed holder -->
 	<div class="make_full">
 
-		<div class="close_video">
-			<a href="#">Close</a>
-		</div>
-
 		<!-- holder -->
 		<div class="holder" ref="holder">
 			<div class="bg_element" :style="{ 'background-image': 'url(' + caseImage + ')' }" ref="bgElement"></div>
