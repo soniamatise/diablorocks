@@ -35,9 +35,8 @@
 					:caseDescription="value.case_fields.case_description"
 					:caseImage="value.case_fields.case_image"
 					:caseColor="value.case_fields.case_background_color"
-					
-					case_image_size="medium_image"
-					case_content_size="medium_block"
+					:case_image_size="`${value.case_fields.case_size}_image`"
+					:case_content_size="`${value.case_fields.case_size}_block`"
 					v-on:onEnter="onEnter"
 					v-on:onLeave="onLeave"
 				/>
