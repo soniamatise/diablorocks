@@ -1,13 +1,14 @@
 <template>
-	<main-layout class="work-detail">
+	<main-layout class="work-detail" v-bind:class="{scroll: scrollable}">
 		<case-heading
 			:caseName="client"
 			:caseQuote="description"
 			:caseImage="image"
 			:caseColor="color"
+			v-on:doneAnimation="doneIntro"
 		/>
 
-		<div v-for="value in layout" :key="value.id">
+		<section v-for="value in layout" :key="value.id" :class="value.acf_fc_layout">
 			<payoff-credits v-if="value.acf_fc_layout==='info_table'"
 				:intro="value.info_table_intro"
 				:credits="value.info_table_row"
@@ -15,21 +16,26 @@
 			/>
 
 			<title-text v-if="value.acf_fc_layout==='simple_text'" >
-				<h3 slot="header">{{value.simple_text_title}}</h3>
-				<div v-html="value.simple_text_content"></div>
+				<h3 v-if="value.simple_text_title" slot="header">{{value.simple_text_title}}</h3>
+				<div class="simple_text_content" v-html="value.simple_text_content"></div>
 			</title-text>
 
-			<one-column v-if="value.acf_fc_layout==='big_image_video'" :img="value" />
+			<one-column v-if="value.acf_fc_layout==='boxed_image_video'" :img="value" />
 
-			<two-column v-if="value.acf_fc_layout==='2_column_images'" :imgOne="value.left_image"  :imgTwo="value.right_image" />
+			<two-column v-if="value.acf_fc_layout==='two_column_images'" :imgOne="value.left_image"  :imgTwo="value.right_image" />
+
+			<icons-caption v-if="value.acf_fc_layout==='icon_block'"
+				:gridColor="value.icon_background"
+				:gridIcons="value.icons"
+			/>
 
 			<video-player
 			 	v-if="value.acf_fc_layout==='video'"
 				:caseName="value.overlay_text"
-				caseImage="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
+				:caseImage="value.poster.url"
 				:caseVideo="value.video.url"
 			/>
-		</div>
+		</section>
 
 		<next-case
 		caseName="Aangenaam Bergen op Zoom"
@@ -47,6 +53,7 @@ import MainLayout from '~/layouts/MainLayout.vue'
 import TitleText from '~/layouts/TitleText.vue'
 import OneColumn from '~/layouts/OneColumn.vue'
 import TwoColumn from '~/layouts/TwoColumn.vue'
+import IconsCaption from '~/layouts/IconsCaption.vue'
 import PayoffCredits from '~/layouts/PayoffCredits.vue'
 import CaseHeading from '@/components/CaseHeading.vue'
 import NextCase from '~/components/NextCase.vue'
@@ -57,14 +64,18 @@ export default {
 		TitleText,
 		OneColumn,
 		TwoColumn,
+		IconsCaption,
 		PayoffCredits,
 		MainLayout,
 		CaseHeading,
 		VideoPlayer,
 		NextCase,
 	},
+	data() {
+		return { scrollable: false }
+	},
 	asyncData ({ params }) {
-    return axios.get(`${process.env.baseUrl}/case?slug=${params.detail}&_embed`)
+    return axios.get(`${process.env.baseUrl}/wp/v2/case?slug=${params.detail}&_embed`)
     .then((res) => {
 			return {
 				layout: res.data[0].layout,
@@ -75,6 +86,11 @@ export default {
 			}
     })
   },
+	methods: {
+		doneIntro: function(){
+			this.scrollable = true;
+		}
+	}
 
 }
 

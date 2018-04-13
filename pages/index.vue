@@ -4,7 +4,8 @@
 		<logo/>
 		<top-nav/>
 		<home-slider >
-			<home-slider-item
+
+			<!-- <home-slider-item
 				caseName="Kalkhoff Bikes"
 				slug="kalkhoff"
 				caseDescription="When your bikes are eye-catchers, your website should be too."
@@ -66,24 +67,39 @@
 				:caseImage="images.expeditiewadden"
 				case_image_size="medium_image"
 				case_content_size="medium_block"
+			/> -->
+
+
+			<home-slider-item v-for="value in cases" :key="value.post.id"
+				:caseName="value.case_fields.client_name"
+				:slug="`work/${value.post.post_name}`"
+				:caseDescription="value.case_fields.case_description"
+				:caseImage="value.case_fields.case_image"
+				caseColor="#a8a59c"
+				case_image_size="medium_image"
+				case_content_size="medium_block"
 			/>
+
+
 		</home-slider>
 	</main>
 </template>
 
 <script>
+import axios from 'axios'
+
 import TopNav from '~/layouts/TopNav';
 import Logo from '~/layouts/Logo';
 import HomeSlider from '~/components/HomeSlider';
 import HomeSliderItem from '~/components/HomeSliderItem';
-import axios from 'axios'
-
 
 export default {
 	asyncData ({ params }) {
-    return axios.get(`http://api.matise.nl/wp-json/wp/v2/pages/54`)
+    return axios.get(`${process.env.baseUrl}/page/homepage`)
     .then((res) => {
-			// console.log(res.data);
+			return {
+				cases: res.data.cases
+			}
     })
   },
 	components: {
@@ -91,22 +107,6 @@ export default {
 		HomeSliderItem,
 		TopNav,
 		Logo
-	},
-	data(){
-		return {
-			images: {
-				kalkhoff: require('~/assets/img/home/Hero_Kalkhoff.jpg'),
-				nielson: require('~/assets/img/home/Hero_Nielsonair.jpg'),
-				bbb: require('~/assets/img/home/Hero_BBB.jpg'),
-				boz: require('~/assets/img/home/Hero_BoZ.jpg'),
-				ticketchaser: require('~/assets/img/home/Hero_TicketChaser.jpg'),
-				viacom: require('~/assets/img/home/Hero_Viacom.jpg'),
-				expeditiewadden: require('~/assets/img/home/Hero_ExpeditieWadden.jpg')
-			}
-		}
-	},
-	mounted(){
-		// console.log(this);
 	},
 	watch: {
 		slideIn: function(){

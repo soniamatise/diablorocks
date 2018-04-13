@@ -1,12 +1,25 @@
 <template>
-<section id="next-case" class="nextCase">
-	<div class="hoverContainer" @mouseenter="bgOfCase()" @mouseleave="bgToNormal()">
-		<text-transition text-left="Next case" :text-right="caseName" onloadedmetadata=""></text-transition>
-	</div>
-	<div id="caseImage" class="caseImage">
-		<img :src="image">
-	</div>
-</section>
+	<section id="next-case" class="next_case">
+
+		<!-- holder -->
+		<div class="holder" ref="holder">
+
+			<!-- hover element -->
+			<div class="hover_container" @mouseenter="bgOfCase()" @mouseleave="bgToNormal()">
+				<text-transition text-left="Next case" :text-right="caseName" onloadedmetadata=""></text-transition>
+			</div>
+			<!-- end hover element -->
+
+		</div>
+		<!-- end holder -->
+
+		<!-- case image -->
+		<div id="caseImage" class="case_image">
+			<img :src="image">
+		</div>
+		<!-- end case image -->
+
+	</section>
 </template>
 
 <script>
@@ -23,24 +36,23 @@ export default {
 		}
 	},
 	methods: {
-		//case color color and animation img on mouseenter
+		// case color color and animation img on mouseenter
 		bgOfCase: function() {
 			// console.log('hoi of case');
 			const bgDiv = document.getElementById('next-case');
 			bgDiv.style.backgroundColor = this.caseColor;
 
 			const caseImage = document.getElementById('caseImage');
-			//get grid size for image height on mouseover
+			// get grid size for image height on mouseover
 			const getGrid = window.innerWidth / 12;
-			let self = this;
 
-			setTimeout(function() {
-				self.Velocity(caseImage, {
-					transform: 'translateY(' + -getGrid + 'px)'
-				}, 800, [180, 12]);
-			}, 600);
+			// velocity
+			let self = this;
+			self.Velocity(caseImage, {
+				transform: 'translateY(' + -getGrid + 'px)'
+			}, 1500, [180, 9]);
 		},
-		//black color and animation img on mouseleave
+		// black color and animation img on mouseleave
 		bgToNormal: function() {
 			var self = this;
 			// console.log('hoi to normal');
@@ -49,9 +61,10 @@ export default {
 
 			const caseImage = document.getElementById('caseImage');
 
+			// velocity
 			self.Velocity(caseImage, {
 				transform: 'translateY(0px)'
-			}, 800, [180, 18]);
+			}, 700, [180, 16]);
 		},
 	},
 	mounted: () => {

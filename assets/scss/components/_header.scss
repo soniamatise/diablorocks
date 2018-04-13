@@ -1,13 +1,9 @@
 .header {
   width: 100%;
-  position: absolute;
   z-index: 3;
-  @media #{$medium-up} {
-    mix-blend-mode: difference;
-  }
   @media #{$small-only} {
     width: 100vw;
-    height: 100vh;
+    height: 0;
     top: 0;
     left: 0;
   }
