@@ -10,7 +10,7 @@
 				</div>
 			</div>
 			<div class="content description">
-				<p>{{ caseDescription }}</p>
+				<p :data-description="caseDescription"></p>
 			</div>
 			<div class="content_for_medium">
 				<p><span>{{ caseName }}</span>{{ caseDescription }}</p>
