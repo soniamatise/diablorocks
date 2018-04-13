@@ -26,6 +26,8 @@ body{
 	}
 }
 
+.home-intro{ display: none!important; }
+
 section.intro {
 	padding-top: grid(5);
 	@media only screen and (max-width: 1024px) and (min-width: 768px){
