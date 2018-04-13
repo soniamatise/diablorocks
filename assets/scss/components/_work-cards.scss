@@ -94,7 +94,7 @@
 	&.card--hover {
 		cursor: pointer;
 		position: relative;
-		transition: 1s $standardCubicBezier;
+		transition: 1s $easeboth;
 		z-index: 3;
 		p {
 			color: white;
