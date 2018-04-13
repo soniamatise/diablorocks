@@ -46,7 +46,12 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 							@media #{$medium-only}{ display: none; }
 						}
 						&.description{ transform: rotate(-270deg) translate(0, 0);
-							p{ font-weight: $font-regular; top: auto; bottom: 32px; }
+							p{ font-weight: $font-regular; top: auto; bottom: 32px;
+								&:before, &:after{ content: attr(data-description); display: block; }
+								&:before{ position: absolute; }
+								&:after{ color: var(--caseColor, black); filter: blur(10px); }
+
+							}
 							@media #{$medium-only}{ display: none; }
 						}
 					}
@@ -168,8 +173,10 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 				position: relative;
 				top: -#{$scrollBarHeight};
 				transition: background-color 1s cubic-bezier(0.42, 0, 0.58, 1);
-				background-color: var(--caseColor, color(Black));
-				color: color(White);
+
+				// &.beBlack {
+				// 	background-color: black !important;
+				// }
 			}
 
 			.swiper-scrollbar-drag {
