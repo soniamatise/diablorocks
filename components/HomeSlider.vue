@@ -127,7 +127,7 @@ export default {
 				(function(index) {
 					setTimeout( function(){
 						if (index == (self._data.texts.length - 1)){
-							document.getElementById(i).classList.add('active--last');
+							document.getElementById(index).classList.add('active--last');
 							setTimeout(function(){
 								self._data.go = true;
 							}, 1900);

@@ -29,7 +29,9 @@
 				animation: showHeading 1.9s 0.8s $specialCubicBezier;
 				right: 0;
 				white-space: nowrap;
+				width: 100%;
 				width: max-content;
+				text-align: center;
 			}
 
 			&--last {
@@ -44,7 +46,6 @@
 				h2 {
 					animation: showLastHeading 1.9s 0.8s $specialCubicBezier forwards;
 					white-space: nowrap;
-					width: max-content;
 				}
 			}
 		}
@@ -77,7 +78,7 @@
 		h2 {
 			text-align: center;
 			animation: stay 3s $easeboth forwards;
-			width: 100%;
+			width: 100vw;
 		}
 	}
 }
@@ -209,10 +210,10 @@
 	}
 
 	50% {
-		transform: translateX(-100%);
+		transform: translateX(-100vw);
 	}
 
 	100% {
-		transform: translateX(-100%);
+		transform: translateX(-100vw);
 	}
 }
