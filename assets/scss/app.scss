@@ -10,14 +10,20 @@
 
 body{
 	font-family: $body-font;
-}
+	// @media #{$small-only}{ border: 1px solid yellow; }
+	// @media #{$medium-only}{ border: 1px solid green; }
+	// @media #{$large-only}{ border: 1px solid blue; }
+	// @media #{$xlarge-only}{ border: 1px solid red; }
+	// @debug $medium-only;
 
-#page{
-	width: 100vw;
-	height: 100vh;
-	overflow: scroll;
-	position: relative;
-	background-color: white;
+	::selection{
+		background: color(Gray);
+		color: color(Light);
+	}
+	::-moz-selection{
+		background: color(Gray);
+		color: color(Light);
+	}
 }
 
 section.intro {
@@ -25,11 +31,10 @@ section.intro {
 	@media only screen and (max-width: 1024px) and (min-width: 768px){
 		padding-top: grid(7);
 	}
-	@media #{$mobile}{
+	@media #{$small-only}{
 		padding: 0;
 	}
 }
-
 
 .link{
 	&--external{
@@ -42,7 +47,7 @@ section.intro {
 		display: none;
 	}
 }
-@media #{$mobile} {
+@media #{$small-only} {
 	.hide-mobile,
 	.mobile-hide{
 		display: none;

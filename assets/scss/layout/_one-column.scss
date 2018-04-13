@@ -1,68 +1,24 @@
-#oneCol{
-	margin-bottom: grid(5);
-	@media #{$small-only}{
-		margin-bottom: rem(96);
+section.boxed_image_video{
+	// distance to section
+	& + section.simple_text{ margin-top: grid(2);
+		@media #{$medium-down}{ margin-top: grid(0); }
 	}
-	.holder {
-		&.full {
-			width: 100%;
-			height: grid(10.125);
-			display: block;
-			margin-bottom: grid(2);
-			position: relative;
-			background: color(Light);
-			border-radius: rem(4);
-			@media #{$medium-only} {
-				height: rem(360);
-				width: calc(100% - 128px);
-				margin: 0 auto rem(64);
-				border-radius: rem(2);
+
+	// holder
+	.holder{
+		&.full{ width: 100%; height: grid(10.125); position: relative; border-radius: rem(4);
+			@media #{$medium-only}{ height: rem(360); width: calc(100% - 128px); margin: 0 auto rem(64); border-radius: rem(2); }
+			@media #{$small-only}{ height: rem(175); width: calc(100% - 64px); margin: 0 auto rem(64); border-radius: rem(2); }
+			.content_holder{ height: auto; width: auto; top: 0px; left: 0px; right: 0px; bottom: 0px; position: absolute; overflow: hidden; border-radius: rem(4); z-index: 1;
+				@media #{$medium-down}{ border-radius: rem(2); }
 			}
-			@media #{$small-only} {
-				height: rem(175);
-				width: calc(100% - 64px);
-				margin: 0 auto rem(64);
-				border-radius: rem(2);
+			&:after{ z-index: 0; top: grid(.5); left: grid(.5); right: grid(.5); bottom: 0; content: ''; position: absolute; display: block; box-shadow: 0 grid(.25) grid(.75) grid(.25) color(Dark, .2);
+				@media #{$medium-down} { top: 1rem; left: 1rem; right: 1rem; bottom: 0; box-shadow: 0 rem(8) rem(24) rem(8) color(Dark, .2); }
 			}
-			.contentHolder {
-				height: inherit;
-				position: relative;
-				overflow: hidden;
-				border-radius: rem(4);
-				z-index: 1;
-				@media #{$small-only} {
-					border-radius: rem(2);
-				}
+			img, video{ width: 100%; height: auto; position: absolute; left: 50%; top: 0px; transform: translateX(-50%); display: block; object-fit: cover; border-radius: rem(4);
+				@media #{$medium-down}{ border-radius: rem(2); }
 			}
-			&:after {
-				z-index: 0;
-				top: grid(.5);
-				left: grid(.5);
-				right: grid(.5);
-				bottom: 0;
-				content: '';
-				position: absolute;
-				display: block;
-				box-shadow: 0 grid(.25) grid(.75) grid(.25) color(Dark, .2);
-				@media #{$medium-down} {
-					top: 1rem;
-					left: 1rem;
-					right: 1rem;
-					bottom: 0;
-					box-shadow: 0 rem(8) rem(24) rem(8) color(Dark, .2);
-				}
-			}
-			img {
-				width: 100%;
-				border-radius: rem(4);
-				display: block;
-				background-repeat: no-repeat;
-				background-position: center;
-				background-size: contain;
-				@media #{$medium-down} {
-					border-radius: rem(2);
-				}
-			}
+			video{ height: 100%; }
 		}
 	}
 }

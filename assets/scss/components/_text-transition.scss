@@ -1,128 +1,43 @@
-$easeboth: cubic-bezier(.42,0,.58,1);
+section.next_case{
 
-h2 {
-	color: color(Light);
-	display: block;
-	white-space: nowrap;
-	position: relative;
-		@media #{$small-only} {
-			white-space: normal;
+	// text
+	h2{ display: block; white-space: nowrap; position: relative;
+		@media #{$small-only}{ white-space: normal;
 			span{ display: inline-flex; }
 		}
-}
+	}
 
-.hoverHolder {
-	cursor: pointer;
-	width: 100vw;
-	height: 50vh;
-	position: relative;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-
-	&:hover {
-			@media #{$small-only} { display: none; }
-		.contentHolder {
-			.textHolder {
-				&.textHolderLeft {
-					.mask {
-						transform: translateX(100%);
-						transition: transform 0.3s $easeboth 0.5s;
-
-						&.keepPosition {
-							transform: translateX(-100%);
-							transition: transform 0.3s $easeboth 0.5s;
+	// hover container extra for element
+	.hover_container_extra{ width: auto; height: auto;
+		&:hover{
+			.content_holder{
+				.text_holder{
+					&.text_holder_right{ transition: transform 0.3s $easeboth 0.5s; } 
+					&.text_holder_left{
+						.keep_position { transform: translateX(100%); transition: transform 0.6s $easeboth 0s;
+							h2{ transform: translateX(-100%); transition: transform 0.6s $easeboth 0s; }
 						}
 					}
 				}
-
-				&.textHolderRight {
-					.mask {
-						transition: transform 0.2s $easeboth 0.8s;
+			}
+		}
+		.content_holder{ left: 50%; top: 50%; transform: translate(-50%, -50%); position: absolute; height: 100%; display: block; padding: grid(1) 0; width: auto;
+			@media #{$medium-down}{ position: relative; display: inline-block; margin-top: rem(100); padding: grid(1) 0; }
+			@media #{$small-only}{ padding: 0px; position: absolute; margin-top: 0px; display: block; width: 100%!important; padding: 0px 64px; }
+			.text_holder{ top: 50%; position: relative; transform: translateY(-50%); box-sizing: border-box; width: initial;
+				&.mobile-only{ display: none;
+					@media #{$small-only}{ display: block; padding: 0; transform: none; transform: translateY(-50%); }
+				}
+				&.text_holder_right{ display: block; position: relative; float: right; z-index: 10; transition: transform 0.2s $easeboth 0.4s; transform: translate(0, 0);
+					@media #{$small-only}{ display: none; }
+					.keep_position{ position: relative; display: block; width: 100%; transform: translateY(-50%); }
+				}
+				&.text_holder_left{ display: block; float: left; overflow: hidden;
+					h2{ font-weight: $font-medium; }
+					@media #{$small-only} { display: none; }
+					.keep_position{ position: relative; display: block; width: 100%; overflow: hidden; transition: transform 0.3s $easeboth 0.5s; transform: translateX(0);
+						h2{ transition: transform 0.3s $easeboth 0.5s; transform: translateX(0); }
 					}
-				}
-			}
-		}
-	}
-	@media #{$small-only} {
-		transform: translate(0%);
-		left: 0;
-	}
-
-	.contentHolder {
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-		position: absolute;
-		height: 50vh;
-		width: auto;
-		@media #{$medium-down} {
-			position: relative;
-			display: inline-block;
-		}
-		@media #{$small-only} {
-			// height: auto;
-			top: 0%;
-		}
-
-		.textHolder {
-			top: 50%;
-			position: relative;
-			transform: translateY(-50%);
-			box-sizing: border-box;
-			width: initial;
-
-			&.mobile-only {
-				display: none;
-				@media #{$small-only} {
-					display: block;
-					padding: 0 rem(64);
-					color: color(Light);
-					transform: translateY(-50%);
-					top: 50%;
-				}
-			}
-
-			&.textHolderLeft {
-				display: block;
-				position: relative;
-				float: left;
-				overflow: hidden;
-				h2{ font-weight: $font-medium; }
-				@media #{$small-only} {
-					display: none;
-				}
-
-				.mask {
-					position: relative;
-					display: block;
-					width: 100%;
-					overflow: hidden;
-					transition: transform 0.3s $easeboth 0.7s;
-
-					&.keepPosition {
-						position: relative;
-						display: block;
-						width: 100%;
-						overflow: hidden;
-						transition: transform 0.3s $easeboth 0.7s;
-					}
-				}
-			}
-
-			&.textHolderRight {
-				display: block;
-				float: right;
-				@media #{$small-only} {
-					display: none;
-				}
-
-				.mask {
-					position: relative;
-					display: block;
-					transform: translateX(0);
-					right: 0;
-					transition: transform 0.2s $easeboth 0.5s;
 				}
 			}
 		}

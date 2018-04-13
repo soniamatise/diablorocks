@@ -5,7 +5,7 @@ module.exports = {
 	 ** Headers of the page
 	 */
 	head: {
-		title: 'Matise | Creative Digital Agency',
+		title: 'Matise - Not your average Agency',
 		meta: [{
 				charset: 'utf-8'
 			},
@@ -29,7 +29,10 @@ module.exports = {
 	 ** Customize the progress bar color
 	 */
 	loading: {
-		color: '#000000'
+		color: 'fuchsia',
+		opacity: 1,
+		height: '40px',
+
 	},
 	plugins: [{
 			src: '~plugins/swiper.js',
@@ -78,7 +81,7 @@ module.exports = {
     }
   },
   env: {
-    baseUrl: process.env.BASE_URL || 'http://api.matise.nl/wp-json/wp/v2'
+    baseUrl: process.env.BASE_URL || 'http://api.matise.nl/wp-json'
   },
 	css: [{
 			src: '~assets/scss/app.scss',
