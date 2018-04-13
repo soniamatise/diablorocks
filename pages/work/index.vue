@@ -13,7 +13,7 @@
 		<div :class="[this._data.background ,'background-canvas']" :style="style"></div>
 		<section class="work__grid content">
 			<div class="work__grid__column work__grid--column1">
-				<WorkCard v-for="value in cases1" :key="value.id"
+				<WorkCard v-for="value in cases" v-if="value.column == 1" :key="value.id"
 					:ref="value.slug"
 					:image="value._embedded['wp:featuredmedia'][0].source_url"
 					:caseName="value.slug"
@@ -29,7 +29,7 @@
 				/>
 			</div>
 			<div class="work__grid__column work__grid--column2">
-				<WorkCard v-for="value in cases2" :key="value.id"
+				<WorkCard v-for="value in cases" v-if="value.column == 2" :key="value.id"
 					:ref="value.slug"
 					:caseName="value.slug"
 					:image="value._embedded['wp:featuredmedia'][0].source_url"
@@ -45,7 +45,7 @@
 				/>
 			</div>
 			<div class="work__grid__column work__grid--column3">
-				<WorkCard v-for="value in cases3" :key="value.id"
+				<WorkCard v-for="value in cases" v-if="value.column == 3" :key="value.id"
 					:ref="value.slug"
 					:caseName="value.slug"
 					:image="value._embedded['wp:featuredmedia'][0].source_url"
@@ -155,46 +155,68 @@ export default {
   },
 	mounted(){
 		let self = this;
+		// TODO: 3 dynamisch maken met window dinges
 		let	columns = Math.ceil(self._data.cases.length / 3);
 		let counter = 0;
-		let counter2 = 0;
-		let counter3 = 0;
-		for (let i = 0; i < self._data.cases.length ; i++){
-			if(i <= (columns - 1)){
-				self._data.cases1.push(self._data.cases[i]);
-				let classes = self._data.class1;
-				self._data.cases[i].column = 1;
-				if (counter > (classes.length - 1)) {
-					self._data.cases[i].size = classes[0];
-				} else {
-					self._data.cases[i].size = classes[counter];
-				}
+		let cases = self._data.cases;
+		// let counter2 = 0;
+		// let counter3 = 0;
+		// for (let i = 0; i < self._data.cases.length ; i++){
+		// 	if(i <= (columns - 1)){
+		// 		self._data.cases1.push(self._data.cases[i]);
+		// 		let classes = self._data.class1;
+		// 		self._data.cases[i].column = 1;
+		// 		if (counter > (classes.length - 1)) {
+		// 			self._data.cases[i].size = classes[0];
+		// 		} else {
+		// 			self._data.cases[i].size = classes[counter];
+		// 		}
+		// 		counter++;
+		//
+		// 	} else if(i > (columns - 1) && i <= ((columns * 2) - 1)){
+		// 		self._data.cases2.push(self._data.cases[i]);
+		// 		let classes2 = self._data.class2;
+		// 		self._data.cases[i].column = 2;
+		// 		if (counter2 > (classes2.length - 1)) {
+		// 			self._data.cases[i].size = classes2[counter2];
+		// 		} else {
+		// 			self._data.cases[i].size = classes2[0];
+		// 		}
+		// 		counter2++;
+		//
+		// 	} else {
+		// 		self._data.cases3.push(self._data.cases[i]);
+		//
+		// 		let classes3 = self._data.class3;
+		// 		self._data.cases[i].column = 3;
+		// 		if (counter3 > (classes3.length)) {
+		// 			self._data.cases[i].size = classes3[counter3];
+		// 		} else {
+		// 			self._data.cases[i].size = classes3[0];
+		// 		}
+		// 		counter3++;
+		// 	}
+		// }
+
+		console.log(columns);
+		cases.forEach(function(workCard){
+			if (counter <= (columns - 1)) {
+				console.log('yes');
+				workCard.column = 1;
 				counter++;
+			} else if (counter > (columns - 1) && counter <= ((columns * 2) - 1)) {
+				console.log('ok');
+				workCard.column = 2;
 
-			} else if(i > (columns - 1) && i <= ((columns * 2) - 1)){
-				self._data.cases2.push(self._data.cases[i]);
-				let classes = self._data.class2;
-				self._data.cases[i].column = 2;
-				if (counter2 > (classes.length - 1)) {
-					self._data.cases[i].size = classes[counter2];
-				} else {
-					self._data.cases[i].size = classes[0];
-				}
-				counter2++;
-
+				counter++;
 			} else {
-				self._data.cases3.push(self._data.cases[i]);
+				console.log('whoo');
+				workCard.column = 3;
 
-				let classes = self._data.class3;
-				self._data.cases[i].column = 3;
-				if (counter3 > (classes.length)) {
-					self._data.cases[i].size = classes[counter3];
-				} else {
-					self._data.cases[i].size = classes[0];
-				}
-				counter3++;
+				counter++;
 			}
-		}
+		});
+		console.log(cases);
 	}
 }
 
