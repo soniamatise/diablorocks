@@ -35,8 +35,8 @@
 					:caseDescription="value.case_fields.case_description"
 					:caseImage="value.case_fields.case_image"
 					:caseColor="value.case_fields.case_background_color"
-					case_image_size="medium_image"
-					case_content_size="medium_block"
+					:case_image_size="`${value.case_fields.case_size}_image`"
+					:case_content_size="`${value.case_fields.case_size}_block`"
 					v-on:onEnter="onEnter"
 					v-on:onLeave="onLeave"
 				/>
@@ -154,21 +154,10 @@ export default {
 				})(i);
 			}
 		}
+
 		setTimeout(function() {
 			changeText();
 		}, 100);
-
-		// function createBullets() {
-		// 	let slides = document.getElementsByClassName('swiper-slide');
-		// 	let scrollBar = self.$refs.scrollbar;
-		// 	for (var index = 0; index < slides.length; index++){
-		// 		let bullet = document.createElement('span');
-		// 		bullet.className = ('bullet bg-black');
-		// 		scrollBar.appendChild(bullet);
-		// 	}
-		// 	scrollBar.removeChild(scrollBar.lastChild);
-		// }
-		// createBullets();
 	},
 	methods: {
 		showSlides: function(){

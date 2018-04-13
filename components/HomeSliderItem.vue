@@ -36,7 +36,6 @@ export default {
 	    	const image_holder_active = this.$refs.image_holder_active;
 	    	const imgActive = this.$refs.imgActive;
 	    	let image_holder = document.querySelectorAll('.image_holder');
-	    	let bullets = document.querySelectorAll('.bullet');
 	    	const getGrid = window.innerWidth / 24;
 
 			this.$emit('onEnter', this.caseColor);
@@ -56,7 +55,6 @@ export default {
 	    	const image_holder_active = this.$refs.image_holder_active;
 	    	const imgActive = this.$refs.imgActive;
 	    	let image_holder = document.querySelectorAll('.image_holder');
-	    	let bullets = document.querySelectorAll('.bullet');
 
 			this.$emit('onLeave');
 
