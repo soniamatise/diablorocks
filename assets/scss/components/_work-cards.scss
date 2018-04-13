@@ -1,7 +1,11 @@
 .work__grid {
 	display: flex;
 	flex-direction: row;
-	padding: grid(1) grid(2) grid(0) grid(2);
+	flex-wrap: wrap;
+	padding: grid(1 2 0 2);
+	@media #{$medium-down} {
+		flex-direction: column;	
+	}
 	&--column1{
 		top: grid(.8);
 		position: relative;
