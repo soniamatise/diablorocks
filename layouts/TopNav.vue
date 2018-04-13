@@ -34,11 +34,11 @@
 
 <script>
 export default {
-  mounted() {
-    let topNav = this.$refs.topNav;
-    setTimeout(function() {
-      topNav.classList.add('show');
-    }, 500);
-  }
+	mounted() {
+		let topNav = this.$refs.topNav;
+		setTimeout(function() {
+			topNav.classList.add('show');
+		}, 500);
+	}
 };
 </script>

@@ -1,30 +1,31 @@
 #header {
-  .nav {
-    top: grid(1.5);
-    left: grid(2);
-    position: absolute;
-    z-index: 1;
+	.nav {
+		top: grid(1.5);
+		left: grid(2);
+		position: absolute;
+		z-index: 1;
 
-    @media #{$small-only} {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 100%;
-      background-color: color(Black);
-      padding: grid(1);
-      transition: clip-path 0.3s;
-      color: color(Light);
-      animation: closeMenu 0.5s ease-in-out forwards;
-      padding: rem(87) 4rem rem(90) 4rem;
-    }
-  }
+		@media #{$small-only} {
+			z-index: 3;
+			position: fixed;
+			top: 0;
+			left: 0;
+			height: 100vh;
+			width: 100%;
+			background-color: color(Black);
+			padding: grid(1);
+			transition: clip-path 0.3s;
+			color: color(Light);
+			animation: closeMenu 0.5s ease-in-out forwards;
+			padding: rem(87) 4rem rem(90) 4rem;
+		}
+	}
 }
 body.white-menu { // menu item styling when page is Black
 	.nav__list-item {
 		&__top {
 			a {
-			color: color(White);
+				color: color(White);
 				&:before {
 					background-color: color(White);
 				}
@@ -36,238 +37,211 @@ body.white-menu { // menu item styling when page is Black
 // mobile trigger
 $logo-height: 52px;
 $logo-width: 120px;
-$time: 0.6;
+$time: .6;
 
 .nav {
-  // general nav styling
-  &__logo {
-    background-color: color(Black);
-    position: fixed;
-    right: 0px;
-    top: grid(1.5);
-    z-index: 5;
-    height: rem($logo-height);
-    width: rem($logo-width);
-    display: block;
-    -webkit-backface-visibility: visible;
+	// general nav styling
+	&__logo {
+		background-color: color(Black);
+		position: fixed;
+		right: 0px;
+		top: grid(1.5);
+		z-index: 5;
+		height: rem($logo-height);
+		width: rem($logo-width);
+		display: block;
+		-webkit-backface-visibility: visible;
 
-    @media #{$small-only} {
-      top: 50vh;
-      transform-origin: calc(100% + 52px) 100%;
-      transform: rotate(90deg) translateX(calc(50% - #{rem($logo-height / 2)}))
-        translateY(200%);
-    }
+		@media #{$small-only} {
+			top: 50vh;
+			transform-origin: calc(100% + 52px) 100%;
+			transform: rotate(90deg) translateX(calc(50% - #{rem($logo-height / 2)}))
+			translateY(200%);
+		}
 
-    &__link {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: red;
-      display: block;
-      -webkit-backface-visibility: visible;
-      text-indent: -9999px;
-      background: url("~/assets/img/logo.svg") no-repeat center center;
-      background-size: contain;
-    }
-  }
+		&__link {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background: red;
+			display: block;
+			-webkit-backface-visibility: visible;
+			text-indent: -9999px;
+			background: url("~/assets/img/logo.svg") no-repeat center center;
+			background-size: contain;
+		}
+	}
 
-  &__list {
-    // styling for list (ul/ol)
-  }
-  &__item {
-    // Styling for item ( li )
-    @media #{$medium-up} {
-      & + .nav__item {
-        margin-left: grid(0.75);
+	&__list {
+		// styling for list (ul/ol)
+	}
+	&__item {
+		// Styling for item ( li )
+		@media #{$medium-up} {
+			& + .nav__item {
+				margin-left: grid(0.75);
 				@include min-('margin-left',.75,32);
-      }
-    }
+			}
+		}
 
-    @media #{$small-only} {
-      display: block;
-    }
-  }
-  &__link {
-    // Styling for link (a / nuxt-link) attribute
-    position: relative;
-    &:before {
-      content: '';
-      position: absolute;
-      right: 0;
-      width: 0;
-      bottom: -4px;
-      background-color: color(White);
-      height: 1px;
-      transition-property: width;
-      transition-duration: 0.3s;
-      transition-timing-function: ease-out;
-    }
-    &:hover {
-      &:before {
-        left: 0;
-        right: auto;
-        width: 100%;
-      }
-    }
-    &--active {
-      &:before {
-        position: absolute;
-        left: 0;
-        right: auto;
-        width: 100%;
-      }
-      // active link hover
-      &:hover {
-        &:before {
-          right: 0;
-          left: auto;
-          width: 0%;
-        }
-      }
-    }
-  }
-  &__text {
-    // Styling for text (span in a) attribute
-    font-size: rem(14);
-    line-height: rem(52);
-    color: color(White);
-    font-weight: $font-medium;
-    @media #{$small-only} {
-      font-size: rem(20);
-      line-height: 2.4;
-    }
-  }
-
-  &__contact {
-  }
+		@media #{$small-only} {
+			display: block;
+		}
+	}
+	&__link {
+		// Styling for link (a / nuxt-link) attribute
+		position: relative;
+		&:before {
+			content: '';
+			position: absolute;
+			right: 0;
+			width: 0;
+			bottom: -4px;
+			background-color: color(White);
+			height: 1px;
+			transition-property: width;
+			transition-duration: 0.3s;
+			transition-timing-function: ease-out;
+		}
+		&:hover {
+			&:before {
+				left: 0;
+				right: auto;
+				width: 100%;
+			}
+		}
+		&--active {
+			&:before {
+				position: absolute;
+				left: 0;
+				right: auto;
+				width: 100%;
+			}
+			// active link hover
+			&:hover {
+				&:before {
+					right: 0;
+					left: auto;
+					width: 0%;
+				}
+			}
+		}
+	}
+	&__text {
+		// Styling for text (span in a) attribute
+		font-size: rem(14);
+		line-height: rem(52);
+		color: color(White);
+		font-weight: $font-medium;
+		@media #{$small-only} {
+			font-size: rem(20);
+			line-height: 2.4;
+		}
+	}
 }
 
 // MOBILE TRIGGER MENU HAMBURGER
 
 .trigger {
-  background-color: color(Light);
-  width: rem($logo-height);
-  height: rem($logo-height);
-  position: absolute;
-  cursor: pointer;
-  right: 0;
-  // z-index: 10;
-  top: 0;
-  display: none;
-  transform: translateX(100%) rotate(90deg);
-  @media #{$small-only} {
-    display: block;
-  }
-  span {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    @include menu(1rem, 0.125rem, 0.1875rem, color(Black));
+	background-color: color(Light);
+	width: rem($logo-height);
+	height: rem($logo-height);
+	position: absolute;
+	cursor: pointer;
+	right: 0;
+	top: 0;
+	display: none;
+	transform: translateX(100%) rotate(90deg);
+	@media #{$small-only} {
+		display: block;
+	}
+	span {
+		position: absolute;
+		top: 50%;
+		@include menu(1rem, 0.125rem, 0.1875rem, color(Black));
+		left: calc((100% / 2) - 4px);
 
-    & {
-      width: rem(24);
-      margin: 0;
-      animation: spanWidth #{$time}s 0s forwards;
-    }
+		& {
+			width: rem(24);
+			animation: spanWidth #{$time}s 0s forwards;
+		}
 
-    &:before {
-      transform: translate(0, 5px);
-      width: 100%;
-      animation: goUpBefore #{$time}s 0s forwards;
-    }
+		&:before {
+			transform: translate(0, 10px);
+			width: 100%;
+			animation: backToTop #{$time}s 0s forwards;
+		}
 
-    &:after {
-      transform: translate(0, -5px);
-      width: 100%;
-      animation: goDownAfter #{$time}s 0s forwards;
-    }
-  }
+		&:after {
+			transform: translate(0, -10px);
+			width: 100%;
+			animation: backToBottom #{$time}s 0s forwards;
+		}
+	}
 }
-@keyframes spanWidth {
-  50% {
-    width: rem(16);
-  }
 
-  100% {
-    width: rem(24);
-  }
-}
-@keyframes goUpBefore {
-  0% {
-    transform: rotate(-45deg) translate(0, 5px);
-    width: rem(16);
-  }
-
-  50% {
-    transform: rotate(0deg) translate(0, 5px);
-    width: rem(16);
-  }
-
-  100% {
-    transform: rotate(0deg) translate(0, 0);
-    width: rem(24);
-  }
-}
-@keyframes goDownAfter {
-  0% {
-    transform: rotate(45deg) translate(0, -5px);
-    width: rem(16);
-  }
-
-  50% {
-    transform: rotate(0deg) translate(0, -5px);
-    width: rem(16);
-  }
-
-  100% {
-    transform: rotate(0deg) translate(0, 0);
-    width: rem(24);
-  }
-}
 
 input#menu-trigger {
-  width: 0;
-  height: 0;
-  opacity: 0;
-  display: none;
-  margin: 0;
-  padding: 0;
-  visibility: hidden;
-  & ~ #header {
+	width: 0;
+	height: 0;
+	opacity: 0;
+	display: none;
+	margin: 0;
+	padding: 0;
+	visibility: hidden;
+	& ~ #header {
 		@media #{$small-only}{
-    pointer-events: none;
+			pointer-events: none;
+		}
 	}
-  }
 
-  &:checked {
-    & ~ #header {
-	    pointer-events: all;
-      .nav {
-        animation: openMenu 0.3s ease-in-out forwards;
-      }
-    }
+	&:checked {
+		& ~ #header {
+			pointer-events: all;
+			.nav {
+				animation: openMenu 0.3s ease-in-out forwards;
+			}
+		}
 
-    & ~ .nav__logo {
-      .trigger {
-        span {
-          & {
-            background-color: color(Black);
-            animation: rotateSpan 0.6s forwards;
-          }
-
-          &:before {
-            animation: goLeft #{$time}s 0s forwards;
-          }
-
-          &:after {
-            animation: goRight #{$time}s 0s forwards;
-          }
-        }
-      }
-    }
-  }
+		& ~ .nav__logo {
+			.trigger {
+				overflow: hidden;
+				span {
+					width: rem(16);
+					left: calc((100% / 2) - 0px);
+					transition: .6 $easeboth;
+					& {
+						background-color: color(Black);
+						animation: rotateSpan 0.6s forwards;
+					}
+					&:before {
+						width: rem(16);
+						animation: goUpBefore #{$time}s forwards;
+					}
+					&:after {
+						width: rem(16);
+						animation: goDownAfter #{$time}s forwards;
+					}
+				}
+			}
+			span.flip {
+				& {
+					transition: background 0 .3s $specialCubicBezier;
+					background: white;
+					z-index: -1;
+				}
+				&:before {
+					animation: rotateTop #{$time}s 0s forwards;
+				}
+				&:after {
+					animation: rotateBottom #{$time}s 0s forwards;
+				}
+			}
+		}
+	}
 }
+
+
 @keyframes closeMenu {
   0% {
     clip-path: inset(0 0% 0 0);
@@ -286,61 +260,87 @@ input#menu-trigger {
     clip-path: inset(0 0% 0 0);
   }
 }
-@keyframes goLeft {
+
+//trigger animation
+@keyframes goDownAfter {
   0% {
-    transform: rotate(0deg) translateX(0);
-    width: rem(24);
+    transform: translateY(-10px) translateX(0);
   }
-
-  50% {
-    transform: rotate(0deg) translateX(-5rem);
-    width: rem(24);
+	51% {
+    transform: translateY(-10px) translateX(-2.5rem);
   }
-
-  51% {
-    top: 0;
-    transform: rotate(0deg) translateX(0);
-    width: rem(16);
-  }
-
-  100% {
-    top: 0;
-    transform: rotate(45deg) translateX(0);
-    width: rem(16);
-  }
+	99%{
+		transform: translateY(-5px) translateX(-2.5rem);
+	}
+	100%{
+		transform: translateY(-5px) translateX(0);
+	}
 }
-@keyframes goRight {
+
+@keyframes goUpBefore {
   0% {
-    transform: rotate(0deg) translateX(0);
-    width: rem(24);
+    transform: translateY(10px) translateX(0);
   }
-
-  50% {
-    transform: rotate(0deg) translateX(5rem);
-    width: rem(24);
+	51% {
+    transform: translateY(10px) translateX(2.5rem);
   }
-
-  51% {
-    top: 0;
-    transform: rotate(0deg) translateX(0);
-    width: rem(16);
-  }
-
-  100% {
-    top: 0;
-    transform: rotate(-45deg) translateX(0);
-    width: rem(16);
-  }
+	99%{
+		transform: translateY(5px) translateX(2.5rem);
+	}
+	100%{
+		transform: translateY(5px) translateX(0);
+	}
 }
-// rotate span
-@keyframes rotateSpan {
-  0% {
-    background-color: color(Dark);
-    width: rem(16);
-  }
+@keyframes rotateTop {
+	0%{
+		transform: translateY(5px) translateX(0) rotate(0);
+	}
+	20%{
+		transform: translateY(5px) translateX(0) rotate(0);
+	}
+	100%{
+		transform: translateY(5px) translateX(0) rotate(45deg);
+	}
+}
 
-  100% {
-    background-color: color(Light);
-    width: rem(16);
+@keyframes rotateBottom {
+	0%{
+		transform: translateY(-5px) translateX(0) rotate(0);
+	}
+	20%{
+		transform: translateY(-5px) translateX(0) rotate(0);
+	}
+	100%{
+		transform: translateY(-5px) translateX(0) rotate(-45deg);
+	}
+}
+
+@keyframes backToTop {
+  0% {
+		transform: translateY(5px) rotate(45deg) translateX(0);
   }
+	51% {
+		transform: translateY(5px) rotate(0) translateX(0);
+  }
+	99%{
+		transform: translateY(10px) rotate(0) translateX(0);
+	}
+	100%{
+		transform: translateY(10px) rotate(0) translateX(0);
+	}
+}
+
+@keyframes backToBottom {
+  0% {
+		transform: translateY(-5px) rotate(-45deg) translateX(0);
+  }
+	51% {
+		transform: translateY(-5px) rotate(0) translateX(0);
+  }
+	99%{
+		transform: translateY(-10px) rotate(0) translateX(0);
+	}
+	100%{
+		transform: translateY(-10px) rotate(0) translateX(0);
+	}
 }
