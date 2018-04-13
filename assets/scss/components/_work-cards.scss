@@ -1,11 +1,9 @@
 .work__grid {
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;
+	flex-wrap: nowrap;
 	padding: grid(1 2 0 2);
-	@media #{$medium-down} {
-		flex-direction: column;
-	}
+	min-height: 100vh;
 	&--column1{
 		top: grid(.8);
 		position: relative;
@@ -24,6 +22,9 @@
 
 	&--column3{
 		position: relative;
+		@media#{$medium-down} {
+			display: none;
+		}
 	}
 }
 

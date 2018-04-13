@@ -1,9 +1,7 @@
 <template>
 	<article :class="['work__card column column'+columnNr , this._data.cardClass, caseName]" :case="caseName" :style="this._data.customStyle">
-		<!-- <nuxt-link :to="'/work/' + slug "> -->
 		<div :class="['work__card__image-container', 'work__card__image-container--'+ size] " :style="'background: url(' + image + ') no-repeat; background-size: 67.5vw; background-position: center;'">
 		</div>
-		<!-- </nuxt-link> -->
 		<p class="work__card__description"><span class="work__card__description--bold">{{ client }}</span> {{ description }}</p>
 	</article>
 </template>
@@ -96,12 +94,12 @@ export default {
 		let savedWidth = window.innerWidth;
 		let cases = this._data.caseCount;
 		window.addEventListener('resize', function(){
-			this.checkColumns(window.innerWidth, savedWidth);
+			self.checkColumns(window.innerWidth, savedWidth);
 		});
 		window.addEventListener('scroll', function(){
 			self._data.scrollPosition = window.pageYOffset;
 		});
-		this.checkColumns(window.innerWidth, savedWidth);
+		self.checkColumns(window.innerWidth, savedWidth);
 	},
 	watch: {
 		target: function (){
