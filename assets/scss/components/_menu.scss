@@ -3,6 +3,7 @@
     top: grid(1.5);
     left: grid(2);
     position: absolute;
+    z-index: 1;
 
     @media #{$small-only} {
       position: absolute;
