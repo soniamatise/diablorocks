@@ -1,5 +1,5 @@
 <template>
-  <header id="header" class="header" ref="header" v-bind:class="{ fullHeight: headerIsActive }">
+  <header id="header" class="header " ref="header">
     <nav class="nav" aria-label="Top navigation" ref="topNav">
       <ul class="nav__list">
         <li class="nav__item main-link">
@@ -34,29 +34,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      isMenuOpen: false,
-      headerIsActive: false
-    };
-  },
-  head() {
-    return {
-      bodyAttrs: {
-        class: this.isMenuOpen ? 'scroll-disable' : ''
-      }
-    };
-  },
-  methods: {
-    toggleScrollBody: function() {
-      this.isMenuOpen = !this.isMenuOpen;
-    },
-    toggleHeaderWidth: function() {
-      // setTimeout(()=>{
-      this.headerIsActive = !this.headerIsActive;
-      // },1000);
-    }
-  },
   mounted() {
     let topNav = this.$refs.topNav;
     setTimeout(function() {

@@ -2,7 +2,7 @@
 <div id="main-layout">
 	<input id="menu-trigger" type="checkbox"/>
 	<logo></logo>
-	<top-nav></top-nav>
+	<top-nav v-on:headerIsActive="makeActive" :class="{headerIsActive: activeHeader}"></top-nav>
 	<main>
 		<slot></slot>
 	</main>
@@ -20,6 +20,16 @@ export default {
 		Logo,
 		TopNav,
 		FooterElement
+	},
+	data() {
+		return {
+			activeHeader: false
+		}
+	},
+	methods: {
+		makeActive: function(){
+			this._data.activeHeader = true;
+		}
 	}
 }
 </script>
