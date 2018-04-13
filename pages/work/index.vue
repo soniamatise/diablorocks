@@ -10,7 +10,7 @@
 		</section>
 
 
-		<div :class="[this._data.background ,'background-canvas']" :style="style"></div>
+		<div :class="[background ,'background-canvas', {'background-canvas--mouseout': mouseout} ]" :style="style"></div>
 		<section class="work__grid content">
 			<div class="work__grid__column work__grid--column1">
 				<WorkCard v-for="value in allCases" v-if="value.column == 1" :key="value.id"
@@ -101,7 +101,8 @@
 				class2: ['small', 'large'],
 				class3: ['large', 'medium'],
 				allCases: '',
-				windowWidth: ''
+				windowWidth: '',
+				mouseout: false
 			}
 		},
 		methods: {
@@ -125,22 +126,32 @@
 				}
 			},
 			onHover: function(item){
-				if (this.displayContent = true){
-					let workCard = this.$refs[item][0];
-					this.style = `--background: ${workCard.color}`;
+				let self = this;
+				if (self.displayContent = true){
+					let workCard = self.$refs[item][0];
+					self.style = `--background: ${workCard.color}`;
 					workCard.doHover(item);
-
-					if (this._data.click == false) {
-						this._data.background = `background--forward`;
+					let canvas = document.querySelector('.background-canvas--mouseout');
+					if (self._data.click == false && !self._data.mouseout) {
+						self._data.background = `background--forward`;
+					} else {
+						setTimeout(function() {
+							self._data.background = `background--forward`;
+						}, 300)
 					}
 				}
 			},
 			notHover: function(item){
-				let workCard = this.$refs[item][0];
+				let self = this;
+				let workCard = self.$refs[item][0];
 				workCard.dontHover(item);
-				if (this._data.click == false) {
-					this._data.background = '';
+				if (self._data.click == false) {
+					self._data.background = '';
 				}
+				self._data.mouseout = true;
+				setTimeout(function(){
+					self._data.mouseout = false;
+				}, 300)
 			},
 			disCases: function(columns, cases) {
 				let self = this;
