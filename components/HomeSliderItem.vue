@@ -41,12 +41,8 @@ export default {
 
 			this.$emit('onEnter', this.caseColor);
 
-
 			var self = this;
-				bullets.forEach(function(bullet){
-				bullet.classList = 'bullet';
-				bullet.classList.add(`bg-${self.slug}`);
-			});
+
 			image_holder.forEach(function(image_holder){
 				image_holder.style = `--caseColor: ${self.caseColor}`
 			})
@@ -61,11 +57,6 @@ export default {
 	    	const imgActive = this.$refs.imgActive;
 	    	let image_holder = document.querySelectorAll('.image_holder');
 	    	let bullets = document.querySelectorAll('.bullet');
-				
-			bullets.forEach(function(bullet){
-				bullet.classList = 'bullet';
-				bullet.classList.add('bg-black');
-			})
 
 			this.$emit('onLeave');
 

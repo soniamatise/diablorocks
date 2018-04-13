@@ -42,7 +42,9 @@
 				/>
 
 			</div>
-			<div class="swiper-scrollbar contentDisappear" v-bind:class="{show: displayContent}" ref="scrollbar"></div>
+			<div class="swiper-scrollbar contentDisappear" v-bind:class="{show: displayContent}" :style="sliderStyle" ref="scrollbar">
+				<span v-for="value in cases" class="bullet" v-bind:key="value.post.id"></span>
+			</div>
 		</div>
 	<!-- </div> -->
 
@@ -156,17 +158,17 @@ export default {
 			changeText();
 		}, 100);
 
-		function createBullets() {
-			let slides = document.getElementsByClassName('swiper-slide');
-			let scrollBar = self.$refs.scrollbar;
-			for (var index = 0; index < slides.length; index++){
-				let bullet = document.createElement('span');
-				bullet.className = ('bullet bg-black');
-				scrollBar.appendChild(bullet);
-			}
-			scrollBar.removeChild(scrollBar.lastChild);
-		}
-		createBullets();
+		// function createBullets() {
+		// 	let slides = document.getElementsByClassName('swiper-slide');
+		// 	let scrollBar = self.$refs.scrollbar;
+		// 	for (var index = 0; index < slides.length; index++){
+		// 		let bullet = document.createElement('span');
+		// 		bullet.className = ('bullet bg-black');
+		// 		scrollBar.appendChild(bullet);
+		// 	}
+		// 	scrollBar.removeChild(scrollBar.lastChild);
+		// }
+		// createBullets();
 	},
 	methods: {
 		showSlides: function(){
