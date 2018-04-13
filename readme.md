@@ -24,7 +24,10 @@ For detailed explanation on how things work, checkout the [Nuxt.js docs](https:/
 
 Use on production with [pm2](http://pm2.keymetrics.io/)
 
-`pm2 start npm --name "matise2018" -- start`
+### Run Shit on Digital Ocean
+Staging: `pm2 start npm --name "matise2018-staging" -- run start-staging`
+
+Dev: `pm2 start npm --name "matise2018-dev" -- run start-dev`
 
 
 ```
