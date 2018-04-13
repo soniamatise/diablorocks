@@ -26,15 +26,15 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 		}
 
 		.swiper-wrapper { display: flex; justify-content: space-between; height: 100vh; width: grid(24); z-index: 1;
-			.swiper-slide { height: 100vh; width: grid(24);
-				// swiper prev slide position
-				&.swiper-slide-prev{ transform: translate( grid(8) , 0 );
-					@media #{$medium-only}{ transform: translate( grid(6) , 0 ); }
-				}
-				// swiper next slide position
-				&.swiper-slide-next{ transform: translate( grid(-8) , 0 );
-					@media #{$medium-only}{ transform: translate( grid(-6) , 0 ); }
-				}
+			.swiper-slide { height: 100vh; width: grid(16);
+				// // swiper prev slide position
+				// &.swiper-slide-prev{ transform: translate( grid(8) , 0 );
+				// 	@media #{$medium-only}{ transform: translate( grid(6) , 0 ); }
+				// }
+				// // swiper next slide position
+				// &.swiper-slide-next{ transform: translate( grid(-8) , 0 );
+				// 	@media #{$medium-only}{ transform: translate( grid(-6) , 0 ); }
+				// }
 				&.swiper-slide-active{ }
 
 				.content_container{ position: relative; display: flex; justify-content: center; align-items: center; height: 100vh; width: 100%;

@@ -14,8 +14,10 @@
 			</div>
 		</section>
 		<!-- home slider -->
-		<div id="home-slider" ref="homeSlider" class="row center" :style="sliderStyle">
-		<div class="column large-full medium-full small-full">
+		<button class="swiper-button-next">NEXT</button>
+		<button class="swiper-button-next">PREVIOUS</button>
+		<div id="home-slider" ref="homeSlider" :style="sliderStyle">
+		<!-- <div class="column large-full medium-full small-full"> -->
 			<div v-swiper:mySwiper="swiperOption">
 				<div class="parallax-bg home-bg-parallax"
 				data-swiper-parallax="-300%">
@@ -39,12 +41,10 @@
 					v-on:onLeave="onLeave"
 				/>
 
-
-
 			</div>
 			<div class="swiper-scrollbar contentDisappear" v-bind:class="{show: displayContent}" ref="scrollbar"></div>
 		</div>
-	</div>
+	<!-- </div> -->
 
 </div>
 </div>
@@ -76,11 +76,10 @@ export default {
 			headingText: '',
 			Velocity: this.$velocity,
 			swiperOption: {
-				headingText: '',
-				slidesPerView: '1',
-				direction: 'horizontal',
-				touchRatio: 1,
-				centeredSlides: true,
+				slidesPerView: 'auto',
+	      centeredSlides: true,
+	      spaceBetween: 30,
+				speed: 600,
 				parallax: true,
 				lazy: {
 					loadPrevNext: true,
@@ -92,51 +91,30 @@ export default {
 					dragSize: '70',
 				},
 				mousewheel: {
-					// invert: true,
-					// sensitivity: 10,
+					invert: true,
+					sensitivity: 10,
 				},
 				breakpoints: {
-
-					2000: {
-						slidesPerView: '1',
-						direction: 'horizontal',
-						touchRatio: 1,
-						centeredSlides: true,
-						parallax: true,
-						lazy: {
-							loadPrevNext: true,
-							loadPrevPrev: true,
-						},
-						scrollbar: {
-							el: '.swiper-scrollbar',
-							draggable: true,
-							dragSize: '70',
-						},
-						mousewheel: {
-							// invert: true,
-							// sensitivity: 4,
-						},
-					},
-					750: {
-						slidesPerView: '1',
-						direction: 'vertical',
-						touchRatio: 1,
-						centeredSlides: true,
-						parallax: true,
-						lazy: {
-							loadPrevNext: true,
-							loadPrevPrev: true,
-						},
-						scrollbar: {
-							el: '.swiper-scrollbar',
-							draggable: true,
-							dragSize: '70',
-						},
-						mousewheel: {
-							// invert: true,
-							// sensitivity: 10,
-						},
-					},
+					// 750: {
+					// 	slidesPerView: 'auto',
+					// 	direction: 'vertical',
+					// 	touchRatio: 1,
+					// 	centeredSlides: true,
+					// 	parallax: true,
+					// 	lazy: {
+					// 		loadPrevNext: true,
+					// 		loadPrevPrev: true,
+					// 	},
+					// 	scrollbar: {
+					// 		el: '.swiper-scrollbar',
+					// 		draggable: true,
+					// 		dragSize: '70',
+					// 	},
+					// 	mousewheel: {
+					// 		// invert: true,
+					// 		// sensitivity: 10,
+					// 	},
+					// },
 				}
 			},
 			displayContent: false,
