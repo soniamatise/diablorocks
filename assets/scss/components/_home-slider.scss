@@ -168,10 +168,8 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 				position: relative;
 				top: -#{$scrollBarHeight};
 				transition: background-color 1s cubic-bezier(0.42, 0, 0.58, 1);
-
-				// &.beBlack {
-				// 	background-color: black !important;
-				// }
+				background-color: var(--caseColor, color(Black));
+				color: color(White);
 			}
 
 			.swiper-scrollbar-drag {
