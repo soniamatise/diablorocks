@@ -14,7 +14,7 @@
 			</div>
 		</section>
 		<!-- home slider -->
-		<div id="home-slider" ref="homeSlider" class="row center">
+		<div id="home-slider" ref="homeSlider" class="row center" :style="sliderStyle">
 		<div class="column large-full medium-full small-full">
 			<div v-swiper:mySwiper="swiperOption">
 				<div class="parallax-bg home-bg-parallax"
@@ -26,7 +26,21 @@
 				/>
 			</div>
 			<div class="swiper-wrapper" v-bind:class="{show: displayContent}">
-				<slot></slot>
+
+				<home-slider-item v-for="value in cases" :key="value.post.id"
+					:caseName="value.case_fields.client_name"
+					:slug="`work/${value.post.post_name}`"
+					:caseDescription="value.case_fields.case_description"
+					:caseImage="value.case_fields.case_image"
+					:caseColor="value.case_fields.case_background_color"
+					case_image_size="medium_image"
+					case_content_size="medium_block"
+					v-on:onEnter="onEnter"
+					v-on:onLeave="onLeave"
+				/>
+
+
+
 			</div>
 			<div class="swiper-scrollbar contentDisappear" v-bind:class="{show: displayContent}" ref="scrollbar"></div>
 		</div>
@@ -37,6 +51,7 @@
 </template>
 
 <script>
+
 import HomeSliderItem from '~/components/HomeSliderItem.vue'
 import TypeWriter from '~/components/TypeWriter.vue'
 
@@ -50,7 +65,7 @@ export default {
 		HomeSliderItem,
 		TypeWriter
 	},
-	props: [''],
+	props: ['cases'],
 	data() {
 		return {
 			texts: ['Empathic Branding', 'Creative Strategy', 'Innovative Digital', 'Aspiring rental box mogul'],
@@ -125,6 +140,7 @@ export default {
 				}
 			},
 			displayContent: false,
+			sliderStyle: {}
 		}
 	},
 	mounted: function() {
@@ -195,6 +211,12 @@ export default {
 				self.showSlides();
 			}, 1800);
 			self._data.wait = false;
+		},
+		onEnter: function(color){
+			this.sliderStyle = {'--caseColor': color};
+		},
+		onLeave: function(){
+			this.sliderStyle = {};
 		}
 	}
 

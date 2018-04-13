@@ -18,7 +18,6 @@ export default {
 	},
 	mounted() {
 		let self = this;
-		console.log(self._props)
 		if(self._props.wait != true){
 			self.type();
 		}

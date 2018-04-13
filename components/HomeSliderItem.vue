@@ -38,13 +38,9 @@ export default {
 	    	let image_holder = document.querySelectorAll('.image_holder');
 	    	let bullets = document.querySelectorAll('.bullet');
 	    	const getGrid = window.innerWidth / 24;
-				bg.classList.remove('bg-black');
 
-			bg.classList.add(`bg-${this.slug}`);
+			this.$emit('onEnter', this.caseColor);
 
-			// wat doen we hier mee?????
-			// typestroke.classList.add(`bg-${this.slug}`);
-			// homeCover.classList.add(`bg-${this.slug}`);
 
 			var self = this;
 				bullets.forEach(function(bullet){
@@ -65,14 +61,13 @@ export default {
 	    	const imgActive = this.$refs.imgActive;
 	    	let image_holder = document.querySelectorAll('.image_holder');
 	    	let bullets = document.querySelectorAll('.bullet');
-			bg.classList.remove(`bg-${this.slug}`);
-			bg.classList.add('bg-black');
-			// homeCover.classList.add('bg-black');
-			// typestroke.classList.add('bg-black');
+				
 			bullets.forEach(function(bullet){
 				bullet.classList = 'bullet';
 				bullet.classList.add('bg-black');
 			})
+
+			this.$emit('onLeave');
 
 			image_holder.forEach(function(image_holder){
 				image_holder.style = `--caseColor: black`

@@ -1,6 +1,6 @@
 $easeboth: cubic-bezier(.42,0,.58,1);
 
-#home-slider { z-index: 2; transition: background-color 1s $easeboth;
+#home-slider { z-index: 2; transition: background-color 1s $easeboth; background-color: var(--caseColor, color(Black));
 
 	.home-cover { transition: background-color 1s $easeboth; top: grid(3/2); height: grid(1); width: grid(20); right: grid(2); position: absolute; animation: menuCoverer 0.5s ease-in forwards 13s; z-index: 3; opacity: 1;
 		@media #{$small-only} { display: none; animation: none; }
