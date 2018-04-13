@@ -75,7 +75,7 @@
 				:slug="`work/${value.post.post_name}`"
 				:caseDescription="value.case_fields.case_description"
 				:caseImage="value.case_fields.case_image"
-				caseColor="#a8a59c"
+				:caseColor="value.case_fields.case_background_color"
 				case_image_size="medium_image"
 				case_content_size="medium_block"
 			/>
@@ -97,6 +97,7 @@ export default {
 	asyncData ({ params }) {
     return axios.get(`${process.env.baseUrl}/page/homepage`)
     .then((res) => {
+			console.log(res.data.cases);
 			return {
 				cases: res.data.cases
 			}
