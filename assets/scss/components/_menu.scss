@@ -216,11 +216,11 @@ input#menu-trigger {
 					}
 					&:before {
 						width: rem(16);
-						animation: goUpBefore #{$time}s forwards;
+						animation: goUpBefore 0.8s forwards;
 					}
 					&:after {
 						width: rem(16);
-						animation: goDownAfter #{$time}s forwards;
+						animation: goDownAfter 0.8s forwards;
 					}
 				}
 			}
