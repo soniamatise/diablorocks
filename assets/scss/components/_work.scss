@@ -1,7 +1,10 @@
 .work{
 	.intro {
 		background-color: color(Light);
-		padding: grid(5) 0 grid(1) 0;
+		padding: grid(5) 0 grid(2) 0;
+		@media #{$mobile} {
+			margin-bottom: 2; 
+		}
 	}
 	// show subtitle when typewriter is done
 	.work__grid {
