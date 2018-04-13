@@ -13,7 +13,7 @@
 			</div>
 		</section>
 
-		<div id="home-slider" ref="homeSlider" class="row center">
+		<div id="home-slider" ref="homeSlider" :class="['row center', {slideIt: slideIn}]">
 		<div class="column large-full medium-full small-full">
 			<div v-swiper:mySwiper="swiperOption">
 				<div class="parallax-bg home-bg-parallax"
@@ -27,7 +27,7 @@
 			<div class="swiper-wrapper" v-bind:class="{show: displayContent}">
 				<slot></slot>
 			</div>
-			<div class="swiper-scrollbar contentDisappear" v-bind:class="{show: displayContent}" ref="scrollbar"></div>
+			<div class="swiper-scrollbar contentDisappear" v-bind:class="{showScroll: displayContent}" ref="scrollbar"></div>
 		</div>
 	</div>
 
@@ -58,6 +58,7 @@ export default {
 			activeIndex: null,
 			go: false,
 			headingText: '',
+			slideIn: '',
 			Velocity: this.$velocity,
 			swiperOption: {
 				headingText: '',
@@ -132,10 +133,11 @@ export default {
 								self._data.go = true;
 							}, 1900);
 							setTimeout(function(){
-								document.querySelector('.nav__logo').classList.add('high-z');
-							}, 4200);
-							setTimeout(function(){
 								whiteIntro.classList.add('low-z-white');
+								self._data.slideIn = true;
+								document.querySelector('.nav__logo').classList.add('high-z');
+							}, 4000);
+							setTimeout(function(){
 								blackIntro.classList.add('low-z-black');
 								self.type();
 							}, 4900);
@@ -150,7 +152,7 @@ export default {
 		}
 		setTimeout(function() {
 			changeText();
-		}, 100);
+		}, 200);
 
 		function createBullets() {
 			let slides = document.getElementsByClassName('swiper-slide');
