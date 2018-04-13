@@ -1,10 +1,11 @@
 <template>
-	<main-layout class="work-detail">
+	<main-layout class="work-detail" v-bind:class="{scroll: scrollable}">
 		<case-heading
 			:caseName="client"
 			:caseQuote="description"
 			:caseImage="image"
 			:caseColor="color"
+			v-on:doneAnimation="doneIntro"
 		/>
 
 		<section v-for="value in layout" :key="value.id" :class="value.acf_fc_layout">
@@ -70,6 +71,9 @@ export default {
 		VideoPlayer,
 		NextCase,
 	},
+	data() {
+		return { scrollable: false }
+	},
 	asyncData ({ params }) {
     return axios.get(`${process.env.baseUrl}/wp/v2/case?slug=${params.detail}&_embed`)
     .then((res) => {
@@ -82,6 +86,11 @@ export default {
 			}
     })
   },
+	methods: {
+		doneIntro: function(){
+			this.scrollable = true;
+		}
+	}
 
 }
 
