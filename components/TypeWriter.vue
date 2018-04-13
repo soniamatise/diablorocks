@@ -1,5 +1,5 @@
 <template>
-	<div id="typeWriterTitle" ref="typeWriterTitle">
+	<div class="typeWriterTitle" ref="typeWriterTitle" >
 		<h1 :class="{caret: caret}" :text="heading" :wait="wait">{{ headingText }}</h1>
 		<p :class="{show : show}">{{ sub }}</p>
 	</div>
@@ -18,7 +18,6 @@ export default {
 	},
 	mounted() {
 		let self = this;
-		console.log(self._props)
 		if(self._props.wait != true){
 			self.type();
 		}

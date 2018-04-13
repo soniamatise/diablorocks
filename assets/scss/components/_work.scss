@@ -1,7 +1,38 @@
 .work{
 	.intro {
 		background-color: color(Light);
-		padding: grid(5) 0 grid(1) 0;
+		padding: grid(5 0 2 0);
+		@media #{$mobile} {
+			padding: rem(96 0);
+			background: color(Black);
+			margin-bottom: rem(32);
+			color: color(White);
+			.typeWriterTitle{
+				width: 247px;
+				margin: 0 auto;
+				text-align: left;
+				h1{
+					line-height: 1;
+					padding-bottom: 0;
+					height: 20px;
+					font-size: rem(20);
+					color: color(White);
+					font-weight: $font-medium;
+					display: inline-block;
+					padding-right: rem(30);
+				}
+				p{
+					display: inline;
+					position: relative;
+					&:before {
+						content: '— ';
+						position: absolute;
+						left: rem(-23);
+						padding-right: rem(10);
+					}
+				}
+			}
+		}
 	}
 	// show subtitle when typewriter is done
 	.work__grid {
