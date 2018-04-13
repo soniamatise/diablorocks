@@ -14,8 +14,6 @@
 			</div>
 		</section>
 		<!-- home slider -->
-		<button class="swiper-button-next">NEXT</button>
-		<button class="swiper-button-next">PREVIOUS</button>
 		<div id="home-slider" ref="homeSlider" :style="sliderStyle">
 		<!-- <div class="column large-full medium-full small-full"> -->
 			<div v-swiper:mySwiper="swiperOption">
@@ -80,7 +78,6 @@ export default {
 			swiperOption: {
 				slidesPerView: 'auto',
 	      centeredSlides: true,
-	      spaceBetween: 30,
 				speed: 600,
 				parallax: true,
 				lazy: {

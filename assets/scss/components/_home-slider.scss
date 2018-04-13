@@ -27,15 +27,6 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 
 		.swiper-wrapper { display: flex; justify-content: space-between; height: 100vh; width: grid(24); z-index: 1;
 			.swiper-slide { height: 100vh; width: grid(16);
-				// // swiper prev slide position
-				// &.swiper-slide-prev{ transform: translate( grid(8) , 0 );
-				// 	@media #{$medium-only}{ transform: translate( grid(6) , 0 ); }
-				// }
-				// // swiper next slide position
-				// &.swiper-slide-next{ transform: translate( grid(-8) , 0 );
-				// 	@media #{$medium-only}{ transform: translate( grid(-6) , 0 ); }
-				// }
-				&.swiper-slide-active{ }
 
 				.content_container{ position: relative; display: flex; justify-content: center; align-items: center; height: 100vh; width: 100%;
 					// general content
@@ -64,6 +55,22 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 							}
 						}
 					}
+					// no block speficied
+					&.null_block{
+						.content{ height: grid(9);
+							&.name{
+								p{ transform: translateY(grid(9)); }
+							}
+							&.description{
+								p{ transform: translateY(grid(-9)); max-width: 26ch; }
+							}
+						}
+						.content_for_medium{
+							@media #{$medium-down}{
+								p{ transform: translateY(grid(10)); }
+							}
+						}
+					}
 					//content specific for large_block with large_image
 					&.large_block{
 						.content{ height: grid(8);
@@ -76,7 +83,7 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 						}
 						.content_for_medium{
 							@media #{$medium-down}{
-								p{ transform: translateY(grid(10)); }
+								p{ transform: translateY(grid(9)); }
 							}
 						}
 					}
@@ -115,7 +122,10 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 						transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s, box-shadow 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 						box-shadow: 0 0 grid(2) 0 color(Dark); cursor: pointer; z-index: 3;
 						img{
-								@media #{$medium-only}{ width: 100vw; height: 100%; }
+								@media #{$medium-only}{ width: 100vw; height: 100%; transform: scale(.95); }
+						}
+						&.null_image { height: grid(9); width: grid(9);
+							@media #{$medium-only}{ height: grid(14); width: grid(14); }
 						}
 						&.large_image{ height: grid(11); width: grid(8);
 							@media #{$medium-only}{ height: grid(16); width: grid(12); }
