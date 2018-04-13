@@ -1,9 +1,7 @@
 <template>
-	<article :class="['work__card column', 'column'+ columnNr, this._data.cardClass, caseName]" :case="caseName" :style="this._data.customStyle">
-		<!-- <nuxt-link :to="'/work/' + slug "> -->
-		<div :class="'work__card__image-container work__card__image-container--'+ size " :style="'background: url(' + image + ') no-repeat; background-size: 67.5vw; background-position: center;'">
+	<article :class="['work__card column column'+columnNr , this._data.cardClass, caseName]" :case="caseName" :style="this._data.customStyle">
+		<div :class="['work__card__image-container', 'work__card__image-container--'+ size] " :style="'background: url(' + image + ') no-repeat; background-size: 67.5vw; background-position: center;'">
 		</div>
-		<!-- </nuxt-link> -->
 		<p class="work__card__description"><span class="work__card__description--bold">{{ client }}</span> {{ description }}</p>
 	</article>
 </template>
@@ -12,20 +10,21 @@
 export default {
 	data() {
 		return {
-			cardClass: '',
-			deviceSize: '',
-			custom: '',
-			target: '',
-			targetSize: '',
-			customStyle: '',
-			case: '',
-			scrollPosition: null
+			cardClass: null,
+			deviceSize: null,
+			custom: null,
+			target: null,
+			targetSize: null,
+			customStyle: null,
+			case: null,
+			scrollPosition: null,
+			caseCount: null,
+			columnCount: null,
 		}
 	},
 	props: ['columnNr', 'caseName', 'size', 'image', 'client', 'description', 'slug', 'color'],
 	methods: {
 		expandCard: function(item) {
-			console.log(item);
 			this._data.target = item.size;
 			this._data.case = item.caseName;
 			this._data.cardClass = 'expandCard';
@@ -39,38 +38,30 @@ export default {
 			if (this._data.cardClass !== 'expandCard') {
 				this._data.cardClass = '';
 			}
-		}
-	},
-	mounted() {
-		let savedWidth = window.innerWidth;
-		let self = this;
-		let deviceSize;
-		let targetSize;
-		let counter = 0;
-		// TODO: replace images with dynamically loaded items from backend
-		let images = 9;
-		let columns;
-		let activeColumn;
-		let columnClass;
-		window.addEventListener('resize', function(){
-			checkColumns();
-		});
-		window.addEventListener('scroll', function(){
-			self._data.scrollPosition = window.pageYOffset;
-		});
+		},
+		checkColumns: function(viewWidth, savedWidth){
+			let self = this;
+			let cards = document.querySelectorAll('.work__card');
+			let deviceSize;
+			let targetSize;
+			let cases = cards.length;
+			let activeColumn;
+			let columnClass;
+			let columns;
 
-		let checkColumns = function(){
-			if (window.innerWidth < 750 && savedWidth != 750){
-				columns = images.length;
+			if (viewWidth < 750 && savedWidth != 750){
 				savedWidth = 750;
 				deviceSize = 'small';
 				targetSize = 'small';
+
 				self._data.deviceSize = deviceSize;
 				self._data.targetSize = targetSize;
 			} else if ((window.innerWidth < 960 && window.innerWidth > 750) && savedWidth != 960){
-				columns = Math.ceil(images.length / 2);
+				// device is medium
+				columns = Math.ceil(cases / 2);
 				savedWidth = 960;
 				deviceSize = 'medium';
+
 				if (self.$props.size === 'small') {
 					targetSize = 'medium-small';
 				} else if (self.$props.size === 'medium') {
@@ -80,11 +71,12 @@ export default {
 				}
 				self._data.deviceSize = deviceSize;
 				self._data.targetSize = targetSize;
+
 			} else {
-				columns = images.length / 3;
+				// device is large
+				columns = Math.ceil(cases / 3);
 				savedWidth = 1440;
 				deviceSize = 'large';
-				self._data.deviceSize = deviceSize;
 				if (self.$props.size === 'small') {
 					targetSize = 'large-small';
 				} else if (self.$props.size === 'medium') {
@@ -92,10 +84,22 @@ export default {
 				} else if (self.$props.size === 'large') {
 					targetSize = 'large-large';
 				}
+				self._data.deviceSize = deviceSize;
 				self._data.targetSize = targetSize;
 			}
 		}
-		checkColumns();
+	},
+	mounted() {
+		let self = this;
+		let savedWidth = window.innerWidth;
+		let cases = this._data.caseCount;
+		window.addEventListener('resize', function(){
+			self.checkColumns(window.innerWidth, savedWidth);
+		});
+		window.addEventListener('scroll', function(){
+			self._data.scrollPosition = window.pageYOffset;
+		});
+		self.checkColumns(window.innerWidth, savedWidth);
 	},
 	watch: {
 		target: function (){

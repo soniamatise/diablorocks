@@ -6,6 +6,7 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 
 	p {
 		font-size: grid(.4);
+		@include min-fontsize(.4,16);
 		padding-top: grid(.4);
 		opacity: 0;
 		transition: 0.2s $easeboth opacity 0.6s;
