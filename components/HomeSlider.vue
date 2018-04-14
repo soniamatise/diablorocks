@@ -13,19 +13,29 @@
 				</div>
 			</div>
 		</section>
+
 		<!-- home slider -->
 		<div id="home-slider" ref="homeSlider" :style="sliderStyle">
-		<!-- <div class="column large-full medium-full small-full"> -->
 			<div v-swiper:mySwiper="swiperOption">
-				<div class="parallax-bg home-bg-parallax"
-				data-swiper-parallax="-300%">
-				<type-writer
-				heading="Our copy guy was out of office"
-				:wait="wait"
-				sub=""
-				/>
+				<div class="parallax-bg home-bg-parallax" data-swiper-parallax="-300%">
+					<type-writer
+					heading="Our copy guy was out of office"
+					:wait="wait"
+					sub=""
+					/>
 			</div>
 			<div class="swiper-wrapper" v-bind:class="{show: displayContent}">
+
+				<!-- <main class="center">
+				  <div class="shadow portrait"></div>
+				  <div class="shadow square"></div>
+				  <div class="shadow landscape"></div>
+				</main> -->
+				<!-- <main class="center">
+				  <div class="rotated portrait"></div>
+				  <div class="rotated square"></div>
+				  <div class="rotated landscape"></div>
+				</main> -->
 
 				<home-slider-item v-for="value in cases" :key="value.post.id"
 					:caseName="value.case_fields.client_name"
@@ -43,7 +53,6 @@
 				<span v-for="value in cases" class="bullet" v-bind:key="value.post.id"></span>
 			</div>
 		</div>
-	<!-- </div> -->
 
 </div>
 </div>
@@ -163,7 +172,7 @@ export default {
 				(function(index) {
 					setTimeout(function() {
 						content[index].classList.add('show');
-						self.Velocity(content[index], { top: '0' }, 600, [180, 16]);
+						// self.Velocity(content[index], { top: '0' }, 600, [180, 16]);
 					}, i * 200)
 				})(i);
 			}

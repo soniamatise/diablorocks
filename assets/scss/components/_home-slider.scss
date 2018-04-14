@@ -1,6 +1,63 @@
-$easeboth: cubic-bezier(.42,0,.58,1);
+
+// div.shadow {
+//   width: grid(4.5);
+//   height: grid(4.5);
+//   border-radius: 50%;
+//   background-color: black;
+//   box-shadow: 0 0 grid(3) 0 black;
+//   &.landscape {
+//     width: grid(6);
+//     height: grid(4);
+//   }
+//   &.square {
+//     width: grid(5);
+//     height: grid(5);
+//   }
+//   &.portrait {
+//     width: grid(4);
+//     height: grid(6);
+//   }
+// }
+
+
+//
+// div.rotated {
+//   position: relative;
+//   pointer-events: none;
+//   position: relative;
+//   z-index: 1;
+//   display: block;
+//   border: 1px solid rgba(255, 255, 255, 0.5);
+//   background-color: transparent;
+//   transform: scale(0.8) rotate(11.25deg);
+//   &.landscape {
+//     width: grid(8);
+//     height: grid(6);
+//   }
+//   &.portrait {
+//     width: grid(6);
+//     height: grid(8);
+//   }
+//   &.square {
+//     width: grid(7);
+//     height: grid(7);
+//   }
+// }
+
+
 
 #home-slider { z-index: 2; transition: background-color 1s $easeboth; background-color: var(--caseColor, color(Black));
+	&.changeShadow{
+		.swiper-container{
+			.swiper-wrapper{
+				.swiper-slide{
+					.content_container{
+						.shadow{ box-shadow: 0 0 grid(2) 0 var(--caseColor, black); }
+					}
+				}
+			}
+		}
+	}
 
 	.home-cover { transition: background-color 1s $easeboth; top: grid(3/2); height: grid(1); width: grid(20); right: grid(2); position: absolute; animation: menuCoverer 0.5s ease-in forwards 13s; z-index: 3; opacity: 1;
 		@media #{$small-only} { display: none; animation: none; }
@@ -15,9 +72,10 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 
 	.swiper-container { overflow: hidden;
 
-		.home-bg-parallax { height: 100vh; width: 100%; position: absolute; display: flex; align-items: center;
-			#typeWriterTitle{ position: absolute; left: grid(2);
-				h1{ color: color(White); font-size: rem(500); width: max-content; height: 100%; font-weight: $font-medium;
+		// typewriter
+		.home-bg-parallax{ height: 100vh; width: 100%; position: absolute; display: flex; align-items: center;
+			#typeWriterTitle{ position: absolute; left: grid(2); white-space: nowrap;
+				h1{ color: color(White); font-size: grid(6); width: max-content; height: 100%; font-weight: $font-medium;
 					@media #{$medium-only}{ font-size: rem(192); }
 					&.caret:after{ border-color: color(White); }
 				}
@@ -52,22 +110,6 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 								span{ font-weight: $font-medium;
 									&:after{ content:'—'; }
 								}
-							}
-						}
-					}
-					// no block speficied
-					&.null_block{
-						.content{ height: grid(9);
-							&.name{
-								p{ transform: translateY(grid(9)); }
-							}
-							&.description{
-								p{ transform: translateY(grid(-9)); max-width: 26ch; }
-							}
-						}
-						.content_for_medium{
-							@media #{$medium-down}{
-								p{ transform: translateY(grid(10)); }
 							}
 						}
 					}
@@ -117,10 +159,96 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 							}
 						}
 					}
+
+					div.shadow {
+						width: grid(4.5);
+						height: grid(4.5);
+						border-radius: 50%;
+						box-shadow: 0 0 grid(2) 0 black;
+						position: absolute;
+						transition: box-shadow 1s $easeboth;
+						&.landscape_image {
+							width: grid(9.5);
+							height: grid(6.5);
+						}
+						&.square_image {
+							width: grid(8.5);
+							height: grid(8.5);
+						}
+						&.portrait_image {
+							width: grid(7.5);
+							height: grid(10.5);
+						}
+					}
+
 					// image holder
-					.image_holder { position: absolute; overflow: hidden; display: flex; align-items: center; justify-content: center;
-						transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s, box-shadow 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-						box-shadow: 0 0 grid(2) 0 color(Dark); cursor: pointer; z-index: 3;
+					.image_holder{ overflow: hidden; display: flex; align-items: center; justify-content: center;
+						  position: relative;
+						  z-index: 2;
+						  display: block;
+						  background-color: red;
+						  transition: 0.5s;
+						  &.landscape_image {
+						    width: grid(12.5);
+						    height: grid(8.75);
+						    clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
+								-webkit-clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
+						    border: 1px solid red;
+						    &:hover {
+// 						      // Logical version
+// 						      clip-path: polygon(20% 0%, 100% 20%, 80% 100%, 0% 80%);
+// 						      // Apparent better version
+						      clip-path: polygon(17% 1%, 95% 21%, 83% 99%, 5% 79%);
+									-webkit-clip-path: polygon(17% 1%, 95% 21%, 83% 99%, 5% 79%);
+// \
+						      // The new one
+						      // clip-path: polygon(17% 1.28%, 95% 21%, 83% 99%, 5% 79%);
+						    }
+						  }
+						  &.portrait_image {
+						    width: grid(10);
+						    height: grid(13.75);
+						    clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
+								-webkit-clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
+						    &:hover {
+						      // Apparent better version
+						      clip-path: polygon(21% 5%, 99% 17%, 79% 95%, 1% 83%);
+									-webkit-clip-path: polygon(21% 5%, 99% 17%, 79% 95%, 1% 83%);
+						    }
+						  }
+						  &.square_image {
+						    width: grid(11.25);
+						    height: grid(11.25);
+						    clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
+								-webkit-clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
+						    &:hover {
+						      // Apparent better version
+						      clip-path: polygon(19% 3%, 97% 19%, 81% 97%, 3% 81%);
+									-webkit-clip-path: polygon(19% 3%, 97% 19%, 81% 97%, 3% 81%);
+						    }
+						  }
+
+	// 					position: relative;
+  // z-index: 1;
+  // display: block;
+  // background-color: red;
+  // transition: clip-path 0.5s;
+	// over
+
+						// transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s, box-shadow 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+						// box-shadow: 0 0 grid(2) 0 color(Dark); cursor: pointer; z-index: 3;
+						// z-index: 1;
+						// transition: clip-path .5s, -webkit-clip-path .5s;
+						// clip-path: polygon(10% 10%,  90% 10%,  90% 90%, 10% 90%);
+				    // -moz-clip-path: polygon(10% 10%,  90% 10%,  90% 90%, 10% 90%);
+				    // -webkit-clip-path: polygon(10% 10%,  90% 10%,  90% 90%, 10% 90%);
+						// &:hover{
+						// 	clip-path: polygon(20% 0%,  100% 20%,  80% 100%, 0% 80%);
+					  // -moz-clip-path: polygon(20% 0%,  100% 20%,  80% 100%, 0% 80%);
+					  // -webkit-clip-path: polygon(20% 0%,  100% 20%,  80% 100%, 0% 80%);
+						//
+						// }
+
 						img{
 								@media #{$medium-only}{ width: 100vw; height: 100%; transform: scale(.95); }
 						}
@@ -141,7 +269,7 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 							&.large_image, &.medium_image, &.small_image { height: rem(311); }
 						}
 
-						.rotator {
+						.img_full{
 							img { display: table-row; margin: 0 auto; transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.15s; }
 						}
 
