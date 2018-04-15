@@ -118,11 +118,18 @@
 
 			},
 			expand: function(item){
-				let workCard = this.$refs[item][0];
-				if (this.displayContent = true){
+				var self = this;
+				let workCard = self.$refs[item][0];
+
+				if (self.displayContent = true){
+
 					workCard.expandCard(workCard);
-					this._data.background = `expandBackground`;
-					this._data.click = true;
+					self._data.background = `expandBackground`;
+					self._data.click = true;
+
+					setTimeout(()=>{
+						self.$router.push(`work/${workCard.slug}`);
+					},2400);
 				}
 			},
 			onHover: function(item){

@@ -7,9 +7,10 @@
 
 			<home-slider-item v-for="value in cases" :key="value.post.id"
 				:caseName="value.case_fields.client_name"
-				:slug="`work/${value.post.post_name}`"
+				:slug="`/work/${value.post.post_name}`"
 				:caseDescription="value.case_fields.case_description"
 				:caseImage="value.case_fields.case_image"
+				v-on:click="navigateToWork()"
 				caseImageHeight="full-height"
 			/>
 
