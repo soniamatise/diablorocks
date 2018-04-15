@@ -123,6 +123,11 @@
 					workCard.expandCard(workCard);
 					this._data.background = `expandBackground`;
 					this._data.click = true;
+
+					setTimeout(()=>{
+						console.log('ready to go');
+						console.log('work/'+workCard.slug);
+					},2400);
 				}
 			},
 			onHover: function(item){
