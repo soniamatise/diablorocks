@@ -1,6 +1,6 @@
 <template>
 	<div class="swiper-slide">
-		<div class="contentHolder" ref="contentHolderActive" v-bind:class="caseImageHeight" @mouseover="bgOfCase()" @mouseleave="bgToNormal()">
+		<div class="contentHolder" ref="contentHolderActive" v-bind:class="caseImageHeight" @mouseover="bgOfCase()" @mouseleave="bgToNormal()" v-on:click="navigateToWork()">
 			<div class="rotator" data-swiper-parallax="750">
 				<img :src="caseImage" ref="imgActive" />
 			</div>
@@ -75,6 +75,11 @@ export default {
 			this.Velocity(contentHolderActive, { transform: 'rotate(0deg)' }, 600, [180, 16]);
 			this.Velocity(imgActive, { transform: 'rotate(0deg)' }, 600, [180, 16]);
 	    },
+			navigateToWork: function(){
+				var self = this;
+
+				self.$router.push(this.slug);
+			}
 	}
 }
 </script>

@@ -122,6 +122,7 @@
 				let workCard = self.$refs[item][0];
 
 				if (self.displayContent = true){
+
 					workCard.expandCard(workCard);
 					self._data.background = `expandBackground`;
 					self._data.click = true;
