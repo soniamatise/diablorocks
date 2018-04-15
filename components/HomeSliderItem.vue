@@ -1,24 +1,40 @@
 <template>
 	<div class="swiper-slide">
+
+		<!-- content container -->
 		<div class="content_container" ref="content_container_active" v-bind:class="blockClass">
-			<!-- <div class="content name">
+
+			<!-- case name -->
+			<div class="content name">
 				<p>{{ caseName }}</p>
-			</div> -->
+			</div>
+			<!-- end case name -->
+
+			<!-- image -->
 			<div class="image_holder block" ref="image_holder_active" v-bind:class="imageClass" @mouseover="bgOfCase()" @mouseleave="bgToNormal()">
-				<div class="img_full">
-					 <!-- data-swiper-parallax="750" -->
-					<img :src="caseImage" ref="imgActive" />
+				<div class="image_position">
+					<div class="image_actual" data-swiper-parallax="50%">
+						<img :src="caseImage" ref="imgActive" />
+					</div>
 				</div>
 			</div>
+			<!-- end image -->
 
-			<div class="shadow" v-bind:class="imageClass"></div>
-			<!-- <div class="content description">
-				<p :data-description="caseDescription"></p>
+			<!-- case description -->
+			<div class="content description">
+				<p>{{ caseDescription }}</p>
 			</div>
 			<div class="content_for_medium">
 				<p><span>{{ caseName }}</span>{{ caseDescription }}</p>
-			</div> -->
+			</div>
+			<!-- end case description -->
+
+			<!-- shadow -->
+			<div class="shadow" v-bind:class="imageClass"></div>
+			<!-- end shadow -->
+
 		</div>
+		<!-- end content container -->
 
 		<!-- <main class="center">
 			<div class="block portrait"></div>

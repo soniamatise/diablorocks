@@ -17,7 +17,7 @@
 		<!-- home slider -->
 		<div id="home-slider" ref="homeSlider" :style="sliderStyle">
 			<div v-swiper:mySwiper="swiperOption">
-				<div class="parallax-bg home-bg-parallax" data-swiper-parallax="-300%">
+				<div class="parallax-bg home-bg-parallax" data-swiper-parallax="-280%">
 					<type-writer
 					heading="Our copy guy was out of office"
 					:wait="wait"
