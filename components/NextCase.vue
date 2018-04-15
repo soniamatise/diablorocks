@@ -5,7 +5,7 @@
 		<div class="holder" ref="holder">
 
 			<!-- hover element -->
-			<div class="hover_container" @mouseenter="bgOfCase()" @mouseleave="bgToNormal()">
+			<div class="hover_container" @mouseenter="bgOfCase()" @mouseleave="bgToNormal()" v-on:click="nextCase()">
 				<text-transition text-left="Next case" :text-right="caseName" onloadedmetadata=""></text-transition>
 			</div>
 			<!-- end hover element -->
@@ -29,7 +29,7 @@ export default {
 	components: {
 		TextTransition
 	},
-	props: ['caseName', 'leftText', 'image', 'caseColor'],
+	props: ['caseName', 'leftText', 'image', 'caseColor', 'slug'],
 	data() {
 		return {
 			Velocity: this.$velocity
@@ -66,8 +66,11 @@ export default {
 				transform: 'translateY(0px)'
 			}, 700, [180, 16]);
 		},
+		nextCase: function() {
+			this.$router.push(`/work/${this.slug}`);
+		}
 	},
-	mounted: () => {
+	mounted: function() {
 
 	}
 }
