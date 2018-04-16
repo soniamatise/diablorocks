@@ -153,7 +153,6 @@ export default {
 				})(i);
 			}
 		}
-
 		setTimeout(function() {
 			changeText();
 		}, 100);
@@ -166,8 +165,8 @@ export default {
 				(function(index) {
 					setTimeout(function() {
 						content[index].classList.add('show');
-						// self.Velocity(content[index], { top: '0' }, 600, [180, 16]);
-					}, i * 200)
+						self.Velocity(content[index], { 'transform': 'translateY(0%)' }, 1500, [180, 12]);
+					}, i * 1000)
 				})(i);
 			}
 
