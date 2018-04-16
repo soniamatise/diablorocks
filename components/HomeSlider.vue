@@ -24,19 +24,10 @@
 					sub=""
 					/>
 			</div>
+
 			<div class="swiper-wrapper" v-bind:class="{show: displayContent}">
 
-				<!-- <main class="center">
-				  <div class="shadow portrait"></div>
-				  <div class="shadow square"></div>
-				  <div class="shadow landscape"></div>
-				</main> -->
-				<!-- <main class="center">
-				  <div class="rotated portrait"></div>
-				  <div class="rotated square"></div>
-				  <div class="rotated landscape"></div>
-				</main> -->
-
+				<!-- slider item -->
 				<home-slider-item v-for="value in cases" :key="value.post.id"
 					:caseName="value.case_fields.client_name"
 					:slug="`work/${value.post.post_name}`"
@@ -47,8 +38,12 @@
 					v-on:onEnter="onEnter"
 					v-on:onLeave="onLeave"
 				/>
+				<!-- end slider item -->
 
 			</div>
+
+			<div class="swiper-pagination"></div>
+
 			<div class="swiper-scrollbar contentDisappear" v-bind:class="{show: displayContent}" :style="sliderStyle" ref="scrollbar">
 				<span v-for="value in cases" class="bullet" v-bind:key="value.post.id"></span>
 			</div>
@@ -66,7 +61,7 @@ import TypeWriter from '~/components/TypeWriter.vue'
 export default {
 	head: {
 		bodyAttrs: {
-			class: 'one-page scroll-disable white-menu'
+			class: '__noscroll white-menu'
 		}
 	},
 	components: {
@@ -88,6 +83,8 @@ export default {
 	      centeredSlides: true,
 				speed: 600,
 				parallax: true,
+				grabCursor: true,
+				preventIntercationOnTransition: true,
 				lazy: {
 					loadPrevNext: true,
 					loadPrevPrev: true,
@@ -95,34 +92,29 @@ export default {
 				scrollbar: {
 					el: '.swiper-scrollbar',
 					draggable: true,
-					dragSize: '70',
+					dragSize: '60',
 				},
+				pagination: {
+			    el: '.swiper-pagination',
+			    type: 'bullets',
+					clickable: 'true',
+			  },
 				mousewheel: {
-					invert: true,
-					sensitivity: 10,
+					invert: false,
+					sensitivity: 2,
+					releaseOnEdges: true,
 				},
+				keyboard: {
+			    enabled: true,
+			    onlyInViewport: false,
+			  },
+				// breakpoints
 				breakpoints: {
-					// 750: {
-					// 	slidesPerView: 'auto',
-					// 	direction: 'vertical',
-					// 	touchRatio: 1,
-					// 	centeredSlides: true,
-					// 	parallax: true,
-					// 	lazy: {
-					// 		loadPrevNext: true,
-					// 		loadPrevPrev: true,
-					// 	},
-					// 	scrollbar: {
-					// 		el: '.swiper-scrollbar',
-					// 		draggable: true,
-					// 		dragSize: '70',
-					// 	},
-					// 	mousewheel: {
-					// 		// invert: true,
-					// 		// sensitivity: 10,
-					// 	},
-					// },
-				}
+    			750: {
+						direction: 'vertical',
+
+					},
+				},
 			},
 			displayContent: false,
 			sliderStyle: {}

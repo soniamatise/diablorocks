@@ -1,4 +1,6 @@
 <template>
+
+	<!-- swiper slide -->
 	<div class="swiper-slide">
 
 		<!-- content container -->
@@ -36,13 +38,9 @@
 		</div>
 		<!-- end content container -->
 
-		<!-- <main class="center">
-			<div class="block portrait"></div>
-			<div class="block square"></div>
-			<div class="block landscape"></div>
-		</main> -->
-
 	</div>
+	<!-- end swiper slide -->
+
 </template>
 
 <script>
@@ -52,7 +50,7 @@ export default {
 		return {
 			Velocity: this.$velocity,
 			blockClass: 'square_block',
-			imageClass: 'square_image'
+			imageClass: 'square_image',
 		}
 	},
 	props: ['caseName', 'caseDescription', 'caseImage', 'caseUrl', 'caseColor', 'caseSize', 'slug'],
@@ -76,9 +74,8 @@ export default {
 
 			image_holder.forEach(function(image_holder){
 				image_holder.style = `--caseColor: ${self.caseColor}`
-			})
-			// this.Velocity(image_holder_active, { transform: 'rotate(-15deg)' }, 1500, [180, 9]);
-			// this.Velocity(imgActive, { transform: 'rotate(15deg)' }, 1500, [180, 9]);
+			});
+
 		},
 		bgToNormal: function () {
 			const bg = this.$parent.$refs.homeSlider;
@@ -95,10 +92,9 @@ export default {
 			this.$emit('onLeave');
 
 			image_holder.forEach(function(image_holder){
-			image_holder.style = `--caseColor: black`
+				image_holder.style = `--caseColor: black`
 			})
-			// this.Velocity(image_holder_active, { transform: 'rotate(0deg)' }, 1500, [180, 9]);
-			// this.Velocity(imgActive, { transform: 'rotate(0deg)' }, 1500, [180, 9]);
+
 		}
 	},
 	mounted() {
