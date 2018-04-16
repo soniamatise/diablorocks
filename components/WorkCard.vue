@@ -113,21 +113,48 @@ export default {
 			let scrollOffsetY = document.querySelector(`.${self.case}`).getBoundingClientRect().top;
 			let offsetLeft = document.querySelector(`.${self.case}`).getBoundingClientRect().left;
 			let offsetRight = document.querySelector(`.${self.case}`).getBoundingClientRect().right;
+
+			let checkExpandSize = function(width, height){
+				if(window.innerHeight > window.innerWidth) {
+					//Scherm is hoger dan dat het breed is.
+					console.log(width, height);
+					let calcHeight = '140';
+					let calcWidth = (height / width) * 140;
+					let minusWidth = (100 - calcWidth) / 2;
+
+					// if(minusWidth == 0){
+					// 	minusWidth = '20';
+					// }
+					console.log(`--expWidth: 140vh; --expHeight: ${calcHeight}vh; --minusWidth: ${minusWidth}vh; --minusHeight: -20vh;`);
+
+					return `--expWidth: 140vh; --expHeight: ${calcHeight}vh; --minusWidth: ${minusWidth}vh; --minusHeight: -20vh;`;
+				} else {
+
+					let calcWidth = '140';
+					let calcHeight = (width / height) * 140;
+					let minusHeight = (100 - calcHeight) / 2;
+					console.log(`--expWidth: 140vw; --expHeight: ${calcHeight}vw; --minusWidth: -20vw; --minusHeight: ${minusHeight}vw;`);
+					return `--expWidth: 140vw; --expHeight: ${calcHeight}vw; --minusWidth: -20vw; --minusHeight: ${minusHeight}vw;`;
+
+				}
+
+			}
+
 			let addVariables = function (){
 				if (targetSize === 'small'){
-					custom = `--height: ${getGrid(20)}vw; --width: ${getGrid(20)}vw; --margin: ${getGrid(2)}vw; --offsetY: ${scrollOffsetY}px; --offsetLeft: ${offsetLeft}px; --offsetRight: ${offsetRight}px;`;
+					custom = `--height: ${getGrid(20)}vw; --width: ${getGrid(20)}vw; --margin: ${getGrid(2)}vw; --offsetY: ${scrollOffsetY}px; --offsetLeft: ${offsetLeft}px; --offsetRight: ${offsetRight}px; ${checkExpandSize(20, 20)}`;
 				} else if (targetSize === 'medium-small') {
-					custom = `--height: ${getGrid(10)}vw; --width: ${getGrid(9.25)}vw; --margin: ${getGrid(7.375)}vw; --offsetY: ${scrollOffsetY}px; --offsetLeft: ${offsetLeft}px; --offsetRight: ${offsetRight}px;`;
+					custom = `--height: ${getGrid(10)}vw; --width: ${getGrid(9.25)}vw; --margin: ${getGrid(7.375)}vw; --offsetY: ${scrollOffsetY}px; --offsetLeft: ${offsetLeft}px; --offsetRight: ${offsetRight}px; ${checkExpandSize(9.25, 10)}`;
 				} else if (targetSize === 'medium-medium'){
-					custom = `--height: ${getGrid(12)}vw; --width: ${getGrid(9.25)}vw; --margin: ${getGrid(7.375)}vw; --offsetY: ${scrollOffsetY}px; --offsetLeft: ${offsetLeft}px; --offsetRight: ${offsetRight}px;`;
+					custom = `--height: ${getGrid(12)}vw; --width: ${getGrid(9.25)}vw; --margin: ${getGrid(7.375)}vw; --offsetY: ${scrollOffsetY}px; --offsetLeft: ${offsetLeft}px; --offsetRight: ${offsetRight}px; ${checkExpandSize(9.25, 12)}`;
 				} else if (targetSize === 'medium-large'){
-					custom = `--height: ${getGrid(14)}vw; --width: ${getGrid(9.25)}vw; --margin: ${getGrid(7.375)}vw; --offsetY: ${scrollOffsetY}px; --offsetLeft: ${offsetLeft}px; --offsetRight: ${offsetRight}px;`;
+					custom = `--height: ${getGrid(14)}vw; --width: ${getGrid(9.25)}vw; --margin: ${getGrid(7.375)}vw; --offsetY: ${scrollOffsetY}px; --offsetLeft: ${offsetLeft}px; --offsetRight: ${offsetRight}px; ${checkExpandSize(9.25, 14)}`;
 				} else if (targetSize === 'large-small'){
-					custom = `--height: ${getGrid(7)}vw; --width: ${getGrid(6)}vw; --margin: ${getGrid(9)}vw; --offsetY: ${scrollOffsetY}px; --offsetLeft: ${offsetLeft}px; --offsetRight: ${offsetRight}px;`;
+					custom = `--height: ${getGrid(7)}vw; --width: ${getGrid(6)}vw; --margin: ${getGrid(9)}vw; --offsetY: ${scrollOffsetY}px; --offsetLeft: ${offsetLeft}px; --offsetRight: ${offsetRight}px; ${checkExpandSize(6, 7)}`;
 				} else if (targetSize === 'large-medium'){
-					custom = `--height: ${getGrid(8)}vw; --width: ${getGrid(6)}vw; --margin: ${getGrid(9)}vw; --offsetY: ${scrollOffsetY}px; --offsetLeft: ${offsetLeft}px; --offsetRight: ${offsetRight}px;`;
+					custom = `--height: ${getGrid(8)}vw; --width: ${getGrid(6)}vw; --margin: ${getGrid(9)}vw; --offsetY: ${scrollOffsetY}px; --offsetLeft: ${offsetLeft}px; --offsetRight: ${offsetRight}px; ${checkExpandSize(6, 8)}`;
 				} else if (targetSize === 'large-large'){
-					custom = `--height: ${getGrid(9)}vw; --width: ${getGrid(6)}vw; --margin: ${getGrid(9)}vw; --offsetY: ${scrollOffsetY}px; --offsetLeft: ${offsetLeft}px; --offsetRight: ${offsetRight}px;`;
+					custom = `--height: ${getGrid(9)}vw; --width: ${getGrid(6)}vw; --margin: ${getGrid(9)}vw; --offsetY: ${scrollOffsetY}px; --offsetLeft: ${offsetLeft}px; --offsetRight: ${offsetRight}px; ${checkExpandSize(6, 9)}`;
 				}
 			}
 			addVariables();

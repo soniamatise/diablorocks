@@ -45,12 +45,11 @@
 			overflow: hidden;
 			@media #{$medium-down} {
 				background-size: 80vh !important;
+				width: grid(9.25);
 			}
 			@media #{$small-only} {
 				background-size: 85vh !important;
-			}
-			@media #{$medium-down} {
-				width: grid(9.25);
+				width: grid(20);
 			}
 
 			&--small {
@@ -82,9 +81,7 @@
 					height: grid(20);
 				}
 			}
-			@media #{$small-only} {
-				width: grid(20);
-			}
+
 		}
 	}
 
@@ -136,12 +133,14 @@
 		--y: calc(var(--height) + var(--top));
 		--xleft: var(--margin);
 		--xright: calc(var(--margin) + var(--width));
+		--turn: calc((var(--gridHeight) / var(--gridWidth)) * 130vw);
 		transition: background-size 2s 0.4s $specialCubicBezier;
 		background-size: 100vw !important;
+		animation: expand 2s 0.4s $specialCubicBezier forwards;
+
 		@media #{$medium-down} {
 			background-size: 175vh !important;
 		}
-		animation: expand 2s 0.4s $specialCubicBezier forwards;
 
 		&+p {
 			opacity: 0;
@@ -217,7 +216,6 @@
 		top: 0;
 		clip-path: polygon(var(--xleft) var(--top), var(--xright) var(--top), var(--xright) var(--y), var(--xleft) var(--y));
 	}
-
 	5% {
 		margin: 0 auto;
 		height: 100vh;
@@ -229,6 +227,16 @@
 		height: 100vh;
 		width: 100vw;
 		top: 0;
-		clip-path: polygon(0 100vh, 0 0, 100vw 0, 100vw 100vh);
+
+		// clip-path: polygon(0 100vh, 0 0, 100vw 0, 100vw 100vh);
+
+		clip-path: polygon(var(--minusWidth) var(--expHeight),
+											 var(--minusWidth) var(--minusHeight),
+											 var(--expWidth) var(--minusHeight),
+											 var(--expWidth) var(--expHeight));
+
+		// clip-path: polygon(var(--minusHeight) var(--expWidth),var(--minusHeight) var(--minusWidth), var(--expHeight) var(--minusWidth), var(--expHeight) var(--expWidth));
+
+
 	}
 }
