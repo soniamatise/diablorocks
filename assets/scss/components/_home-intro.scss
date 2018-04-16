@@ -1,3 +1,5 @@
+
+
 .black-intro,
 .white-intro {
 	z-index: 5;
@@ -11,11 +13,14 @@
 
 	&--overflow {
 		position: absolute;
-		overflow: hidden;
-		top: 50%;
+		clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+		display: flex;
+		justify-content: center;
+		align-items: center;
 
 		h2 {
-			transform: translateX(-100%);
+			width: 100%;
+			width: max-content;
 		}
 
 		&.active {
@@ -25,9 +30,6 @@
 			animation: moveContainer 1.9s 0.8s $specialCubicBezier;
 
 			h2 {
-				animation: showHeading 1.9s 0.8s $specialCubicBezier;
-				right: 0;
-				white-space: nowrap;
 				width: 100%;
 				width: max-content;
 				text-align: center;
@@ -40,10 +42,9 @@
 				z-index: 1;
 				width: auto;
 				height: 100%;
-				animation: moveLastContainer 1.9s 0.8s $specialCubicBezier forwards;
+				animation: moveLastContainer 1s 0.8s $specialCubicBezier forwards;
 
 				h2 {
-					// animation: showLastHeading 1.9s 0.8s $specialCubicBezier forwards;
 					white-space: nowrap;
 				}
 			}
@@ -53,12 +54,11 @@
 
 .white-intro {
 	z-index: 2;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 
 	&--text {
-		position: absolute;
-		overflow: hidden;
-		top: 50%;
-
 		h2 {
 			color: color(Black);
 		}
@@ -76,7 +76,6 @@
 
 		h2 {
 			text-align: center;
-			animation: stay 3s $easeboth forwards;
 			width: 100vw;
 		}
 	}
@@ -86,98 +85,52 @@
 	z-index: 6;
 }
 
-.low-z-white {
-	z-index: -1 !important;
+.low-z {
+	z-index: -1;
 }
 
-.low-z-black {
-	z-index: -1 !important;
-}
+// Wat is dit?
 
-.saved {
-	position: absolute;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-@keyframes showHeading {
-	0% {
-		transform: translateX(100%);
-	}
+// .saved {
+// 	position: absolute;
+// 	position: fixed;
+// 	top: 0;
+// 	left: 0;
+// 	right: 0;
+// 	bottom: 0;
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+// }
 
-	25% {
-		transform: translateX(0);
-	}
-
-	40% {
-		transform: translateX(0);
-	}
-
-	80% {
-		transform: translateX(0);
-	}
-
-	100% {
-		transform: translateX(-100%);
-	}
-}
 @keyframes moveContainer {
 	0% {
-		transform: translateX(-100%);
+		clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
 	}
-
-	25% {
-		transform: translateX(0);
+	30% {
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 	}
-
-	40% {
-		transform: translateX(0);
+	70% {
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 	}
-
-	80% {
-		transform: translateX(0);
-	}
-
 	100% {
-		transform: translateX(100%);
+		clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
 	}
 }
 
 @keyframes moveLastContainer {
 	0% {
-		clip-path: polygon(0 0, 100vw 0, 100vw 100vh, 0 100vh);
+		clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
 	}
-
 	100% {
-		clip-path: polygon(100vw 0, 100vw 0, 100vw 100vh, 100vw 100vh);
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 	}
 }
 @keyframes flowAway {
 	0% {
-		transform: translateX(0);
-		top: 0;
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 	}
-
 	100% {
-		transform: translateX(100%);
-		top: 0;
-	}
-}
-@keyframes stay {
-	0% {
-		transform: translateX(0);
-	}
-
-	50% {
-		transform: translateX(-100vw);
-	}
-
-	100% {
-		transform: translateX(-100vw);
+		clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
 	}
 }
