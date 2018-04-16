@@ -2,7 +2,13 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 
 #home-slider {
 	z-index: 2;
-	transition: background-color 1s $easeboth;
+	transform: translateX(-100%);
+	background: black;
+
+	&.slideIt {
+		transition: 1.5s $specialCubicBezier;
+		transform: translateX(0);
+	}
 
 	.home-cover {
 		transition: background-color 1s $easeboth;
@@ -263,9 +269,9 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 
 	.contentDisappear {
 		opacity: 0;
-		transition: opacity 1s cubic-bezier(.42,0,.58,1) !important;
+		transition: opacity 1s .5s cubic-bezier(.42,0,.58,1) !important;
 
-		&.show {
+		&.showScroll {
 			opacity: 1;
 		}
 	}

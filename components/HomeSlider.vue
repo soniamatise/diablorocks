@@ -13,7 +13,7 @@
 			</div>
 		</section>
 
-		<div id="home-slider" ref="homeSlider" class="row center">
+		<div id="home-slider" ref="homeSlider" :class="['row center', {slideIt: slideIn}]">
 		<div class="column large-full medium-full small-full">
 			<div v-swiper:mySwiper="swiperOption">
 				<div class="parallax-bg home-bg-parallax"
@@ -27,7 +27,7 @@
 			<div class="swiper-wrapper" v-bind:class="{show: displayContent}">
 				<slot></slot>
 			</div>
-			<div class="swiper-scrollbar contentDisappear" v-bind:class="{show: displayContent}" ref="scrollbar"></div>
+			<div class="swiper-scrollbar contentDisappear" v-bind:class="{showScroll: displayContent}" ref="scrollbar"></div>
 		</div>
 	</div>
 
@@ -58,6 +58,7 @@ export default {
 			activeIndex: null,
 			go: false,
 			headingText: '',
+			slideIn: '',
 			Velocity: this.$velocity,
 			swiperOption: {
 				headingText: '',
@@ -127,30 +128,31 @@ export default {
 				(function(index) {
 					setTimeout( function(){
 						if (index == (self._data.texts.length - 1)){
-							document.getElementById(i).classList.add('active--last');
+							document.getElementById(index).classList.add('active--last');
 							setTimeout(function(){
 								self._data.go = true;
 							}, 1900);
 							setTimeout(function(){
+								whiteIntro.classList.add('low-z');
+								self._data.slideIn = true;
 								document.querySelector('.nav__logo').classList.add('high-z');
-							}, 4200);
+							}, 4000);
 							setTimeout(function(){
-								whiteIntro.classList.add('low-z-white');
-								blackIntro.classList.add('low-z-black');
+								blackIntro.classList.add('low-z');
 								self.type();
 							}, 4900);
 						} else {
 							self._data.activeIndex = i;
 							self._data.text = self._data.texts[i];
 						}
-						document.getElementById(i).classList.add('active');
+						document.getElementById(index).classList.add('active');
 					}, i * 1900);
 				})(i);
 			}
 		}
 		setTimeout(function() {
 			changeText();
-		}, 100);
+		}, 200);
 
 		function createBullets() {
 			let slides = document.getElementsByClassName('swiper-slide');
