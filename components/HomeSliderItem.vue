@@ -32,7 +32,7 @@
 			<!-- end case description -->
 
 			<!-- shadow -->
-			<div class="shadow" v-bind:class="imageClass"></div>
+			<div class="shadow" v-bind:class="imageClass"></div> 
 			<!-- end shadow -->
 
 		</div>
