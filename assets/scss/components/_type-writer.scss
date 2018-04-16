@@ -1,11 +1,12 @@
 $easeboth: cubic-bezier(.42,0,.58,1);
 
-#typeWriterTitle {
+.typeWriterTitle {
 	position: relative;
 	text-align: center;
 
 	p {
 		font-size: grid(.4);
+		@include min-fontsize(.4,20);
 		padding-top: grid(.4);
 		opacity: 0;
 		transition: 0.2s $easeboth opacity 0.6s;
@@ -17,7 +18,7 @@ $easeboth: cubic-bezier(.42,0,.58,1);
 	}
 
 	h1 {
-		color: colorDark;
+		color: color(Black);
 		position: relative;
 		width: fit-content;
 		margin: auto;

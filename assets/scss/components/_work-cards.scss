@@ -1,32 +1,42 @@
 .work__grid {
-	column-count: 3;
-	column-gap: grid(1);
-	padding: grid(1) grid(2) grid(0) grid(2);
-	@media #{$medium-down} {
-		column-count: 2;
-	}
-	@media #{$small-only} {
-		column-count: 1;
-	}
-}
-
-.work__card {
-	break-inside: avoid;
-	margin-bottom: grid(1.5);
-
-	&.column1 {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	padding: grid(0 2);
+	min-height: 100vh;
+	&--column1{
 		top: grid(.8);
 		position: relative;
+		margin-right: grid(1);
 	}
 
-	&.column2 {
+	&--column2{
 		top: grid(1.5);
 		position: relative;
+		margin-right: grid(1);
+
 		@media #{$medium-down} {
 			padding-top: grid(.5);
 		}
 	}
 
+	&--column3{
+		position: relative;
+		@media#{$medium-down} {
+			display: none;
+		}
+	}
+	margin-bottom: grid(5);
+	@media #{$medium-down} {
+		margin-bottom: grid(2.5);
+	}
+	@media #{$mobile} {
+		margin-bottom: rem(96);
+	}
+}
+
+.work__card {
+	margin-bottom: grid(1.5);
 	&__image {
 		&-container {
 			width: grid(6);
@@ -88,12 +98,12 @@
 			width: grid(20);
 		}
 	}
+
 	&.card--hover {
 		cursor: pointer;
-		z-index: 2;
 		position: relative;
 		transition: 1s $easeboth;
-
+		z-index: 3;
 		p {
 			color: white;
 			transition: 0.5s $easeboth;
@@ -150,16 +160,24 @@
 	z-index: 1;
 	transition: 1s $easeboth;
 	opacity: 0;
-	background: white;
+	background: var(--background);
 	pointer-events: none;
 }
 
+.background-canvas--mouseout {
+	opacity: 0;
+	transition: .3s $easeboth;
+	& + .work__grid{
+		.card--hover p {
+			color: color(Black);
+		}
+	}
+}
 
 .background--forward {
 	z-index: 1;
 	opacity: 0.9;
-	transition:  1s $easeboth;
-
+	transition: 1s $easeboth;
 }
 
 .expandBackground {
