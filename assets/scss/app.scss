@@ -1,11 +1,11 @@
-@import 'color/index',
-'~matise-stack/_stack.scss',
-'~matise-grid/grid.scss',
-'settings/settings',
-'typography/index',
-'layout/index',
-'components/index',
-'components/work';
+@import "color/index",
+"~matise-stack/_stack.scss",
+"~matise-grid/grid.scss",
+"settings/settings",
+"typography/index",
+"layout/index",
+"components/index",
+"components/work";
 
 
 body{
@@ -17,18 +17,14 @@ body{
 	// @debug $medium-only;
 
 	::selection{
-		background: color(Gray);
-		color: color(Light);
+		background: color(Gray); color: color(Light);
 	}
 	::-moz-selection{
-		background: color(Gray);
-		color: color(Light);
+		background: color(Gray); color: color(Light);
 	}
 }
 
-.home-intro{ display: none!important; }
-
-section.intro {
+section.intro{
 	padding-top: grid(5);
 	@media only screen and (max-width: 1024px) and (min-width: 768px){
 		padding-top: grid(7);
@@ -49,9 +45,8 @@ section.intro {
 		display: none;
 	}
 }
-@media #{$small-only} {
-	.hide-mobile,
-	.mobile-hide{
+@media #{$small-only}{
+	.hide-mobile, .mobile-hide{
 		display: none;
 	}
 }
