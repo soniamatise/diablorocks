@@ -1,5 +1,6 @@
 <template>
 	<div class="home">
+		<!-- intro home animation -->
 		<section class="home-intro">
 			<div class="bg-white white-intro" ref="whiteIntro">
 				<div class="white-intro--text">
@@ -13,43 +14,61 @@
 			</div>
 		</section>
 
-		<div id="home-slider" ref="homeSlider" :class="['row center', {slideIt: slideIn}]">
-		<div class="column large-full medium-full small-full">
+		<!-- home slider -->
+		<div id="home-slider" ref="homeSlider" :style="sliderStyle">
 			<div v-swiper:mySwiper="swiperOption">
-				<div class="parallax-bg home-bg-parallax"
-				data-swiper-parallax="-300%">
-				<type-writer
-				heading="Our copy guy was out of office"
-				:wait="wait"
-				sub=""
-				/>
+				<div class="parallax-bg home-bg-parallax" data-swiper-parallax="-280%">
+					<type-writer
+					heading="Our copy guy was out of office"
+					:wait="wait"
+					sub=""
+					/>
 			</div>
+
 			<div class="swiper-wrapper" v-bind:class="{show: displayContent}">
-				<slot></slot>
+
+				<!-- slider item -->
+				<home-slider-item v-for="value in cases" :key="value.post.id"
+					:caseName="value.case_fields.client_name"
+					:slug="`work/${value.post.post_name}`"
+					:caseDescription="value.case_fields.case_description"
+					:caseImage="value.case_fields.case_image"
+					:caseColor="value.case_fields.case_background_color"
+					:caseSize="value.case_fields.case_size"
+					v-on:onEnter="onEnter"
+					v-on:onLeave="onLeave"
+				/>
+				<!-- end slider item -->
+
 			</div>
-			<div class="swiper-scrollbar contentDisappear" v-bind:class="{showScroll: displayContent}" ref="scrollbar"></div>
+
+			<div class="swiper-pagination"></div>
+
+			<div class="swiper-scrollbar contentDisappear" v-bind:class="{show: displayContent}" :style="sliderStyle" ref="scrollbar">
+				<span v-for="value in cases" class="bullet" v-bind:key="value.post.id"></span>
+			</div>
 		</div>
-	</div>
 
 </div>
 </div>
 </template>
 
 <script>
+
 import HomeSliderItem from '~/components/HomeSliderItem.vue'
 import TypeWriter from '~/components/TypeWriter.vue'
 
 export default {
 	head: {
 		bodyAttrs: {
-			class: 'one-page scroll-disable white-menu'
+			class: '__noscroll white-menu'
 		}
 	},
 	components: {
 		HomeSliderItem,
 		TypeWriter
 	},
-	props: [''],
+	props: ['cases'],
 	data() {
 		return {
 			texts: ['Empathic Branding', 'Creative Strategy', 'Innovative Digital', 'Aspiring rental box mogul'],
@@ -59,63 +78,45 @@ export default {
 			go: false,
 			headingText: '',
 			slideIn: '',
-			Velocity: this.$velocity,
 			swiperOption: {
-				headingText: '',
 				slidesPerView: 'auto',
-				direction: 'horizontal',
-				touchRatio: 1,
-				centeredSlides: true,
-				spaceBetween: 240,
+	      centeredSlides: true,
+				speed: 600,
 				parallax: true,
+				grabCursor: true,
+				preventIntercationOnTransition: true,
 				scrollbar: {
 					el: '.swiper-scrollbar',
 					draggable: true,
-					dragSize: '70',
+					dragSize: '60',
 				},
+				pagination: {
+			    el: '.swiper-pagination',
+			    type: 'bullets',
+					clickable: 'true',
+			  },
 				mousewheel: {
-					invert: true,
-					sensitivity: 10,
+					invert: false,
+					sensitivity: 2,
+					releaseOnEdges: true,
 				},
+				keyboard: {
+			    enabled: true,
+			    onlyInViewport: false,
+			  },
+				// breakpoints
 				breakpoints: {
-
-					2000: {
-						slidesPerView: 'auto',
-						direction: 'horizontal',
-						touchRatio: 1,
-						centeredSlides: true,
-						spaceBetween: 240,
+					9999: {
 						parallax: true,
-						scrollbar: {
-							el: '.swiper-scrollbar',
-							draggable: true,
-							dragSize: '70',
-						},
-						mousewheel: {
-							invert: true,
-							sensitivity: 4,
-						},
 					},
 					750: {
-						slidesPerView: 'auto',
 						direction: 'vertical',
-						touchRatio: 1,
-						centeredSlides: true,
-						spaceBetween: 90,
 						parallax: true,
-						scrollbar: {
-							el: '.swiper-scrollbar',
-							draggable: true,
-							dragSize: '70',
-						},
-						mousewheel: {
-							invert: true,
-							sensitivity: 10,
-						},
 					},
-				}
+				},
 			},
 			displayContent: false,
+			sliderStyle: {}
 		}
 	},
 	mounted: function() {
@@ -152,19 +153,7 @@ export default {
 		}
 		setTimeout(function() {
 			changeText();
-		}, 200);
-
-		function createBullets() {
-			let slides = document.getElementsByClassName('swiper-slide');
-			let scrollBar = self.$refs.scrollbar;
-			for (var index = 0; index < slides.length; index++){
-				let bullet = document.createElement('span');
-				bullet.className = ('bullet bg-black');
-				scrollBar.appendChild(bullet);
-			}
-			scrollBar.removeChild(scrollBar.lastChild);
-		}
-		createBullets();
+		}, 100);
 	},
 	methods: {
 		showSlides: function(){
@@ -174,8 +163,7 @@ export default {
 				(function(index) {
 					setTimeout(function() {
 						content[index].classList.add('show');
-						self.Velocity(content[index], { top: '0' }, 600, [180, 16]);
-					}, i * 200)
+					}, i * 1000)
 				})(i);
 			}
 
@@ -187,9 +175,14 @@ export default {
 				self.showSlides();
 			}, 1800);
 			self._data.wait = false;
+		},
+		onEnter: function(color){
+			this.sliderStyle = {'--caseColor': color};
+		},
+		onLeave: function(){
+			this.sliderStyle = {};
 		}
 	}
-
 }
 
 
