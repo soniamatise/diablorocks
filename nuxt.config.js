@@ -49,7 +49,12 @@ module.exports = {
 	build: {
 		postcss: {
 			plugins: {
-				'postcss-custom-properties': false
+				'postcss-cssnext': {
+					browsers: ['last 2 versions', 'ie >= 9'],
+					features: {
+						customProperties: false
+					}
+				},
 			}
 		},
 		/*
@@ -71,18 +76,18 @@ module.exports = {
 		vendor: ['velocity-animate']
 	},
 	generate: {
-    routes: function () {
-      return axios.get('http://api.matise.nl/wp-json/wp/v2/case')
-      .then((res) => {
-        return res.data.map((item) => {
-          return '/work/' + item.slug
-        })
-      })
-    }
-  },
-  env: {
-    baseUrl: process.env.BASE_URL || 'http://api.matise.nl/wp-json'
-  },
+		routes: function() {
+			return axios.get('http://api.matise.nl/wp-json/wp/v2/case')
+				.then((res) => {
+					return res.data.map((item) => {
+						return '/work/' + item.slug
+					})
+				})
+		}
+	},
+	env: {
+		baseUrl: process.env.BASE_URL || 'http://api.matise.nl/wp-json'
+	},
 	css: [{
 			src: '~assets/scss/app.scss',
 			lang: 'scss'
