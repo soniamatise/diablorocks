@@ -142,7 +142,7 @@
 
 	&--expand {
 		.work__card__image-container {
-			background-size: 110vw !important;
+			background-size: 100vw !important;
 			transition: background .5s 1s $specialCubicBezier;
 
 			@media #{$medium-down} {
@@ -210,24 +210,4 @@
 		var(--expWidth) var(--minusHeight),
 		var(--expWidth) var(--expHeight));
 	}
-}
-
-// @keyframes slideToCenter {
-// 	0% {
-// 		transform: translate(var(--offsetLeft), var(--offsetY));
-// 	}
-// 	30% {
-// 		transform: translate(var(--offsetLeft), var(--top));
-// 	}
-// 	80% {
-// 		transform: translate(var(--margin), var(--top));
-// 	}
-// 	100% {
-// 		transform: translate(var(--margin), var(--top));
-// 	}
-// }
-
-
-@keyframes expand {
-
 }
