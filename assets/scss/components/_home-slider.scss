@@ -1,4 +1,4 @@
-// home
+// home slider
 #home-slider{
 	z-index: 1; transition: background-color 1s $easeboth; background-color: var(--caseColor, color(Black));
 
@@ -19,6 +19,9 @@
 					.content_container{
 						.shadow{
 							box-shadow: 0 0 grid(2) grid(1) var(--caseColor, black);
+							@media #{$small-only}{
+								box-shadow: 0 0 grid(2) grid(1) color(Dark);
+							}
 						}
 					}
 				}
@@ -29,26 +32,32 @@
 	// typewriter
 	.home-bg-parallax{
 		height: 100vh; width: 100%; position: absolute; display: flex; align-items: center;
+		@media #{$small-only}{
+			height: 100%;
+		}
 		.typeWriterTitle{
-			position: absolute; white-space: nowrap;
+			position: absolute; white-space: nowrap; height: 100%; display: flex; justify-content: center; align-items: center;
+			&.fade-out{
+				transition: opacity 1s $easeboth; opacity: 0; z-index: 0;
+			}
 			@media #{$small-only}{
 				transform: rotate(90deg) translate(0, -50vw); transform-origin: 0 50%; top: 0;
 			}
 			h1{
-				color: color(White); font-size: grid(6); width: max-content; height: 100%; font-weight: $font-medium; padding: 0 grid(2);
+				color: color(White); font-size: grid(6); width: max-content; height: 100%; font-weight: $font-medium; padding: 0 grid(2); height: grid(6);
 				@media #{$medium-only}{
 					font-size: rem(192); padding: 0 grid(4);
 				}
 				@media #{$small-only}{
 					font-size: rem(128); padding: 0;
 				}
-				&.caret:after{
-					border-color: color(White);
-				}
-			}
-			&.caret{
-				&:after{
-					border-right: solid 2px white;
+				&.caret{
+					&:after{
+						border-color: color(White); transform: translateX(grid(-2));
+						@media #{$large-up}{
+							border-width: 4px;
+						}
+					}
 				}
 			}
 			p{
@@ -88,6 +97,28 @@
 				// content container
 				.content_container{
 					position: relative; display: flex; justify-content: center; align-items: center; height: 100vh; width: 100%;
+					@media #{$small-only}{
+						transform: translateY(-32px);
+					}
+					&.fade-out{
+						.shadow{
+							transition: opacity 1s $easeboth; opacity: 0;
+						}
+						.content{
+							transition: opacity 1s $easeboth; opacity: 0;
+						}
+						&.click_up{
+							.shadow{
+								transition: none; opacity: 1;
+								@media #{$small-only}{
+									transition: opacity 1s $easeboth; opacity: 0;
+								}
+							}
+							.content{
+								transition: none; opacity: 1;
+							}
+						}
+					}
 					@media #{$small-only}{
 						height: 100%;
 					}
@@ -235,37 +266,77 @@
 
 					// image holder
 					.image_holder{
-						overflow: hidden; display: flex; align-items: center; justify-content: center; position: relative; z-index: 2; display: block; transition: all 0.5s $cubic-bezier; transition-property: clip-path, -webkit-clip-path; cursor: pointer;
+						overflow: hidden; display: flex; align-items: center; justify-content: center; position: absolute; z-index: 2; display: block; transition: all 0.5s $cubic-bezier; transition-property: clip-path, -webkit-clip-path; cursor: pointer;
+						&.fade-out{
+							transition: opacity 1s $easeboth; opacity: 0; z-index: 1;
+						}
 						&.landscape_image{
-							width: grid(12.5); height: grid(9.375); clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%); -webkit-clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
+							width: grid(12.5); height: grid(9.375); clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
 							@media #{$medium-only}{
 								width: grid(17.5); height: grid(13.125);
 							}
 							&:hover{
-								clip-path: polygon(5% 21%, 83% 1%, 95% 79%, 17% 99%); -webkit-clip-path: polygon(5% 21%, 83% 1%, 95% 79%, 17% 99%);
+								clip-path: polygon(5% 21%, 83% 1%, 95% 79%, 17% 99%);
 							}
 						}
 						&.portrait_image{
-							width: grid(10); height: grid(13.75); clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%); -webkit-clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
+							width: grid(10); height: grid(13.75); clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
 							@media #{$medium-only}{
 								width: grid(15); height: grid(20);
 							}
 							&:hover{
-								clip-path: polygon(1% 17%, 79% 5%, 99% 83%, 21% 95%); -webkit-clip-path: polygon(1% 17%, 79% 5%, 99% 83%, 21% 95%);
+								clip-path: polygon(1% 17%, 79% 5%, 99% 83%, 21% 95%);
 							}
 						}
 						&.square_image{
-							width: grid(11.25); height: grid(11.25); clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%); -webkit-clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
+							width: grid(11.25); height: grid(11.25); clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
 							@media #{$medium-only}{
 								width: grid(17.5); height: grid(17.5);
 							}
 							&:hover{
-								clip-path: polygon(3% 19%, 81% 3%, 97% 81%, 21% 97%); -webkit-clip-path: polygon(3% 19%, 81% 3%, 97% 81%, 21% 97%);
+								clip-path: polygon(3% 19%, 81% 3%, 97% 81%, 21% 97%);
+							}
+						}
+						// epic animation!
+						&.click_up{
+							cursor: default;
+							&.fade-out{
+								opacity: 1; z-index: 2;
+							}
+							&.landscape_image{
+								animation: clickBigLandscape 2s $specialcubicbezier 0.4s forwards;
+								@media #{$medium-only}{
+									animation: clickMediumLandscape 2s $specialcubicbezier 0.4s forwards;
+								}
+							}
+							&.portrait_image{
+								animation: clickBigPortrait 2s $specialcubicbezier 0.4s forwards;
+								@media #{$medium-only}{
+									animation: clickMediumPortrait 2s $specialcubicbezier 0.4s forwards;
+								}
+							}
+							&.square_image{
+								animation: clickBigSquare 2s $specialcubicbezier 0.4s forwards;
+								@media #{$medium-only}{
+									animation: clickMediumSquare 2s $specialcubicbezier 0.4s forwards;
+								}
+							}
+							&.landscape_image, &.portrait_image, &.square_image{
+								@media #{$small-only}{
+									animation: clickSmall 2s $specialcubicbezier 0.4s forwards;
+								}
+							}
+							.image_position{
+								.image_actual{
+									img{
+										transition: transform 1s $specialcubicbezier 1.4s; transform: translateX(-50%) scale(1);
+									}
+								}
 							}
 						}
 						@media #{$small-only}{
 							&.landscape_image, &.portrait_image, &.square_image{
-								width: calc(100vw - 64px); height: calc(100vw - 64px); clip-path: none; -webkit-clip-path: none;
+								width: calc(100vw - 64px); height: calc(100vw - 64px); clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 								&:hover{
 									clip-path: none; -webkit-clip-path: none;
 								}
@@ -278,7 +349,7 @@
 							.image_actual{
 								position: absolute; width: 100%; height: 100%; text-align: center; display: flex;
 								img{
-									object-fit: cover; margin: 0; transform: scale(0.9); position: relative; left: 50%; transform: translateX(-50%);
+									object-fit: contain; margin: 0; position: relative; left: 50%; transform: translateX(-50%) scale(0.9);
 								}
 							}
 						}
@@ -289,6 +360,9 @@
 
 		// swiper slide navigation
 		.swiper-pagination{
+			&.change-z{
+				z-index: 0;
+			}
 			width: 420px; height: 2px; bottom: grid(0.75); transform: translateX(-50%); left: 50%; z-index: 2; position: absolute; border-radius: 0;
 			@media #{$medium-only}{
 				bottom: grid(2);
@@ -329,5 +403,69 @@
 				display: none;
 			}
 		}
+	}
+}
+
+// animations
+@keyframes clickBigLandscape{
+	0%{
+		clip-path: polygon(5% 21%, 83% 1%, 95% 79%, 17% 99%); width: grid(12.5); height: grid(9.375);
+	}
+	100%{
+		clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%); width: grid(24); height: grid(24);
+	}
+}
+
+@keyframes clickMediumLandscape{
+	0%{
+		clip-path: polygon(5% 21%, 83% 1%, 95% 79%, 17% 99%); width: grid(17.5); height: grid(13.125); min-height: 20px;
+	}
+	100%{
+		clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%); width: grid(24); height: grid(24); min-height: 100vh;
+	}
+}
+
+@keyframes clickBigPortrait{
+	0%{
+		clip-path: polygon(1% 17%, 79% 5%, 99% 83%, 21% 95%); width: grid(10); height: grid(13.75);
+	}
+	100%{
+		clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%); width: grid(24); height: grid(24);
+	}
+}
+
+@keyframes clickMediumPortrait{
+	0%{
+		clip-path: polygon(1% 17%, 79% 5%, 99% 83%, 21% 95%); width: grid(15); height: grid(20); min-height: 20px;
+	}
+	100%{
+		clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%); width: grid(24); height: grid(24); min-height: 100vh;
+	}
+}
+
+@keyframes clickBigSquare{
+	0%{
+		clip-path: polygon(3% 19%, 81% 3%, 97% 81%, 21% 97%); width: grid(11.25); height: grid(11.25);
+	}
+	100%{
+		clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%); width: grid(24); height: grid(24);
+	}
+}
+
+@keyframes clickMediumSquare{
+	0%{
+		clip-path: polygon(3% 19%, 81% 3%, 97% 81%, 21% 97%); width: grid(17.5); height: grid(17.5); min-height: 20px;
+	}
+	100%{
+		clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%); width: grid(24); height: grid(24); min-height: 100vh;
+	}
+}
+
+@keyframes clickSmall{
+	0%{
+		clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); width: calc(100vw - 64px); height: calc(100vw - 64px); min-height: 20px;
+	}
+	100%{
+		clip-path: polygon(0% 100%, 0% 0%, 100% 0%, 100% 100%); width: 100vw; height: 100vh; min-height: 100vh;
 	}
 }

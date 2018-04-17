@@ -19,6 +19,7 @@
     "matise-grid": "^1.1.6",
     "matise-stack": "^1.1.1",
     "nuxt": "^1.0.0",
+    "postcss-cssnext": "^3.1.0",
     "sass-loader": "^6.0.7",
     "swiper": "^4.2.0",
     "velocity-animate": "^2.0.2",

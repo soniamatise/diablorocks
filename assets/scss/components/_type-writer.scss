@@ -15,8 +15,30 @@
 
 		&.caret{
 			&:after{
-				content: ""; border-right: solid 1px black; position: absolute; height: 100%; bottom: 0; right: -2px;
+				content: ""; border-right: solid 2px black; position: absolute; height: 100%; bottom: 0; right: -2px; animation: caretAnim 1s $specialcubicbezier infinite forwards;
 			}
 		}
+	}
+}
+
+// animations
+@keyframes caretAnim{
+	0%{
+		opacity: 1;
+	}
+	35%{
+		opacity: 1;
+	}
+	40%{
+		opacity: 0;
+	}
+	60%{
+		opacity: 0;
+	}
+	65%{
+		opacity: 1;
+	}
+	100%{
+		opacity: 1;
 	}
 }

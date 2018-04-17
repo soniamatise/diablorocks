@@ -38,7 +38,7 @@ export default {
 								self._data.show = true
 								self.$emit('doneTyping');
 							}
-						}, i * 300)
+						}, i * 200)
 					})(i);
 				}
 			}
