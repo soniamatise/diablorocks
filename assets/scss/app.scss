@@ -10,7 +10,7 @@
 
 
 body{
-	font-family: $body-font;
+	font-family: $body-font; background-color: color(Black);
 	::selection{
 		background: color(Gray); color: color(Light);
 	}
@@ -20,6 +20,17 @@ body{
 	&.scroll-disable{
 		// when mobile menu is active body scroll-disable
 		overflow: hidden;
+	}
+	// menu item styling when page is Black
+	&.white-menu{ border: solid 1px red;
+		.nav{
+			&__text{
+				color: color(White);
+				&:before{
+					background-color: color(White);
+				}
+			}
+		}
 	}
 }
 

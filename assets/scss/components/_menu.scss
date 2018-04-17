@@ -1,3 +1,5 @@
+
+
 #header{
 	.nav{
 		top: grid(1.5); left: grid(2); position: absolute; z-index: 1;
@@ -5,20 +7,7 @@
 			left: grid(4);
 		}
 		@media #{$small-only}{
-			position: fixed; top: 0; left: 0; height: 100vh; width: 100%; background-color: color(Black); padding: grid(1); color: color(Light); animation: closeMenu 0.5s ease-in-out forwards; padding: rem(87) 4rem rem(90) 4rem;
-		}
-	}
-}
-body.white-menu{
-	// menu item styling when page is Black
-	.nav__list-item{
-		&__top{
-			a{
-				color: color(White);
-				&:before{
-					background-color: color(White);
-				}
-			}
+			position: fixed; top: 0; left: 0; height: 100vh; width: 100%; background-color: color(Black); padding: grid(1); color: color(Black); animation: closeMenu 0.5s ease-in-out forwards; padding: rem(87) 4rem rem(90) 4rem;
 		}
 	}
 }
@@ -61,7 +50,7 @@ $logo-height: 52px; $logo-width: 120px; $time: 0.6;
 		// Styling for link (a / nuxt-link) attribute
 		position: relative;
 		&:before{
-			content: ""; position: absolute; right: 0; width: 0; bottom: -4px; background-color: color(White); height: 1px;
+			content: ""; position: absolute; right: 0; width: 0; bottom: -4px; background-color: color(Black); height: 1px;
 			transition-property: width; transition-duration: 0.3s; transition-timing-function: ease-out;
 		}
 		&:hover{
@@ -83,9 +72,14 @@ $logo-height: 52px; $logo-width: 120px; $time: 0.6;
 	}
 	&__text{
 		// Styling for text (span in a) attribute
-		font-size: rem(14); line-height: rem(52); color: color(White); font-weight: $font-medium;
+		font-size: rem(14); line-height: rem(52); font-weight: $font-medium;
 		@media #{$small-only}{
-			font-size: rem(20); line-height: 2.4;
+			color: color(White); font-size: rem(20); line-height: 2.4;
+		}
+	}
+	&__contact{
+		@media #{$small-only}{
+			p{ color: color(White); }
 		}
 	}
 }
