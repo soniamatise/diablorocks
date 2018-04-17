@@ -3,18 +3,7 @@
 		<input id="menu-trigger" type="checkbox"/>
 		<logo/>
 		<top-nav/>
-		<home-slider >
-
-			<home-slider-item v-for="value in cases" :key="value.post.id"
-				:caseName="value.case_fields.client_name"
-				:slug="`/work/${value.post.post_name}`"
-				:caseDescription="value.case_fields.case_description"
-				:caseImage="value.case_fields.case_image"
-				v-on:click="navigateToWork()"
-				caseImageHeight="full-height"
-			/>
-
-		</home-slider>
+		<home-slider :cases="cases" />
 	</main>
 </template>
 
@@ -24,7 +13,6 @@ import axios from 'axios'
 import TopNav from '~/layouts/TopNav';
 import Logo from '~/layouts/Logo';
 import HomeSlider from '~/components/HomeSlider';
-import HomeSliderItem from '~/components/HomeSliderItem';
 
 export default {
 	asyncData ({ params }) {
@@ -37,13 +25,11 @@ export default {
   },
 	components: {
 		HomeSlider,
-		HomeSliderItem,
 		TopNav,
 		Logo
 	},
 	watch: {
 		slideIn: function(){
-			// console.log('change');
 		}
 	},
 }
