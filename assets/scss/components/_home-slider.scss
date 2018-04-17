@@ -65,7 +65,19 @@
 		.swiper-wrapper{
 			display: flex; justify-content: space-between; height: 100vh; width: grid(24); z-index: 1;
 			.swiper-slide{
-				height: 100vh; width: grid(16); transform: translateY(100%); position: relative;
+				height: 100vh; width: grid(16); position: relative;
+				&:nth-child(1){
+					transform: translateY(100%);
+					&.show{
+						transform: translateY(0%); transition: transform 1s $cubic-bezier; transition-property: transform;
+					}
+				}
+				&:nth-child(2){
+					transform: translateY(100%);
+					&.show{
+						transform: translateY(0%); transition: transform 1s $cubic-bezier; transition-property: transform;
+					}
+				}
 				@media #{$medium-only}{
 					width: grid(18);
 				}

@@ -78,7 +78,6 @@ export default {
 			go: false,
 			headingText: '',
 			slideIn: '',
-			Velocity: this.$velocity,
 			swiperOption: {
 				slidesPerView: 'auto',
 	      centeredSlides: true,
@@ -86,10 +85,6 @@ export default {
 				parallax: true,
 				grabCursor: true,
 				preventIntercationOnTransition: true,
-				lazy: {
-					loadPrevNext: true,
-					loadPrevPrev: true,
-				},
 				scrollbar: {
 					el: '.swiper-scrollbar',
 					draggable: true,
@@ -111,9 +106,12 @@ export default {
 			  },
 				// breakpoints
 				breakpoints: {
-    			750: {
+					9999: {
+						parallax: true,
+					},
+					750: {
 						direction: 'vertical',
-
+						parallax: true,
 					},
 				},
 			},
@@ -165,7 +163,6 @@ export default {
 				(function(index) {
 					setTimeout(function() {
 						content[index].classList.add('show');
-						self.Velocity(content[index], { 'transform': 'translateY(0%)' }, 1500, [180, 12]);
 					}, i * 1000)
 				})(i);
 			}
@@ -186,7 +183,6 @@ export default {
 			this.sliderStyle = {};
 		}
 	}
-
 }
 
 
