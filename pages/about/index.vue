@@ -23,7 +23,7 @@
 					image:{{ team_member.team_member_photo.url }}
 					name: {{ team_member.team_member_name }}
 					function {{ team_member.team_member_function }}
-
+					<img :src="team_member.team_member_photo.sizes.thumbnail" ref="imgActive" />
 				</span>
 			</div>
 

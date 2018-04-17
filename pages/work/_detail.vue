@@ -22,7 +22,14 @@
 
 			<one-column v-if="value.acf_fc_layout==='boxed_image_video'" :img="value" />
 
-			<two-column v-if="value.acf_fc_layout==='two_column_images'" :imgOne="value.left_image"  :imgTwo="value.right_image" />
+			<two-column v-if="value.acf_fc_layout==='two_column_images'"
+				:leftColKind="value.left_column_kind"
+				:rightColKind="value.right_column_kind"
+				:imgOne="value.left_image"
+				:imgTwo="value.right_image"
+				:videoOne="value.left_video"
+				:videoTwo="value.right_video"
+				/>
 
 			<icons-caption v-if="value.acf_fc_layout==='icon_block'"
 				:gridColor="value.icon_background"
