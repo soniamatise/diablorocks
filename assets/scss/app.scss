@@ -22,7 +22,7 @@ body{
 		overflow: hidden;
 	}
 	// menu item styling when page is Black
-	&.white-menu{ border: solid 1px red;
+	&.white-menu{
 		.nav{
 			&__text{
 				color: color(White);
