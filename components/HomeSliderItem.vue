@@ -1,18 +1,46 @@
 <template>
-	<div class="swiper-slide">
-		<div class="contentHolder" ref="contentHolderActive" v-bind:class="caseImageHeight" @mouseover="bgOfCase()" @mouseleave="bgToNormal()">
-			<div class="rotator" data-swiper-parallax="750">
-				<img :src="caseImage" ref="imgActive" />
-			</div>
-		</div>
 
-		<div class="content name">
-			<p><b>{{ caseName }}</b></p>
+	<!-- swiper slide -->
+	<div class="swiper-slide">
+
+		<!-- content container -->
+		<div class="content_container" ref="content_container_active" v-bind:class="blockClass">
+
+			<!-- case name -->
+			<div class="content name">
+				<p>{{ caseName }}</p>
+			</div>
+			<!-- end case name -->
+
+			<!-- image -->
+			<div class="image_holder block" ref="image_holder_active" v-bind:class="imageClass" @mouseover="bgOfCase()" @mouseleave="bgToNormal()">
+				<div class="image_position">
+					<div class="image_actual" data-swiper-parallax="50%">
+						<img :src="caseImage" ref="imgActive" />
+					</div>
+				</div>
+			</div>
+			<!-- end image -->
+
+			<!-- case description -->
+			<div class="content description">
+				<p>{{ caseDescription }}</p>
+			</div>
+			<div class="content_for_medium">
+				<p><span>{{ caseName }}</span>{{ caseDescription }}</p>
+			</div>
+			<!-- end case description -->
+
+			<!-- shadow -->
+			<div class="shadow" v-bind:class="imageClass"></div>
+			<!-- end shadow -->
+
 		</div>
-		<div class="content description">
-			<p>{{ caseDescription }}</p>
-		</div>
+		<!-- end content container -->
+
 	</div>
+	<!-- end swiper slide -->
+
 </template>
 
 <script>
@@ -20,61 +48,59 @@
 export default {
 	data() {
 		return {
-			Velocity: this.$velocity,
+			blockClass: 'square_block',
+			imageClass: 'square_image',
 		}
 	},
-	props: ['caseName', 'caseDescription', 'caseImage', 'caseUrl', 'caseColor', 'caseImageHeight', 'slug'],
+	props: ['caseName', 'caseDescription', 'caseImage', 'caseUrl', 'caseColor', 'caseSize', 'slug'],
 	methods: {
 		bgOfCase: function () {
 	    	const bg = this.$parent.$refs.homeSlider;
 	    	const homeCover = this.$parent.$refs.homeCover;
 	    	const typestroke = this.$parent.$refs.typestroke;
-	    	const contentHolderActive = this.$refs.contentHolderActive;
+	    	const image_holder_active = this.$refs.image_holder_active;
 	    	const imgActive = this.$refs.imgActive;
-	    	let contentHolders = document.querySelectorAll('.contentHolder');
-	    	let bullets = document.querySelectorAll('.bullet');
-	    	const getGrid = window.innerWidth / 24;
-				bg.classList.remove('bg-black');
 
-			bg.classList.add(`bg-${this.slug}`);
-			// wat doen we hier mee?????
-			// typestroke.classList.add(`bg-${this.slug}`);
-			// homeCover.classList.add(`bg-${this.slug}`);
+				let shadowChange = this.$parent.$refs.homeSlider;
+				shadowChange.classList.add('changeShadow');
+
+	    	let image_holder = document.querySelectorAll('.image_holder');
+	    	const getGrid = window.innerWidth / 24;
+
+			this.$emit('onEnter', this.caseColor);
 
 			var self = this;
-				bullets.forEach(function(bullet){
-				bullet.classList = 'bullet';
-				bullet.classList.add(`bg-${self.slug}`);
+
+			image_holder.forEach(function(image_holder){
+				image_holder.style = `--caseColor: ${self.caseColor}`
 			});
-			contentHolders.forEach(function(contentHolder){
-				contentHolder.style = `--caseColor: ${self.slug}`
-			})
-			this.Velocity(contentHolderActive, { transform: 'rotate(-15deg)' }, 600, [180, 16]);
-			this.Velocity(imgActive, { transform: 'rotate(15deg)' }, 600, [180, 16]);
-	    },
-	    bgToNormal: function () {
-	    	const bg = this.$parent.$refs.homeSlider;
-	    	const homeCover = this.$parent.$refs.homeCover;
-	    	const typestroke = this.$parent.$refs.typestroke;
-	    	const contentHolderActive = this.$refs.contentHolderActive;
-	    	const imgActive = this.$refs.imgActive;
-	    	let contentHolders = document.querySelectorAll('.contentHolder');
-	    	let bullets = document.querySelectorAll('.bullet');
-			bg.classList.remove(`bg-${this.slug}`);
-			bg.classList.add('bg-black');
-			// homeCover.classList.add('bg-black');
-			// typestroke.classList.add('bg-black');
-			bullets.forEach(function(bullet){
-				bullet.classList = 'bullet';
-				bullet.classList.add('bg-black');
+
+		},
+		bgToNormal: function () {
+			const bg = this.$parent.$refs.homeSlider;
+			const homeCover = this.$parent.$refs.homeCover;
+			const typestroke = this.$parent.$refs.typestroke;
+			const image_holder_active = this.$refs.image_holder_active;
+			const imgActive = this.$refs.imgActive;
+
+			let shadowChange = this.$parent.$refs.homeSlider;
+			shadowChange.classList.remove('changeShadow');
+
+			let image_holder = document.querySelectorAll('.image_holder');
+
+			this.$emit('onLeave');
+
+			image_holder.forEach(function(image_holder){
+				image_holder.style = `--caseColor: black`
 			})
 
-			contentHolders.forEach(function(contentHolder){
-				contentHolder.style = `--caseColor: black`
-			})
-			this.Velocity(contentHolderActive, { transform: 'rotate(0deg)' }, 600, [180, 16]);
-			this.Velocity(imgActive, { transform: 'rotate(0deg)' }, 600, [180, 16]);
-	    },
+		}
+	},
+	mounted() {
+		if(this.caseSize){
+			this.blockClass = this.caseSize+'_block';
+			this.imageClass = this.caseSize+'_image';
+		}
 	}
 }
 </script>

@@ -4,17 +4,13 @@
 "settings/settings",
 "typography/index",
 "layout/index",
-"components/index";
+"components/index",
+"components/work";
+
 
 
 body{
 	font-family: $body-font;
-	// @media #{$small-only}{ border: 1px solid yellow; }
-	// @media #{$medium-only}{ border: 1px solid green; }
-	// @media #{$large-only}{ border: 1px solid blue; }
-	// @media #{$xlarge-only}{ border: 1px solid red; }
-	// @debug $medium-only;
-
 	::selection{
 		background: color(Gray); color: color(Light);
 	}
