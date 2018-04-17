@@ -151,21 +151,16 @@ export default {
 					backgroundPosX = '50%';
 				} else if(self._data.deviceSize === 'medium') {
 					if (offsetLeft > (window.innerWidth / 2)){
-						console.log('right');
 						backgroundPosX = `calc(50% + ${offsetLeft})`;
 					} else {
-						console.log('left');
 						backgroundPosX = `calc(50% - ${offsetLeft})`;
 					}
 				} else {
 					if (offsetLeft > (window.innerWidth / 2)){
-						console.log('right');
 						backgroundPosX = `calc(50% + ${getGrid(width + 1) / 2}vw)`;
 					} else if (offsetLeft < (window.innerWidth / 2) && offsetRight > (window.innerWidth / 2)) {
-						console.log('middle');
 						backgroundPosX = '50%';
 					} else {
-						console.log('left');
 						backgroundPosX = `calc(50% - ${getGrid(width + 1) / 2}vw)`;
 					}
 				}
