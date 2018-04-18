@@ -9,6 +9,11 @@ section.two_column_images{
 			margin-top: rem(0);
 		}
 	}
+	&+section.next_case{ margin-top: grid(4);
+		@media #{$medium-down}{ margin-top: grid(5); }
+		@media #{$small-only}{ margin-top: rem(96); }
+	}
+
 
 	// holder
 	.holder{
