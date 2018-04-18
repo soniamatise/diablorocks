@@ -1,6 +1,6 @@
 section.info_table{
 	// distance to section
-	& + section.boxed_image_video{ margin-top: grid(4);
+	& + section.boxed_image_video { margin-top: grid(4);
 		@media #{$medium-down}{ margin-top: grid(5); }
 		@media #{$small-only}{ margin-top: rem(96); }
 	}
