@@ -21,7 +21,7 @@
 					</li>
 				</ul>
 				<!-- link -->
-				<div class="link">
+				<div class="link" v-if="footer!==''">
 					<p v-html="footer"></p> 
 				</div>
 				<!-- end link -->
