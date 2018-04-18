@@ -127,7 +127,7 @@
 					self._data.click = true;
 					//go to work detail
 					setTimeout(()=>{
-						self.$router.push(`work/${workCard.slug}`);
+						self.$router.push(`/work/${workCard.slug}`);
 					},2400);
 				}
 			},
