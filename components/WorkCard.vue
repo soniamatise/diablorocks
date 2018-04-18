@@ -192,8 +192,7 @@ export default {
 			let addVariables = function(heightEl, widthEl, marginEl){
 				// Ugly way to position next element
 				let topEl = document.querySelector(`.${self.caseName}`).nextSibling;
-				console.log(topEl.tagName );
-				if (topEl.tagName == 'ARTICLE'){
+				if (topEl.tagName == 'ARTICLE'){.nextSibling
 					document.querySelector(`.${self.caseName}`).nextSibling.style.marginTop = `${topEl.getBoundingClientRect().top - scrollOffsetY}px`;
 				}
 				// Add css variables to clicked element
