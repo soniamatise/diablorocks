@@ -129,6 +129,7 @@ export default {
 			let marginEl;
 			let marginTop;
 			let backgroundPosX;
+			let backgroundPosY;
 			let scrollOffsetY = document.querySelector(`.${self.case}`).getBoundingClientRect().top;
 			let offsetLeft = document.querySelector(`.${self.case}`).getBoundingClientRect().left;
 			let offsetRight = document.querySelector(`.${self.case}`).getBoundingClientRect().right;
@@ -138,7 +139,7 @@ export default {
 			} else if (self.columnNr === 2) {
 				marginTop = `${getGrid(1.5)}vw`
 			} else {
-				marginTop = 0;
+				marginTop = '1px';
 			}
 
 			let checkExpandSize = function(width, height){
@@ -155,7 +156,11 @@ export default {
 				}
 			}
 			let checkBgPosition = function(width, height){
-				let backgroundPosY = `calc(${scrollOffsetY / 2}px + 50%)`;
+				let space;
+
+					// backgroundPosY = `calc( ${scrollOffsetY}px - ${getGrid(height / 2)}vw + ${marginTop})`;
+					backgroundPosY = `calc((${scrollOffsetY}px - ((100vh - ${getGrid(height)}vw) / 2)) + 50% )`;
+
 				if (self._data.deviceSize === 'small') {
 					// Image on mobile
 					backgroundPosX = ' 50%';
@@ -163,18 +168,18 @@ export default {
 				} else if(self._data.deviceSize === 'medium') {
 					if (offsetLeft > (window.innerWidth / 2)){
 						// Image on the right of tablet size screen, two columns
-						let space = (width / 2) + 1;
+						space = (width / 2) + 1;
 						backgroundPosX = ` calc(50% + ${getGrid(space)}vw)`;
 					} else {
 						// Image on the left of tablet size screen, two columns
-						let space = (width / 2) + 1;
+						space = (width / 2) + 1;
 						backgroundPosX = ` calc(50% - ${getGrid(space)}vw)`;
 					}
 
 				} else {
 					if (offsetLeft > (window.innerWidth / 2)){
 						// Image on the right of three column screen
-						let space = width + 1;
+						space = width + 1;
 						backgroundPosX = ` calc(50% + ${getGrid(space)}vw)`;
 
 					} else if (offsetLeft < (window.innerWidth / 2) && offsetRight > (window.innerWidth / 2)) {
@@ -182,7 +187,7 @@ export default {
 						backgroundPosX = ` 50%`;
 					} else {
 						// Image on the left of three column screen
-						let space = width + 1;
+						space = width + 1;
 						backgroundPosX = ` calc(50% - ${getGrid(space)}vw)`;
 					}
 				}
