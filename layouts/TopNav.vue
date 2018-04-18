@@ -41,22 +41,32 @@ export default {
 		let didScroll = false;
 		let lelek;
 
-		// add / remove class on scroll 
 		window.addEventListener('scroll', function(e) {
 
 			let scrollPosition = window.scrollY;
 
+			// add / remove class on scroll top
+
 			if (scrollPosition >= savedScroll + 40) {
-				// scroll down
 				topNav.classList.add('up');
-				lelek = scrollPosition;
-				savedScroll = scrollPosition + 40;
-			} else if (lelek >= scrollPosition) {
-				// scroll up
+			} else {
 				topNav.classList.remove('up');
-				lelek = scrollPosition;
-				savedScroll = scrollPosition + 40;
+
+
 			}
+			// add / remove class on scroll down or up
+
+			// if (scrollPosition >= savedScroll + 40) {
+			// 	// scroll down
+			// 	topNav.classList.add('up');
+			// 	lelek = scrollPosition;
+			// 	savedScroll = scrollPosition + 40;
+			// } else if (lelek >= scrollPosition) {
+			// 	// scroll up
+			// 	topNav.classList.remove('up');
+			// 	lelek = scrollPosition;
+			// 	savedScroll = scrollPosition + 40;
+			// }
 		});
 
 		setTimeout(function() {
