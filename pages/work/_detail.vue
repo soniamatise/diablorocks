@@ -61,11 +61,6 @@ import NextCase from '~/components/NextCase.vue'
 import VideoPlayer from '~/components/VideoPlayer.vue'
 
 export default {
-	head: {
-		bodyAttrs: {
-			class: 'white-menu'
-		}
-	},
 	components: {
 		TitleText,
 		OneColumn,

@@ -1,8 +1,9 @@
-
-
 #header{
 	.nav{
-		top: grid(1.5); left: grid(2); position: absolute; z-index: 1;
+		top: grid(1.5); transition: top 0.2s ease-in-out; left: grid(2); position: fixed; z-index: 1;
+		&.up{
+			top: grid(-1.5); // same as header height. use variables in LESS/SASS
+		}
 		@media #{$medium-only}{
 			left: grid(4);
 		}
