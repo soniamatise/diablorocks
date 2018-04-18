@@ -30,12 +30,10 @@ $logo-height: 52px; $logo-width: 120px; $time: 0.6;
 	// general nav styling
 	&__logo{
 		background-color: color(Black); position: fixed; right: 0; top: grid(1.5); z-index: 5; height: rem($logo-height); width: rem($logo-width); display: block; -webkit-backface-visibility: visible;
-
 		@media #{$small-only}{
 			top: 50vh; transform-origin: calc(100% + 52px) 100%; transform: rotate(90deg) translateX(calc(50% - #{rem($logo-height / 2)}))
 			translateY(200%);
 		}
-
 		&__link{
 			position: absolute; width: 100%; height: 100%; background: red; display: block; -webkit-backface-visibility: visible; text-indent: -9999px; background: url("~/assets/img/logo.svg") no-repeat center center; background-size: contain;
 		}
@@ -43,6 +41,9 @@ $logo-height: 52px; $logo-width: 120px; $time: 0.6;
 
 	&__list{
 		// styling for list (ul/ol)
+		&.fade-out{
+			transition: opacity 1s $easeboth; opacity: 0;
+		}
 	}
 	&__item{
 		// Styling for item ( li )

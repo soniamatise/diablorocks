@@ -19,7 +19,7 @@ $space: 20px; //
 /*  Animation */
 $transition-time: 0.2; //
 $transition: #{$transition-time}s; //
-$cubic-bezier: cubic-bezier(0.68, -0.55, 0.265, 1.55); $bezier: $cubic-bezier; $specialCubicBezier: cubic-bezier(0.7, 0, 0.3, 1); $easeboth: cubic-bezier(0.42,0,0.58,1);
+$cubic-bezier: cubic-bezier(0.68, -0.55, 0.265, 1.55); $bezier: $cubic-bezier; $specialcubicbezier: cubic-bezier(0.7, 0, 0.3, 1); $easeboth: cubic-bezier(0.42,0,0.58,1);
 
 // menu
 $logo-height: 52px;
@@ -155,9 +155,15 @@ body, html{
 		overflow-x: hidden;
 	}
 	&.__noscroll{
-		overflow: hidden !important;
+		overflow: hidden!important;
+		@media #{$small-only}{
+			position: fixed!important;
+		}
+	}
+	&.__blackbg{
+		background-color: color(Dark)!important;
 	}
 	&.one-page{
-		overflow: hidden !important;
+		overflow: hidden!important;
 	}
 }

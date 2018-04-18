@@ -1,136 +1,89 @@
-
-
-.black-intro,
-.white-intro {
-	z-index: 5;
-	position: fixed;
-		width: 100vw;
-		clip-path: polygon(0 0, 100vw 0, 100vw 100vh, 0 100vh);
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100vh;
-
-	&--overflow {
-		position: absolute;
-		clip-path: polygon(0 0, 0 0, 0 0, 0 0);
-		display: flex;
-		justify-content: center;
-		align-items: center;
-
-		h2 {
-			width: 100%;
-			width: max-content;
-		}
-
-		&.active {
-			z-index: 1;
-			width: auto;
-			height: 100%;
-			animation: moveContainer 1.9s 0.8s $specialCubicBezier;
-
-			h2 {
-				width: 100%;
-				width: max-content;
-				text-align: center;
+// home intro
+.black-intro, .white-intro{
+	z-index: 5; position: fixed; width: 100vw; clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); display: flex; justify-content: center; align-items: center; height: 100%;
+	// scenes
+	&--overflow{
+		position: absolute; clip-path: polygon(0 0, 0 0, 0 0, 0 0); display: flex; justify-content: center; align-items: center;
+		h2{
+			width: 100%; width: max-content;
+			@media #{$small-only}{
+				height: 60px; display: block; width: calc(100vw - 128px)!important; position: relative; white-space: normal; text-align: left!important;
 			}
-
-			&--last {
-				background: color(Black);
-				transition: background 0.1s;
-				transition-delay: 1s;
-				z-index: 1;
-				width: auto;
-				height: 100%;
-				animation: moveLastContainer 1s 0.8s $specialCubicBezier forwards;
-
-				h2 {
+		}
+		&.active{
+			z-index: 1; width: auto; height: 100%; animation: moveContainer 0.3s 1s $easeboth forwards, hideContainer 0.3s 2.1s $easeboth forwards;
+			h2{
+				width: 100%; width: max-content; text-align: center;
+			}
+			&--last{
+				background: color(Black); transition: background 0.1s; transition-delay: 1s; z-index: 1; width: auto; height: 100%; animation: moveContainer 0.3s 1s $easeboth forwards, hideContainer 0s 3s $easeboth forwards;
+				h2{
 					white-space: nowrap;
+					@media #{$small-only}{
+						white-space: normal;
+					}
 				}
 			}
 		}
 	}
 }
 
-.white-intro {
-	z-index: 2;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	&--text {
-		h2 {
+.white-intro{
+	z-index: 2; display: flex; justify-content: center; align-items: center;
+	&--text{
+		h2{
 			color: color(Black);
+			@media #{$small-only}{
+				height: 60px; display: block; width: calc(100vw - 128px)!important; position: relative; white-space: normal; text-align: left!important;
+			}
 		}
 	}
 }
 
-.flowAway {
-	animation: flowAway 1.5s $easeboth forwards;
-	overflow-x: hidden;
+.flowAway{
+	animation: hideContainer 1s $easeboth forwards, moveContainer 1s 1.5s $easeboth forwards; overflow-x: hidden;
+	&.go-now{
+		opacity: 0; transition: 0.2s $easeboth;
+	}
+	&--overflow{
+		opacity: 0; transition: 0s;
+	}
 
-	.black-intro--overflow {
-		width: 100vw;
-		overflow: visible;
-		display: flex;
+	.black-intro--overflow{
+		width: 100vw; overflow: visible; display: flex;
 
-		h2 {
-			text-align: center;
-			width: 100vw;
+		h2{
+			text-align: center; width: 100vw;
+			@media #{$small-only}{
+				height: 60px; display: block; width: calc(100vw - 128px)!important; position: relative; white-space: normal; text-align: left!important;
+			}
 		}
 	}
 }
 
-.high-z {
+.high-z{
 	z-index: 6;
 }
 
-.low-z {
-	z-index: -1;
+.low-z{
+	display: none; z-index: -1;
 }
 
-// Wat is dit?
-
-// .saved {
-// 	position: absolute;
-// 	position: fixed;
-// 	top: 0;
-// 	left: 0;
-// 	right: 0;
-// 	bottom: 0;
-// 	display: flex;
-// 	justify-content: center;
-// 	align-items: center;
-// }
-
-@keyframes moveContainer {
-	0% {
+// animations
+@keyframes moveContainer{
+	0%{
 		clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
 	}
-	30% {
+	100%{
 		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-	}
-	70% {
-		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-	}
-	100% {
-		clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
 	}
 }
 
-@keyframes moveLastContainer {
-	0% {
-		clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
-	}
-	100% {
+@keyframes hideContainer{
+	0%{
 		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 	}
-}
-@keyframes flowAway {
-	0% {
-		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-	}
-	100% {
+	100%{
 		clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
 	}
 }
