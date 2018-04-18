@@ -12,7 +12,15 @@
 					<div class="swiper-slide">
 						<div class="content_holder">
 							<div class="real_holder">
-								<img :src="imgOne.url" :alt="imgOne.alt" />
+								{{leftColKind}}
+								<div v-if="leftColKind==='image'">
+									<img :src="imgOne.url" :alt="imgOne.alt" />
+								</div>
+								<div v-if="leftColKind==='video'">
+									<video class="video" ref="video" autoplay loop preload>
+										<source v-bind:src="videoOne.url " type="video/mp4">
+									</video>
+								</div>
 							</div>
 						</div>
 		      </div>
@@ -22,7 +30,14 @@
 					<div class="swiper-slide">
 						<div class="content_holder">
 							<div class="real_holder">
-								<img :src="imgTwo.url" :alt="imgTwo.alt" />
+								<div v-if="rightColKind==='image'">
+									<img :src="imgTwo.url" :alt="imgTwo.alt" />
+								</div>
+								<div v-if="rightColKind==='video'">
+									<video class="video" ref="video" autoplay loop preload>
+										<source v-bind:src="videoTwo.url " type="video/mp4">
+									</video>
+								</div>
 							</div>
 						</div>
 		      </div>
@@ -49,7 +64,7 @@
 
 <script>
 	export default {
-		props: ['imgOne', 'imgTwo'],
+		props: ['imgOne', 'imgTwo', 'leftColKind', 'rightColKind', 'videoOne', 'videoTwo'],
 		data() {
 			return {
 				swiperOption: {
