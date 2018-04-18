@@ -41,7 +41,7 @@ export default {
 
 			setTimeout(function(){
 				self._data.cardClass = 'work__card--move work__card--expand';
-			}, 200)
+			}, 1300)
 		},
 		doHover: function (){
 			if (!this._data.expanded) {
@@ -127,11 +127,19 @@ export default {
 			let heightEl;
 			let widthEl;
 			let marginEl;
+			let marginTop;
 			let backgroundPosX;
 			let scrollOffsetY = document.querySelector(`.${self.case}`).getBoundingClientRect().top;
 			let offsetLeft = document.querySelector(`.${self.case}`).getBoundingClientRect().left;
 			let offsetRight = document.querySelector(`.${self.case}`).getBoundingClientRect().right;
-			let backgroundPosY = `${scrollOffsetY / 2} + 50%`;
+
+			if (self.columnNr === 1){
+				marginTop = `${getGrid(.8)}vw`
+			} else if (self.columnNr === 2) {
+				marginTop = `${getGrid(1.5)}vw`
+			} else {
+				marginTop = 0;
+			}
 
 			let checkExpandSize = function(width, height){
 				if(window.innerHeight > window.innerWidth) {
@@ -146,29 +154,50 @@ export default {
 					return `--expWidth: 140vw; --expHeight: ${calcHeight}vw; --minusWidth: -20vw; --minusHeight: ${minusHeight}vw;`;
 				}
 			}
-			let checkBgPosition = function(width){
+			let checkBgPosition = function(width, height){
+				let backgroundPosY = `calc(${scrollOffsetY / 2}px + 50%)`;
 				if (self._data.deviceSize === 'small') {
-					backgroundPosX = '50%';
+					// Image on mobile
+					backgroundPosX = ' 50%';
+
 				} else if(self._data.deviceSize === 'medium') {
 					if (offsetLeft > (window.innerWidth / 2)){
-						backgroundPosX = `calc(50% + ${offsetLeft})`;
+						// Image on the right of tablet size screen, two columns
+						let space = (width / 2) + 1;
+						backgroundPosX = ` calc(50% + ${getGrid(space)}vw)`;
 					} else {
-						backgroundPosX = `calc(50% - ${offsetLeft})`;
+						// Image on the left of tablet size screen, two columns
+						let space = (width / 2) + 1;
+						backgroundPosX = ` calc(50% - ${getGrid(space)}vw)`;
 					}
+
 				} else {
 					if (offsetLeft > (window.innerWidth / 2)){
-						backgroundPosX = `calc(50% + ${getGrid(width + 1) / 2}vw)`;
+						// Image on the right of three column screen
+						let space = width + 1;
+						backgroundPosX = ` calc(50% + ${getGrid(space)}vw)`;
+
 					} else if (offsetLeft < (window.innerWidth / 2) && offsetRight > (window.innerWidth / 2)) {
-						backgroundPosX = '50%';
+						// Center image
+						backgroundPosX = ` 50%`;
 					} else {
-						backgroundPosX = `calc(50% - ${getGrid(width + 1) / 2}vw)`;
+						// Image on the left of three column screen
+						let space = width + 1;
+						backgroundPosX = ` calc(50% - ${getGrid(space)}vw)`;
 					}
 				}
-				return `--posX: ${backgroundPosX}`;
+				return `--posX: ${backgroundPosX}; --posY: ${backgroundPosY}`;
 			}
 
 			let addVariables = function(heightEl, widthEl, marginEl){
-					custom = `--height: ${getGrid(heightEl)}vw; --width: ${getGrid(widthEl)}vw; --margin: ${getGrid(marginEl)}vw; --offsetY: ${scrollOffsetY}px; --offsetLeft: ${offsetLeft}px; --offsetRight: ${offsetRight}px; --posY: ${backgroundPosY}; ${checkExpandSize(widthEl, heightEl)}; ${checkBgPosition(widthEl)};`;
+				// Ugly way to position next element
+				let topEl = document.querySelector(`.${self.caseName}`).nextSibling;
+				console.log(topEl.tagName );
+				if (topEl.tagName == 'ARTICLE'){
+					document.querySelector(`.${self.caseName}`).nextSibling.style.marginTop = `${topEl.getBoundingClientRect().top - scrollOffsetY}px`;
+				}
+				// Add css variables to clicked element
+				custom = `--height: ${getGrid(heightEl)}vw; --width: ${getGrid(widthEl)}vw; --margin: ${getGrid(marginEl)}vw; --offsetY: ${scrollOffsetY}px; --offsetLeft: ${offsetLeft}px; --offsetRight: ${offsetRight}px; ${checkExpandSize(widthEl, heightEl)}; ${checkBgPosition(widthEl, heightEl)};`;
 			}
 
 			let getWidth = function(){

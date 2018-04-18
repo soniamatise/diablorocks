@@ -4,24 +4,33 @@
 	flex-wrap: nowrap;
 	padding: grid(0 2);
 	min-height: 100vh;
+	@media #{$medium-down} {
+		padding: grid(0 1.75);
+	}
+	@media #{$medium-down} {
+		padding: grid(0 2);
+	}
 	&--column1{
-		// --grid: 0;
-		margin-top: grid(.8);
+		margin-top:grid(.8);
 		margin-right: grid(1);
+		@media #{$medium-down} {
+			margin-right: grid(2);
+		}
+		@media #{$mobile} {
+			margin-right: grid(0);
+		}
 	}
 
 	&--column2{
-		// --grid: 0;
 		margin-top: grid(1.5);
 		margin-right: grid(1);
-
 		@media #{$medium-down} {
 			padding-top: grid(.5);
+			margin-right: 0;
 		}
 	}
 
 	&--column3{
-		// --grid: calc((60 / 1440) * 100vw);
 		@media#{$medium-down} {
 			display: none;
 		}
@@ -112,14 +121,13 @@
 
 	&--move {
 		display: block;
-		--top: calc((100vh - var(--height)) / 2);
+			--top: calc((100vh - var(--height)) / 2);
 		position: fixed; top: 0; bottom: 0; left: 0; right: 0;
 		z-index: 2;
 		color: white;
 		width: grid(24);
 		height: 100vh;
 		margin-bottom: 0;
-
 		.work__card__image-container {
 			--y: calc(var(--height) + var(--top));
 			--xleft: var(--margin);
@@ -128,9 +136,8 @@
 			height: 100vh;
 			position: fixed; top: 0; left: 0; right: 0; bottom: 0;
 			z-index: 2;
-			background-position: var(--posX) var(--posY);
-			transition: none;
-			animation: imageToClip 2.5s $specialCubicBezier forwards;
+			clip-path: polygon(var(--offsetLeft) var(--offsetY), var(--offsetRight) var(--offsetY), var(--offsetRight) calc(var(--offsetY) + var(--height)), var(--offsetLeft) calc(var(--offsetY) + var(--height)));
+			animation: imageToClip 2.5s .5s $specialCubicBezier forwards, backgroundPos 2.5s $specialCubicBezier;
 			&+p {
 				opacity: 0;
 				height: 0;
@@ -139,18 +146,14 @@
 			}
 		}
 	}
-
 	&--expand {
 		.work__card__image-container {
 			background-size: 100vw !important;
-			transition: background .5s 1s $specialCubicBezier;
-
-			@media #{$medium-down} {
-				background-size: 175vh !important;
-			}
+			transition: background-size 1.2s $specialCubicBezier;
 		}
 	}
 }
+
 
 .background__canvas {
 	position: fixed;
@@ -185,29 +188,49 @@
 }
 
 @keyframes imageToClip {
-	0%{
-		background-position: var(--posX) var(--posY);
+	0%{ //initial
 		clip-path: polygon(var(--offsetLeft) var(--offsetY), var(--offsetRight) var(--offsetY), var(--offsetRight) calc(var(--offsetY) + var(--height)), var(--offsetLeft) calc(var(--offsetY) + var(--height)));
 	}
-	5% {
-		background-position: var(--posX) 50%;
+	5% { // slide up
 		clip-path: polygon(var(--offsetLeft) var(--top), var(--offsetRight) var(--top), var(--offsetRight) calc(var(--top) + var(--height)), var(--offsetLeft) calc(var(--top) + var(--height)));
 	}
-	10% {
-		background-position: var(--posX) 50%;
+	19% { // stay up
 		clip-path: polygon(var(--offsetLeft) var(--top), var(--offsetRight) var(--top), var(--offsetRight) calc(var(--top) + var(--height)), var(--offsetLeft) calc(var(--top) + var(--height)));
 	}
-	20% {
-		background-position: center;
+	20% { // slide left
 		clip-path: polygon(var(--xleft) var(--top), var(--xright) var(--top), var(--xright) var(--y), var(--xleft) var(--y));
 	}
-	30%{
+	30%{ //stay left
 		clip-path: polygon(var(--xleft) var(--top), var(--xright) var(--top), var(--xright) var(--y), var(--xleft) var(--y));
 	}
-	100% {
+	100% { //expand
 		clip-path: polygon(var(--minusWidth) var(--expHeight),
 		var(--minusWidth) var(--minusHeight),
 		var(--expWidth) var(--minusHeight),
 		var(--expWidth) var(--expHeight));
+	}
+}
+
+@keyframes backgroundPos {
+	0%{ // wait to move
+		background-position: var(--posX) var(--posY);
+	}
+	19%{ // wait to move
+		background-position: var(--posX) var(--posY);
+	}
+	20% { // initial
+		background-position: var(--posX) var(--posY);
+	}
+	25% { // slide up
+		background-position: var(--posX) 50%;
+	}
+	39% { // stay up
+		background-position: var(--posX) 50%;
+	}
+	40% { // center
+		background-position: center;
+	}
+	100% {
+		background-position: center;
 	}
 }

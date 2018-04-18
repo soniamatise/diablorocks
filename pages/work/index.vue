@@ -122,9 +122,10 @@
 
 				if (self.displayContent = true){
 					workCard.expandCard(workCard);
+					// Add expand classes to change background
 					self._data.background = `background__canvas--expand`;
 					self._data.click = true;
-
+					//go to work detail
 					setTimeout(()=>{
 						self.$router.push(`work/${workCard.slug}`);
 					},2400);
@@ -195,7 +196,6 @@
 						counter++;
 						classCounter++;
 					} else {
-						// workCard.column = 3; // set column
 						self.$set(workCard, 'column', 3);
 
 						let classes = self._data.class3; // get classes for column
