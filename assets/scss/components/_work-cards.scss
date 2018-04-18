@@ -152,6 +152,9 @@
 		.work__card__image-container {
 			background-size: 100vw !important;
 			transition: background-size 1.2s $specialcubicbezier;
+			@media #{$medium-down}{
+				background-size: 175vh !important;
+			}
 		}
 	}
 }
