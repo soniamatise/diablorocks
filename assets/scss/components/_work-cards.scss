@@ -137,12 +137,12 @@
 		--y: calc(var(--height) + var(--top));
 		--xleft: var(--margin);
 		--xright: calc(var(--margin) + var(--width));
-		transition: background-size 2s 0.4s $specialCubicBezier;
+		transition: background-size 2s 0.4s $specialcubicbezier;
 		background-size: 100vw !important;
 		@media #{$medium-down} {
 			background-size: 175vh !important;
 		}
-		animation: expand 2s 0.4s $specialCubicBezier forwards;
+		animation: expand 2s 0.4s $specialcubicbezier forwards;
 
 		&+p {
 			opacity: 0;
