@@ -1,0 +1,10 @@
+section.intro{
+	&+.gallery{
+		margin-top: grid(2);
+	}
+}
+
+// gallery
+.gallery{
+	height: 100vh; background: color(DarkGray);
+}
