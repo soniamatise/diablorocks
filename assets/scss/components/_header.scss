@@ -1,5 +1,5 @@
 .header{
-	width: 100%; z-index: 2; position: relative;
+	width: 100%; z-index: 3; position: relative;
 	@media #{$small-only}{
 		width: 100vw; height: 0; top: 0; left: 0;
 	}
