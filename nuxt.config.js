@@ -40,6 +40,10 @@ plugins: [{
 	src: '~plugins/velocity.js',
 	ssr: false
 },
+{
+	src: '~plugins/vue-motion.js',
+	ssr: false
+},
 ],
 /*
 ** Build configuration

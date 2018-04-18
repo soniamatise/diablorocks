@@ -6,6 +6,9 @@
 		position: absolute; clip-path: polygon(0 0, 0 0, 0 0, 0 0); display: flex; justify-content: center; align-items: center;
 		h2{
 			width: 100%; width: max-content;
+			@media #{$small-only}{
+				height: 60px; display: block; width: calc(100vw - 128px)!important; position: relative; white-space: normal; text-align: left!important;
+			}
 		}
 		&.active{
 			z-index: 1; width: auto; height: 100%; animation: moveContainer 0.3s 1s $easeboth forwards, hideContainer 0.3s 2.1s $easeboth forwards;
@@ -16,6 +19,9 @@
 				background: color(Black); transition: background 0.1s; transition-delay: 1s; z-index: 1; width: auto; height: 100%; animation: moveContainer 0.3s 1s $easeboth forwards, hideContainer 0s 3s $easeboth forwards;
 				h2{
 					white-space: nowrap;
+					@media #{$small-only}{
+						white-space: normal;
+					}
 				}
 			}
 		}
@@ -27,6 +33,9 @@
 	&--text{
 		h2{
 			color: color(Black);
+			@media #{$small-only}{
+				height: 60px; display: block; width: calc(100vw - 128px)!important; position: relative; white-space: normal; text-align: left!important;
+			}
 		}
 	}
 }
@@ -45,6 +54,9 @@
 
 		h2{
 			text-align: center; width: 100vw;
+			@media #{$small-only}{
+				height: 60px; display: block; width: calc(100vw - 128px)!important; position: relative; white-space: normal; text-align: left!important;
+			}
 		}
 	}
 }

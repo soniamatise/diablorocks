@@ -1,5 +1,6 @@
 <template>
 	<div class="home">
+
 		<!-- intro home animation -->
 		<section class="home-intro">
 			<div class="bg-white white-intro" ref="whiteIntro">
@@ -54,7 +55,6 @@
 </template>
 
 <script>
-
 import HomeSliderItem from '~/components/HomeSliderItem.vue'
 import TypeWriter from '~/components/TypeWriter.vue'
 

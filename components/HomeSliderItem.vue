@@ -16,7 +16,7 @@
 			<div class="image_holder block" ref="image_holder_active" v-bind:class="imageClass" @click="bgClick()" @mouseover="bgOfCase()" @mouseleave="bgToNormal()">
 				<div class="image_position">
 					<div class="image_actual" data-swiper-parallax="50%">
-						<img :src="caseImage" ref="imgActive" /> 
+						<img :src="caseImage" ref="imgActive" />
 					</div>
 				</div>
 			</div>
@@ -91,6 +91,11 @@ export default {
 				let keepContent = this.$refs.content_container_active;
 				keepContent.classList.add('click_up');
 			}
+			let self = this;
+			setTimeout(()=>{
+				self.$router.push(this.slug);
+			},2400);
+
 		},
 		bgOfCase: function () {
     	const bg = this.$parent.$refs.homeSlider;
