@@ -157,8 +157,6 @@ export default {
 			}
 			let checkBgPosition = function(width, height){
 				let space;
-
-					// backgroundPosY = `calc( ${scrollOffsetY}px - ${getGrid(height / 2)}vw + ${marginTop})`;
 					backgroundPosY = `calc((${scrollOffsetY}px - ((100vh - ${getGrid(height)}vw) / 2)) + 50% )`;
 
 				if (self._data.deviceSize === 'small') {
