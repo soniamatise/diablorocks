@@ -29,7 +29,7 @@
 
 	<section class="what_we_do">
 
-		<div class="circle_diagram">
+		<div class="header_image">
 			<div class="image_holder">
 			</div>
 		</div>
