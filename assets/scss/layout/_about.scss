@@ -1,8 +1,18 @@
 section.intro {
-	&+.gallery {
+	&+.about {
 		margin-top: grid(2);
 	}
 }
+
+section.about{
+	transform: translateY(100vh);
+	transition: .5s;
+	&.stay {
+		transform: none;
+		transition: 0 .2s;
+	}
+}
+
 // gallery
 .gallery {
 	height: 100vh;
