@@ -32,8 +32,6 @@ export default {
 	data() {
 		return {
 			yElement: 0,
-			rotated: 0,
-			Velocity: this.$velocity
 		}
 	},
 	methods: {

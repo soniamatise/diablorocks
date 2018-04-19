@@ -1,38 +1,44 @@
 <template>
-	<section id="next-case" class="next_case">
+	<Motion
+		:values="values"
+		:spring="spring">
+		<section id="next-case" class="next_case" slot-scope="props">
 
-		<!-- holder -->
-		<div class="holder" ref="holder">
+			<!-- holder -->
+			<div class="holder" ref="holder">
 
-			<!-- hover element -->
-			<div class="hover_container" @mouseenter="bgOfCase()" @mouseleave="bgToNormal()" v-on:click="nextCase()">
-				<text-transition text-left="Next case" :text-right="caseName" onloadedmetadata=""></text-transition>
+				<!-- hover element -->
+				<div class="hover_container" @mouseenter="bgOfCase()" @mouseleave="bgToNormal()" v-on:click="nextCase()">
+					<text-transition text-left="Next case" :text-right="caseName" onloadedmetadata=""></text-transition>
+				</div>
+				<!-- end hover element -->
+
 			</div>
-			<!-- end hover element -->
+			<!-- end holder -->
 
-		</div>
-		<!-- end holder -->
+			<!-- case image -->
+			<div id="caseImage" class="case_image" :style="{'transform': `translateY(${props.yElement}px)`}">
+				<img :src="image">
+			</div>
+			<!-- end case image -->
 
-		<!-- case image -->
-		<div id="caseImage" class="case_image">
-			<img :src="image">
-		</div>
-		<!-- end case image -->
-
-	</section>
+		</section>
+		</Motion>
 </template>
 
 <script>
+import * as VueMotion from '~/plugins/vue-motion'
 import TextTransition from '~/components/TextTransition.vue'
 
 export default {
 	components: {
-		TextTransition
+		TextTransition,
+		VueMotion,
 	},
 	props: ['caseName', 'leftText', 'image', 'caseColor', 'slug'],
 	data() {
 		return {
-			Velocity: this.$velocity
+			yElement: 100,
 		}
 	},
 	methods: {
@@ -46,11 +52,10 @@ export default {
 			// get grid size for image height on mouseover
 			const getGrid = window.innerWidth / 12;
 
-			// velocity
+			// vue motion TIM EPICNESS
 			let self = this;
-			self.Velocity(caseImage, {
-				transform: 'translateY(' + -getGrid + 'px)'
-			}, 1500, [180, 9]);
+			this.yElement = -getGrid
+
 		},
 		// black color and animation img on mouseleave
 		bgToNormal: function() {
@@ -61,10 +66,9 @@ export default {
 
 			const caseImage = document.getElementById('caseImage');
 
-			// velocity
-			self.Velocity(caseImage, {
-				transform: 'translateY(0px)'
-			}, 700, [180, 16]);
+			// vue motion TIM EPICNESS
+			this.yElement = 0
+
 		},
 		nextCase: function() {
 			this.$router.push(`/work/${this.slug}`);
@@ -72,6 +76,20 @@ export default {
 	},
 	mounted: function() {
 
-	}
+	},
+	computed: {
+		spring () {
+			return {
+				stiffness: 200,
+				damping: 16,
+				precision: 0.01,
+			}
+		},
+		values () {
+			return {
+				yElement: this.yElement,
+			}
+		},
+	},
 }
 </script>
