@@ -10,12 +10,27 @@
 
 
 body{
-	font-family: $body-font;
+	font-family: $body-font; background-color: color(White);
 	::selection{
 		background: color(Gray); color: color(Light);
 	}
 	::-moz-selection{
 		background: color(Gray); color: color(Light);
+	}
+	&.scroll-disable{
+		// when mobile menu is active body scroll-disable
+		overflow: hidden;
+	}
+	// menu item styling when page is Black
+	&.white-menu{
+		.nav{
+			&__text{
+				color: color(White);
+				&:before{
+					background-color: color(White);
+				}
+			}
+		}
 	}
 }
 

@@ -1,21 +1,30 @@
-section.simple_text{
+section.simple_text {
 	// distance to section
-	&+section.boxed_image_video, &+section.video_slider, &+section.two_column_images, &+section.icon_block, &+section.next_case, &+section.video{
+	& + section.boxed_image_video,
+	& + section.icon_block,
+	& + section.next_case,
+	& + section.two_column_images,
+	& + section.video,
+	& + section.video_slider {
 		margin-top: grid(5);
-		@media #{$medium-down}{
+		@media #{$medium-down} {
 			margin-top: grid(5);
 		}
-		@media #{$small-only}{
+		@media #{$small-only} {
 			margin-top: rem(96);
 		}
 	}
-	&+section.two_column_images{
-		@media #{$small-only}{
+
+	& + section.two_column_images {
+		@media #{$small-only} {
 			margin-top: rem(64);
 		}
 	}
 }
 
+.work-detail {
+	height: 100vh;
+	overflow: hidden;
 
 .work-detail{
 	height: 100vh; overflow: hidden;

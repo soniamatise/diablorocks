@@ -3,6 +3,10 @@ section.boxed_image_video{
 	& + section.simple_text{ margin-top: grid(2);
 		@media #{$medium-down}{ margin-top: grid(0); }
 	}
+	& + section.next_case{ margin-top: grid(4);
+		@media #{$medium-down}{ margin-top: grid(5); }
+		@media #{$small-only}{ margin-top: rem(96); }
+	}
 
 	// holder
 	.holder{
