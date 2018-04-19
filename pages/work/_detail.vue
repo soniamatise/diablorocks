@@ -45,10 +45,10 @@
 		</section>
 
 		<next-case
-		:caseName="nextCase.post_title"
-		image="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
-		:caseColor="color"
-		:slug="nextCase.post_name"
+		:caseName="nextCase.post.post_title"
+		:image="nextCase.case_image"
+		:caseColor="nextCase.case_background_color"
+		:slug="nextCase.post.post_name"
 		/>
 
 	</main-layout>
