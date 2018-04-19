@@ -17,11 +17,6 @@
 					<span class="nav__text">About</span>
 				</nuxt-link>
 			</li>
-			<li class="nav__item main-link">
-				<nuxt-link class="nav__link" to="/what-we-do">
-					<span class="nav__text">What we do</span>
-				</nuxt-link>
-			</li>
 			<!-- <li class="nav__list-item__top main-link"><nuxt-link to="/whatwedo">What we do</nuxt-link></li>
         <li class="nav__list-item__top main-link"><nuxt-link to="/whoweare">Who we are</nuxt-link></li> -->
 		</ul>

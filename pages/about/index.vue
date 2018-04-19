@@ -4,16 +4,37 @@
 
 		<section class="intro">
 			<type-writer
-			heading="About"
-			sub="It's all about us"
+			heading="It’s all about us"
 			v-on:doneTyping="showContent"
 			/>
 		</section>
 
-		<section class="about">
+		<!--  sub nav -->
+		<section class="subnav">
+			<nav class="nav" aria-label="Top navigation" ref="topNav">
+				<ul class="nav__list">
+					<li class="nav__item main-link">
+						<nuxt-link class="nav__link active" to="/about">
+							<span class="nav__text">Who we are</span>
+						</nuxt-link>
+					</li>
+					<li class="nav__item main-link">
+						<nuxt-link class="nav__link" to="/what-we-do">
+							<span class="nav__text">What we do</span>
+						</nuxt-link>
+					</li>
+					<li class="nav__item main-link">
+						<nuxt-link class="nav__link" to="/how-we-do-it">
+							<span class="nav__text">How we do it</span>
+						</nuxt-link>
+					</li>
+				</ul>
+			</nav>
+		</section>
 
+		<section class="about">
 			<!-- loop trough layouts -->
-			<section v-for="value in layouts" :key="value.id" :class="value.acf_fc_layout">
+			<div v-for="value in layouts" :key="value.id" :class="value.acf_fc_layout">
 				<!-- layout to generate slider -->
 				<div v-if="value.acf_fc_layout==='gallery'" class="gallery">
 					<!-- swiper -->
@@ -25,20 +46,14 @@
 								<div class="content_container">
 									<div class="image_holder">
 										<img :src="image.url" />
-								<!-- url: {{ image.url }} -->
-								<!-- title {{image.title}} -->
-								<!-- width: {{image.width }}
-								height: {{image.height}} -->
 									</div>
+								</div>
 							</div>
-						</div>
 							<!-- end swiper slide -->
 				    </div>
 						<!-- end swiper wrapper -->
 			  	</div>
 				</div>
-
-
 				<!-- simple text block -->
 				<div class="row center" v-if="value.acf_fc_layout==='simpel_text'" >
 					<div class="large-12 column">
@@ -46,11 +61,8 @@
 						<div class="simple_text_content" v-html="value.block_text"></div>
 					</div>
 				</div>
-
-
-
 				<!-- team member block, image, name and function -->
-				<section v-if="value.acf_fc_layout==='team_block'" class="team_member">
+				<div v-if="value.acf_fc_layout==='team_block'" class="team_member">
 					<ul>
 						<li  v-for="team_member in value.team_member" :key="team_member.id" >
 							<div class="picture_frame">
@@ -62,18 +74,12 @@
 							</div>
 						</li>
 					</ul>
-					<!-- <span v-for="team_member in value.team_member" :key="team_member.id" >
-						image:{{ team_member.team_member_photo.url }}
-						name: {{ team_member.team_member_name }}
-						function {{ team_member.team_member_function }}
-						<img :src="team_member.team_member_photo.sizes.thumbnail" ref="imgActive" />
-					</span> -->
-				</section>
-
-			</section>
-
-
+				</div>
+			</div>
 		</section>
+
+
+
 	</main-layout>
 </template>
 
