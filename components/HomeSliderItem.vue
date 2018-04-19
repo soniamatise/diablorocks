@@ -1,7 +1,7 @@
 <template>
 
 	<!-- swiper slide -->
-	<div class="swiper-slide">
+	<div class="swiper-slide" ref="checkActive">
 
 		<!-- content container -->
 		<div class="content_container" ref="content_container_active" v-bind:class="blockClass">
@@ -13,7 +13,7 @@
 			<!-- end case name -->
 
 			<!-- image -->
-			<div class="image_holder block" ref="image_holder_active" v-bind:class="imageClass" @mouseover="bgOfCase()" @mouseleave="bgToNormal()">
+			<div class="image_holder block" ref="image_holder_active" v-bind:class="imageClass" @click="bgClick()" @mouseover="bgOfCase()" @mouseleave="bgToNormal()">
 				<div class="image_position">
 					<div class="image_actual" data-swiper-parallax="50%">
 						<img :src="caseImage" ref="imgActive" />
@@ -54,18 +54,61 @@ export default {
 	},
 	props: ['caseName', 'caseDescription', 'caseImage', 'caseUrl', 'caseColor', 'caseSize', 'slug'],
 	methods: {
+		bgClick: function () {
+			const checkActive = this.$refs.checkActive;
+			console.log(checkActive);
+
+			if(checkActive.classList.contains('swiper-slide-active')){
+
+				// noSlider
+				this.$parent.mySwiper.allowSlideNext = false;
+				this.$parent.mySwiper.allowSlidePrev = false;
+
+				// get the right element
+				let clickUp = this.$refs.image_holder_active;
+				clickUp.classList.add('click_up');
+
+				// get rid of non elements
+				document.querySelector('.nav__list').classList.add('fade-out');
+				document.querySelector('.typeWriterTitle').classList.add('fade-out');
+				document.querySelector('.swiper-pagination').classList.add('change-z');
+
+				// remove others items
+				let image_holders = document.querySelectorAll('.image_holder');
+
+				image_holders.forEach(function(image_holder){
+					image_holder.classList.add('fade-out');
+				});
+
+				// remove content in other items
+				let content_containers = document.querySelectorAll('.content_container');
+
+				content_containers.forEach(function(content_container){
+					content_container.classList.add('fade-out');
+				});
+
+				// keep current content_holder
+				let keepContent = this.$refs.content_container_active;
+				keepContent.classList.add('click_up');
+			}
+			let self = this;
+			setTimeout(()=>{
+				self.$router.push(this.slug);
+			},2400);
+
+		},
 		bgOfCase: function () {
-	    	const bg = this.$parent.$refs.homeSlider;
-	    	const homeCover = this.$parent.$refs.homeCover;
-	    	const typestroke = this.$parent.$refs.typestroke;
-	    	const image_holder_active = this.$refs.image_holder_active;
-	    	const imgActive = this.$refs.imgActive;
+    	const bg = this.$parent.$refs.homeSlider;
+    	const homeCover = this.$parent.$refs.homeCover;
+    	const typestroke = this.$parent.$refs.typestroke;
+    	const image_holder_active = this.$refs.image_holder_active;
+    	const imgActive = this.$refs.imgActive;
 
-				let shadowChange = this.$parent.$refs.homeSlider;
-				shadowChange.classList.add('changeShadow');
+			let shadowChange = this.$parent.$refs.homeSlider;
+			shadowChange.classList.add('changeShadow');
 
-	    	let image_holder = document.querySelectorAll('.image_holder');
-	    	const getGrid = window.innerWidth / 24;
+    	let image_holder = document.querySelectorAll('.image_holder');
+    	const getGrid = window.innerWidth / 24;
 
 			this.$emit('onEnter', this.caseColor);
 

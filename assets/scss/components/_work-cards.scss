@@ -1,27 +1,37 @@
 .work__grid {
+	background-color: color(White);
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	padding: grid(0 2);
 	min-height: 100vh;
+	@media #{$medium-down} {
+		padding: grid(0 1.75);
+	}
+	@media #{$medium-down} {
+		padding: grid(0 2);
+	}
 	&--column1{
-		top: grid(.8);
-		position: relative;
+		margin-top:grid(.8);
 		margin-right: grid(1);
+		@media #{$medium-down} {
+			margin-right: grid(2);
+		}
+		@media #{$mobile} {
+			margin-right: grid(0);
+		}
 	}
 
 	&--column2{
-		top: grid(1.5);
-		position: relative;
+		margin-top: grid(1.5);
 		margin-right: grid(1);
-
 		@media #{$medium-down} {
 			padding-top: grid(.5);
+			margin-right: 0;
 		}
 	}
 
 	&--column3{
-		position: relative;
 		@media#{$medium-down} {
 			display: none;
 		}
@@ -37,6 +47,10 @@
 
 .work__card {
 	margin-bottom: grid(1.5);
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	flex-direction: column;
 	&__image {
 		&-container {
 			width: grid(6);
@@ -45,12 +59,11 @@
 			overflow: hidden;
 			@media #{$medium-down} {
 				background-size: 80vh !important;
+				width: grid(9.25);
 			}
 			@media #{$small-only} {
 				background-size: 85vh !important;
-			}
-			@media #{$medium-down} {
-				width: grid(9.25);
+				width: grid(20);
 			}
 
 			&--small {
@@ -82,9 +95,6 @@
 					height: grid(20);
 				}
 			}
-			@media #{$small-only} {
-				width: grid(20);
-			}
 		}
 	}
 
@@ -99,7 +109,7 @@
 		}
 	}
 
-	&.card--hover {
+	&--hover {
 		cursor: pointer;
 		position: relative;
 		transition: 1s $easeboth;
@@ -109,49 +119,45 @@
 			transition: 0.5s $easeboth;
 		}
 	}
-	&.expandCard {
-		--top: calc((100vh - var(--height)) / 2);
-		position: fixed;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
+
+	&--move {
+		display: block;
+			--top: calc((100vh - var(--height)) / 2);
+		position: fixed; top: 0; bottom: 0; left: 0; right: 0;
 		z-index: 2;
 		color: white;
 		width: grid(24);
 		height: 100vh;
 		margin-bottom: 0;
-		animation: slideToCenter 2.5s $easeboth forwards;
-	}
+		.work__card__image-container {
+			--y: calc(var(--height) + var(--top));
+			--xleft: var(--margin);
+			--xright: calc(var(--margin) + var(--width));
+			width: 100vw;
+			height: 100vh;
+			position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+			z-index: 2;
+			clip-path: polygon(var(--offsetLeft) var(--offsetY), var(--offsetRight) var(--offsetY), var(--offsetRight) calc(var(--offsetY) + var(--height)), var(--offsetLeft) calc(var(--offsetY) + var(--height)));
 
-	&.expandCard .work__card__image-container {
-		bottom: 0;
-		z-index: 2;
-		padding: 0;
-		left: 0;
-		right: 0;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		--y: calc(var(--height) + var(--top));
-		--xleft: var(--margin);
-		--xright: calc(var(--margin) + var(--width));
-		transition: background-size 2s 0.4s $specialCubicBezier;
-		background-size: 100vw !important;
-		@media #{$medium-down} {
-			background-size: 175vh !important;
+			animation: imageToClip 2.5s .5s $specialcubicbezier forwards, backgroundPos 2.5s $specialcubicbezier;
+			&+p {
+				opacity: 0;
+				height: 0;
+				transition: opacity 0s;
+				padding: 0;
+			}
 		}
-		animation: expand 2s 0.4s $specialCubicBezier forwards;
-
-		&+p {
-			opacity: 0;
-			transition: opacity 0.4s $easeboth;
-			padding: 0;
+	}
+	&--expand {
+		.work__card__image-container {
+			background-size: 100vw !important;
+			transition: background-size 1.2s $specialcubicbezier;
 		}
 	}
 }
 
-.background-canvas {
+
+.background__canvas {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -162,73 +168,71 @@
 	opacity: 0;
 	background: var(--background);
 	pointer-events: none;
-}
-
-.background-canvas--mouseout {
-	opacity: 0;
-	transition: .3s $easeboth;
-	& + .work__grid{
-		.card--hover p {
-			color: color(Black);
+	&--mouseout {
+		opacity: 0;
+		transition: .3s $easeboth;
+		& + .work__grid{
+			.card--hover p {
+				color: color(Black);
+			}
 		}
 	}
-}
-
-.background--forward {
-	z-index: 1;
-	opacity: 0.9;
-	transition: 1s $easeboth;
-}
-
-.expandBackground {
-	opacity: 1;
-	z-index: 1;
-	pointer-events: auto;
-}
-
-@keyframes slideToCenter {
-	0% {
-		padding-top: var(--offsetY);
-		padding-left: var(--offsetLeft);
-		padding-right: var(--offsetRight);
+	&--forward {
+		z-index: 1;
+		opacity: 0.9;
+		transition: 1s $easeboth;
 	}
-
-	10% {
-		padding-top: var(--top);
-		padding-left: var(--offsetLeft);
-		padding-right: var(--offsetRight);
-	}
-
-	16% {
-		padding-left: var(--margin);
-		padding-right: var(--margin);
-	}
-
-	100% {
-		width: grid(24);
-		padding-top: var(--top);
+	&--expand {
+		opacity: 1;
+		z-index: 1;
+		pointer-events: auto;
 	}
 }
-@keyframes expand {
-	0% {
-		height: 100vh;
-		position: absolute;
-		width: 100vw;
-		top: 0;
+
+@keyframes imageToClip {
+	0%{ //initial
+		clip-path: polygon(var(--offsetLeft) var(--offsetY), var(--offsetRight) var(--offsetY), var(--offsetRight) calc(var(--offsetY) + var(--height)), var(--offsetLeft) calc(var(--offsetY) + var(--height)));
+	}
+	5% { // slide up
+		clip-path: polygon(var(--offsetLeft) var(--top), var(--offsetRight) var(--top), var(--offsetRight) calc(var(--top) + var(--height)), var(--offsetLeft) calc(var(--top) + var(--height)));
+	}
+	19% { // stay up
+		clip-path: polygon(var(--offsetLeft) var(--top), var(--offsetRight) var(--top), var(--offsetRight) calc(var(--top) + var(--height)), var(--offsetLeft) calc(var(--top) + var(--height)));
+	}
+	20% { // slide left
 		clip-path: polygon(var(--xleft) var(--top), var(--xright) var(--top), var(--xright) var(--y), var(--xleft) var(--y));
 	}
-
-	5% {
-		margin: 0 auto;
-		height: 100vh;
+	30%{ //stay left
 		clip-path: polygon(var(--xleft) var(--top), var(--xright) var(--top), var(--xright) var(--y), var(--xleft) var(--y));
 	}
+	100% { //expand
+		clip-path: polygon(var(--minusWidth) var(--expHeight),
+		var(--minusWidth) var(--minusHeight),
+		var(--expWidth) var(--minusHeight),
+		var(--expWidth) var(--expHeight));
+	}
+}
 
+@keyframes backgroundPos {
+	0%{ // wait to move
+		background-position: var(--posX) var(--posY);
+	}
+	19%{ // wait to move
+		background-position: var(--posX) var(--posY);
+	}
+	20% { // initial
+		background-position: var(--posX) var(--posY);
+	}
+	25% { // slide up
+		background-position: var(--posX) 50%;
+	}
+	39% { // stay up
+		background-position: var(--posX) 50%;
+	}
+	40% { // center
+		background-position: center;
+	}
 	100% {
-		position: absolute;
-		height: 100vh;
-		width: 100vw;
-		top: 0;
-		clip-path: polygon(0 100vh, 0 0, 100vw 0, 100vw 100vh);
+		background-position: center;
 	}
 }

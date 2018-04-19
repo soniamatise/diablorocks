@@ -1,6 +1,8 @@
 <template>
 	<h1 class="nav__logo">
-		<a class="nav__logo__link" href="/">Matise</a>
+		<nuxt-link to="/">
+			<span class="nav__logo__link">Matise</span>
+		</nuxt-link>
 		<label v-on:click="toggleScrollBody()" @click="toggleHeaderWidth()" class="trigger" for="menu-trigger">
 			<span :class="{flip: flip}"></span>
 		</label>

@@ -1,5 +1,6 @@
 <template>
 	<div class="home">
+
 		<!-- intro home animation -->
 		<section class="home-intro">
 			<div class="bg-white white-intro" ref="whiteIntro">
@@ -16,7 +17,7 @@
 
 		<!-- home slider -->
 		<div id="home-slider" ref="homeSlider" :style="sliderStyle">
-			<div v-swiper:mySwiper="swiperOption">
+			<div v-swiper:mySwiper="swiperOption" ref="swiperObject">
 				<div class="parallax-bg home-bg-parallax" data-swiper-parallax="-280%">
 					<type-writer
 					heading="Our copy guy was out of office"
@@ -54,14 +55,13 @@
 </template>
 
 <script>
-
 import HomeSliderItem from '~/components/HomeSliderItem.vue'
 import TypeWriter from '~/components/TypeWriter.vue'
 
 export default {
 	head: {
 		bodyAttrs: {
-			class: '__noscroll white-menu'
+			class: '__noscroll white-menu __blackbg'
 		}
 	},
 	components: {
@@ -112,6 +112,7 @@ export default {
 					750: {
 						direction: 'vertical',
 						parallax: true,
+						speed: 400,
 					},
 				},
 			},
@@ -132,22 +133,25 @@ export default {
 							document.getElementById(index).classList.add('active--last');
 							setTimeout(function(){
 								self._data.go = true;
-							}, 1900);
+							}, 1400);
 							setTimeout(function(){
 								whiteIntro.classList.add('low-z');
-								self._data.slideIn = true;
-								document.querySelector('.nav__logo').classList.add('high-z');
-							}, 4000);
+								blackIntro.classList.add('go-now');
+							}, 3900);
 							setTimeout(function(){
 								blackIntro.classList.add('low-z');
-								self.type();
-							}, 4900);
+								document.querySelector('.nav__logo').classList.add('high-z');
+							}, 4100);
+							setTimeout(function() {
+							 	self.type();
+								self._data.slideIn = true;
+							}, 5100);
 						} else {
 							self._data.activeIndex = i;
 							self._data.text = self._data.texts[i];
 						}
 						document.getElementById(index).classList.add('active');
-					}, i * 1900);
+					}, i * 1400);
 				})(i);
 			}
 		}
@@ -163,7 +167,7 @@ export default {
 				(function(index) {
 					setTimeout(function() {
 						content[index].classList.add('show');
-					}, i * 1000)
+					}, i * 200)
 				})(i);
 			}
 
@@ -173,7 +177,7 @@ export default {
 			this.displayContent = true;
 			setTimeout(function () {
 				self.showSlides();
-			}, 1800);
+			}, 2000);
 			self._data.wait = false;
 		},
 		onEnter: function(color){
