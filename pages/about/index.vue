@@ -48,17 +48,18 @@
 
 
 			<!-- team member block, image, name and function -->
-			<section v-if="value.acf_fc_layout==='team_block'" class="team_member row">
-				<div class="large-8 column" v-for="team_member in value.team_member" :key="team_member.id" >
-					<div class="picture_frame">
-						<img :src="team_member.team_member_photo.url" />
-					</div>
-					<div class="member_info">
-						<p class="bold"> {{ team_member.team_member_name }} </p>
-						<p class="gray"> {{ team_member.team_member_function }} </p>
-
-					</div>
-				</div>
+			<section v-if="value.acf_fc_layout==='team_block'" class="team_member">
+				<ul>
+					<li  v-for="team_member in value.team_member" :key="team_member.id" >
+						<div class="picture_frame">
+							<img :src="team_member.team_member_photo.url" />
+						</div>
+						<div class="member_info">
+							<p class="bold"> {{ team_member.team_member_name }} </p>
+							<p class="gray"> {{ team_member.team_member_function }} </p>
+						</div>
+					</li>
+				</ul>
 				<!-- <span v-for="team_member in value.team_member" :key="team_member.id" >
 					image:{{ team_member.team_member_photo.url }}
 					name: {{ team_member.team_member_name }}
@@ -86,6 +87,8 @@ export default {
 	},
 	data() {
 		return {
+			Velocity: this.$velocity,
+			displayContent: false,
 			swiperOption: {
 				slidesPerView: 'auto',
 	      centeredSlides: true,
@@ -98,6 +101,18 @@ export default {
 			    enabled: true,
 			  },
 			}
+		}
+	},
+	methods: {
+		showContent: function(){
+			let self = this;
+			self.displayContent = true;
+			let col = document.querySelector('.work__grid');
+			self.Velocity(col, { transform: 'translateY(0)' }, 600, [180, 16]);
+			setTimeout(function () {
+				col.style = '';
+				col.classList.add('stay');
+			}, 600)
 		}
 	},
 	asyncData () {
