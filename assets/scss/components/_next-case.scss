@@ -1,9 +1,5 @@
 section.next_case{
 	background-color: color(Dark); height: 100vh; width: 100vw; overflow: hidden; transition: background-color 1s $easeboth; position: relative;
-	margin-top: grid(5);
-	@media #{$small-only} {
-		margin-top: rem(96);
-	}
 
 	// holder
 	.holder{
@@ -11,13 +7,13 @@ section.next_case{
 
 		// hover container
 		.hover_container{
-			cursor: pointer; width: 100vw; height: auto; position: relative; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 1;
+			cursor: pointer; width: 100vw; height: auto; position: relative; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 1; display: block;
 		}
 	}
 }
 
 // case image
-.case_image{
+.case_image{ background: red;
 	--gridW: calc((100vw / 24) * 6);
 	--gridH: calc((100vw / 24) * 8);
 
@@ -53,9 +49,6 @@ section.next_case{
 			background-size: 175vh;
 		}
 	}
-	// @media #{$medium-down}{
-	// 	display: none;
-	// }
 }
 @keyframes upAndExpand {
 	0%{
