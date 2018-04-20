@@ -11,15 +11,15 @@ section.intro{
 // 		margin-top: grid(2);
 // 	}
 // }
-
-.subnav{
-	text-align: center;
-	.active{
-		&:before{
-			width: 100%;
-		}
-	}
-}
+//
+// .subnav{
+// 	text-align: center;
+// 	.active{
+// 		&:before{
+// 			width: 100%;
+// 		}
+// 	}
+// }
 
 //show content when done typing intro
 section.about, section.what_we_do, section.how_we_do_it{
@@ -42,8 +42,24 @@ section.about{
 
 	// 2 column content_block
 	.content_block{
-		padding: grid(4) grid(2);
+		padding: grid(4) grid(.5);
 		@media #{$medium-down}{ padding: rem(64); }
+		h3{ font-size: rem(48); line-height: 1.33; font-weight: $font-medium; }
+		.simple_text_content{ margin-right: grid(1);
+			ul{ padding: rem(32) 0;
+				li{ color: color(Gray); line-height: 1.78; font-size: rem(18);
+					&:before{ content:'-'; padding-right: 20px; }
+				}
+			}
+			//link button
+			&__link{ }
+			&__text{ position: relative;
+				&:before{ content: ''; position: absolute; right: 0; width: 0; background-color: color(White); bottom: -4px; height: 1px; transition: width .3s $easeboth; }
+				&:hover{
+					&:before{ left: 0; right: auto; width: 100%; }
+				}
+			}
+		}
 	}
 
 		// section client logo's
