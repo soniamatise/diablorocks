@@ -88,18 +88,20 @@
 
 				<!-- team member block, image, name and function -->
 				<div v-if="value.acf_fc_layout==='team_block'" class="team_member">
-					<ul>
-						<li  v-for="team_member in value.team_member" :key="team_member.id" >
-							<div class="picture_frame">
-								<img :src="team_member.team_member_photo.url" />
-							</div>
-							<div class="member_info">
-								<p class="medium"> {{ team_member.team_member_name }} </p>
-								<p class="gray"> {{ team_member.team_member_function }} </p>
-							</div>
-						</li>
-					</ul>
+						<ul>
+							<li v-for="team_member in value.team_member" :key="team_member.id" >
+								<div class="picture_frame">
+									<img :src="team_member.team_member_photo.url" />
+								</div>
+								<div class="member_info">
+									<p class="medium"> {{ team_member.team_member_name }} </p>
+									<p class="gray"> {{ team_member.team_member_function }} </p>
+								</div>
+							</li>
+						</ul>
 				</div>
+
+
 				<!-- end loop trough layouts -->
 			</div>
 
@@ -137,15 +139,20 @@ export default {
 			displayContent: false,
 			swiperOption: {
 				slidesPerView: 'auto',
-	      centeredSlides: true,
+				centeredSlides: true,
 				speed: 600,
 				grabCursor: true,
-				loop: true,
-				loopedSlides: 2,
 				preventIntercationOnTransition: true,
 				keyboard: {
 			    enabled: true,
 			  },
+				breakpoints: {
+					768: {
+						slidesPerView: '1',
+						touchRatio: 1,
+						loop: true,
+					}
+				}
 			}
 		}
 	},
