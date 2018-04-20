@@ -1,6 +1,6 @@
 <template>
 	<div class="typeWriterTitle" ref="typeWriterTitle" >
-		<h1 :class="{caret: caret}" :text="heading" :wait="wait">{{ headingText }}</h1>
+		<h1 class="desktop_only" :class="{caret: caret}" :text="heading" :wait="wait">{{ headingText }}</h1>
 		<div class="paragraph_shower">
 			<p :class="{show : show}">{{ sub }}</p>
 		</div>

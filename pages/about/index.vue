@@ -67,22 +67,22 @@
 
 				<!-- simple text block 2 col-->
 				<div class="row center" v-if="value.acf_fc_layout==='2_column_content_with_call_to_action'" >
-					<div class="large-full small-12 column title_block">
+					<div class="large-full small-full column title_block">
 						<h2 v-if="value.block_title" v-html="value.block_title"></h2>
 					</div>
 					<div class="large-8 small-full column content_block">
 						<h2 v-if="value.left_column_title" slot=“header”>{{value.left_column_title}}</h2>
 						<div class="simple_text_content" v-html="value.left_column_content"></div>
-						<nuxt-link class="simple_text_content__link" :to="'case/'+ value.left_column_call_to_action.post_name">
+						<!-- <nuxt-link class="simple_text_content__link" :to="'case/'+ value.left_column_call_to_action.post_name">
 							<span class="simple_text_content__text">Explore {{value.left_column_call_to_action.post_title}}</span>
-						</nuxt-link>
+						</nuxt-link> -->
 					</div>
 					<div class="large-8 small-full column content_block">
 						<h2 v-if="value.right_column_title" slot=“header”>{{value.right_column_title}}</h2>
 						<div class="simple_text_content" v-html="value.right_column_content"></div>
-						<nuxt-link class="simple_text_content__link" :to="'case/'+ value.right_column_call_to_action.post_name">
+						<!-- <nuxt-link class="simple_text_content__link" :to="'case/'+ value.right_column_call_to_action.post_name">
 							<span class="simple_text_content__text">Explore {{value.right_column_call_to_action.post_title}}</span>
-						</nuxt-link>
+						</nuxt-link> -->
 					</div>
 				</div>
 
