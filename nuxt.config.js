@@ -88,7 +88,7 @@ generate: {
 	}
 },
 env: {
-	baseUrl: process.env.BASE_URL || 'http://localhost:3000/wp-json'
+	baseUrl: process.env.BASE_URL || 'http://api.matise.nl/wp-json'
 },
 css: [{
 	src: '~assets/scss/app.scss',
