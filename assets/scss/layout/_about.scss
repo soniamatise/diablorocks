@@ -285,7 +285,7 @@ section.about{
 				overflow: scroll;
 			}
 			&:before{
-				content: ''; display: block; height: grid(3.2); width: 100vw; position: absolute; bottom:0px; background-color: color(White);
+				content: ''; display: block; height: grid(3); width: 100vw; position: absolute; bottom:0px; background-color: color(White);
 				@media #{$small-only}{ display: none; }
 			}
 			li{
@@ -332,7 +332,8 @@ section.about{
 				}
 				.member_info{
 					background-color: color(White);
-					padding: grid(.8) grid(1) grid(1.6) grid(2);
+					padding: grid(.8) grid(1) 0 grid(2);
+					height: grid(3);
 					@media #{$small-only}{ width: 100vw; height: 20%; bottom: 0px; padding: rem(32) rem(64); position: absolute; }
 
 					p{
