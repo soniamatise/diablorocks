@@ -1,6 +1,6 @@
 <template>
 <header id="header" class="header " ref="header">
-	<nav :class="['nav', {closed: close}]" aria-label="Top navigation" ref="topNav">
+	<nav class="nav" aria-label="Top navigation" ref="topNav">
 		<ul class="nav__list">
 			<!-- <li class="nav__item main-link">
 				<nuxt-link class="nav__link" to="/culture">
@@ -35,11 +35,12 @@
 <script>
 export default {
 	mounted() {
-
+		let self = this;
 		let savedScroll = 0;
 		let topNav = this.$refs.topNav;
 		let didScroll = false;
 		let lelek;
+
 
 		window.addEventListener('scroll', function(e) {
 
@@ -68,6 +69,10 @@ export default {
 			// 	savedScroll = scrollPosition + 40;
 			// }
 		});
+
+		document.querySelector('.trigger').addEventListener('click', function () {
+			self.$refs.topNav.classList.add('animate');
+		})
 
 		setTimeout(function() {
 			topNav.classList.add('show');

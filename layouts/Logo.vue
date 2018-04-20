@@ -3,7 +3,7 @@
 		<nuxt-link to="/">
 			<span class="nav__logo__link">Matise</span>
 		</nuxt-link>
-		<label v-on:click="toggleScrollBody()" @click="toggleHeaderWidth()" class="trigger" for="menu-trigger">
+		<label v-on:click="toggleScrollBody()" @click="toggleHeaderWidth()" class="trigger" for="menu-trigger" >
 			<span :class="{flip: flip}"></span>
 		</label>
 	</h1>

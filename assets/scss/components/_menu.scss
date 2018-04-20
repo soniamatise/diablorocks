@@ -14,7 +14,10 @@
 			background-color: color(Black); color: color(Black);
 			padding: grid(1);
 			padding: rem(87) 4rem rem(90) 4rem;
-			animation: closeMenu 0.5s ease-in-out forwards;
+			clip-path: inset(0 0 0 100%);
+			&.animate{
+				animation: closeMenu 0.5s ease-in-out forwards;
+			}
 		}
 	}
 }
