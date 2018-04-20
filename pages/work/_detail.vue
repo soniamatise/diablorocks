@@ -31,6 +31,11 @@
 				:videoTwo="value.right_video"
 				/>
 
+				<full-photo v-if="value.acf_fc_layout==='full_photo'"
+					:imageFull="value.image"
+					:imageText="value.photo_information"
+				/>
+
 			<icons-caption v-if="value.acf_fc_layout==='icon_block'"
 				:gridColor="value.icon_background"
 				:gridIcons="value.icons"
@@ -66,6 +71,7 @@ import PayoffCredits from '~/layouts/PayoffCredits.vue'
 import CaseHeading from '@/components/CaseHeading.vue'
 import NextCase from '~/components/NextCase.vue'
 import VideoPlayer from '~/components/VideoPlayer.vue'
+import FullPhoto from '~/layouts/FullPhoto.vue'
 
 export default {
 	head: {
@@ -83,6 +89,7 @@ export default {
 		CaseHeading,
 		VideoPlayer,
 		NextCase,
+		FullPhoto,
 	},
 	data() {
 		return { scrollable: false }
