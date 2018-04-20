@@ -81,10 +81,10 @@ section.simple_text {
 				min-width: 100vw;
 				background-position: center center;
 				background-repeat: no-repeat;
-				background-size: cover;
-				// @media #{$small-only} {
-				// 	height: rem(600);
-				// }
+				background-size: 100vw;
+				@media #{$medium-down}{
+					background-size: 175vh;
+				}
 			}
 		}
 	}
