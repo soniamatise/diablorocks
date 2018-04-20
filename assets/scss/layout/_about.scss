@@ -1,10 +1,16 @@
-section.subnav{
-	& + .about,
-	& + .what_we_do,
-	& + .how_we_do_it{
+section.intro{
+	& + .about{
 		margin-top: grid(2);
 	}
 }
+
+// section.subnav{
+// 	& + .about,
+// 	& + .what_we_do,
+// 	& + .how_we_do_it{
+// 		margin-top: grid(2);
+// 	}
+// }
 
 .subnav{
 	text-align: center;
@@ -27,6 +33,13 @@ section.about, section.what_we_do, section.how_we_do_it{
 
 // only styling for about page
 section.about{
+	.black_bg{
+		background-color: color(Black);
+		color: color(White);
+	}
+		.content_block{
+			padding: grid(4) grid(2);
+		}
 	// gallery
 	.gallery {
 		height: 100vh;
@@ -55,19 +68,6 @@ section.about{
 						width: 100%;
 						height: calc(100vw * 1.25);
 						transform: translateY(0%);
-					}
-
-					&.swiper-slide-next{
-						transform: translateX( grid(-3));
-						z-index: 1;
-					}
-					&.swiper-slide-prev{
-						// left: grid(3.325);
-						transform: translateX( grid(3));
-						z-index: 1;
-					}
-					&.swiper-slide-active{
-
 					}
 
 					&:nth-child(1),

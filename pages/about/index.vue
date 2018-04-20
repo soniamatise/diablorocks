@@ -4,13 +4,14 @@
 
 		<section class="intro">
 			<type-writer
-			heading="It’s all about us"
+			heading="About"
+			sub="It’s all about us"
 			v-on:doneTyping="showContent"
 			/>
 		</section>
 
 		<!--  sub nav -->
-		<section class="subnav">
+		<!-- <section class="subnav">
 			<nav class="nav" aria-label="Top navigation" ref="topNav">
 				<ul class="nav__list">
 					<li class="nav__item main-link">
@@ -30,7 +31,8 @@
 					</li>
 				</ul>
 			</nav>
-		</section>
+		</section> -->
+
 
 		<section class="about">
 			<!-- loop trough layouts -->
@@ -54,6 +56,7 @@
 						<!-- end swiper wrapper -->
 			  	</div>
 				</div>
+
 				<!-- simple text block -->
 				<div class="row center" v-if="value.acf_fc_layout==='simpel_text'" >
 					<div class="large-12 column">
@@ -61,6 +64,7 @@
 						<div class="simple_text_content" v-html="value.block_text"></div>
 					</div>
 				</div>
+
 				<!-- team member block, image, name and function -->
 				<div v-if="value.acf_fc_layout==='team_block'" class="team_member">
 					<ul>
@@ -74,6 +78,19 @@
 							</div>
 						</li>
 					</ul>
+				</div>
+				<!-- end loop trough layouts -->
+			</div>
+
+			<!-- 2 column text block  -->
+			<div class="row center black_bg">
+				<div class="large-half column content_block">
+					<h3>Title</h3>
+					<p>Text</p>
+				</div>
+				<div class="large-half column content_block">
+					<h3>Title</h3>
+					<p>Text</p>
 				</div>
 			</div>
 		</section>
