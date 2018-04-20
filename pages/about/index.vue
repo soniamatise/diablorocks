@@ -59,7 +59,7 @@
 
 				<!-- simple text block -->
 				<div class="row center" v-if="value.acf_fc_layout==='simpel_text'" >
-					<div class="large-12 column">
+					<div class="large-12 small-full column">
 						<h3 v-if="value.block_title" slot=“header”>{{value.block_title}}</h3>
 						<div class="simple_text_content" v-html="value.block_text"></div>
 					</div>
@@ -73,7 +73,7 @@
 								<img :src="team_member.team_member_photo.url" />
 							</div>
 							<div class="member_info">
-								<p class="bold"> {{ team_member.team_member_name }} </p>
+								<p class="medium"> {{ team_member.team_member_name }} </p>
 								<p class="gray"> {{ team_member.team_member_function }} </p>
 							</div>
 						</li>
@@ -84,15 +84,25 @@
 
 			<!-- 2 column text block  -->
 			<div class="row center black_bg">
-				<div class="large-half column content_block">
+				<div class="large-half small-full column content_block">
 					<h3>Title</h3>
 					<p>Text</p>
 				</div>
-				<div class="large-half column content_block">
+				<div class="large-half small-full column content_block">
 					<h3>Title</h3>
 					<p>Text</p>
 				</div>
 			</div>
+
+			<!-- logo  -->
+			<div class="client_logo">
+				<ul>
+					<li>Amnest International</li>
+					<li>BBB Cycling</li>
+					<li>Schweppes</li>
+				</ul>
+			</div>
+
 		</section>
 
 
