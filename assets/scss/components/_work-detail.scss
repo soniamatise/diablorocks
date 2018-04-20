@@ -1,6 +1,6 @@
 section.simple_text{
 	// distance to section
-	&+section.boxed_image_video, &+section.icon_block, &+section.next_case, &+section.two_column_images, &+section.video, &+section.full_photo, &+section.video_slider{
+	&+section.boxed_image_video, &+section.icon_block, &+section.next_case, &+section.two_column_images, &+section.video, &+section.full_photo, &+section.video_slider, &+span .next_case{
 		margin-top: grid(5);
 		@media #{$medium-down}{
 			margin-top: grid(5);
@@ -18,12 +18,9 @@ section.simple_text{
 }
 section.simple_text{
 	&+section.simple_text{
-		margin-top: grid(2);
-		@media #{$medium-down}{
-			margin-top: rem(64);
-		}
+		margin-top: rem(32);
 		@media #{$small-only}{
-			margin-top: rem(32);
+			margin-top: rem(30);
 		}
 	}
 }
