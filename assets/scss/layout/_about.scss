@@ -218,9 +218,14 @@ section.about{
 		}
 	}
 
+
+	//team member section
 	.team_member{
 		ul{
-			background-color: color(Black);
+			background-color: color(Black); position: relative;
+			&:before{
+				content: ''; display: block; height: grid(3); width: 100vw; position: absolute; background-color: color(red);
+			}
 			li{
 				display: inline-block;
 				width: grid(8);
@@ -272,158 +277,158 @@ section.about{
 }
 
 // only stylng for what we do pages
-section.what_we_do{
-	background-color: color(Black);
-	color: color(White);
-	h3{ font-size: rem(48); line-height: 1.33; font-weight: $font-medium; }
-	h5{ font-size: rem(24); line-height: 1.33; font-weight: $font-regular; }
-	p{}
-	ul{ padding-top: rem(32);
-		li{ color: color(Gray); line-height: 1.78; font-size: rem(18);
-			&:before{ content:'-'; padding-right: 20px; }
-		}
-	}
-	a.nav_link{ position: relative; color: color(White); font-weight: $font-medium; padding: 0px; cursor: pointer; display: inline-block;
-		&:before{ content: ''; position: absolute; right: 0; width: 0; background-color: color(White); bottom: 0px; height: 1px; transition: width .3s $easeboth; }
-		&:hover{
-			&:before{ left: 0; right: auto; width: 100%; }
-		}
-		&.active{
-			&:before{ left: 0; right: auto; width: 100%; }
-			&:hover{
-				&:before{ left: auto; right: 0; width: 0; }
-			}
-		}
-	}
-	.header_image{
-		background-color: color(DarkGray);
-		height: 100vh;
-		width: 100vw;
-		margin-bottom: grid(4);
-		.image_holder{
-			height: 100%;
-			width: 100%;
-			display: block;
-			background-image: url("~/assets/img/placeholder_1.png");
-			background-position: center center;
-			background-repeat: no-repeat;
-		}
-	}
-	.content_block_left {
-		display: flex;
-		align-items: center;
-		.content{
-			padding: 0 grid(1);
-		}
-		.image_holder{
-			height: grid(8);
-			width: grid(8);
-			display: block;
-			background-image: url("~/assets/img/placeholder_1.png");
-			background-position: center center;
-			background-repeat: no-repeat;
-		}
-		padding-bottom: grid(4);
-	}
-	.content_block_right {
-		display: flex;
-		align-items: center;
-		.content{
-			padding: 0 grid(1);
-		}
-		.image_holder{
-			height: grid(8);
-			width: grid(8);
-			display: block;
-			background-image: url("~/assets/img/placeholder_1.png");
-			background-position: center center;
-			background-repeat: no-repeat;
-		}
-		padding-bottom: grid(4);
-	}
-	.content_block{
-		padding-bottom: grid(4);
-		.content{ padding: 0 grid(1);
-			h3{ font-size: rem(32); line-height: 1.5; font-weight: $font-medium; }
-			a{ margin-top: rem(64); }
-		}
-	}
-	.awards{
-		padding-bottom: grid(4);
-		ul{ width: grid(20); text-align: center; margin: auto; display: flex;
-			li{ margin: auto; text-indent: -99999px;
-				&:before{ display: none; }
-				&:nth-child(1), &:nth-child(2), &:nth-child(3){ display: block; height: rem(100); width: rem(300); display: inline-flex;
-					background-position: center center;
-					background-repeat: no-repeat;
-					background-size: contain;
-				}
-				&:nth-child(1){ background-image: url("~/assets/img/awwwards.png"); }
-				&:nth-child(2){ background-image: url("~/assets/img/css-da-logo.png"); }
-				&:nth-child(3){ background-image: url("~/assets/img/german_design.png"); }
-			}
-		}
-	}
-}
-
-
-// only stylng for how we do itpages
-section.how_we_do_it{
-	background-color: color(Black);
-	color: color(White);
-	h3{ font-size: rem(48); line-height: 1.33; font-weight: $font-medium; }
-	h5{ font-size: rem(24); line-height: 1.33; font-weight: $font-regular; }
-	.header_image{
-		background-color: color(DarkGray);
-		height: 100vh;
-		width: 100vw;
-		margin-bottom: grid(4);
-		.image_holder{
-			height: 100%;
-			width: 100%;
-			display: block;
-			background-image: url("~/assets/img/placeholder_1.png");
-			background-position: center center;
-			background-repeat: no-repeat;
-		}
-	}
-	.content_block_left {
-		display: flex;
-		align-items: center;
-		.content{
-			padding: 0 grid(1);
-		}
-		.image_holder{
-			height: grid(8);
-			width: grid(8);
-			display: block;
-			background-image: url("~/assets/img/placeholder_1.png");
-			background-position: center center;
-			background-repeat: no-repeat;
-		}
-		padding-bottom: grid(4);
-	}
-	.content_block{
-		padding-bottom: grid(4);
-		.content{ padding: 0 grid(1);
-			h3{ font-size: rem(32); line-height: 1.5; font-weight: $font-medium; }
-			a{ margin-top: rem(64); }
-		}
-	}
-	.clients{
-		padding-bottom: grid(4);
-		ul{ width: grid(20); text-align: center; margin: auto; display: flex;
-			li{ margin: auto; text-indent: -99999px;
-				&:before{ display: none; }
-				&:nth-child(1), &:nth-child(2), &:nth-child(3){ display: block; height: rem(100); width: rem(300); display: inline-flex;
-					background-position: center center;
-					background-repeat: no-repeat;
-					background-size: contain;
-				}
-				&:nth-child(1){ background-image: url("~/assets/img/amnesty.png"); }
-				&:nth-child(2){ background-image: url("~/assets/img/BBB_cycling.png"); }
-				&:nth-child(3){ background-image: url("~/assets/img/schweppes.png"); }
-			}
-		}
-	}
-}
+// section.what_we_do{
+// 	background-color: color(Black);
+// 	color: color(White);
+// 	h3{ font-size: rem(48); line-height: 1.33; font-weight: $font-medium; }
+// 	h5{ font-size: rem(24); line-height: 1.33; font-weight: $font-regular; }
+// 	p{}
+// 	ul{ padding-top: rem(32);
+// 		li{ color: color(Gray); line-height: 1.78; font-size: rem(18);
+// 			&:before{ content:'-'; padding-right: 20px; }
+// 		}
+// 	}
+// 	a.nav_link{ position: relative; color: color(White); font-weight: $font-medium; padding: 0px; cursor: pointer; display: inline-block;
+// 		&:before{ content: ''; position: absolute; right: 0; width: 0; background-color: color(White); bottom: 0px; height: 1px; transition: width .3s $easeboth; }
+// 		&:hover{
+// 			&:before{ left: 0; right: auto; width: 100%; }
+// 		}
+// 		&.active{
+// 			&:before{ left: 0; right: auto; width: 100%; }
+// 			&:hover{
+// 				&:before{ left: auto; right: 0; width: 0; }
+// 			}
+// 		}
+// 	}
+// 	.header_image{
+// 		background-color: color(DarkGray);
+// 		height: 100vh;
+// 		width: 100vw;
+// 		margin-bottom: grid(4);
+// 		.image_holder{
+// 			height: 100%;
+// 			width: 100%;
+// 			display: block;
+// 			background-image: url("~/assets/img/placeholder_1.png");
+// 			background-position: center center;
+// 			background-repeat: no-repeat;
+// 		}
+// 	}
+// 	.content_block_left {
+// 		display: flex;
+// 		align-items: center;
+// 		.content{
+// 			padding: 0 grid(1);
+// 		}
+// 		.image_holder{
+// 			height: grid(8);
+// 			width: grid(8);
+// 			display: block;
+// 			background-image: url("~/assets/img/placeholder_1.png");
+// 			background-position: center center;
+// 			background-repeat: no-repeat;
+// 		}
+// 		padding-bottom: grid(4);
+// 	}
+// 	.content_block_right {
+// 		display: flex;
+// 		align-items: center;
+// 		.content{
+// 			padding: 0 grid(1);
+// 		}
+// 		.image_holder{
+// 			height: grid(8);
+// 			width: grid(8);
+// 			display: block;
+// 			background-image: url("~/assets/img/placeholder_1.png");
+// 			background-position: center center;
+// 			background-repeat: no-repeat;
+// 		}
+// 		padding-bottom: grid(4);
+// 	}
+// 	.content_block{
+// 		padding-bottom: grid(4);
+// 		.content{ padding: 0 grid(1);
+// 			h3{ font-size: rem(32); line-height: 1.5; font-weight: $font-medium; }
+// 			a{ margin-top: rem(64); }
+// 		}
+// 	}
+// 	.awards{
+// 		padding-bottom: grid(4);
+// 		ul{ width: grid(20); text-align: center; margin: auto; display: flex;
+// 			li{ margin: auto; text-indent: -99999px;
+// 				&:before{ display: none; }
+// 				&:nth-child(1), &:nth-child(2), &:nth-child(3){ display: block; height: rem(100); width: rem(300); display: inline-flex;
+// 					background-position: center center;
+// 					background-repeat: no-repeat;
+// 					background-size: contain;
+// 				}
+// 				&:nth-child(1){ background-image: url("~/assets/img/awwwards.png"); }
+// 				&:nth-child(2){ background-image: url("~/assets/img/css-da-logo.png"); }
+// 				&:nth-child(3){ background-image: url("~/assets/img/german_design.png"); }
+// 			}
+// 		}
+// 	}
+// }
+//
+//
+// // only stylng for how we do itpages
+// section.how_we_do_it{
+// 	background-color: color(Black);
+// 	color: color(White);
+// 	h3{ font-size: rem(48); line-height: 1.33; font-weight: $font-medium; }
+// 	h5{ font-size: rem(24); line-height: 1.33; font-weight: $font-regular; }
+// 	.header_image{
+// 		background-color: color(DarkGray);
+// 		height: 100vh;
+// 		width: 100vw;
+// 		margin-bottom: grid(4);
+// 		.image_holder{
+// 			height: 100%;
+// 			width: 100%;
+// 			display: block;
+// 			background-image: url("~/assets/img/placeholder_1.png");
+// 			background-position: center center;
+// 			background-repeat: no-repeat;
+// 		}
+// 	}
+// 	.content_block_left {
+// 		display: flex;
+// 		align-items: center;
+// 		.content{
+// 			padding: 0 grid(1);
+// 		}
+// 		.image_holder{
+// 			height: grid(8);
+// 			width: grid(8);
+// 			display: block;
+// 			background-image: url("~/assets/img/placeholder_1.png");
+// 			background-position: center center;
+// 			background-repeat: no-repeat;
+// 		}
+// 		padding-bottom: grid(4);
+// 	}
+// 	.content_block{
+// 		padding-bottom: grid(4);
+// 		.content{ padding: 0 grid(1);
+// 			h3{ font-size: rem(32); line-height: 1.5; font-weight: $font-medium; }
+// 			a{ margin-top: rem(64); }
+// 		}
+// 	}
+// 	.clients{
+// 		padding-bottom: grid(4);
+// 		ul{ width: grid(20); text-align: center; margin: auto; display: flex;
+// 			li{ margin: auto; text-indent: -99999px;
+// 				&:before{ display: none; }
+// 				&:nth-child(1), &:nth-child(2), &:nth-child(3){ display: block; height: rem(100); width: rem(300); display: inline-flex;
+// 					background-position: center center;
+// 					background-repeat: no-repeat;
+// 					background-size: contain;
+// 				}
+// 				&:nth-child(1){ background-image: url("~/assets/img/amnesty.png"); }
+// 				&:nth-child(2){ background-image: url("~/assets/img/BBB_cycling.png"); }
+// 				&:nth-child(3){ background-image: url("~/assets/img/schweppes.png"); }
+// 			}
+// 		}
+// 	}
+// }
