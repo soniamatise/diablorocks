@@ -65,6 +65,24 @@
 					</div>
 				</div>
 
+				<!-- simple text block -->
+				<div class="row center" v-if="value.acf_fc_layout==='2_column_content_with_call_to_action'" >
+					<div class="large-6 column">
+						<h3 v-if="value.left_column_title" slot=“header”>{{value.left_column_title}}</h3>
+						<div class="simple_text_content" v-html="value.left_column_content"></div>
+						<nuxt-link class="simple_text_content__link" :to="'case/'+ value.left_column_call_to_action.post_name">
+							<span class="simple_text_content__text">Explore {{value.left_column_call_to_action.post_title}}</span>
+						</nuxt-link>
+					</div>
+					<div class="large-6 column">
+						<h3 v-if="value.right_column_title" slot=“header”>{{value.right_column_title}}</h3>
+						<div class="simple_text_content" v-html="value.right_column_content"></div>
+						<nuxt-link class="simple_text_content__link" :to="'case/'+ value.right_column_call_to_action.post_name">
+							<span class="simple_text_content__text">Explore {{value.right_column_call_to_action.post_title}}</span>
+						</nuxt-link>
+					</div>
+				</div>
+
 				<!-- team member block, image, name and function -->
 				<div v-if="value.acf_fc_layout==='team_block'" class="team_member">
 					<ul>
