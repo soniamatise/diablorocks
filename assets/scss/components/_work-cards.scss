@@ -51,49 +51,50 @@
 	justify-content: center;
 	align-content: center;
 	flex-direction: column;
-	&__image {
-		&-container {
-			width: grid(6);
-			display: flex;
-			justify-content: center;
-			overflow: hidden;
+	&__image-container {
+		background-size: 67.5vw;
+		background-position: center;
+		background-repeat: no-repeat;
+		width: grid(6);
+		display: flex;
+		justify-content: center;
+		overflow: hidden;
+		@media #{$medium-down} {
+			background-size: 80vh;
+			width: grid(9.25);
+		}
+		@media #{$small-only} {
+			background-size: 85vh;
+			width: grid(20);
+		}
+
+		&--small {
+			height: grid(7);
 			@media #{$medium-down} {
-				background-size: 80vh !important;
-				width: grid(9.25);
+				height: grid(10);
 			}
 			@media #{$small-only} {
-				background-size: 85vh !important;
-				width: grid(20);
+				height: grid(20);
 			}
+		}
 
-			&--small {
-				height: grid(7);
-				@media #{$medium-down} {
-					height: grid(10);
-				}
-				@media #{$small-only} {
-					height: grid(20);
-				}
+		&--medium {
+			height: grid(8);
+			@media #{$medium-down} {
+				height: grid(12);
 			}
-
-			&--medium {
-				height: grid(8);
-				@media #{$medium-down} {
-					height: grid(12);
-				}
-				@media #{$small-only} {
-					height: grid(20);
-				}
+			@media #{$small-only} {
+				height: grid(20);
 			}
+		}
 
-			&--large {
-				height: grid(9);
-				@media #{$medium-down} {
-					height: grid(14);
-				}
-				@media #{$small-only} {
-					height: grid(20);
-				}
+		&--large {
+			height: grid(9);
+			@media #{$medium-down} {
+				height: grid(14);
+			}
+			@media #{$small-only} {
+				height: grid(20);
 			}
 		}
 	}
@@ -103,10 +104,10 @@
 		span{
 			&:after{
 				content: ' \2014';
-    			font-weight: 400;
+				font-weight: 400;
 			}
 		}
-	
+
 		padding: rem(32 30);
 		@media #{$medium-down} {
 			width: grid(9.25);
@@ -129,7 +130,7 @@
 
 	&--move {
 		display: block;
-			--top: calc((100vh - var(--height)) / 2);
+		--top: calc((100vh - var(--height)) / 2);
 		position: fixed; top: 0; bottom: 0; left: 0; right: 0;
 		z-index: 2;
 		color: white;
@@ -157,8 +158,11 @@
 	}
 	&--expand {
 		.work__card__image-container {
-			background-size: 100vw !important;
+			background-size: 100vw;
 			transition: background-size 1.2s $specialcubicbezier;
+			@media #{$medium-down}{
+				background-size: 175vh;
+			}
 		}
 	}
 }
