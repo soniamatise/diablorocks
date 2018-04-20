@@ -4,6 +4,7 @@ section.intro{
 	}
 }
 
+
 // section.subnav{
 // 	& + .about,
 // 	& + .what_we_do,
@@ -22,14 +23,14 @@ section.intro{
 // }
 
 //show content when done typing intro
-section.about, section.what_we_do, section.how_we_do_it{
-	transform: translateY(100vh);
-	transition: .5s;
-	&.stay {
-		transform: none;
-		transition: 0 .2s;
-	}
-}
+// section.about, section.what_we_do, section.how_we_do_it{
+// 	transform: translateY(100vh);
+// 	transition: .5s;
+// 	&.stay {
+// 		transform: none;
+// 		transition: 0 .2s;
+// 	}
+// }
 
 // only styling for about page
 section.about{
@@ -41,11 +42,15 @@ section.about{
 	}
 
 	// 2 column content_block
+	.title_block{
+		h2{ font-size: grid(.6); line-height: 1.33; text-align: center; font-weight: $font-medium;
+			@media #{$medium-down}{ font-size: rem(24);}
+		}
+	}
 	.content_block{
-		padding: grid(4) grid(.5);
+		padding: grid(1) grid(.5) grid(2) grid(.5);
 		@media #{$medium-down}{ padding: rem(64); }
-		h3{ font-size: rem(48); line-height: 1.33; font-weight: $font-medium; }
-		.simple_text_content{ margin-right: grid(1);
+		.simple_text_content{ margin-right: grid(1); padding-top: rem(32);
 			ul{ padding: rem(32) 0;
 				li{ color: color(Gray); line-height: 1.78; font-size: rem(18);
 					&:before{ content:'-'; padding-right: 20px; }
@@ -64,7 +69,7 @@ section.about{
 
 		// section client logo's
 		.client_logo{
-			padding-bottom: grid(4);
+			padding: grid(4) 0;
 			ul{ width: grid(20); text-align: center; margin: auto; display: flex;
 				li{ margin: auto; text-indent: -99999px;
 					&:before{ display: none; }
@@ -222,9 +227,9 @@ section.about{
 	//team member section
 	.team_member{
 		ul{
-			background-color: color(Black); position: relative;
+			position: relative; background-color: color(Black);
 			&:before{
-				content: ''; display: block; height: grid(3); width: 100vw; position: absolute; background-color: color(red);
+				content: ''; display: block; height: grid(3.2); width: 100vw; position: absolute; bottom:0px; background-color: color(White);
 			}
 			li{
 				display: inline-block;
