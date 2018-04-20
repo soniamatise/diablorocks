@@ -9,8 +9,7 @@
 			/>
 		</section>
 
-
-		<div :class="[background ,'background-canvas', {'background-canvas--mouseout': mouseout} ]" :style="style"></div>
+		<div :class="[background ,'background__canvas', {'background__canvas--mouseout': mouseout} ]" :style="style"></div>
 		<section class="work__grid content">
 			<div class="work__grid__column work__grid--column1">
 				<WorkCard v-for="value in allCases" v-if="value.column == 1" :key="value.id"
@@ -114,7 +113,7 @@
 				setTimeout(function () {
 					col.style = '';
 					col.classList.add('stay');
-				},600)
+				}, 600)
 
 			},
 			expand: function(item){
@@ -122,11 +121,13 @@
 				let workCard = self.$refs[item][0];
 
 				if (self.displayContent = true){
-
 					workCard.expandCard(workCard);
-					self._data.background = 'expandBackground';
-					self._data.click = true;
 
+					// Add expand classes to change background
+					self._data.background = `background__canvas--expand`;
+
+					self._data.click = true;
+					//go to work detail
 					setTimeout(()=>{
 						self.$router.push(workCard.slug);
 					},2400);
@@ -138,12 +139,12 @@
 					let workCard = self.$refs[item][0];
 					self.style = `--background: ${workCard.color}`;
 					workCard.doHover(item);
-					let canvas = document.querySelector('.background-canvas--mouseout');
+					let canvas = document.querySelector('.background__canvas--mouseout');
 					if (self._data.click == false && !self._data.mouseout) {
-						self._data.background = `background--forward`;
+						self._data.background = `background__canvas--forward`;
 					} else {
 						setTimeout(function() {
-							self._data.background = `background--forward`;
+							self._data.background = `background__canvas--forward`;
 						}, 300)
 					}
 				}
@@ -197,7 +198,6 @@
 						counter++;
 						classCounter++;
 					} else {
-						// workCard.column = 3; // set column
 						self.$set(workCard, 'column', 3);
 
 						let classes = self._data.class3; // get classes for column

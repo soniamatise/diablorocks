@@ -2,13 +2,22 @@
 	.nav{
 		top: grid(1.5); transition: top 0.2s ease-in-out; left: grid(2); position: fixed; z-index: 1;
 		&.up{
-			top: grid(-1.5); // same as header height. use variables in LESS/SASS
+			top: grid(-1.5);
+			@media #{$small-only}{ top: 0; }
 		}
 		@media #{$medium-only}{
 			left: grid(4);
 		}
 		@media #{$small-only}{
-			position: fixed; top: 0; left: 0; height: 100vh; width: 100%; background-color: color(Black); padding: grid(1); color: color(Black); animation: closeMenu 0.5s ease-in-out forwards; padding: rem(87) 4rem rem(90) 4rem;
+			position: fixed; top: 0; left: 0;
+			height: 100vh; width: 100%;
+			background-color: color(Black); color: color(Black);
+			padding: grid(1);
+			padding: rem(87) 4rem rem(90) 4rem;
+			clip-path: inset(0 0 0 100%);
+			&.animate{
+				animation: closeMenu 0.5s ease-in-out forwards;
+			}
 		}
 	}
 }
@@ -155,7 +164,6 @@ input#menu-trigger{
 			pointer-events: none;
 		}
 	}
-
 	&:checked{
 		&~#header{
 			pointer-events: all;

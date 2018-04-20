@@ -31,6 +31,11 @@
 				:videoTwo="value.right_video"
 				/>
 
+				<full-photo v-if="value.acf_fc_layout==='full_photo'"
+					:imageFull="value.image"
+					:imageText="value.photo_information"
+				/>
+
 			<icons-caption v-if="value.acf_fc_layout==='icon_block'"
 				:gridColor="value.icon_background"
 				:gridIcons="value.icons"
@@ -45,10 +50,10 @@
 		</section>
 
 		<next-case
-		:caseName="nextCase.post_title"
-		image="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
-		:caseColor="color"
-		:slug="nextCase.post_name"
+		:caseName="nextCase.post.post_title"
+		:image="nextCase.case_image"
+		:caseColor="nextCase.case_background_color"
+		:slug="nextCase.post.post_name"
 		/>
 
 	</main-layout>
@@ -66,6 +71,7 @@ import PayoffCredits from '~/layouts/PayoffCredits.vue'
 import CaseHeading from '@/components/CaseHeading.vue'
 import NextCase from '~/components/NextCase.vue'
 import VideoPlayer from '~/components/VideoPlayer.vue'
+import FullPhoto from '~/layouts/FullPhoto.vue'
 
 export default {
 	head: {
@@ -83,6 +89,7 @@ export default {
 		CaseHeading,
 		VideoPlayer,
 		NextCase,
+		FullPhoto,
 	},
 	data() {
 		return { scrollable: false }

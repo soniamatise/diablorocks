@@ -7,7 +7,7 @@
 
 				<!-- video -->
 				<div class="content_holder" v-if="img.photo_video === 'Video'">
-					<video class="video" ref="video" v-bind:poster="img.image" autoplay loop preload>
+					<video playsinline class="video" ref="video" v-bind:poster="img.image" autoplay loop preload>
 						<source v-bind:src="img.video.url" type="video/mp4">
 					</video>
 				</div>

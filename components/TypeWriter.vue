@@ -1,7 +1,9 @@
 <template>
 	<div class="typeWriterTitle" ref="typeWriterTitle" >
 		<h1 :class="{caret: caret}" :text="heading" :wait="wait">{{ headingText }}</h1>
-		<p :class="{show : show}">{{ sub }}</p>
+		<div class="paragraph_shower">
+			<p :class="{show : show}">{{ sub }}</p>
+		</div>
 	</div>
 </template>
 
