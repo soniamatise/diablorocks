@@ -54,7 +54,7 @@
 				width: grid(9.25);
 			}
 
-			&--small {
+			&--square {
 				height: grid(7);
 				@media #{$medium-down} {
 					height: grid(10);
@@ -64,7 +64,7 @@
 				}
 			}
 
-			&--medium {
+			&--landscape {
 				height: grid(8);
 				@media #{$medium-down} {
 					height: grid(12);
@@ -74,7 +74,7 @@
 				}
 			}
 
-			&--large {
+			&--portrait {
 				height: grid(9);
 				@media #{$medium-down} {
 					height: grid(14);

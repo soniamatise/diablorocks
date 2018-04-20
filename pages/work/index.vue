@@ -14,50 +14,50 @@
 		<section class="work__grid content">
 			<div class="work__grid__column work__grid--column1">
 				<WorkCard v-for="value in allCases" v-if="value.column == 1" :key="value.id"
-				:ref="value.slug"
-				:image="value._embedded['wp:featuredmedia'][0].source_url"
-				:caseName="value.slug"
-				:size="value.size"
+				:ref="value.case_slug"
+				:image="value.case_image"
+				:caseName="value.case.post_name"
+				:size="value.case_size"
 				:columnNr="value.column"
 				:client="value.client_name"
 				:description="value.case_description"
-				:slug="value.slug"
+				:slug="value.case_slug"
 				:color="value.case_background_color"
-				v-on:click.native="expand(value.slug)"
-				v-on:mouseover.native="onHover(value.slug)"
-				v-on:mouseout.native="notHover(value.slug)"
+				v-on:click.native="expand(value.case_slug)"
+				v-on:mouseover.native="onHover(value.case_slug)"
+				v-on:mouseout.native="notHover(value.case_slug)"
 				/>
 			</div>
 			<div class="work__grid__column work__grid--column2">
 				<WorkCard v-for="value in allCases" v-if="value.column == 2" :key="value.id"
-				:ref="value.slug"
-				:caseName="value.slug"
-				:image="value._embedded['wp:featuredmedia'][0].source_url"
-				:size="value.size"
+				:ref="value.case_slug"
+				:caseName="value.case.post_name"
+				:image="value.case_image"
+				:size="value.case_size"
 				:columnNr="value.column"
 				:client="value.client_name"
 				:description="value.case_description"
-				:slug="value.slug"
+				:slug="value.case_slug"
 				:color="value.case_background_color"
-				v-on:click.native="expand(value.slug)"
-				v-on:mouseover.native="onHover(value.slug)"
-				v-on:mouseout.native="notHover(value.slug)"
+				v-on:click.native="expand(value.case_slug)"
+				v-on:mouseover.native="onHover(value.case_slug)"
+				v-on:mouseout.native="notHover(value.case_slug)"
 				/>
 			</div>
 			<div class="work__grid__column work__grid--column3">
 				<WorkCard v-for="value in allCases" v-if="value.column == 3" :key="value.id"
-				:ref="value.slug"
-				:caseName="value.slug"
-				:image="value._embedded['wp:featuredmedia'][0].source_url"
-				:size="value.size"
+				:ref="value.case_slug"
+				:caseName="value.case.post_name"
+				:image="value.case_image"
+				:size="value.case_size"
 				:columnNr="value.column"
 				:client="value.client_name"
 				:description="value.case_description"
-				:slug="value.slug"
+				:slug="value.case_slug"
 				:color="value.case_background_color"
-				v-on:click.native="expand(value.slug)"
-				v-on:mouseover.native="onHover(value.slug)"
-				v-on:mouseout.native="notHover(value.slug)"
+				v-on:click.native="expand(value.case_slug)"
+				v-on:mouseover.native="onHover(value.case_slug)"
+				v-on:mouseout.native="notHover(value.case_slug)"
 				/>
 			</div>
 		</section>
@@ -124,11 +124,11 @@
 				if (self.displayContent = true){
 
 					workCard.expandCard(workCard);
-					self._data.background = `expandBackground`;
+					self._data.background = 'expandBackground';
 					self._data.click = true;
 
 					setTimeout(()=>{
-						self.$router.push(`work/${workCard.slug}`);
+						self.$router.push(workCard.slug);
 					},2400);
 				}
 			},
@@ -218,8 +218,9 @@
 		}
 	},
 	asyncData ({ params }) {
-		return axios.get(`${process.env.baseUrl}/wp/v2/case?_embed`)
+		return axios.get(`${process.env.baseUrl}/page/cases`)
 		.then((res) => {
+			console.log(res.data);
 			return {
 				cases: res.data
 			}
