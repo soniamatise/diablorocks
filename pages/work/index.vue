@@ -9,55 +9,54 @@
 			/>
 		</section>
 
-
-		<div :class="[background ,'background-canvas', {'background-canvas--mouseout': mouseout} ]" :style="style"></div>
+		<div :class="[background ,'background__canvas', {'background__canvas--mouseout': mouseout} ]" :style="style"></div>
 		<section class="work__grid content">
 			<div class="work__grid__column work__grid--column1">
 				<WorkCard v-for="value in allCases" v-if="value.column == 1" :key="value.id"
-				:ref="value.slug"
-				:image="value._embedded['wp:featuredmedia'][0].source_url"
-				:caseName="value.slug"
+				:ref="value.case_slug"
+				:image="value.case_image"
+				:caseName="value.case.post_name"
 				:size="value.size"
 				:columnNr="value.column"
 				:client="value.client_name"
 				:description="value.case_description"
-				:slug="value.slug"
+				:slug="value.case_slug"
 				:color="value.case_background_color"
-				v-on:click.native="expand(value.slug)"
-				v-on:mouseover.native="onHover(value.slug)"
-				v-on:mouseout.native="notHover(value.slug)"
+				v-on:click.native="expand(value.case_slug)"
+				v-on:mouseover.native="onHover(value.case_slug)"
+				v-on:mouseout.native="notHover(value.case_slug)"
 				/>
 			</div>
 			<div class="work__grid__column work__grid--column2">
 				<WorkCard v-for="value in allCases" v-if="value.column == 2" :key="value.id"
-				:ref="value.slug"
-				:caseName="value.slug"
-				:image="value._embedded['wp:featuredmedia'][0].source_url"
+				:ref="value.case_slug"
+				:caseName="value.case.post_name"
+				:image="value.case_image"
 				:size="value.size"
 				:columnNr="value.column"
 				:client="value.client_name"
 				:description="value.case_description"
-				:slug="value.slug"
+				:slug="value.case_slug"
 				:color="value.case_background_color"
-				v-on:click.native="expand(value.slug)"
-				v-on:mouseover.native="onHover(value.slug)"
-				v-on:mouseout.native="notHover(value.slug)"
+				v-on:click.native="expand(value.case_slug)"
+				v-on:mouseover.native="onHover(value.case_slug)"
+				v-on:mouseout.native="notHover(value.case_slug)"
 				/>
 			</div>
 			<div class="work__grid__column work__grid--column3">
 				<WorkCard v-for="value in allCases" v-if="value.column == 3" :key="value.id"
-				:ref="value.slug"
-				:caseName="value.slug"
-				:image="value._embedded['wp:featuredmedia'][0].source_url"
+				:ref="value.case_slug"
+				:caseName="value.case.post_name"
+				:image="value.case_image"
 				:size="value.size"
 				:columnNr="value.column"
 				:client="value.client_name"
 				:description="value.case_description"
-				:slug="value.slug"
+				:slug="value.case_slug"
 				:color="value.case_background_color"
-				v-on:click.native="expand(value.slug)"
-				v-on:mouseover.native="onHover(value.slug)"
-				v-on:mouseout.native="notHover(value.slug)"
+				v-on:click.native="expand(value.case_slug)"
+				v-on:mouseover.native="onHover(value.case_slug)"
+				v-on:mouseout.native="notHover(value.case_slug)"
 				/>
 			</div>
 		</section>
@@ -114,15 +113,24 @@
 				setTimeout(function () {
 					col.style = '';
 					col.classList.add('stay');
-				},600)
+				}, 600)
 
 			},
 			expand: function(item){
-				let workCard = this.$refs[item][0];
-				if (this.displayContent = true){
+				var self = this;
+				let workCard = self.$refs[item][0];
+
+				if (self.displayContent = true){
 					workCard.expandCard(workCard);
-					this._data.background = `expandBackground`;
-					this._data.click = true;
+
+					// Add expand classes to change background
+					self._data.background = `background__canvas--expand`;
+
+					self._data.click = true;
+					//go to work detail
+					setTimeout(()=>{
+						self.$router.push(workCard.slug);
+					},2400);
 				}
 			},
 			onHover: function(item){
@@ -131,12 +139,12 @@
 					let workCard = self.$refs[item][0];
 					self.style = `--background: ${workCard.color}`;
 					workCard.doHover(item);
-					let canvas = document.querySelector('.background-canvas--mouseout');
+					let canvas = document.querySelector('.background__canvas--mouseout');
 					if (self._data.click == false && !self._data.mouseout) {
-						self._data.background = `background--forward`;
+						self._data.background = `background__canvas--forward`;
 					} else {
 						setTimeout(function() {
-							self._data.background = `background--forward`;
+							self._data.background = `background__canvas--forward`;
 						}, 300)
 					}
 				}
@@ -190,7 +198,6 @@
 						counter++;
 						classCounter++;
 					} else {
-						// workCard.column = 3; // set column
 						self.$set(workCard, 'column', 3);
 
 						let classes = self._data.class3; // get classes for column
@@ -211,8 +218,9 @@
 		}
 	},
 	asyncData ({ params }) {
-		return axios.get(`${process.env.baseUrl}/wp/v2/case?_embed`)
+		return axios.get(`${process.env.baseUrl}/page/cases`)
 		.then((res) => {
+
 			return {
 				cases: res.data
 			}

@@ -15,6 +15,7 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "autoprefixer": "^8.3.0",
     "axios": "^0.18.0",
     "matise-grid": "^1.1.6",
     "matise-stack": "^1.1.1",
@@ -23,7 +24,7 @@
     "swiper": "^4.2.0",
     "velocity-animate": "^2.0.2",
     "vue-awesome-swiper": "^3.1.3",
-    "vue-cookies": "^1.5.6"
+    "vue-motion": "^0.2.2"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
@@ -35,6 +36,7 @@
     "node-sass": "^4.7.2",
     "postcss-custom-properties": "^7.0.0",
     "postcss-loader": "2.1.1",
+    "postcss-cssnext": "^3.1.0",
     "vue-style-loader": "^4.0.2"
   }
 }

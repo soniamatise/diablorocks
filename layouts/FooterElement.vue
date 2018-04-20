@@ -11,11 +11,6 @@
 				<nav class="nav footer__nav" aria-label="Footer navigation">
 					<ul class="nav__list">
 						<li class="mobile-hide nav__item medium">
-							<nuxt-link class="nav__link" to="/culture">
-								<span class="nav__text">Culture</span>
-							</nuxt-link>
-						</li>
-						<li class="mobile-hide nav__item medium">
 							<nuxt-link class="nav__link" to="/work">
 								<span class="nav__text">Work</span>
 							</nuxt-link>
@@ -25,16 +20,6 @@
 								<span class="nav__text">About</span>
 							</nuxt-link>
 						</li>
-						<li class="nav__item medium">
-							<a class="nav__link" href="#">
-								<span class="nav__text">News</span>
-							</a>
-						</li>
-						<li class="nav__item medium">
-							<a class="nav__link" href="#">
-								<span class="nav__text">Careers</span>
-							</a>
-						</li>
 					</ul>
 				</nav>
 
@@ -42,10 +27,16 @@
 
 					<div class="column nav__contact">
 						<p>
-							<a href="mailto:office@matise.nl">office@matise.nl</a><br />
-							<a href="tel:+31 20 845 37 99">+31 20 845 37 99</a><br />
-							<a href="http://maps.google.com/?q=Entrepotdok 78, Amsterdam, the Netherlands">Entrepotdok 78, Amsterdam</a><br />
-							Open till 6pm today
+							<a class="nav__link" href="mailto:office@matise.nl">
+								<span class="nav__text">office@matise.nl</span>
+							</a><br />
+							<a class="nav__link" href="tel:+31 20 845 37 99">
+								<span class="nav__text">+31 20 845 37 99</span>
+							</a><br />
+							<a class="nav__link" href="http://maps.google.com/?q=Entrepotdok 78, Amsterdam, the Netherlands">
+								<span class="nav__text">Entrepotdok 78, Amsterdam</span>
+							</a><br />
+							Open on weekdays till 6pm
 						</p>
 					</div>
 
@@ -65,20 +56,15 @@
 								<span class="nav__text">LinkedIn</span>
 							</a>
 						</li>
-						<li class="nav__socialItem">
-							<a class="nav__link" href="https://github.com/MatiseAms" target="_blank">
-								<span class="nav__text">Github</span>
-							</a>
-						</li>
 					</ul>
 
 				</section>
 
 				<div class="footer__bottom">
 					<p class="hide-desktop">
-						<a href="#">Terms &amp; conditions</a> <a href="#">Privacy Policy</a>
+						<a href="https://cdn.matise.nl/content/uploads/2018/04/20084059/av_matise.pdf">Terms &amp; conditions</a>
 					</p>
-					<p>&copy; Matise 2018 — All Rights Reserved <span class="hide-mobile"><a href="#">Terms &amp; conditions</a> <a href="#">Privacy Policy</a></span></p>
+					<p>&copy; Matise 2018 — All Rights Reserved <span class="hide-mobile"><a href="https://cdn.matise.nl/content/uploads/2018/04/20084059/av_matise.pdf">Terms &amp; conditions</a></span></p>
 				</div>
 
 			</div>

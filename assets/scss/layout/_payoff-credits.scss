@@ -1,59 +1,126 @@
 section.info_table{
 	// distance to section
-	& + section.boxed_image_video{ margin-top: grid(4);
-		@media #{$medium-down}{ margin-top: grid(5); }
-		@media #{$small-only}{ margin-top: rem(96); }
+	&+section.boxed_image_video, &+section.next_case, &+section.two_column_images{
+		margin-top: grid(4);
+		@media #{$medium-down}{
+			margin-top: grid(5);
+		}
+		@media #{$small-only}{
+			margin-top: rem(96);
+		}
 	}
-	@media #{$small-only}{ width: calc(100% - 128px); margin: 0 auto rem(96); }
+	@media #{$small-only}{
+		width: calc(100% - 128px); margin: 0 auto rem(96);
+	}
 
 	// general styles
-	a, p{ padding: rem(28) 0; font-size: rem(16); line-height: rem(28);
-		@media #{$medium-down}{ padding: rem(4) 0 rem(28); }
-		@media #{$small-only}{ padding: rem(4) 0 rem(24); font-size: rem(14); line-height: rem(24); }
-		span.gray{ color: color(Gray); }
-		&.medium{ padding-left: rem(20);
-			@media #{$medium-down}{ padding: rem(28) 0 rem(4) 0; }
-			@media #{$small-only}{ padding: rem(24) 0 rem(4) 0; }
+	a, p{
+		padding: rem(28) 0; font-size: rem(16); line-height: rem(28);
+		@media #{$medium-down}{
+			padding: rem(4) 0 rem(28);
+		}
+		@media #{$small-only}{
+			padding: rem(4) 0 rem(24); font-size: rem(14); line-height: rem(24);
+		}
+		span.gray{
+			color: color(Gray); font-weight: 400;
+		}
+		&.medium{
+			padding-left: rem(20);
+			@media #{$medium-down}{
+				padding: rem(28) 0 rem(4) 0;
+			}
+			@media #{$small-only}{
+				padding: rem(24) 0 rem(4) 0;
+			}
 		}
 	}
-	a.nav_link{ position: relative; color: color(Dark); padding: 0px; cursor: pointer; display: inline-block;
-		&:before{ content: ''; position: absolute; right: 0; width: 0; background-color: color(Dark); bottom: 4px; height: 1px; transition: width .3s $easeboth; }
+	a.nav_link{
+		position: relative; color: color(Dark); padding: 0; cursor: pointer; display: inline-block;
+		span{
+			font-weight: 400;
+		}
+		&:before{
+			content: ""; position: absolute; right: 0; width: 0; background-color: color(Dark); bottom: 4px; height: 1px; transition: width 0.3s $easeboth;
+		}
 		&:hover{
-			&:before{ left: 0; right: auto; width: 100%; }
+			&:before{
+				left: 0; right: auto; width: 100%;
+			}
 		}
 		&.active{
-			&:before{ left: 0; right: auto; width: 100%; }
+			&:before{
+				left: 0; right: auto; width: 100%;
+			}
 			&:hover{
-				&:before{ left: auto; right: 0; width: 0; }
+				&:before{
+					left: auto; right: 0; width: 0;
+				}
 			}
 		}
 	}
 	// payoff
 	.payoff{
-		p{ @extend h2; font-weight: $font-medium; }
+		p{
+			@extend h2; font-weight: $font-medium;
+		}
 	}
 	// credits
-	.credits{ margin-top: grid(2); width: 100%; display: block;
-		@media #{$medium-down}{ margin-top: calc(64px - 28px); }
-		@media #{$small-only}{ margin-top: calc(64px - 24px); }
-		.item{ border-bottom: 1px solid color(Gray, .25);
-			&:last-child{ border-bottom: none; }
+	.credits{
+		margin-top: grid(2); width: 100%; display: block;
+		@media #{$medium-down}{
+			margin-top: calc(64px - 28px);
+		}
+		@media #{$small-only}{
+			margin-top: calc(64px - 24px);
+		}
+		.item{
+			border-bottom: 1px solid color(Gray, 0.25);
+			a.nav_link{
+				&:before{
+					content: ""; position: absolute; left: 0; width: 100%;
+				}
+				&:hover{
+					&:before{
+						right: 0; left: auto; width: 0;
+					}
+				}
+			}
+			&:last-child{
+				border-bottom: none;
+			}
 			.line{
-				@media #{$medium-down}{ margin: rem(24) 0 ; }
-				@media #{$small-only}{ width: 100%; }
+				@media #{$medium-down}{
+					margin: rem(24) 0 ;
+				}
+				@media #{$small-only}{
+					width: 100%;
+				}
 			}
 		}
 	}
 	// link
-	.link{ padding-left: 20px;
-		@media #{$medium-down}{ padding-top: rem(24); }
-		p{ color: color(Gray); padding-left: rem(20); padding-bottom: 0; position: relative;
-			@media #{$medium-down}{ padding-left: 0; }
-			&:before{ content: '*'; display: block; position: absolute; left: 0; width: 20px;
-				@media #{$medium-down}{ left: -20px; }
+	.link{
+		padding-left: 20px;
+		@media #{$medium-down}{
+			padding-top: rem(24);
+		}
+		p{
+			color: color(Gray); padding-left: rem(20); padding-bottom: 0; position: relative;
+			@media #{$medium-down}{
+				padding-left: 0;
 			}
-			a.nav_link, span{ color: color(Gray);
-				&:before{ background-color: color(Gray); }
+			&:before{
+				content: "*"; display: block; position: absolute; left: 0; width: 20px;
+				@media #{$medium-down}{
+					left: -20px;
+				}
+			}
+			a.nav_link, span{
+				color: color(Gray);
+				&:before{
+					background-color: color(Gray);
+				}
 			}
 		}
 	}

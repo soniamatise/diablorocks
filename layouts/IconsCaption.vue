@@ -1,6 +1,6 @@
 <template>
 	<div class="row center">
-		<div class="column column large-14 medium-20 small-full">
+		<div class="column column large-14 medium-20 small-20">
 
 			<!-- holder -->
 			<div class="holder" :style="{ 'background-color': '' + gridColor + '' }">

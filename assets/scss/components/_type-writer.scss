@@ -1,41 +1,45 @@
-$easeboth: cubic-bezier(.42,0,.58,1);
+.typeWriterTitle{
+	position: relative; text-align: center;
 
-.typeWriterTitle {
-	position: relative;
-	text-align: center;
-
-	p {
-		font-size: grid(.4);
-		@include min-fontsize(.4,20);
-		padding-top: grid(.4);
-		opacity: 0;
-		transition: 0.2s $easeboth opacity 0.6s;
-
-		&.show {
-			opacity: 1;
-			transition: 0.2s $easeboth opacity 0.6s;
+	.paragraph_shower{
+		display: flex; justify-content: center;
+		p{
+			width: 100%; width: max-content; font-size: grid(0.4); @include min-fontsize(0.4,20); padding-top: grid(0.4); clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+			&.show{
+				clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); transition: 0.3s $easeboth 0.8s;
+			}
 		}
 	}
 
-	h1 {
-		color: color(Black);
-		position: relative;
-		width: fit-content;
-		margin: auto;
-		padding-bottom: grid(.2);
-		line-height: 1;
-		font-size: grid(2);
-		height: grid(2);
+	h1{
+		color: color(Black); position: relative; width: fit-content; margin: auto; padding-bottom: grid(0.2); line-height: 1; font-size: grid(2); height: grid(2);
 
-		&.caret {
-			&:after {
-				content: '';
-				border-right: solid 1px black;
-				position: absolute;
-				height: 100%;
-				bottom: 0;
-				right: -2px;
+		&.caret{
+			&:after{
+				content: ""; border-right: solid 2px black; position: absolute; height: 100%; bottom: 0; right: -2px; animation: caretAnim 1s $specialcubicbezier infinite forwards;
 			}
 		}
+	}
+}
+
+// animations
+@keyframes caretAnim{
+	0%{
+		opacity: 1;
+	}
+	35%{
+		opacity: 1;
+	}
+	40%{
+		opacity: 0;
+	}
+	60%{
+		opacity: 0;
+	}
+	65%{
+		opacity: 1;
+	}
+	100%{
+		opacity: 1;
 	}
 }

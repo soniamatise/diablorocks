@@ -1,31 +1,40 @@
-@import 'color/index',
-'~matise-stack/_stack.scss',
-'~matise-grid/grid.scss',
-'settings/settings',
-'typography/index',
-'layout/index',
-'components/index';
+@import "color/index",
+"~matise-stack/_stack.scss",
+"~matise-grid/grid.scss",
+"settings/settings",
+"typography/index",
+"layout/index",
+"components/index",
+"components/work";
+
 
 
 body{
-	font-family: $body-font;
-	// @media #{$small-only}{ border: 1px solid yellow; }
-	// @media #{$medium-only}{ border: 1px solid green; }
-	// @media #{$large-only}{ border: 1px solid blue; }
-	// @media #{$xlarge-only}{ border: 1px solid red; }
-	// @debug $medium-only;
-
+	font-family: $body-font; background-color: color(White);
 	::selection{
-		background: color(Gray);
-		color: color(Light);
+		background: color(Gray); color: color(Light);
 	}
 	::-moz-selection{
-		background: color(Gray);
-		color: color(Light);
+		background: color(Gray); color: color(Light);
+	}
+	&.scroll-disable{
+		// when mobile menu is active body scroll-disable
+		overflow: hidden;
+	}
+	// menu item styling when page is Black
+	&.white-menu{
+		.nav{
+			&__text{
+				color: color(White);
+				&:before{
+					background-color: color(White);
+				}
+			}
+		}
 	}
 }
 
-section.intro {
+section.intro{
 	padding-top: grid(5);
 	@media only screen and (max-width: 1024px) and (min-width: 768px){
 		padding-top: grid(7);
@@ -46,9 +55,8 @@ section.intro {
 		display: none;
 	}
 }
-@media #{$small-only} {
-	.hide-mobile,
-	.mobile-hide{
+@media #{$small-only}{
+	.hide-mobile, .mobile-hide{
 		display: none;
 	}
 }

@@ -22,7 +22,19 @@
 
 			<one-column v-if="value.acf_fc_layout==='boxed_image_video'" :img="value" />
 
-			<two-column v-if="value.acf_fc_layout==='two_column_images'" :imgOne="value.left_image"  :imgTwo="value.right_image" />
+			<two-column v-if="value.acf_fc_layout==='two_column_images'"
+				:leftColKind="value.left_column_kind"
+				:rightColKind="value.right_column_kind"
+				:imgOne="value.left_image"
+				:imgTwo="value.right_image"
+				:videoOne="value.left_video"
+				:videoTwo="value.right_video"
+				/>
+
+				<full-photo v-if="value.acf_fc_layout==='full_photo'"
+					:imageFull="value.image"
+					:imageText="value.photo_information"
+				/>
 
 			<icons-caption v-if="value.acf_fc_layout==='icon_block'"
 				:gridColor="value.icon_background"
@@ -38,9 +50,10 @@
 		</section>
 
 		<next-case
-		caseName="Aangenaam Bergen op Zoom"
-		image="http://www.wdkx.com/wdkxwp/wp/wp-content/uploads/2017/09/animals_hero_giraffe_1_0.jpg"
-		:caseColor="color"
+		:caseName="nextCase.post.post_title"
+		:image="nextCase.case_image"
+		:caseColor="nextCase.case_background_color"
+		:slug="nextCase.post.post_name"
 		/>
 
 	</main-layout>
@@ -58,8 +71,14 @@ import PayoffCredits from '~/layouts/PayoffCredits.vue'
 import CaseHeading from '@/components/CaseHeading.vue'
 import NextCase from '~/components/NextCase.vue'
 import VideoPlayer from '~/components/VideoPlayer.vue'
+import FullPhoto from '~/layouts/FullPhoto.vue'
 
 export default {
+	head: {
+		bodyAttrs: {
+			class: '__noscroll white-menu'
+		}
+	},
 	components: {
 		TitleText,
 		OneColumn,
@@ -70,6 +89,7 @@ export default {
 		CaseHeading,
 		VideoPlayer,
 		NextCase,
+		FullPhoto,
 	},
 	data() {
 		return { scrollable: false }
@@ -82,7 +102,8 @@ export default {
 				client: res.data[0].client_name,
 				description: res.data[0].case_description,
 				color: res.data[0].case_background_color,
-				image: res.data[0]._embedded['wp:featuredmedia'][0].source_url
+				image: res.data[0]._embedded['wp:featuredmedia'][0].source_url,
+				nextCase: res.data[0].next_case
 			}
     })
   },
