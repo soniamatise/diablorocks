@@ -1,28 +1,52 @@
 section.boxed_image_video{
 	// distance to section
-	& + section.simple_text{ margin-top: grid(2);
-		@media #{$medium-down}{ margin-top: grid(0); }
+	&+section.simple_text{
+		margin-top: grid(1);
+		@media #{$medium-down}{
+			margin-top: grid(0);
+		}
 	}
-	& + section.next_case{ margin-top: grid(4);
-		@media #{$medium-down}{ margin-top: grid(5); }
-		@media #{$small-only}{ margin-top: rem(96); }
+	&+section.next_case{
+		margin-top: grid(4);
+		@media #{$medium-down}{
+			margin-top: grid(5);
+		}
+		@media #{$small-only}{
+			margin-top: rem(96);
+		}
 	}
 
 	// holder
 	.holder{
-		&.full{ width: 100%; height: grid(10.125); position: relative; border-radius: rem(4);
-			@media #{$medium-only}{ height: rem(360); width: calc(100% - 128px); margin: 0 auto rem(64); border-radius: rem(2); }
-			@media #{$small-only}{ height: rem(175); width: calc(100% - 64px); margin: 0 auto rem(64); border-radius: rem(2); }
-			.content_holder{ height: auto; width: auto; top: 0px; left: 0px; right: 0px; bottom: 0px; position: absolute; overflow: hidden; border-radius: rem(4); z-index: 1;
-				@media #{$medium-down}{ border-radius: rem(2); }
+		&.full{
+			width: 100%; height: grid(10.125); position: relative; border-radius: rem(4);
+			@media #{$medium-only}{
+				height: rem(360); width: calc(100% - 128px); margin: 0 auto rem(64); border-radius: rem(2);
 			}
-			&:after{ z-index: 0; top: grid(.5); left: grid(.5); right: grid(.5); bottom: 0; content: ''; position: absolute; display: block; box-shadow: 0 grid(.25) grid(.75) grid(.25) color(Dark, .2);
-				@media #{$medium-down} { top: 1rem; left: 1rem; right: 1rem; bottom: 0; box-shadow: 0 rem(8) rem(24) rem(8) color(Dark, .2); }
+			@media #{$small-only}{
+				height: rem(175); width: calc(100% - 64px); margin: 0 auto rem(64); border-radius: rem(2);
 			}
-			img, video{ width: 100%; height: auto; position: absolute; left: 50%; top: 0px; transform: translateX(-50%); display: block; object-fit: cover; border-radius: rem(4);
-				@media #{$medium-down}{ border-radius: rem(2); }
+			.content_holder{
+				height: auto; width: auto; top: 0; left: 0; right: 0; bottom: 0; position: absolute; overflow: hidden; border-radius: rem(4); z-index: 1;
+				@media #{$medium-down}{
+					border-radius: rem(2);
+				}
 			}
-			video{ height: 100%; }
+			&:after{
+				z-index: 0; top: grid(0.5); left: grid(0.5); right: grid(0.5); bottom: 0; content: ""; position: absolute; display: block; box-shadow: 0 grid(0.25) grid(0.75) grid(0.25) color(Dark, 0.2);
+				@media #{$medium-down}{
+					top: 1rem; left: 1rem; right: 1rem; bottom: 0; box-shadow: 0 rem(8) rem(24) rem(8) color(Dark, 0.2);
+				}
+			}
+			img, video{
+				width: 100%; height: auto; position: absolute; left: 50%; top: 0; transform: translateX(-50%); display: block; object-fit: cover; border-radius: rem(4);
+				@media #{$medium-down}{
+					border-radius: rem(2);
+				}
+			}
+			video{
+				height: 100%;
+			}
 		}
 	}
 }
