@@ -9,7 +9,7 @@ section.two_column_images{
 			margin-top: rem(0);
 		}
 	}
-	&+section.next_case{
+	&+section.next_case, &+span .next_case{
 		margin-top: grid(4);
 		@media #{$medium-down}{
 			margin-top: grid(5);
