@@ -67,6 +67,11 @@
 
 				<!-- simple text block 2 col-->
 				<div class="row center black_bg" v-if="value.acf_fc_layout==='2_column_content_with_call_to_action'" >
+					<div class="row center black_bg">
+						<div class="small-12">
+							<h2 v-if="value.block_title" v-html="value.block_title"></h2>
+						</div>
+					</div>
 					<div class="large-8 small-full column content_block">
 						<h3 v-if="value.left_column_title" slot=“header”>{{value.left_column_title}}</h3>
 						<div class="simple_text_content" v-html="value.left_column_content"></div>
