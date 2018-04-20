@@ -8,16 +8,20 @@
 			<div class="holder" ref="holder">
 
 				<!-- hover element -->
-				<div class="hover_container" @mouseenter="bgOfCase()" @mouseleave="bgToNormal()" v-on:click="nextCase()">
+				<div v-if="image" class="hover_container" @mouseenter="bgOfCase()" @mouseleave="bgToNormal()" v-on:click="nextCase()">
 					<text-transition text-left="Next case" :text-right="caseName" onloadedmetadata=""></text-transition>
 				</div>
+
+				<nuxt-link to="/about" v-if="!image" class="hover_container" @mouseenter="bgOfCase()" @mouseleave="bgToNormal()">
+					<text-transition text-left="It's not all work" :text-right="caseName" onloadedmetadata=""></text-transition>
+				</nuxt-link>
 				<!-- end hover element -->
 
 			</div>
 			<!-- end holder -->
 
 			<!-- case image -->
-			<div id="caseImage" :class="['case_image', {'case_image--expand': expand}]" :style="[{'transform': `translateY(${props.yElement}px)`}, {'background-image': `url('${image}')` } ]">
+			<div id="caseImage" :class="['case_image', {'case_image--expand': expand}]" :style="[{'transform': `translateY(${props.yElement}%)`}, {'background-image': `url('${image}')` } ]">
 				<!-- <img :src="image"> -->
 			</div>
 			<!-- end case image -->
@@ -38,7 +42,7 @@ export default {
 	props: ['caseName', 'leftText', 'image', 'caseColor', 'slug'],
 	data() {
 		return {
-			yElement: 100,
+			yElement: 0,
 			expand: false
 		}
 	},
@@ -50,12 +54,12 @@ export default {
 
 			const caseImage = document.getElementById('caseImage');
 			// get grid size for image height on mouseover
-			const getGrid = window.innerWidth / 4;
+			// const getGrid = window.innerWidth / 12;
 
 			if(!this._data.expand){
 				// vue motion TIM EPICNESS
 				let self = this;
-				this.yElement = -getGrid
+				this.yElement = -50
 			}
 		},
 		// black color and animation img on mouseleave
@@ -73,7 +77,7 @@ export default {
 		nextCase: function() {
 			let self = this;
 			self._data.expand = true;
-			self.yElement = 0;
+			this.yElement = -50;
 
 			const bgDiv = document.getElementById('next-case').getBoundingClientRect().y;
 			let pos = window.pageYOffset + bgDiv;
