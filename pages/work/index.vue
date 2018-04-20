@@ -220,7 +220,7 @@
 	asyncData ({ params }) {
 		return axios.get(`${process.env.baseUrl}/page/cases`)
 		.then((res) => {
-			console.log(res.data);
+
 			return {
 				cases: res.data
 			}
