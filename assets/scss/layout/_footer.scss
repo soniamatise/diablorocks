@@ -1,111 +1,117 @@
-.footer {
-  background-color: color(White);
-  padding: grid(4 0 1.5 0);
+.footer{
+	background-color: color(White); padding: grid(4 0 1.5 0);
 
-  @media #{$small-only} {
-    padding: 6rem 4rem 4rem 4rem;
-  }
+	@media #{$small-only}{
+		padding: 6rem 4rem 4rem 4rem;
+	}
 
 	// Title Section
 	&__title{
 		// Hoppa, helemaal niks :) Zoals het hoort!
 	}
 
-  // Navigation Section
-  &__nav {
-    margin-top: grid(0.5);
-  }
-  &__content {
-    margin-top: grid(1.5);
+	// Navigation Section
+	&__nav{
+		margin-top: grid(0.5);
+	}
+	&__content{
+		margin-top: grid(1.5);
 
 		// Specific text styling for the content
-    font-size: 18px;
-    line-height: 2rem;
-    color: color(Gray, 0.5);
+		font-size: 18px; line-height: 2rem; color: color(Gray, 0.5);
 
 		// Spacing between columns
-		@media #{$small-only}{font-size: 1rem;
-			display: block;
-			.column + .column{ margin-top: 2rem; }
+		@media #{$small-only}{
+			font-size: 1rem; display: block;
+			.column+.column{
+				margin-top: 2rem;
+			}
 		}
-    @media #{$medium-up} {
-      .column {
-        & + .column {
-          margin-left: grid(1.5);
-        }
-      }
-    }
-  }
+		@media #{$medium-up}{
+			.column{
+				&+.column{
+					margin-left: grid(1.5);
+				}
+			}
+		}
+	}
 
 	// The bottom section, you know, the one on the bottom with the terms and stuff..
-  &__bottom {
-    margin-top: grid(1.5);
-    p {
-      color: color(Gray, 0.5);
-      a {
-        margin-left: grid(0.5);
-				@media #{$small-only}{ display: block; font-size: 1rem;
-				margin: 0; }
-      }
-			& + p{
+	&__bottom{
+		margin-top: grid(1.5);
+		p{
+			color: color(Gray, 0.5);
+			a{
+				margin-left: grid(0.5); font-weight: 400;
+				@media #{$small-only}{
+					display: block; font-size: 1rem; margin: 0;
+				}
+			}
+			&+p{
 				margin: 0;
 				@media #{$small-only}{
 					font-size: rem(14); margin-top: 2rem;
 				}
 			}
-    }
-  }
+		}
+	}
 
 
 	// Overruling Navigation styles --- overruling over _menu.scss
-  .nav {
-    margin-top: grid(0.5);
-    &__item {
-      line-height: 1;
-      height: auto;
-			@media #{$small-only}{ display: inline-block;
-				&.mobile-hide {
+	.nav{
+		margin-top: grid(0.5);
+		&__item{
+			line-height: 1; height: auto;
+			@media #{$small-only}{
+				display: inline-block;
+				&.mobile-hide{
 					display: none;
 				}
 			}
-			& + .nav__item{ padding-right: 2rem; }
-    }
-    &__text {
-      color: color(Black);
-			@media #{$small-only}{ font-size: rem(14); }
-    }
-		&__link{
-			&:before{ background-color: color(Black); }
-		}
-  }
-  .nav__social {
-    .nav__text {
-      font-size: 18px;
-      font-weight: $font-regular;
-      color: color(Gray, 0.5);
-      line-height: 2rem;
-			@media #{$small-only}{ font-size: 1rem; }
-    }
-		.nav__link{
-			&:before {
-				content: '';
-				position: absolute;
-				left: 0;
-				width: 100%;
-				bottom: -4px;
-				background-color: color(Gray,.5);
-				height: 1px;
-				transition-property: width;
-				transition-duration: 0.3s;
-				transition-timing-function: ease-out;
+			&+.nav__item{
+				padding-right: 2rem;
 			}
-			&:hover {
-				&:before {
-					right: 0;
-					left: auto;
-					width: 0%;
+		}
+		&__text{
+			color: color(Black);
+			@media #{$small-only}{
+				font-size: rem(14);
+			}
+		}
+		&__link{
+			&:before{
+				background-color: color(Black);
+			}
+		}
+	}
+	.nav__social, .nav__contact{
+		.nav__text{
+			font-size: 18px; font-weight: $font-regular; color: color(Gray, 0.5); line-height: 2rem;
+			@media #{$small-only}{
+				font-size: 1rem;
+			}
+		}
+		.nav__link{
+			&:before{
+				content: ""; position: absolute; left: 0; width: 100%; bottom: -1px; background-color: color(Gray,0.5); height: 1px; transition-property: width; transition-duration: 0.3s; transition-timing-function: ease-out;
+			}
+			&:hover{
+				&:before{
+					right: 0; left: auto; width: 0;
 				}
 			}
 		}
-  }
+	}
+	.nav__contact{
+		.nav__link{
+			&:before{
+				content: ""; position: absolute; left: auto; right: 0; width: 0; bottom: -1px; background-color: color(Gray,0.5); height: 1px; transition-property: width; transition-duration: 0.3s; transition-timing-function: ease-out;
+			}
+			&:hover{
+				&:before{
+					right: 0; left: 0; width: 100%;
+				}
+			}
+		}
+	}
 }
