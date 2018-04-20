@@ -20,7 +20,7 @@ section.icon_block{
 			}
 
 			.icon_holder{
-				display: inline-flex; margin: grid(0.5) grid(1); position: relative; height: grid(1); width: grid(1);
+				display: inline-flex; margin: grid(0.5) grid(0.99) grid(0.5) grid(1); position: relative; height: grid(1); width: grid(1);
 				@media #{$medium-down}{
 					margin: grid(2); height: grid(4); width: grid(4);
 					&:nth-child(odd){

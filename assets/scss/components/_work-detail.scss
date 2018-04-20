@@ -1,6 +1,6 @@
 section.simple_text{
 	// distance to section
-	&+section.boxed_image_video, &+section.icon_block, &+section.next_case, &+section.two_column_images, &+section.video, &+section.video_slider{
+	&+section.boxed_image_video, &+section.icon_block, &+section.next_case, &+section.two_column_images, &+section.video, &+section.full_photo, &+section.video_slider{
 		margin-top: grid(5);
 		@media #{$medium-down}{
 			margin-top: grid(5);
@@ -78,5 +78,36 @@ section.simple_text{
 	@media #{$small-only}{
 		margin-bottom: rem(96);
 		// height: rem(600);
+	}
+}
+
+// full-photo
+section.full_photo{
+	background: color(Dark);
+	.image_holder{
+		height: 100vh; min-height: 800px; overflow: hidden; position: relative;
+		@media #{$medium-down}{
+			min-height: 600px;
+		}
+		img{
+			position: absolute; transform: translate(-50%, -50%); height: 100%; width: 100%; object-fit: cover; left: 50%; top: 50%;
+		}
+		.makeAbsolute{
+			z-index: 1; position: absolute; bottom: grid(2); width: 100%; color: color(Light);
+			@media #{$medium-down}{
+				bottom: rem(64);
+			}
+		}
+	}
+
+	// margins
+	&+section.boxed_image_video{
+		margin-top: grid(5);
+		@media #{$medium-down}{
+			margin-top: grid(5);
+		}
+		@media #{$small-only}{
+			margin-top: rem(96);
+		}
 	}
 }

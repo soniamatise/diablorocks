@@ -43,6 +43,9 @@
 			color: color(Gray, 0.5);
 			a{
 				margin-left: grid(0.5); font-weight: 400;
+				span{
+					font-weight: 400;
+				}
 				@media #{$small-only}{
 					display: block; font-size: 1rem; margin: 0;
 				}
