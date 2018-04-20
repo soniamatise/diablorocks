@@ -1,6 +1,6 @@
 <template>
 <header id="header" class="header " ref="header">
-	<nav class="nav" aria-label="Top navigation" ref="topNav">
+	<nav :class="['nav', {closed: close}]" aria-label="Top navigation" ref="topNav">
 		<ul class="nav__list">
 			<li class="nav__item main-link">
 				<nuxt-link class="nav__link" to="/culture">

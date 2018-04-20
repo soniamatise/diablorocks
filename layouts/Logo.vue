@@ -16,7 +16,7 @@ export default {
     return {
       isMenuOpen: false,
       headerIsActive: false,
-			flip: ''
+			flip: '',
     };
   },
   head() {
