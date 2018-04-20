@@ -103,6 +103,6 @@ section.simple_text {
 	}
 	@media #{$small-only} {
 		margin-bottom: rem(96);
-		height: rem(600);
+		// height: rem(600);
 	}
 }

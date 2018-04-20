@@ -2,11 +2,11 @@
 <header id="header" class="header " ref="header">
 	<nav class="nav" aria-label="Top navigation" ref="topNav">
 		<ul class="nav__list">
-			<li class="nav__item main-link">
+			<!-- <li class="nav__item main-link">
 				<nuxt-link class="nav__link" to="/culture">
 					<span class="nav__text">Culture</span>
 				</nuxt-link>
-			</li>
+			</li> -->
 			<li class="nav__item main-link">
 				<nuxt-link class="nav__link" to="/work">
 					<span class="nav__text">Work</span>
