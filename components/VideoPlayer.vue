@@ -1,73 +1,71 @@
 <template>
+<!-- vue needed holder -->
+<div class="make_full">
 
-	<!-- vue needed holder -->
-	<div class="make_full">
+	<!-- holder -->
+	<div class="holder" ref="holder">
+		<div class="bg_element" :style="{ 'background-image': 'url(' + caseImage + ')' }" ref="bgElement"></div>
 
-		<!-- holder -->
-		<div class="holder" ref="holder">
-			<div class="bg_element" :style="{ 'background-image': 'url(' + caseImage + ')' }" ref="bgElement"></div>
+		<!-- hover element -->
+		<div class="hover_container" ref="videoInfo" @click="showPlayVideo()" @mouseenter="textAnimationenter()" @mouseleave="textAnimationleave()">
 
-			<!-- hover element -->
-			<div class="hover_container" ref="videoInfo" @click="showPlayVideo()" @mouseenter="textAnimationenter()" @mouseleave="textAnimationleave()">
+			<!-- content_holder -->
+			<div class="content_holder">
 
-				<!-- content_holder -->
-				<div class="content_holder">
-
-					<!-- text left -->
-					<div class="text_holder text_holder_left" ref="leftTextElement">
-						<div class="keep_position">
-							<h2>Play</h2>
-						</div>
+				<!-- text left -->
+				<div class="text_holder text_holder_left" ref="leftTextElement">
+					<div class="keep_position">
+						<h2>Play</h2>
 					</div>
-					<!-- end text left -->
-
-					<!-- text right -->
-					<div class="text_holder text_holder_right" ref="rightTextElement">
-							<div class="keep_position">
-								<h2>&nbsp;<span></span>&nbsp;{{caseName}}</h2>
-							</div>
-					</div>
-					<!-- end text right -->
-
-					<!-- mobile text -->
-					<div class="text_holder mobile-only">
-						<h2><span class="medium">Play</span>&nbsp;{{ rightText }}</h2>
-					</div>
-					<!-- end mobile text -->
-
 				</div>
-				<!-- end content_holder -->
+				<!-- end text left -->
+
+				<!-- text right -->
+				<div class="text_holder text_holder_right" ref="rightTextElement">
+					<div class="keep_position">
+						<h2>&nbsp;<span></span>&nbsp;{{caseName}}</h2>
+					</div>
+				</div>
+				<!-- end text right -->
+
+				<!-- mobile text -->
+				<div class="text_holder mobile-only">
+					<h2><span class="medium">Play</span>&nbsp;{{ rightText }}</h2>
+				</div>
+				<!-- end mobile text -->
 
 			</div>
-			<!-- end hover element -->
+			<!-- end content_holder -->
 
 		</div>
-		<!-- end holder -->
+		<!-- end hover element -->
 
-		<!-- video holder -->
-		<div class="video_holder" ref="video_holder">
-			<div class="holder_video_controls">
-			<video @timeupdate="seekBar()" class="video" ref="video" width="100%" height="100%" controls preload>
+	</div>
+	<!-- end holder -->
+
+	<!-- video holder -->
+	<div class="video_holder" ref="video_holder">
+		<div class="holder_video_controls">
+			<video @timeupdate="seekBar()" class="video" ref="video" width="100%" height="100%" control="false" preload>
 						<source v-bind:src="caseVideo" type="video/mp4">
 					</video>
 			<div class="control_panel hide" ref="controls">
-						<div class="control pause" :class="{'paused': paused}" ref="playPause" v-on:click="PausePlayVideo()" @click="paused = !paused">
-						</div>
-						<div class="control timeline">
-							<progress id='progress-bar' class="timeline-bar" ref="timeline" min='0' max='100' value='0'>0% played</progress>
-						</div>
-						<div class="control fullsize" @click="makeFullScreen()">
-						</div>
-						<div class="control volume on" ref="mute" @click="muteVideo()">
-						</div>
+				<div class="control pause" :class="{'paused': paused}" ref="playPause" v-on:click="PausePlayVideo()" @click="paused = !paused">
+				</div>
+				<div class="control timeline">
+					<progress id='progress-bar' class="timeline-bar" ref="timeline" min='0' max='100' value='0'>0% played</progress>
+				</div>
+				<div class="control fullsize" @click="makeFullScreen()">
+				</div>
+				<div class="control volume on" ref="mute" @click="muteVideo()">
+				</div>
 			</div>
 		</div>
-		</div>
-		<!-- end video holder -->
-
 	</div>
-	<!-- end vue needed holder -->
+	<!-- end video holder -->
 
+</div>
+<!-- end vue needed holder -->
 </template>
 
 <script>

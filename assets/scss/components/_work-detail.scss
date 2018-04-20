@@ -81,10 +81,10 @@ section.simple_text {
 				min-width: 100vw;
 				background-position: center center;
 				background-repeat: no-repeat;
-				background-size: 100vw;
-				@media #{$medium-down}{
-					background-size: 175vh;
-				}
+				background-size: cover;
+				// @media #{$small-only} {
+				// 	height: rem(600);
+				// }
 			}
 		}
 	}
@@ -103,6 +103,6 @@ section.simple_text {
 	}
 	@media #{$small-only} {
 		margin-bottom: rem(96);
-		height: rem(600);
+		// height: rem(600);
 	}
 }
