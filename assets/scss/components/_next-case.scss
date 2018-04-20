@@ -48,7 +48,7 @@ section.next_case{
 		top: 0; right: 0; bottom: 0; left: 0;
 		animation: upAndExpand 1s .5s $specialcubicbezier forwards;
 		background-size: 100vw;
-		transition: background-size 1.2s .1s $specialcubicbezier;
+		transition: background-size 1.2s .3s $specialcubicbezier;
 		@media #{$medium-down}{
 			background-size: 175vh;
 		}
