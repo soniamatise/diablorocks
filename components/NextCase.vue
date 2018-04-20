@@ -17,8 +17,8 @@
 			<!-- end holder -->
 
 			<!-- case image -->
-			<div id="caseImage" class="case_image" :style="{'transform': `translateY(${props.yElement}px)`}">
-				<img :src="image">
+			<div id="caseImage" :class="['case_image', {'case_image--expand': expand}]" :style="[{'transform': `translateY(${props.yElement}px)`}, {'background-image': `url('${image}')` } ]">
+				<!-- <img :src="image"> -->
 			</div>
 			<!-- end case image -->
 
@@ -39,28 +39,28 @@ export default {
 	data() {
 		return {
 			yElement: 100,
+			expand: false
 		}
 	},
 	methods: {
 		// case color color and animation img on mouseenter
 		bgOfCase: function() {
-			// console.log('hoi of case');
 			const bgDiv = document.getElementById('next-case');
 			bgDiv.style.backgroundColor = this.caseColor;
 
 			const caseImage = document.getElementById('caseImage');
 			// get grid size for image height on mouseover
-			const getGrid = window.innerWidth / 12;
+			const getGrid = window.innerWidth / 4;
 
-			// vue motion TIM EPICNESS
-			let self = this;
-			this.yElement = -getGrid
-
+			if(!this._data.expand){
+				// vue motion TIM EPICNESS
+				let self = this;
+				this.yElement = -getGrid
+			}
 		},
 		// black color and animation img on mouseleave
 		bgToNormal: function() {
 			var self = this;
-			// console.log('hoi to normal');
 			const bgDiv = document.getElementById('next-case');
 			bgDiv.style.backgroundColor = 'black';
 
@@ -71,7 +71,19 @@ export default {
 
 		},
 		nextCase: function() {
-			this.$router.push(`/work/${this.slug}`);
+			let self = this;
+			self._data.expand = true;
+			self.yElement = 0;
+
+			const bgDiv = document.getElementById('next-case').getBoundingClientRect().y;
+			let pos = window.pageYOffset + bgDiv;
+			console.log(pos);
+			window.scrollTo(0, pos);
+
+
+			setTimeout(function () {
+				self.$router.push(`/work/${self.slug}`);
+			}, 1500)
 		}
 	},
 	mounted: function() {
