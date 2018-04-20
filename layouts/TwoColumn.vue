@@ -17,7 +17,7 @@
 									<img :src="imgOne.url" :alt="imgOne.alt" />
 								</div>
 								<div v-if="leftColKind==='video'">
-									<video class="video" ref="video" autoplay loop preload>
+									<video playsinline class="video" ref="video" autoplay loop preload>
 										<source v-bind:src="videoOne.url " type="video/mp4">
 									</video>
 								</div>
@@ -34,7 +34,7 @@
 									<img :src="imgTwo.url" :alt="imgTwo.alt" />
 								</div>
 								<div v-if="rightColKind==='video'">
-									<video class="video" ref="video" autoplay loop preload>
+									<video playsinline class="video" ref="video" autoplay loop preload>
 										<source v-bind:src="videoTwo.url " type="video/mp4">
 									</video>
 								</div>
