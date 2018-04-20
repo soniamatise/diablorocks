@@ -67,7 +67,6 @@
 			background-size: 85vh;
 			width: grid(20);
 		}
-
 		&--small {
 			height: grid(7);
 			@media #{$medium-down} {
@@ -97,6 +96,8 @@
 				height: grid(20);
 			}
 		}
+	
+
 	}
 
 	&__description {
