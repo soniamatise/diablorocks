@@ -84,14 +84,7 @@
 			}
 		}
 	}
-	.nav__contact{
-		p{
-			@media #{$small-only}{
-				color: color(Gray, 0.5);
-			}
-		}
-	}
-	.nav__social{
+	.nav__social, .nav__contact{
 		.nav__text{
 			font-size: 18px; font-weight: $font-regular; color: color(Gray, 0.5); line-height: 2rem;
 			@media #{$small-only}{
@@ -100,13 +93,34 @@
 		}
 		.nav__link{
 			&:before{
-				content: ""; position: absolute; left: 0; width: 100%; bottom: -4px; background-color: color(Gray,0.5); height: 1px; transition-property: width; transition-duration: 0.3s; transition-timing-function: ease-out;
+				content: ""; position: absolute; left: 0; width: 100%; bottom: -1px; background-color: color(Gray,0.5); height: 1px; transition-property: width; transition-duration: 0.3s; transition-timing-function: ease-out;
 			}
 			&:hover{
 				&:before{
 					right: 0; left: auto; width: 0;
 				}
 			}
+		}
+	}
+	.nav__contact{
+		.nav__link{
+			&:before{
+				content: ""; position: absolute; left: auto; right: 0; width: 0; bottom: -1px; background-color: color(Gray,0.5); height: 1px; transition-property: width; transition-duration: 0.3s; transition-timing-function: ease-out;
+			}
+			&:hover{
+				&:before{
+					right: 0; left: 0; width: 100%;
+				}
+			}
+		}
+	}
+}
+
+.footer__bottom{
+	p span{
+		font-weight: 400!important;
+		a{
+			font-weight: 400!important;
 		}
 	}
 }
