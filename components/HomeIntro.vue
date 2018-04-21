@@ -74,11 +74,6 @@ export default {
 		}, 100);
 	},
   methods: {
-    lastSlide: function(){
-
-
-
-    },
     forceSkip: function(){
       let self = this;
       const whiteIntro = this.$refs.whiteIntro;
