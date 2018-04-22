@@ -22,7 +22,7 @@ export default {
   head() {
     return {
       bodyAttrs: {
-        class: this.isMenuOpen ? 'scroll-disable' : ''
+        // class: this.isMenuOpen ? 'scroll-disable' : null
       }
     };
   },
