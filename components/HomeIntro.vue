@@ -61,6 +61,7 @@ export default {
       const whiteIntro = this.$refs.whiteIntro;
       const blackIntro = this.$refs.blackIntro;
 
+      VueCookie.set('intro', true, { expires: '1Y' });
 			for(let i = 0; i < self._data.texts.length; i++){
 				(function(index) {
 					setTimeout( function(){
