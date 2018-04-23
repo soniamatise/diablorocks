@@ -3,7 +3,7 @@
 	:values="values"
 	:spring="spring">
 	<div slot-scope="props">
-		<section class="intro" :style="{ 'background-color': '' + caseColor + ''}">
+		<section class="intro" :style="introStyle">
 			<!-- intro text -->
 			<div class="intro_text">
 				<div class="row center">
@@ -32,6 +32,7 @@ export default {
 	data() {
 		return {
 			yElement: 0,
+			introStyle: { 'background-color': this.caseColor, 'z-index': 10 }
 		}
 	},
 	methods: {
@@ -40,6 +41,7 @@ export default {
 			const caseImage = document.getElementById('caseImage');
 			let self = this;
 			this.yElement = 100
+			this.introStyle['z-index'] = 1
 
 			self.$emit('doneAnimation')
 		},
