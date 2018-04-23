@@ -74,10 +74,13 @@ import VideoPlayer from '~/components/VideoPlayer.vue'
 import FullPhoto from '~/layouts/FullPhoto.vue'
 
 export default {
-	head: {
-		bodyAttrs: {
-			class: '__noscroll white-menu'
-		}
+	head() {
+		return {
+			title: this.client + ' | Matise - Not your average Agency',
+      bodyAttrs: {
+        class: 'white-menu'
+      }
+    };
 	},
 	components: {
 		TitleText,
@@ -114,7 +117,4 @@ export default {
 	}
 
 }
-
-
-
 </script>

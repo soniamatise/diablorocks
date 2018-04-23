@@ -7,17 +7,17 @@ module.exports = {
 	head: {
 		title: 'Matise - Not your average Agency',
 		meta: [{
-				charset: 'utf-8'
-			},
-			{
-				name: 'viewport',
-				content: 'width=device-width, initial-scale=1, user-scalable=no'
-			},
-			{
-				hid: 'description',
-				name: 'description',
-				content: 'Matise 2018 in Nuxt'
-			}
+			charset: 'utf-8'
+		},
+		{
+			name: 'viewport',
+			content: 'width=device-width, initial-scale=1, user-scalable=no'
+		},
+		{
+			hid: 'description',
+			name: 'description',
+			content: 'Matise 2018 in Nuxt'
+		}
 		],
 		link: [{
 			rel: 'icon',
@@ -32,17 +32,17 @@ module.exports = {
 		color: 'black',
 	},
 	plugins: [{
-			src: '~plugins/swiper.js',
-			ssr: false
-		},
-		{
-			src: '~plugins/velocity.js',
-			ssr: false
-		},
-		{
-			src: '~plugins/vue-motion.js',
-			ssr: false
-		},
+		src: '~plugins/swiper.js',
+		ssr: false
+	},
+	{
+		src: '~plugins/velocity.js',
+		ssr: false
+	},
+	{
+		src: '~plugins/vue-motion.js',
+		ssr: false
+	},
 	],
 	/*
 	 ** Build configuration
@@ -77,7 +77,7 @@ module.exports = {
 		vendor: ['velocity-animate']
 	},
 	generate: {
-		routes: function() {
+		routes: function () {
 			return axios.get('http://api.matise.nl/wp-json/wp/v2/case')
 				.then((res) => {
 					return res.data.map((item) => {
@@ -89,12 +89,20 @@ module.exports = {
 	env: {
 		baseUrl: process.env.BASE_URL || 'http://api.matise.nl/wp-json'
 	},
-	css: [{
+	css: [
+		{
 			src: '~assets/scss/app.scss',
 			lang: 'scss'
 		},
 		{
 			src: 'swiper/dist/css/swiper.css'
 		}
+	],
+	modules: [
+		// Simple usage
+		['@nuxtjs/google-analytics', {
+			id: 'UA-52529790-1'
+		}]
 	]
+
 }
