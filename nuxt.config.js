@@ -16,7 +16,7 @@ module.exports = {
 		{
 			hid: 'description',
 			name: 'description',
-			content: 'Matise 2018 in Nuxt'
+			content: 'Matise - Not your average Agency'
 		}
 		],
 		link: [{
@@ -78,7 +78,7 @@ module.exports = {
 	},
 	generate: {
 		routes: function () {
-			return axios.get('http://api.matise.nl/wp-json/wp/v2/case')
+			return axios.get('https://api.matise.nl/wp-json/wp/v2/case')
 				.then((res) => {
 					return res.data.map((item) => {
 						return '/work/' + item.slug
@@ -87,7 +87,7 @@ module.exports = {
 		}
 	},
 	env: {
-		baseUrl: process.env.BASE_URL || 'http://api.matise.nl/wp-json'
+		baseUrl: process.env.BASE_URL || 'https://api.matise.nl/wp-json'
 	},
 	css: [
 		{
