@@ -21,7 +21,7 @@
 			<!-- end holder -->
 
 			<!-- case image -->
-			<div id="caseImage" :class="['case_image', {'case_image--expand': expand}]" :style="[{'transform': `translateY(${props.yElement}%)`}, {'background-image': `url('${image}')` } ]">
+			<div v-if="image != undefined" id="caseImage" :class="['case_image', {'case_image--expand': expand}]" :style="[{'transform': `translateY(${props.yElement}%)`}, {'background-image': `url('${image}')` } ]">
 				<!-- <img :src="image"> -->
 			</div>
 			<!-- end case image -->
