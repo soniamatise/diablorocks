@@ -5,7 +5,7 @@
 			<div class="column medium-16 small-full">
 
 				<section class="footer__title">
-					<h3>Not your average Digital Agency.</h3>
+					<h3>Not your average Agency.</h3>
 				</section>
 
 				<nav class="nav footer__nav" aria-label="Footer navigation">
