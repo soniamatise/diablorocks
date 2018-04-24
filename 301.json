@@ -1,0 +1,21 @@
+[
+	{ "from": "/over-ons", "to": "/about" },
+	{ "from": "/vacatures", "to": "/about" },
+	{ "from": "/vacatures/senior-front-end-developer", "to": "/about" },
+	{ "from": "/vacatures/back-end-stage", "to": "/about" },
+	{ "from": "/vacatures/office-project-manager-stage", "to": "/about" },
+	{ "from": "/vacatures/front-end-stage", "to": "/about" },
+	{ "from": "/wat-wij-doen", "to": "/about" },
+	{ "from": "/wat-wij-doen/sla", "to": "/about" },
+	{ "from": "/werk", "to": "/work" },
+	{ "from": "/werk/australiaroadtrip", "to": "/work" },
+	{ "from": "/werk/schweppes", "to": "/work" },
+	{ "from": "/werk/audi", "to": "/work" },
+	{ "from": "/werk/fitshe", "to": "/work" },
+	{ "from": "/werk/powderchase", "to": "/work" },
+	{ "from": "/werk/wringer", "to": "/work" },
+	{ "from": "/werk/geldersestreken", "to": "/work" },
+	{ "from": "/dribbble", "to": "/work" },
+	{ "from": "/img/pdf/av_matise.pdf", "to": "https://cdn.matise.nl/content/uploads/2018/04/20084059/av_matise.pdf" }
+
+]
