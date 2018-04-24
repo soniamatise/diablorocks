@@ -1,6 +1,9 @@
 const axios = require('axios')
 
 module.exports = {
+	serverMiddleware: [
+  		'~/middleware/seo.js'
+	],
 	/*
 	 ** Headers of the page
 	 */
