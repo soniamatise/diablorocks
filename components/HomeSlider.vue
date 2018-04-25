@@ -50,7 +50,7 @@ import HomeIntro from '~/components/HomeIntro.vue'
 export default {
 	head: {
 		bodyAttrs: {
-			class: '__noscroll white-menu __blackbg'
+			class: '__noscroll white_menu __blackbg'
 		}
 	},
 	components: {
