@@ -21,7 +21,7 @@ body{
 		// when mobile menu is active body scroll-disable
 		overflow: hidden;
 	}
-	// menu item styling when page is Black
+	// menu item styling when body class = white_menu
 	&.white_menu{
 		.nav{
 			&__link{
