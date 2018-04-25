@@ -22,13 +22,15 @@ body{
 		overflow: hidden;
 	}
 	// menu item styling when page is Black
-	&.white-menu{
+	&.white_menu{
 		.nav{
-			&__text{
-				color: color(White);
+			&__link{
 				&:before{
 					background-color: color(White);
 				}
+			}
+			&__text{
+				color: color(White);
 			}
 		}
 	}
