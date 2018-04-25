@@ -130,18 +130,26 @@ section.about{
 		height: 100vh;
 		background: color(DarkGray);
 		margin-bottom: grid(6);
+		position: relative;
 		@media #{$small-only}{
 			height: 60vh;
 		}
 
+		.container{
+			position: absolute;
+			top: 50%;
+			transform: translate( 0 , -50% );
+		}
+
 		.swiper-container {
 			overflow: hidden;
-			width: 100vw;
+			// width: 100vw;
+
 			// swiper wrapper
 			.swiper-wrapper {
 				display: flex;
 				justify-content: space-between;
-				height: 100vh;
+				height: grid(12);
 				width: grid(24);
 				z-index: 1;
 				@media #{$small-only}{

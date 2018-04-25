@@ -37,8 +37,9 @@
 		<section class="about">
 			<!-- loop trough layouts -->
 			<div v-for="value in layouts" :key="value.id" :class="value.acf_fc_layout">
+
 				<!-- layout to generate slider -->
-				<div v-if="value.acf_fc_layout==='gallery'" class="gallery">
+				<div v-if="value.acf_fc_layout==='gallery'" class="container">
 					<!-- swiper -->
 					<div class="holder" v-swiper:mySwiper="swiperOption">
 						<!-- swiper wrapper -->
@@ -143,6 +144,12 @@ export default {
 				speed: 600,
 				grabCursor: true,
 				preventIntercationOnTransition: true,
+				touchRatio: 1,
+				mousewheel: true,
+				direction: 'horizontal',
+				autoHeight: true,
+
+				// loop: true,
 				keyboard: {
 			    enabled: true,
 			  },
@@ -151,6 +158,7 @@ export default {
 						slidesPerView: '1',
 						touchRatio: 1,
 						loop: true,
+						mousewheel: false,
 					}
 				}
 			}
