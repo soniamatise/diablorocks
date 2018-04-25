@@ -62,9 +62,15 @@
 
 				<div class="footer__bottom">
 					<p class="hide-desktop">
-						<a href="https://cdn.matise.nl/content/uploads/2018/04/20084059/av_matise.pdf">Terms &amp; conditions</a>
+						<a class="nav__link" href="https://cdn.matise.nl/content/uploads/2018/04/20084059/av_matise.pdf">Terms &amp; conditions</a>
 					</p>
-					<p>&copy; Matise 2018 — All Rights Reserved <span class="hide-mobile"><a href="https://cdn.matise.nl/content/uploads/2018/04/20084059/av_matise.pdf">Terms &amp; conditions</a></span></p>
+					<p>&copy; Matise 2018 — All Rights Reserved
+						<span class="hide-mobile">
+							<a class="nav__link" href="https://cdn.matise.nl/content/uploads/2018/04/20084059/av_matise.pdf">
+								<span class="nav__text">Terms &amp; conditions</span>
+							</a>
+						</span>
+					</p>
 				</div>
 
 			</div>

@@ -115,10 +115,13 @@
 		}
 	}
 }
-
+// dirty fix
 .footer__bottom{
+	.nav__link{
+		&:before{ background-color: color(Gray,0.5); }
+	}
 	p span{
-		font-weight: 400!important;
+		font-weight: 400!important; font-size: rem(18); color: color(Gray , .5)!important;
 		a{
 			font-weight: 400!important;
 		}
