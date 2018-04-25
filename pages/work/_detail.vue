@@ -78,7 +78,7 @@ export default {
 		return {
 			title: this.client + ' | Matise - Not your average Agency',
       bodyAttrs: {
-        class: 'white-menu'
+        class: 'white_menu'
       }
     };
 	},
