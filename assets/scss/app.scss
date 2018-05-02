@@ -17,7 +17,7 @@ body{
 	}
 	::-moz-selection{
 		background: color(Gray); color: color(Light);
-	}
+	} 
 	&.scroll-disable{
 		// when mobile menu is active body scroll-disable
 		overflow: hidden;
