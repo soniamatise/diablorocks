@@ -68,9 +68,9 @@ import OneColumn from '~/layouts/OneColumn.vue'
 import TwoColumn from '~/layouts/TwoColumn.vue'
 import IconsCaption from '~/layouts/IconsCaption.vue'
 import PayoffCredits from '~/layouts/PayoffCredits.vue'
-import CaseHeading from '@/components/CaseHeading.vue'
-import NextCase from '~/components/NextCase.vue'
-import VideoPlayer from '~/components/VideoPlayer.vue'
+import CaseHeading from '~/components/work/CaseHeading.vue'
+import NextCase from '~/components/work/NextCase.vue'
+import VideoPlayer from '~/components/work/VideoPlayer.vue'
 import FullPhoto from '~/layouts/FullPhoto.vue'
 
 export default {

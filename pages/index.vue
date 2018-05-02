@@ -12,7 +12,7 @@ import axios from 'axios'
 
 import TopNav from '~/layouts/TopNav';
 import Logo from '~/layouts/Logo';
-import HomeSlider from '~/components/HomeSlider';
+import HomeSlider from '~/components/home/HomeSlider';
 
 export default {
 	asyncData ({ params }) {

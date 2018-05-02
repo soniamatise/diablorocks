@@ -76,8 +76,8 @@
 	import TwoColumn from '~/layouts/TwoColumn'
 	import PayoffCredits from '~/layouts/PayoffCredits'
 	import TypeWriter from '~/components/TypeWriter'
-	import NextCase from '~/components/NextCase'
-	import WorkCard from '@/components/WorkCard'
+	import NextCase from '~/components/work/NextCase'
+	import WorkCard from '~/components/work/WorkCard'
 	export default {
 		components: {
 			OneColumn,

@@ -43,9 +43,9 @@
 </template>
 
 <script>
-import HomeSliderItem from '~/components/HomeSliderItem.vue'
+import HomeSliderItem from '~/components/home/HomeSliderItem.vue'
 import TypeWriter from '~/components/TypeWriter.vue'
-import HomeIntro from '~/components/HomeIntro.vue'
+import HomeIntro from '~/components/home/HomeIntro.vue'
 
 export default {
 	head: {
