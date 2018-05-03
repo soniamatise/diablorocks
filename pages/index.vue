@@ -10,8 +10,8 @@
 <script>
 import axios from 'axios'
 
-import TopNav from '~/layouts/TopNav';
-import Logo from '~/layouts/Logo';
+import TopNav from '~/layouts/header/TopNav';
+import Logo from '~/layouts/header/Logo';
 import HomeSlider from '~/components/home/HomeSlider';
 
 export default {

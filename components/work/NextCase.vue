@@ -32,7 +32,7 @@
 
 <script>
 import * as VueMotion from '~/plugins/vue-motion'
-import TextTransition from '~/components/TextTransition.vue'
+import TextTransition from '~/components/animations/TextTransition.vue'
 
 export default {
 	components: {

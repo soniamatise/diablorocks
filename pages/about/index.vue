@@ -125,8 +125,8 @@
 <script>
 import axios from 'axios'
 
-import MainLayout from '~/layouts/MainLayout.vue'
-import TypeWriter from '~/components/TypeWriter'
+import MainLayout from '~/layouts/body/MainLayout.vue'
+import TypeWriter from '~/components/animations/TypeWriter'
 
 
 export default {
