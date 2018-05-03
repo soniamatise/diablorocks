@@ -6,8 +6,8 @@
 
 
 <script>
-import MainLayout from '~/layouts/MainLayout.vue'
-// import SlideVideo from '~/components/SlideVideo.vue'
+import MainLayout from '~/layouts/body/MainLayout.vue'
+// import SlideVideo from '~/components/work/detail/SlideVideo.vue'
 
 export default {
 	components: {

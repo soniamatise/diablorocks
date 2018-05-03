@@ -29,12 +29,12 @@
 				:imgTwo="value.right_image"
 				:videoOne="value.left_video"
 				:videoTwo="value.right_video"
-				/>
+			/>
 
-				<full-photo v-if="value.acf_fc_layout==='full_photo'"
-					:imageFull="value.image"
-					:imageText="value.photo_information"
-				/>
+			<full-photo v-if="value.acf_fc_layout==='full_photo'"
+				:imageFull="value.image"
+				:imageText="value.photo_information"
+			/>
 
 			<icons-caption v-if="value.acf_fc_layout==='icon_block'"
 				:gridColor="value.icon_background"
@@ -62,16 +62,16 @@
 <script>
 import axios from 'axios'
 
-import MainLayout from '~/layouts/MainLayout.vue'
-import TitleText from '~/layouts/TitleText.vue'
-import OneColumn from '~/layouts/OneColumn.vue'
-import TwoColumn from '~/layouts/TwoColumn.vue'
-import IconsCaption from '~/layouts/IconsCaption.vue'
-import PayoffCredits from '~/layouts/PayoffCredits.vue'
-import CaseHeading from '@/components/CaseHeading.vue'
-import NextCase from '~/components/NextCase.vue'
-import VideoPlayer from '~/components/VideoPlayer.vue'
-import FullPhoto from '~/layouts/FullPhoto.vue'
+import MainLayout from '~/layouts/body/MainLayout.vue'
+import TitleText from '~/components/work/detail/TitleText.vue'
+import OneColumn from '~/components/work/OneColumn.vue'
+import TwoColumn from '~/components/work/TwoColumn.vue'
+import IconsCaption from '~/components/work/detail/IconsCaption.vue'
+import PayoffCredits from '~/components/work/PayoffCredits.vue'
+import CaseHeading from '~/components/work/detail/CaseHeading.vue'
+import NextCase from '~/components/work/NextCase.vue'
+import VideoPlayer from '~/components/work/detail/VideoPlayer.vue'
+import FullPhoto from '~/components/work/detail/FullPhoto.vue'
 
 export default {
 	head() {

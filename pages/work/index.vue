@@ -71,13 +71,13 @@
 <script>
 	import axios from 'axios'
 
-	import MainLayout from '~/layouts/MainLayout'
-	import OneColumn from '~/layouts/OneColumn'
-	import TwoColumn from '~/layouts/TwoColumn'
-	import PayoffCredits from '~/layouts/PayoffCredits'
-	import TypeWriter from '~/components/TypeWriter'
-	import NextCase from '~/components/NextCase'
-	import WorkCard from '@/components/WorkCard'
+	import MainLayout from '~/layouts/body/MainLayout'
+	import OneColumn from '~/components/work/OneColumn'
+	import TwoColumn from '~/components/work/TwoColumn'
+	import PayoffCredits from '~/components/work/PayoffCredits'
+	import TypeWriter from '~/components/animations/TypeWriter'
+	import NextCase from '~/components/work/NextCase'
+	import WorkCard from '~/components/work/WorkCard'
 	export default {
 		components: {
 			OneColumn,
