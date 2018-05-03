@@ -1,6 +1,6 @@
-const redirects = require('../301.json')
+const redirects = require("../301.json")
 
-module.exports = function (req, res, next) {
+module.exports = function(req, res, next) {
   const redirect = redirects.find(r => r.from === req.url)
   if (redirect) {
     console.log(`redirect: ${redirect.from} => ${redirect.to}`)
