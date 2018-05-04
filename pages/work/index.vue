@@ -1,83 +1,83 @@
 <template>
-  <main-layout class="work">
+	<main-layout class="work">
 
-    <section class="intro">
-      <type-writer
-        heading="Work"
-        sub="Our latest and greatest for brands we believe in."
-        @doneTyping="showContent"
-      />
-    </section>
+		<section class="intro">
+			<type-writer
+				heading="Work"
+				sub="Our latest and greatest for brands we believe in."
+				@doneTyping="showContent"
+			/>
+		</section>
 
-    <div :class="[background ,'background__canvas', {'background__canvas--mouseout': mouseout} ]" :style="style"/>
-    <section class="work__grid content">
-      <div class="work__grid__column work__grid--column1">
-        <WorkCard v-for="value in allCases" v-if="value.column == 1" :key="value.id"
-                  :ref="value.case_slug"
-                  :image="value.case_image"
-                  :case-name="value.case.post_name"
-                  :size="value.size"
-                  :column-nr="value.column"
-                  :client="value.client_name"
-                  :description="value.case_description"
-                  :slug="value.case_slug"
-                  :color="value.case_background_color"
-                  @click.native="expand(value.case_slug)"
-                  @mouseover.native="onHover(value.case_slug)"
-                  @mouseout.native="notHover(value.case_slug)"
-        />
-      </div>
-      <div class="work__grid__column work__grid--column2">
-        <WorkCard v-for="value in allCases" v-if="value.column == 2" :key="value.id"
-                  :ref="value.case_slug"
-                  :case-name="value.case.post_name"
-                  :image="value.case_image"
-                  :size="value.size"
-                  :column-nr="value.column"
-                  :client="value.client_name"
-                  :description="value.case_description"
-                  :slug="value.case_slug"
-                  :color="value.case_background_color"
-                  @click.native="expand(value.case_slug)"
-                  @mouseover.native="onHover(value.case_slug)"
-                  @mouseout.native="notHover(value.case_slug)"
-        />
-      </div>
-      <div class="work__grid__column work__grid--column3">
-        <WorkCard v-for="value in allCases" v-if="value.column == 3" :key="value.id"
-                  :ref="value.case_slug"
-                  :case-name="value.case.post_name"
-                  :image="value.case_image"
-                  :size="value.size"
-                  :column-nr="value.column"
-                  :client="value.client_name"
-                  :description="value.case_description"
-                  :slug="value.case_slug"
-                  :color="value.case_background_color"
-                  @click.native="expand(value.case_slug)"
-                  @mouseover.native="onHover(value.case_slug)"
-                  @mouseout.native="notHover(value.case_slug)"
-        />
-      </div>
-    </section>
+		<div :class="[background ,'background__canvas', {'background__canvas--mouseout': mouseout} ]" :style="style"/>
+		<section class="work__grid content">
+			<div class="work__grid__column work__grid--column1">
+				<WorkCard v-for="value in allCases" v-if="value.column == 1" :key="value.id"
+					:ref="value.case_slug"
+					:image="value.case_image"
+					:case-name="value.case.post_name"
+					:size="value.size"
+					:column-nr="value.column"
+					:client="value.client_name"
+					:description="value.case_description"
+					:slug="value.case_slug"
+					:color="value.case_background_color"
+					@click.native="expand(value.case_slug)"
+					@mouseover.native="onHover(value.case_slug)"
+					@mouseout.native="notHover(value.case_slug)"
+				/>
+			</div>
+			<div class="work__grid__column work__grid--column2">
+				<WorkCard v-for="value in allCases" v-if="value.column == 2" :key="value.id"
+					:ref="value.case_slug"
+					:case-name="value.case.post_name"
+					:image="value.case_image"
+					:size="value.size"
+					:column-nr="value.column"
+					:client="value.client_name"
+					:description="value.case_description"
+					:slug="value.case_slug"
+					:color="value.case_background_color"
+					@click.native="expand(value.case_slug)"
+					@mouseover.native="onHover(value.case_slug)"
+					@mouseout.native="notHover(value.case_slug)"
+				/>
+			</div>
+			<div class="work__grid__column work__grid--column3">
+				<WorkCard v-for="value in allCases" v-if="value.column == 3" :key="value.id"
+					:ref="value.case_slug"
+					:case-name="value.case.post_name"
+					:image="value.case_image"
+					:size="value.size"
+					:column-nr="value.column"
+					:client="value.client_name"
+					:description="value.case_description"
+					:slug="value.case_slug"
+					:color="value.case_background_color"
+					@click.native="expand(value.case_slug)"
+					@mouseover.native="onHover(value.case_slug)"
+					@mouseout.native="notHover(value.case_slug)"
+				/>
+			</div>
+		</section>
 
-    <next-case
-      left-text="It’s not all work"
-      case-name="Find out who we are"
-    />
-  </main-layout>
+		<next-case
+			left-text="It’s not all work"
+			case-name="Find out who we are"
+		/>
+	</main-layout>
 </template>
 
 <script>
-import axios from "axios"
+import axios from 'axios'
 
-import MainLayout from "~/layouts/body/MainLayout"
-import OneColumn from "~/components/work/OneColumn"
-import TwoColumn from "~/components/work/TwoColumn"
-import PayoffCredits from "~/components/work/PayoffCredits"
-import TypeWriter from "~/components/animations/TypeWriter"
-import NextCase from "~/components/work/NextCase"
-import WorkCard from "~/components/work/WorkCard"
+import MainLayout from '~/layouts/body/MainLayout'
+import OneColumn from '~/components/work/OneColumn'
+import TwoColumn from '~/components/work/TwoColumn'
+import PayoffCredits from '~/components/work/PayoffCredits'
+import TypeWriter from '~/components/animations/TypeWriter'
+import NextCase from '~/components/work/NextCase'
+import WorkCard from '~/components/work/WorkCard'
 export default {
   components: {
     OneColumn,
@@ -94,13 +94,13 @@ export default {
       displayContent: false,
       background: null,
       click: false,
-      style: { "--background": "#ffffff" },
+      style: { '--background': '#ffffff' },
       caseCount: null,
-      class1: ["medium", "small"],
-      class2: ["small", "large"],
-      class3: ["large", "medium"],
-      allCases: "",
-      windowWidth: "",
+      class1: ['medium', 'small'],
+      class2: ['small', 'large'],
+      class3: ['large', 'medium'],
+      allCases: '',
+      windowWidth: '',
       mouseout: false
     }
   },
@@ -126,7 +126,7 @@ export default {
         self.disCases(columns, cases)
       }
     }
-    window.addEventListener("resize", function() {
+    window.addEventListener('resize', function() {
       let viewWidth = window.innerWidth
       checkWidth(viewWidth, savedWidth)
     })
@@ -137,11 +137,11 @@ export default {
     showContent: function() {
       let self = this
       self.displayContent = true
-      let col = document.querySelector(".work__grid")
-      self.Velocity(col, { transform: "translateY(0)" }, 600, [180, 16])
+      let col = document.querySelector('.work__grid')
+      self.Velocity(col, { transform: 'translateY(0)' }, 600, [180, 16])
       setTimeout(function() {
         col.style = ""
-        col.classList.add("stay")
+        col.classList.add('stay')
       }, 600)
     },
     expand: function(item) {
@@ -153,7 +153,7 @@ export default {
         workCard.expandCard(workCard)
 
         // Add expand classes to change background
-        self._data.background = `background__canvas--expand`
+        self._data.background = 'background__canvas--expand'
 
         self._data.click = true
         //go to work detail
@@ -169,10 +169,10 @@ export default {
         self.style = `--background: ${workCard.color}`
         workCard.doHover(item)
         if (self._data.click == false && !self._data.mouseout) {
-          self._data.background = `background__canvas--forward`
+          self._data.background = 'background__canvas--forward'
         } else {
           setTimeout(function() {
-            self._data.background = `background__canvas--forward`
+            self._data.background = 'background__canvas--forward'
           }, 300)
         }
       }
@@ -182,7 +182,7 @@ export default {
       let workCard = self.$refs[item][0]
       workCard.dontHover(item)
       if (self._data.click == false) {
-        self._data.background = ""
+        self._data.background = ''
       }
       self._data.mouseout = true
       setTimeout(function() {
@@ -197,11 +197,11 @@ export default {
         let itemsInRow = Math.ceil(cases.length / columns)
         if (columns == 1) {
           //check if there is only one column
-          self.$set(workCard, "column", 1)
-          workCard.size = "small" //set size
+          self.$set(workCard, 'column', 1)
+          workCard.size = 'small' //set size
         } else {
           if (counter <= itemsInRow - 1) {
-            self.$set(workCard, "column", 1)
+            self.$set(workCard, 'column', 1)
 
             let classes = self._data.class1 // get classes for column
             if (classCounter !== classes.length) {
@@ -235,7 +235,7 @@ export default {
             counter++
             classCounter++
           } else {
-            self.$set(workCard, "column", 3)
+            self.$set(workCard, 'column', 3)
 
             let classes = self._data.class3 // get classes for column
             if (counter == itemsInRow) {

@@ -1,45 +1,45 @@
 <template>
 
-  <!-- swiper slide -->
-  <div ref="checkActive" class="swiper-slide">
+	<!-- swiper slide -->
+	<div ref="checkActive" class="swiper-slide">
 
-    <!-- content container -->
-    <div ref="content_container_active" :class="blockClass" class="content_container">
+		<!-- content container -->
+		<div ref="content_container_active" :class="blockClass" class="content_container">
 
-      <!-- case name -->
-      <div class="content name">
-        <p>{{ caseName }}</p>
-      </div>
-      <!-- end case name -->
+			<!-- case name -->
+			<div class="content name">
+				<p>{{ caseName }}</p>
+			</div>
+			<!-- end case name -->
 
-      <!-- image -->
-      <div ref="image_holder_active" :class="imageClass" class="image_holder block" @click="bgClick()" @mouseover="bgOfCase()" @mouseleave="bgToNormal()">
-        <div class="image_position">
-          <div class="image_actual" data-swiper-parallax="50%">
-            <img ref="imgActive" :src="caseImage" >
-          </div>
-        </div>
-      </div>
-      <!-- end image -->
+			<!-- image -->
+			<div ref="image_holder_active" :class="imageClass" class="image_holder block" @click="bgClick()" @mouseover="bgOfCase()" @mouseleave="bgToNormal()">
+				<div class="image_position">
+					<div class="image_actual" data-swiper-parallax="50%">
+						<img ref="imgActive" :src="caseImage" >
+					</div>
+				</div>
+			</div>
+			<!-- end image -->
 
-      <!-- case description -->
-      <div class="content description">
-        <p>{{ caseDescription }}</p>
-      </div>
-      <div class="content_for_medium">
-        <p><span>{{ caseName }}</span>{{ caseDescription }}</p>
-      </div>
-      <!-- end case description -->
+			<!-- case description -->
+			<div class="content description">
+				<p>{{ caseDescription }}</p>
+			</div>
+			<div class="content_for_medium">
+				<p><span>{{ caseName }}</span>{{ caseDescription }}</p>
+			</div>
+			<!-- end case description -->
 
-      <!-- shadow -->
-      <div :class="imageClass" class="shadow"/>
-      <!-- end shadow -->
+			<!-- shadow -->
+			<div :class="imageClass" class="shadow"/>
+			<!-- end shadow -->
 
-    </div>
-    <!-- end content container -->
+		</div>
+		<!-- end content container -->
 
-  </div>
-  <!-- end swiper slide -->
+	</div>
+	<!-- end swiper slide -->
 
 </template>
 
@@ -165,7 +165,7 @@ export default {
       this.$emit("onLeave")
 
       image_holder.forEach(function(image_holder) {
-        image_holder.style = `--caseColor: black`
+        image_holder.style = "--caseColor: black"
       })
     }
   }

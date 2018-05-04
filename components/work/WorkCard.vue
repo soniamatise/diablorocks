@@ -1,8 +1,8 @@
 <template>
-  <article :class="['work__card column column'+columnNr , cardClass, caseName]" :case="caseName" :style="customStyle">
-    <div :class="['work__card__image-container', 'work__card__image-container--'+ size] " :style="'background-image: url(' + image + ');'"/>
-    <p class="work__card__description"><span class="work__card__description--bold">{{ client }}</span> {{ description }}</p>
-  </article>
+	<article :class="['work__card column column'+columnNr , cardClass, caseName]" :case="caseName" :style="customStyle">
+		<div :class="['work__card__image-container', 'work__card__image-container--'+ size] " :style="'background-image: url(' + image + ');'"/>
+		<p class="work__card__description"><span class="work__card__description--bold">{{ client }}</span> {{ description }}</p>
+	</article>
 </template>
 
 <script>
@@ -128,7 +128,7 @@ export default {
             offsetRight > window.innerWidth / 2
           ) {
             // Center image
-            backgroundPosX = ` 50%`
+            backgroundPosX = " 50%"
           } else {
             // Image on the left of three column screen
             space = width + 1

@@ -1,7 +1,7 @@
 <template>
-  <main-layout>
-    <h1>Dit is culture</h1>
-  </main-layout>
+	<main-layout>
+		<h1>Dit is culture</h1>
+	</main-layout>
 </template>
 
 <script>

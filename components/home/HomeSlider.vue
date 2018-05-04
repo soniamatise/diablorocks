@@ -1,45 +1,45 @@
 <template>
-  <div class="home">
+	<div class="home">
 
-    <home-intro @typeIt="type()"/>
+		<home-intro @typeIt="type()"/>
 
-    <!-- home slider -->
-    <div id="home-slider" ref="homeSlider" :style="sliderStyle">
-      <div v-swiper:mySwiper="swiperOption" ref="swiperObject">
-        <div class="parallax-bg home-bg-parallax" data-swiper-parallax="-280%">
-          <type-writer
-            :wait="wait"
-            heading="Our copy guy was out of office"
-            sub=""
-          />
-        </div>
+		<!-- home slider -->
+		<div id="home-slider" ref="homeSlider" :style="sliderStyle">
+			<div v-swiper:mySwiper="swiperOption" ref="swiperObject">
+				<div class="parallax-bg home-bg-parallax" data-swiper-parallax="-280%">
+					<type-writer
+						:wait="wait"
+						heading="Our copy guy was out of office"
+						sub=""
+					/>
+				</div>
 
-        <div :class="{show: displayContent}" class="swiper-wrapper">
+				<div :class="{show: displayContent}" class="swiper-wrapper">
 
-          <!-- slider item -->
-          <home-slider-item v-for="value in cases" :key="value.post.id"
-                            :case-name="value.case_fields.client_name"
-                            :slug="`work/${value.post.post_name}`"
-                            :case-description="value.case_fields.case_description"
-                            :case-image="value.case_fields.case_image"
-                            :case-color="value.case_fields.case_background_color"
-                            :case-size="value.case_fields.case_size"
-                            @onEnter="onEnter"
-                            @onLeave="onLeave"
-          />
-          <!-- end slider item -->
+					<!-- slider item -->
+					<home-slider-item v-for="value in cases" :key="value.post.id"
+						:case-name="value.case_fields.client_name"
+						:slug="`work/${value.post.post_name}`"
+						:case-description="value.case_fields.case_description"
+						:case-image="value.case_fields.case_image"
+						:case-color="value.case_fields.case_background_color"
+						:case-size="value.case_fields.case_size"
+						@onEnter="onEnter"
+						@onLeave="onLeave"
+					/>
+					<!-- end slider item -->
 
-        </div>
+				</div>
 
-        <div class="swiper-pagination"/>
+				<div class="swiper-pagination"/>
 
-        <div ref="scrollbar" :class="{show: displayContent}" :style="sliderStyle" class="swiper-scrollbar contentDisappear">
-          <span v-for="value in cases" :key="value.post.id" class="bullet"/>
-        </div>
-      </div>
+				<div ref="scrollbar" :class="{show: displayContent}" :style="sliderStyle" class="swiper-scrollbar contentDisappear">
+					<span v-for="value in cases" :key="value.post.id" class="bullet"/>
+				</div>
+			</div>
 
-    </div>
-  </div>
+		</div>
+	</div>
 </template>
 
 <script>

@@ -1,10 +1,10 @@
 <template>
-  <div ref="typeWriterTitle" class="typeWriterTitle" >
-    <h1 :class="{caret: caret}" :text="heading" :wait="wait" class="desktop_only">{{ headingText }}</h1>
-    <div class="paragraph_shower">
-      <p :class="{show : show}">{{ sub }}</p>
-    </div>
-  </div>
+	<div ref="typeWriterTitle" class="typeWriterTitle" >
+		<h1 :class="{caret: caret}" :text="heading" :wait="wait" class="desktop_only">{{ headingText }}</h1>
+		<div class="paragraph_shower">
+			<p :class="{show : show}">{{ sub }}</p>
+		</div>
+	</div>
 </template>
 
 <script>

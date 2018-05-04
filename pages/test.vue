@@ -1,7 +1,7 @@
 <template>
-  <main-layout>
-    <!-- <slide-video :cuts="cuts" src="video/bbb.mp4" debug="true"></slide-video> -->
-  </main-layout>
+	<main-layout>
+		<!-- <slide-video :cuts="cuts" src="video/bbb.mp4" debug="true"></slide-video> -->
+	</main-layout>
 </template>
 
 

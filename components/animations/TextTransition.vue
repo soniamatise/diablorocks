@@ -1,38 +1,38 @@
 <template>
 
-  <!-- hover container extra -->
-  <div class="hover_container_extra" @mouseenter="textAnimationenter()" @mouseleave="textAnimationleave()">
+	<!-- hover container extra -->
+	<div class="hover_container_extra" @mouseenter="textAnimationenter()" @mouseleave="textAnimationleave()">
 
-    <!-- content_holder -->
-    <div class="content_holder">
+		<!-- content_holder -->
+		<div class="content_holder">
 
-      <!-- text left -->
-      <div ref="leftTextElement" class="text_holder text_holder_left">
-        <div class="keep_position">
-          <h2><span>{{ textLeft }}</span>&nbsp;</h2>
-        </div>
-      </div>
-      <!-- end text left -->
+			<!-- text left -->
+			<div ref="leftTextElement" class="text_holder text_holder_left">
+				<div class="keep_position">
+					<h2><span>{{ textLeft }}</span>&nbsp;</h2>
+				</div>
+			</div>
+			<!-- end text left -->
 
-      <!-- text right -->
-      <div ref="rightTextElement" class="text_holder text_holder_right">
-        <div class="keep_position">
-          <h2>{{ textRight }}</h2>
-        </div>
-      </div>
-      <!-- end text right -->
+			<!-- text right -->
+			<div ref="rightTextElement" class="text_holder text_holder_right">
+				<div class="keep_position">
+					<h2>{{ textRight }}</h2>
+				</div>
+			</div>
+			<!-- end text right -->
 
-      <!-- mobile text -->
-      <div class="text_holder mobile-only">
-        <h2><span class="medium">{{ textLeft }}</span>&nbsp;{{ textRight }}</h2>
-      </div>
-      <!-- end mobile text -->
+			<!-- mobile text -->
+			<div class="text_holder mobile-only">
+				<h2><span class="medium">{{ textLeft }}</span>&nbsp;{{ textRight }}</h2>
+			</div>
+			<!-- end mobile text -->
 
-    </div>
-    <!-- end content_holder -->
+		</div>
+		<!-- end content_holder -->
 
-  </div>
-  <!-- end hover container extra -->
+	</div>
+	<!-- end hover container extra -->
 
 </template>
 

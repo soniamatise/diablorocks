@@ -1,33 +1,33 @@
 <template>
-  <Motion
-    :values="values"
-    :spring="spring">
-    <section id="next-case" slot-scope="props" class="next_case">
+	<Motion
+		:values="values"
+		:spring="spring">
+		<section id="next-case" slot-scope="props" class="next_case">
 
-      <!-- holder -->
-      <div ref="holder" class="holder">
+			<!-- holder -->
+			<div ref="holder" class="holder">
 
-        <!-- hover element -->
-        <div v-if="image" class="hover_container" @mouseenter="bgOfCase()" @mouseleave="bgToNormal()" @click="nextCase()">
-          <text-transition :text-right="caseName" text-left="Next case" onloadedmetadata=""/>
-        </div>
+				<!-- hover element -->
+				<div v-if="image" class="hover_container" @mouseenter="bgOfCase()" @mouseleave="bgToNormal()" @click="nextCase()">
+					<text-transition :text-right="caseName" text-left="Next case" onloadedmetadata=""/>
+				</div>
 
-        <nuxt-link v-if="!image" to="/about" class="hover_container" @mouseenter="bgOfCase()" @mouseleave="bgToNormal()">
-          <text-transition :text-right="caseName" text-left="It's not all work" onloadedmetadata=""/>
-        </nuxt-link>
-        <!-- end hover element -->
+				<nuxt-link v-if="!image" to="/about" class="hover_container" @mouseenter="bgOfCase()" @mouseleave="bgToNormal()">
+					<text-transition :text-right="caseName" text-left="It's not all work" onloadedmetadata=""/>
+				</nuxt-link>
+				<!-- end hover element -->
 
-      </div>
-      <!-- end holder -->
+			</div>
+			<!-- end holder -->
 
-      <!-- case image -->
-      <div v-if="image != undefined" id="caseImage" :class="['case_image', {'case_image--expand': expand}]" :style="[{'transform': `translateY(${props.yElement}%)`}, {'background-image': `url('${image}')` } ]">
-        <!-- <img :src="image"> -->
-      </div>
-      <!-- end case image -->
+			<!-- case image -->
+			<div v-if="image != undefined" id="caseImage" :class="['case_image', {'case_image--expand': expand}]" :style="[{'transform': `translateY(${props.yElement}%)`}, {'background-image': `url('${image}')` } ]">
+				<!-- <img :src="image"> -->
+			</div>
+			<!-- end case image -->
 
-    </section>
-  </Motion>
+		</section>
+	</Motion>
 </template>
 
 <script>

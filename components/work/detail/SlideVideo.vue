@@ -1,84 +1,84 @@
 <template>
-  <div class="slideVideoContainer">
-    <div class="slideVideo">
+	<div class="slideVideoContainer">
+		<div class="slideVideo">
 
-      <video ref="video" class="slideVideo__video" autoplay loop preload muted>
-        <source :src="vid.url" type="video/mp4">
-      </video>
+			<video ref="video" class="slideVideo__video" autoplay loop preload muted>
+				<source :src="vid.url" type="video/mp4">
+			</video>
 
-      <!-- slide_video_information -->
-      <div class="slide_video_information">
-        <div class="row center">
-          <div class="column large-12">
+			<!-- slide_video_information -->
+			<div class="slide_video_information">
+				<div class="row center">
+					<div class="column large-12">
 
-            <!-- information -->
-            <div v-for="(vidScene, index) in vidScenes" :key="vidScene.id" class="gekkigheid">
-              <div v-html="vidScene.scene_description"/>
-              <button @click="goToScene(index)">knop: {{ index }} || duratie: {{ vidScene.scene_length }}ms</button>
-            </div>
-            <!-- end information -->
+						<!-- information -->
+						<div v-for="(vidScene, index) in vidScenes" :key="vidScene.id" class="gekkigheid">
+							<div v-html="vidScene.scene_description"/>
+							<button @click="goToScene(index)">knop: {{ index }} || duratie: {{ vidScene.scene_length }}ms</button>
+						</div>
+						<!-- end information -->
 
-          </div>
-        </div>
-      </div>
-      <!-- end slide_video_information -->
+					</div>
+				</div>
+			</div>
+			<!-- end slide_video_information -->
 
-    </div>
+		</div>
 
-    <div class="row debug center">
-      <!-- v-if="debug" -->
-      <div class="column">
-        <button @click="prevScene">|&#9664;&#9664;</button>
-        <button v-if="!isPlaying" @click="playVideo"><strong>||</strong></button>
-        <button v-if="isPlaying" @click="pauseVideo">&#9658;</button>
-        <button :class="{ 'is-going' : goingToNextScene }" @click="nextScene">&#9658;&#9658;</button>
-        <button @click="goToScene(current.scene + 1, true)">&#9658;&#9658;|</button>
-      </div>
+		<div class="row debug center">
+			<!-- v-if="debug" -->
+			<div class="column">
+				<button @click="prevScene">|&#9664;&#9664;</button>
+				<button v-if="!isPlaying" @click="playVideo"><strong>||</strong></button>
+				<button v-if="isPlaying" @click="pauseVideo">&#9658;</button>
+				<button :class="{ 'is-going' : goingToNextScene }" @click="nextScene">&#9658;&#9658;</button>
+				<button @click="goToScene(current.scene + 1, true)">&#9658;&#9658;|</button>
+			</div>
 
-      <div class="column">
-        go to scene<br >
-        <ul>
-          <!-- <li v-for="(value, key) in scenes" :key="key"> -->
-          <li v-for="(vidScene, index) in vidScenes" :key="vidScene.id">
-            <button @click="goToScene(index)">
-              <strong>{{ index }}</strong> <small>({{ vidScene.scene_length }}ms)</small>
-            </button>
-          </li>
-        </ul>
-        <hr >
-        {{ scenes }}
-        {{ vidScenes }}
-      </div>
+			<div class="column">
+				go to scene<br >
+				<ul>
+					<!-- <li v-for="(value, key) in scenes" :key="key"> -->
+					<li v-for="(vidScene, index) in vidScenes" :key="vidScene.id">
+						<button @click="goToScene(index)">
+							<strong>{{ index }}</strong> <small>({{ vidScene.scene_length }}ms)</small>
+						</button>
+					</li>
+				</ul>
+				<hr >
+				{{ scenes }}
+				{{ vidScenes }}
+			</div>
 
-      <div class="column">
-        <table>
+			<div class="column">
+				<table>
 
-          <tr>
-            <td>scene:</td><td>{{ current.scene }} </td>
-          </tr>
-          <tr>
-            <td>Next scene on:</td><td>{{ scenes[current.scene + 1] }}s </td>
-          </tr>
-          <tr>
-            <td>playback.rate:</td><td>{{ playback.rate }}</td>
-          </tr>
-          <tr>
-            <td>time:</td><td>{{ current.niceTime.min }}m {{ current.niceTime.sec }}s</td>
-          </tr>
-          <tr>
-            <td>seconds:</td><td> {{ current.time }}s</td>
-          </tr>
-          <tr>
-            <td>percentage:</td><td>{{ current.percentage }}</td>
-          </tr>
-          <tr>
-            <td>goingToNextScene:</td><td>{{ goingToNextScene }}</td>
-        </tr></table>
+					<tr>
+						<td>scene:</td><td>{{ current.scene }} </td>
+					</tr>
+					<tr>
+						<td>Next scene on:</td><td>{{ scenes[current.scene + 1] }}s </td>
+					</tr>
+					<tr>
+						<td>playback.rate:</td><td>{{ playback.rate }}</td>
+					</tr>
+					<tr>
+						<td>time:</td><td>{{ current.niceTime.min }}m {{ current.niceTime.sec }}s</td>
+					</tr>
+					<tr>
+						<td>seconds:</td><td> {{ current.time }}s</td>
+					</tr>
+					<tr>
+						<td>percentage:</td><td>{{ current.percentage }}</td>
+					</tr>
+					<tr>
+						<td>goingToNextScene:</td><td>{{ goingToNextScene }}</td>
+				</tr></table>
 
-      </div>
+			</div>
 
-    </div>
-  </div>
+		</div>
+	</div>
 </template>
 
 <script>

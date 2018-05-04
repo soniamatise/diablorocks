@@ -1,67 +1,67 @@
 <template>
-  <!-- vue needed holder -->
-  <div class="make_full">
+	<!-- vue needed holder -->
+	<div class="make_full">
 
-    <!-- holder -->
-    <div ref="holder" class="holder">
-      <div ref="bgElement" :style="{ 'background-image': 'url(' + caseImage + ')' }" class="bg_element"/>
+		<!-- holder -->
+		<div ref="holder" class="holder">
+			<div ref="bgElement" :style="{ 'background-image': 'url(' + caseImage + ')' }" class="bg_element"/>
 
-      <!-- hover element -->
-      <div ref="videoInfo" class="hover_container" @click="showPlayVideo()" @mouseenter="textAnimationenter()" @mouseleave="textAnimationleave()">
+			<!-- hover element -->
+			<div ref="videoInfo" class="hover_container" @click="showPlayVideo()" @mouseenter="textAnimationenter()" @mouseleave="textAnimationleave()">
 
-        <!-- content_holder -->
-        <div class="content_holder">
+				<!-- content_holder -->
+				<div class="content_holder">
 
-          <!-- text left -->
-          <div ref="leftTextElement" class="text_holder text_holder_left">
-            <div class="keep_position">
-              <h2>Play</h2>
-            </div>
-          </div>
-          <!-- end text left -->
+					<!-- text left -->
+					<div ref="leftTextElement" class="text_holder text_holder_left">
+						<div class="keep_position">
+							<h2>Play</h2>
+						</div>
+					</div>
+					<!-- end text left -->
 
-          <!-- text right -->
-          <div ref="rightTextElement" class="text_holder text_holder_right">
-            <div class="keep_position">
-              <h2>&nbsp;<span/>&nbsp;{{ caseName }}</h2>
-            </div>
-          </div>
-          <!-- end text right -->
+					<!-- text right -->
+					<div ref="rightTextElement" class="text_holder text_holder_right">
+						<div class="keep_position">
+							<h2>&nbsp;<span/>&nbsp;{{ caseName }}</h2>
+						</div>
+					</div>
+					<!-- end text right -->
 
-          <!-- mobile text -->
-          <div class="text_holder mobile-only">
-            <h2><span class="medium">Play</span>&nbsp;{{ rightText }}</h2>
-          </div>
-          <!-- end mobile text -->
+					<!-- mobile text -->
+					<div class="text_holder mobile-only">
+						<h2><span class="medium">Play</span>&nbsp;{{ rightText }}</h2>
+					</div>
+					<!-- end mobile text -->
 
-        </div>
-        <!-- end content_holder -->
+				</div>
+				<!-- end content_holder -->
 
-      </div>
-      <!-- end hover element -->
+			</div>
+			<!-- end hover element -->
 
-    </div>
-    <!-- end holder -->
+		</div>
+		<!-- end holder -->
 
-    <!-- video holder -->
-    <div ref="video_holder" class="video_holder">
-      <div class="holder_video_controls">
-        <video ref="video" class="video" width="100%" height="100%" control="false" preload @timeupdate="seekBar()">
-          <source :src="caseVideo" type="video/mp4">
-        </video>
-        <div ref="controls" class="control_panel hide">
-          <div ref="playPause" :class="{'paused': paused}" class="control pause" @click="PausePlayVideo(), paused = !paused"/>
-          <div class="control timeline">
-            <progress id="progress-bar" ref="timeline" class="timeline-bar" min="0" max="100" value="0">0% played</progress>
-          </div>
-          <div class="control fullsize" @click="makeFullScreen()"/>
-          <div ref="mute" class="control volume on" @click="muteVideo()"/>
-        </div>
-      </div>
-    </div>
-    <!-- end video holder -->
+		<!-- video holder -->
+		<div ref="video_holder" class="video_holder">
+			<div class="holder_video_controls">
+				<video ref="video" class="video" width="100%" height="100%" control="false" preload @timeupdate="seekBar()">
+					<source :src="caseVideo" type="video/mp4">
+				</video>
+				<div ref="controls" class="control_panel hide">
+					<div ref="playPause" :class="{'paused': paused}" class="control pause" @click="PausePlayVideo(), paused = !paused"/>
+					<div class="control timeline">
+						<progress id="progress-bar" ref="timeline" class="timeline-bar" min="0" max="100" value="0">0% played</progress>
+					</div>
+					<div class="control fullsize" @click="makeFullScreen()"/>
+					<div ref="mute" class="control volume on" @click="muteVideo()"/>
+				</div>
+			</div>
+		</div>
+		<!-- end video holder -->
 
-  </div>
+	</div>
 <!-- end vue needed holder -->
 </template>
 

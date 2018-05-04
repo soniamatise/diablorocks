@@ -1,26 +1,26 @@
 <template>
-  <Motion
-    :values="values"
-    :spring="spring">
-    <div slot-scope="props">
-      <section :style="introStyle" class="intro">
-        <!-- intro text -->
-        <div class="intro_text">
-          <div class="row center">
-            <div class="column small-full medium-16 large-12">
-              <h2><span class="medium">{{ caseName }}</span> {{ caseQuote }}</h2>
-            </div>
-          </div>
+	<Motion
+		:values="values"
+		:spring="spring">
+		<div slot-scope="props">
+			<section :style="introStyle" class="intro">
+				<!-- intro text -->
+				<div class="intro_text">
+					<div class="row center">
+						<div class="column small-full medium-16 large-12">
+							<h2><span class="medium">{{ caseName }}</span> {{ caseQuote }}</h2>
+						</div>
+					</div>
 
-          <div id="caseImage" :style="{'top': `${props.yElement}%`}" class="intro_holder">
-            <div :style="{ 'background-image': 'url(' + caseImage + ')' }" class="intro_image"/>
-          </div>
-        </div>
-        <!-- end intro text -->
-      </section>
-      <section :style="{ 'background-color': '' + caseColor + '' }" class="intro_fake"/>
-    </div>
-  </Motion>
+					<div id="caseImage" :style="{'top': `${props.yElement}%`}" class="intro_holder">
+						<div :style="{ 'background-image': 'url(' + caseImage + ')' }" class="intro_image"/>
+					</div>
+				</div>
+				<!-- end intro text -->
+			</section>
+			<section :style="{ 'background-color': '' + caseColor + '' }" class="intro_fake"/>
+		</div>
+	</Motion>
 </template>
 
 <script>

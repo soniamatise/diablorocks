@@ -1,17 +1,17 @@
 <template>
-  <!-- intro home animation -->
-  <section :style="sectionStyle" class="home-intro">
-    <div ref="whiteIntro" class="bg-white white-intro">
-      <div class="white-intro--text">
-        <h2 class="medium">Not your average Agency</h2>
-      </div>
-    </div>
-    <div ref="blackIntro" :class="['bg-black', 'black-intro', {flowAway: go}]">
-      <div v-for="(text, index) in texts" :class="['black-intro--overflow', {'active--last': go}] " :id="index" :key="index">
-        <h2 :class="['medium', 'text-' + index, 'text-white']">{{ text }}</h2>
-      </div>
-    </div>
-  </section>
+	<!-- intro home animation -->
+	<section :style="sectionStyle" class="home-intro">
+		<div ref="whiteIntro" class="bg-white white-intro">
+			<div class="white-intro--text">
+				<h2 class="medium">Not your average Agency</h2>
+			</div>
+		</div>
+		<div ref="blackIntro" :class="['bg-black', 'black-intro', {flowAway: go}]">
+			<div v-for="(text, index) in texts" :class="['black-intro--overflow', {'active--last': go}] " :id="index" :key="index">
+				<h2 :class="['medium', 'text-' + index, 'text-white']">{{ text }}</h2>
+			</div>
+		</div>
+	</section>
 </template>
 
 <script>

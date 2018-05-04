@@ -1,10 +1,10 @@
 <template>
-  <main>
-    <input id="menu-trigger" type="checkbox">
-    <logo/>
-    <top-nav/>
-    <home-slider :cases="cases" />
-  </main>
+	<main>
+		<input id="menu-trigger" type="checkbox">
+		<logo/>
+		<top-nav/>
+		<home-slider :cases="cases" />
+	</main>
 </template>
 
 <script>

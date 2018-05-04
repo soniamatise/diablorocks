@@ -1,13 +1,13 @@
 <template>
-  <div id="main-layout">
-    <input id="menu-trigger" type="checkbox">
-    <logo/>
-    <top-nav :class="{headerIsActive: activeHeader}" @headerIsActive="makeActive"/>
-    <main>
-      <slot/>
-    </main>
-    <footer-element/>
-  </div>
+	<div id="main-layout">
+		<input id="menu-trigger" type="checkbox">
+		<logo/>
+		<top-nav :class="{headerIsActive: activeHeader}" @headerIsActive="makeActive"/>
+		<main>
+			<slot/>
+		</main>
+		<footer-element/>
+	</div>
 </template>
 
 <script>
