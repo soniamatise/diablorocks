@@ -67,122 +67,122 @@
 
 <script>
 export default {
-  props: {
-    caseName: {
-      type: String,
-      default: ""
-    },
-    caseVideo: {
-      type: String,
-      default: ""
-    },
-    caseImage: {
-      type: String,
-      default: ""
-    },
-    rightText: {
-      type: String,
-      default: ""
-    }
-  },
-  data: function() {
-    return {
-      paused: false,
-      elements: {
-        left: null,
-        right: null,
-        bg: null
-      }
-    }
-  },
-  mounted() {
-    this.elements.bg = this.$refs.bgElement
-    this.elements.left = this.$refs.leftTextElement
-    this.elements.right = this.$refs.rightTextElement
+	props: {
+		caseName: {
+			type: String,
+			default: ''
+		},
+		caseVideo: {
+			type: String,
+			default: ''
+		},
+		caseImage: {
+			type: String,
+			default: ''
+		},
+		rightText: {
+			type: String,
+			default: ''
+		}
+	},
+	data: function() {
+		return {
+			paused: false,
+			elements: {
+				left: null,
+				right: null,
+				bg: null
+			}
+		};
+	},
+	mounted() {
+		this.elements.bg = this.$refs.bgElement;
+		this.elements.left = this.$refs.leftTextElement;
+		this.elements.right = this.$refs.rightTextElement;
 
-    this.toggleWidth()
-  },
+		this.toggleWidth();
+	},
 
-  methods: {
-    toggleWidth: function() {
-      this.elements.right.style.transform = "translate(0%, -50%)"
-    },
-    // text animation on mouseenter
-    textAnimationenter: function() {
-      this.elements.bg.style.opacity = ".25"
-      this.elements.left.style.transform =
-        "translateX(" + this.elements.right.offsetWidth / 2 * 1 + "px)"
-    },
-    // text animation on mouseleave
-    textAnimationleave: function() {
-      this.elements.bg.style.opacity = "1"
-      this.elements.left.style.transform = "translateX(0%)"
-    },
+	methods: {
+		toggleWidth: function() {
+			this.elements.right.style.transform = 'translate(0%, -50%)';
+		},
+		// text animation on mouseenter
+		textAnimationenter: function() {
+			this.elements.bg.style.opacity = '.25';
+			this.elements.left.style.transform =
+        'translateX(' + this.elements.right.offsetWidth / 2 * 1 + 'px)';
+		},
+		// text animation on mouseleave
+		textAnimationleave: function() {
+			this.elements.bg.style.opacity = '1';
+			this.elements.left.style.transform = 'translateX(0%)';
+		},
 
-    // video
-    showPlayVideo: function() {
-      let holder = this.$refs.holder
-      let video_holder = this.$refs.video_holder
-      let video = this.$refs.video
-      let videoInformation = this.$refs.videoInfo
-      let videoControls = this.$refs.controls
+		// video
+		showPlayVideo: function() {
+			let holder = this.$refs.holder;
+			let videoHolder = this.$refs.video_holder;
+			let video = this.$refs.video;
+			let videoInformation = this.$refs.videoInfo;
+			let videoControls = this.$refs.controls;
 
-      videoControls.style.opacity = 0
-      videoControls.style.transition = "opacity 300ms"
-      video.style.opacity = 0
-      video.style.transition = "opacity 300ms"
+			videoControls.style.opacity = 0;
+			videoControls.style.transition = 'opacity 300ms';
+			video.style.opacity = 0;
+			video.style.transition = 'opacity 300ms';
 
-      holder.classList.add("show_video")
-      video_holder.classList.add("show_video")
-      videoInformation.classList.add("hide")
-      video.classList.remove("hide")
-      videoControls.classList.remove("hide")
-      setTimeout(function() {
-        video.style.opacity = 1
-      }, 400)
-      setTimeout(function() {
-        videoControls.style.opacity = 1
-      }, 400)
-      setTimeout(function() {
-        video.play()
-      }, 400)
-      setTimeout(function() {
-        holder.classList.add("hide")
-      }, 1000)
-    },
-    PausePlayVideo: function() {
-      let video = this.$refs.video
-      return video.paused ? video.play() : video.pause()
-    },
-    makeFullScreen: function() {
-      let video = this.$refs.video
-      if (video.requestFullscreen) {
-        video.requestFullscreen()
-      } else if (video.mozRequestFullScreen) {
-        video.mozRequestFullScreen() // Firefox
-      } else if (video.webkitRequestFullscreen) {
-        video.webkitRequestFullscreen() // Chrome and Safari
-      }
-    },
-    muteVideo: function() {
-      let video = this.$refs.video
-      let muteBtn = this.$refs.mute
-      if (video.muted == false) {
-        video.muted = true
-        muteBtn.classList.add("off")
-        muteBtn.classList.remove("on")
-      } else {
-        video.muted = false
-        muteBtn.classList.remove("off")
-        muteBtn.classList.add("on")
-      }
-    },
-    seekBar: function() {
-      let video = this.$refs.video
-      let timeline = this.$refs.timeline
-      let percentage = Math.floor(100 / video.duration * video.currentTime)
-      timeline.value = percentage
-    }
-  }
-}
+			holder.classList.add('show_video');
+			videoHolder.classList.add('show_video');
+			videoInformation.classList.add('hide');
+			video.classList.remove('hide');
+			videoControls.classList.remove('hide');
+			setTimeout(function() {
+				video.style.opacity = 1;
+			}, 400);
+			setTimeout(function() {
+				videoControls.style.opacity = 1;
+			}, 400);
+			setTimeout(function() {
+				video.play();
+			}, 400);
+			setTimeout(function() {
+				holder.classList.add('hide');
+			}, 1000);
+		},
+		PausePlayVideo: function() {
+			let video = this.$refs.video;
+			return video.paused ? video.play() : video.pause();
+		},
+		makeFullScreen: function() {
+			let video = this.$refs.video;
+			if (video.requestFullscreen) {
+				video.requestFullscreen();
+			} else if (video.mozRequestFullScreen) {
+				video.mozRequestFullScreen(); // Firefox
+			} else if (video.webkitRequestFullscreen) {
+				video.webkitRequestFullscreen(); // Chrome and Safari
+			}
+		},
+		muteVideo: function() {
+			let video = this.$refs.video;
+			let muteBtn = this.$refs.mute;
+			if (video.muted == false) {
+				video.muted = true;
+				muteBtn.classList.add('off');
+				muteBtn.classList.remove('on');
+			} else {
+				video.muted = false;
+				muteBtn.classList.remove('off');
+				muteBtn.classList.add('on');
+			}
+		},
+		seekBar: function() {
+			let video = this.$refs.video;
+			let timeline = this.$refs.timeline;
+			let percentage = Math.floor(100 / video.duration * video.currentTime);
+			timeline.value = percentage;
+		}
+	}
+};
 </script>

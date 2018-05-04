@@ -31,94 +31,94 @@
 </template>
 
 <script>
-import * as VueMotion from "~/plugins/vue-motion"
-import TextTransition from "~/components/animations/TextTransition.vue"
+import * as VueMotion from '~/plugins/vue-motion';
+import TextTransition from '~/components/animations/TextTransition.vue';
 
 export default {
-  components: {
-    TextTransition,
-    VueMotion
-  },
-  props: {
-    caseName: {
-      type: String,
-      default: ""
-    },
-    leftText: {
-      type: String,
-      default: ""
-    },
-    image: {
-      type: String,
-      default: ""
-    },
-    caseColor: {
-      type: String,
-      default: ""
-    },
-    slug: {
-      type: String,
-      default: ""
-    }
-  },
-  data() {
-    return {
-      yElement: 0,
-      expand: false
-    }
-  },
-  computed: {
-    spring() {
-      return {
-        stiffness: 200,
-        damping: 16,
-        precision: 0.01
-      }
-    },
-    values() {
-      return {
-        yElement: this.yElement
-      }
-    }
-  },
-  mounted: function() {},
-  methods: {
-    // case color color and animation img on mouseenter
-    bgOfCase: function() {
-      const bgDiv = document.getElementById("next-case")
-      bgDiv.style.backgroundColor = this.caseColor
+	components: {
+		TextTransition,
+		VueMotion
+	},
+	props: {
+		caseName: {
+			type: String,
+			default: ''
+		},
+		leftText: {
+			type: String,
+			default: ''
+		},
+		image: {
+			type: String,
+			default: ''
+		},
+		caseColor: {
+			type: String,
+			default: ''
+		},
+		slug: {
+			type: String,
+			default: ''
+		}
+	},
+	data() {
+		return {
+			yElement: 0,
+			expand: false
+		};
+	},
+	computed: {
+		spring() {
+			return {
+				stiffness: 200,
+				damping: 16,
+				precision: 0.01
+			};
+		},
+		values() {
+			return {
+				yElement: this.yElement
+			};
+		}
+	},
+	mounted: function() {},
+	methods: {
+		// case color color and animation img on mouseenter
+		bgOfCase: function() {
+			const bgDiv = document.getElementById('next-case');
+			bgDiv.style.backgroundColor = this.caseColor;
 
-      // get grid size for image height on mouseover
-      // const getGrid = window.innerWidth / 12;
+			// get grid size for image height on mouseover
+			// const getGrid = window.innerWidth / 12;
 
-      if (!this._data.expand) {
-        // vue motion TIM EPICNESS
-        this.yElement = -50
-      }
-    },
-    // black color and animation img on mouseleave
-    bgToNormal: function() {
-      const bgDiv = document.getElementById("next-case")
-      bgDiv.style.backgroundColor = "black"
+			if (!this._data.expand) {
+				// vue motion TIM EPICNESS
+				this.yElement = -50;
+			}
+		},
+		// black color and animation img on mouseleave
+		bgToNormal: function() {
+			const bgDiv = document.getElementById('next-case');
+			bgDiv.style.backgroundColor = 'black';
 
-      // vue motion TIM EPICNESS
-      this.yElement = 0
-    },
-    nextCase: function() {
-      let self = this
-      self._data.expand = true
-      this.yElement = -50
+			// vue motion TIM EPICNESS
+			this.yElement = 0;
+		},
+		nextCase: function() {
+			let self = this;
+			self._data.expand = true;
+			this.yElement = -50;
 
-      const bgDiv = document.getElementById("next-case").getBoundingClientRect()
-        .y
-      let pos = window.pageYOffset + bgDiv
-      console.log(pos)
-      window.scrollTo(0, pos)
+			const bgDiv = document.getElementById('next-case').getBoundingClientRect()
+				.y;
+			let pos = window.pageYOffset + bgDiv;
+			console.log(pos);
+			window.scrollTo(0, pos);
 
-      setTimeout(function() {
-        self.$router.push(`/work/${self.slug}`)
-      }, 1500)
-    }
-  }
-}
+			setTimeout(function() {
+				self.$router.push(`/work/${self.slug}`);
+			}, 1500);
+		}
+	}
+};
 </script>

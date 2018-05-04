@@ -134,38 +134,38 @@
 </template>
 
 <script>
-import MainLayout from '~/layouts/body/MainLayout.vue'
-import TypeWriter from '~/components/animations/TypeWriter'
+import MainLayout from '~/layouts/body/MainLayout.vue';
+import TypeWriter from '~/components/animations/TypeWriter';
 
 export default {
 	components: {
 		MainLayout,
 		TypeWriter
 	},
-  data() {
+	data() {
 		return {
 			Velocity: this.$velocity,
-      displayContent: false
-    }
+			displayContent: false
+		};
 	},
-  methods: {
-    showContent: function() {
-      let self = this
-			self.displayContent = true
-			let col = document.querySelector(".what_we_do")
-      self.Velocity(
+	methods: {
+		showContent: function() {
+			let self = this;
+			self.displayContent = true;
+			let col = document.querySelector('.what_we_do');
+			self.Velocity(
 				col,
 				{
-					transform: "translateY(0)"
-        },
-        600,
-        [180, 16]
-      )
-      setTimeout(function() {
-        col.style = ""
-        col.classList.add("stay")
-      }, 600)
-    }
+					transform: 'translateY(0)'
+				},
+				600,
+				[180, 16]
+			);
+			setTimeout(function() {
+				col.style = '';
+				col.classList.add('stay');
+			}, 600);
+		}
 	}
-}
+};
 </script>

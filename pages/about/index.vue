@@ -123,67 +123,67 @@
 </template>
 
 <script>
-import axios from "axios"
+import axios from 'axios';
 
-import MainLayout from "~/layouts/body/MainLayout.vue"
-import TypeWriter from "~/components/animations/TypeWriter"
+import MainLayout from '~/layouts/body/MainLayout.vue';
+import TypeWriter from '~/components/animations/TypeWriter';
 
 export default {
-  components: {
-    MainLayout,
-    TypeWriter
-  },
-  data() {
-    return {
-      Velocity: this.$velocity,
-      displayContent: false,
-      swiperOption: {
-        slidesPerView: "auto",
-        centeredSlides: true,
-        speed: 600,
-        grabCursor: true,
-        preventIntercationOnTransition: true,
-        touchRatio: 1,
-        mousewheel: true,
-        direction: "horizontal",
-        autoHeight: true,
+	components: {
+		MainLayout,
+		TypeWriter
+	},
+	data() {
+		return {
+			Velocity: this.$velocity,
+			displayContent: false,
+			swiperOption: {
+				slidesPerView: 'auto',
+				centeredSlides: true,
+				speed: 600,
+				grabCursor: true,
+				preventIntercationOnTransition: true,
+				touchRatio: 1,
+				mousewheel: true,
+				direction: 'horizontal',
+				autoHeight: true,
 
-        // loop: true,
-        keyboard: {
-          enabled: true
-        },
-        breakpoints: {
-          768: {
-            slidesPerView: "1",
-            touchRatio: 1,
-            loop: true,
-            mousewheel: false
-          }
-        }
-      }
-    }
-  },
-  methods: {
-    showContent: function() {
-      let self = this
-      self.displayContent = true
-      let col = document.querySelector(".about")
-      self.Velocity(col, { transform: "translateY(0)" }, 600, [180, 16])
-      setTimeout(function() {
-        col.style = ""
-        col.classList.add("stay")
-      }, 600)
-    }
-  },
-  asyncData() {
-    return axios
-      .get(`${process.env.baseUrl}/wp/v2/pages?slug=about&_embed`)
-      .then(res => {
-        return {
-          page: res.data[0],
-          layouts: res.data[0]["layout"]
-        }
-      })
-  }
-}
+				// loop: true,
+				keyboard: {
+					enabled: true
+				},
+				breakpoints: {
+					768: {
+						slidesPerView: '1',
+						touchRatio: 1,
+						loop: true,
+						mousewheel: false
+					}
+				}
+			}
+		};
+	},
+	methods: {
+		showContent: function() {
+			let self = this;
+			self.displayContent = true;
+			let col = document.querySelector('.about');
+			self.Velocity(col, { transform: 'translateY(0)' }, 600, [180, 16]);
+			setTimeout(function() {
+				col.style = '';
+				col.classList.add('stay');
+			}, 600);
+		}
+	},
+	asyncData() {
+		return axios
+			.get(`${process.env.baseUrl}/wp/v2/pages?slug=about&_embed`)
+			.then(res => {
+				return {
+					page: res.data[0],
+					layouts: res.data[0]['layout']
+				};
+			});
+	}
+};
 </script>

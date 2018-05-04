@@ -28,11 +28,11 @@
 
 <script>
 export default {
-  props: {
-    img: {
-      type: Object,
-      default: () => ({})
-    }
-  }
-}
+	props: {
+		img: {
+			type: Object,
+			default: () => ({})
+		}
+	}
+};
 </script>

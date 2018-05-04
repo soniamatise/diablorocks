@@ -34,19 +34,19 @@
 
 <script>
 export default {
-  props: {
-    intro: {
-      type: String,
-      default: ""
-    },
-    credits: {
-      type: Array,
-      default: () => ({})
-    },
-    footer: {
-      type: String,
-      default: ""
-    }
-  }
-}
+	props: {
+		intro: {
+			type: String,
+			default: ''
+		},
+		credits: {
+			type: Array,
+			default: () => ({})
+		},
+		footer: {
+			type: String,
+			default: ''
+		}
+	}
+};
 </script>

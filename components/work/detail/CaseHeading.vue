@@ -24,68 +24,68 @@
 </template>
 
 <script>
-import * as VueMotion from "~/plugins/vue-motion"
+import * as VueMotion from '~/plugins/vue-motion';
 
 export default {
-  components: { VueMotion },
-  props: {
-    caseName: {
-      type: String,
-      default: ""
-    },
-    caseQuote: {
-      type: String,
-      default: ""
-    },
-    caseImage: {
-      type: String,
-      default: ""
-    },
-    caseColor: {
-      type: String,
-      default: ""
-    },
-    image: {
-      type: String,
-      default: ""
-    }
-  },
-  data() {
-    return {
-      yElement: 0,
-      introStyle: { "background-color": this.caseColor, "z-index": 10 }
-    }
-  },
-  computed: {
-    spring() {
-      return {
-        stiffness: 200,
-        damping: 16,
-        precision: 0.01
-      }
-    },
-    values() {
-      return {
-        yElement: this.yElement
-      }
-    }
-  },
-  mounted() {
-    let self = this
-    setTimeout(function() {
-      self.bgOfCase()
-    }, 600)
-  },
-  methods: {
-    // case color color and animation img on mouseenter
-    bgOfCase: function() {
-      // const caseImage = document.getElementById("caseImage")
-      let self = this
-      this.yElement = 100
-      this.introStyle["z-index"] = 1
+	components: { VueMotion },
+	props: {
+		caseName: {
+			type: String,
+			default: ''
+		},
+		caseQuote: {
+			type: String,
+			default: ''
+		},
+		caseImage: {
+			type: String,
+			default: ''
+		},
+		caseColor: {
+			type: String,
+			default: ''
+		},
+		image: {
+			type: String,
+			default: ''
+		}
+	},
+	data() {
+		return {
+			yElement: 0,
+			introStyle: { 'background-color': this.caseColor, 'z-index': 10 }
+		};
+	},
+	computed: {
+		spring() {
+			return {
+				stiffness: 200,
+				damping: 16,
+				precision: 0.01
+			};
+		},
+		values() {
+			return {
+				yElement: this.yElement
+			};
+		}
+	},
+	mounted() {
+		let self = this;
+		setTimeout(function() {
+			self.bgOfCase();
+		}, 600);
+	},
+	methods: {
+		// case color color and animation img on mouseenter
+		bgOfCase: function() {
+			// const caseImage = document.getElementById("caseImage")
+			let self = this;
+			this.yElement = 100;
+			this.introStyle['z-index'] = 1;
 
-      self.$emit("doneAnimation")
-    }
-  }
-}
+			self.$emit('doneAnimation');
+		}
+	}
+};
 </script>

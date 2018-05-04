@@ -55,46 +55,46 @@
 
 <script>
 export default {
-  props: {
-    imgOne: {
-      type: Object,
-      default: () => ({})
-    },
-    imgTwo: {
-      type: Object,
-      default: () => ({})
-    },
-    leftColKind: {
-      type: String,
-      default: ""
-    },
-    rightColKind: {
-      type: String,
-      default: ""
-    },
-    videoOne: {
-      type: Object,
-      default: () => ({})
-    },
-    videoTwo: {
-      type: Object,
-      default: () => ({})
-    }
-  },
-  data() {
-    return {
-      swiperOption: {
-        slidesPerView: 2,
-        touchRatio: 0,
-        breakpoints: {
-          640: {
-            slidesPerView: "auto",
-            spaceBetween: 32,
-            touchRatio: 1
-          }
-        }
-      }
-    }
-  }
-}
+	props: {
+		imgOne: {
+			type: Object,
+			default: () => ({})
+		},
+		imgTwo: {
+			type: Object,
+			default: () => ({})
+		},
+		leftColKind: {
+			type: String,
+			default: ''
+		},
+		rightColKind: {
+			type: String,
+			default: ''
+		},
+		videoOne: {
+			type: Object,
+			default: () => ({})
+		},
+		videoTwo: {
+			type: Object,
+			default: () => ({})
+		}
+	},
+	data() {
+		return {
+			swiperOption: {
+				slidesPerView: 2,
+				touchRatio: 0,
+				breakpoints: {
+					640: {
+						slidesPerView: 'auto',
+						spaceBetween: 32,
+						touchRatio: 1
+					}
+				}
+			}
+		};
+	}
+};
 </script>

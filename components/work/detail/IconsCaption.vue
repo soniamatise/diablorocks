@@ -20,15 +20,15 @@
 
 <script>
 export default {
-  props: {
-    gridColor: {
-      type: String,
-      default: ""
-    },
-    gridIcons: {
-      type: Array,
-      default: () => ({})
-    }
-  }
-}
+	props: {
+		gridColor: {
+			type: String,
+			default: ''
+		},
+		gridIcons: {
+			type: Array,
+			default: () => ({})
+		}
+	}
+};
 </script>

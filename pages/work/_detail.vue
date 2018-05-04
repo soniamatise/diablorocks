@@ -60,61 +60,61 @@
 </template>
 
 <script>
-import axios from 'axios'
+import axios from 'axios';
 
-import MainLayout from '~/layouts/body/MainLayout.vue'
-import TitleText from '~/components/work/detail/TitleText.vue'
-import OneColumn from '~/components/work/OneColumn.vue'
-import TwoColumn from '~/components/work/TwoColumn.vue'
-import IconsCaption from '~/components/work/detail/IconsCaption.vue'
-import PayoffCredits from '~/components/work/PayoffCredits.vue'
-import CaseHeading from '~/components/work/detail/CaseHeading.vue'
-import NextCase from '~/components/work/NextCase.vue'
-import VideoPlayer from '~/components/work/detail/VideoPlayer.vue'
-import FullPhoto from '~/components/work/detail/FullPhoto.vue'
+import MainLayout from '~/layouts/body/MainLayout.vue';
+import TitleText from '~/components/work/detail/TitleText.vue';
+import OneColumn from '~/components/work/OneColumn.vue';
+import TwoColumn from '~/components/work/TwoColumn.vue';
+import IconsCaption from '~/components/work/detail/IconsCaption.vue';
+import PayoffCredits from '~/components/work/PayoffCredits.vue';
+import CaseHeading from '~/components/work/detail/CaseHeading.vue';
+import NextCase from '~/components/work/NextCase.vue';
+import VideoPlayer from '~/components/work/detail/VideoPlayer.vue';
+import FullPhoto from '~/components/work/detail/FullPhoto.vue';
 
 export default {
-  head() {
-    return {
-      title: this.client + ' | Matise - Not your average Agency',
-      bodyAttrs: {
-        class: 'white_menu'
-      }
-    }
-  },
-  components: {
-    TitleText,
-    OneColumn,
-    TwoColumn,
-    IconsCaption,
-    PayoffCredits,
-    MainLayout,
-    CaseHeading,
-    VideoPlayer,
-    NextCase,
-    FullPhoto
-  },
-  data() {
-    return { scrollable: false }
-  },
-  asyncData({ params }) {
-    return axios
-      .get(`${process.env.baseUrl}/wp/v2/case?slug=${params.detail}&_embed`)
-      .then(res => {
-        return {
-          layout: res.data[0].layout,
-          client: res.data[0].client_name,
-          description: res.data[0].case_description,
-          color: res.data[0].case_background_color,
-          image: res.data[0]._embedded['wp:featuredmedia'][0].source_url,
-          nextCase: res.data[0].next_case
-        }
-      })
-  },
-  methods: {
-    doneIntro: function() {
-      this.scrollable = true
-    }
-  }
-}
+	head() {
+		return {
+			title: this.client + ' | Matise - Not your average Agency',
+			bodyAttrs: {
+				class: 'white_menu'
+			}
+		};
+	},
+	components: {
+		TitleText,
+		OneColumn,
+		TwoColumn,
+		IconsCaption,
+		PayoffCredits,
+		MainLayout,
+		CaseHeading,
+		VideoPlayer,
+		NextCase,
+		FullPhoto
+	},
+	data() {
+		return { scrollable: false };
+	},
+	asyncData({ params }) {
+		return axios
+			.get(`${process.env.baseUrl}/wp/v2/case?slug=${params.detail}&_embed`)
+			.then(res => {
+				return {
+					layout: res.data[0].layout,
+					client: res.data[0].client_name,
+					description: res.data[0].case_description,
+					color: res.data[0].case_background_color,
+					image: res.data[0]._embedded['wp:featuredmedia'][0].source_url,
+					nextCase: res.data[0].next_case
+				};
+			});
+	},
+	methods: {
+		doneIntro: function() {
+			this.scrollable = true;
+		}
+	}
+};
 </script>

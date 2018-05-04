@@ -38,43 +38,43 @@
 
 <script>
 export default {
-  props: {
-    textRight: {
-      type: String,
-      default: ""
-    },
-    textLeft: {
-      type: String,
-      default: ""
-    }
-  },
-  data: function() {
-    return {
-      elements: {
-        left: null,
-        right: null
-      }
-    }
-  },
-  mounted() {
-    this.elements.right = this.$refs.rightTextElement
-    this.elements.left = this.$refs.leftTextElement
+	props: {
+		textRight: {
+			type: String,
+			default: ''
+		},
+		textLeft: {
+			type: String,
+			default: ''
+		}
+	},
+	data: function() {
+		return {
+			elements: {
+				left: null,
+				right: null
+			}
+		};
+	},
+	mounted() {
+		this.elements.right = this.$refs.rightTextElement;
+		this.elements.left = this.$refs.leftTextElement;
 
-    this.toggleWidth()
-  },
-  methods: {
-    toggleWidth: function() {
-      this.elements.right.style.transform = "translate(0%, 0%)"
-    },
-    // text animation on mouseenter
-    textAnimationenter: function() {
-      this.elements.right.style.transform =
-        "translate(" + -(this.elements.left.offsetWidth / 2) * 1 + "px, 0%)"
-    },
-    // text animation on mouseleave
-    textAnimationleave: function() {
-      this.elements.right.style.transform = "translate(0%, 0%)"
-    }
-  }
-}
+		this.toggleWidth();
+	},
+	methods: {
+		toggleWidth: function() {
+			this.elements.right.style.transform = 'translate(0%, 0%)';
+		},
+		// text animation on mouseenter
+		textAnimationenter: function() {
+			this.elements.right.style.transform =
+        'translate(' + -(this.elements.left.offsetWidth / 2) * 1 + 'px, 0%)';
+		},
+		// text animation on mouseleave
+		textAnimationleave: function() {
+			this.elements.right.style.transform = 'translate(0%, 0%)';
+		}
+	}
+};
 </script>

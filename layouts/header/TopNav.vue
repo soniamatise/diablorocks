@@ -34,45 +34,45 @@
 
 <script>
 export default {
-  mounted() {
-    let self = this
-    let savedScroll = 0
-    let topNav = this.$refs.topNav
-    // let didScroll = false
-    // let lelek
+	mounted() {
+		let self = this;
+		let savedScroll = 0;
+		let topNav = this.$refs.topNav;
+		// let didScroll = false
+		// let lelek
 
-    window.addEventListener("scroll", function() {
-      let scrollPosition = window.scrollY
+		window.addEventListener('scroll', function() {
+			let scrollPosition = window.scrollY;
 
-      // add / remove class on scroll top
+			// add / remove class on scroll top
 
-      if (scrollPosition >= savedScroll + 40) {
-        topNav.classList.add("up")
-      } else {
-        topNav.classList.remove("up")
-      }
-      // add / remove class on scroll down or up
+			if (scrollPosition >= savedScroll + 40) {
+				topNav.classList.add('up');
+			} else {
+				topNav.classList.remove('up');
+			}
+			// add / remove class on scroll down or up
 
-      // if (scrollPosition >= savedScroll + 40) {
-      // 	// scroll down
-      // 	topNav.classList.add('up');
-      // 	lelek = scrollPosition;
-      // 	savedScroll = scrollPosition + 40;
-      // } else if (lelek >= scrollPosition) {
-      // 	// scroll up
-      // 	topNav.classList.remove('up');
-      // 	lelek = scrollPosition;
-      // 	savedScroll = scrollPosition + 40;
-      // }
-    })
+			// if (scrollPosition >= savedScroll + 40) {
+			// 	// scroll down
+			// 	topNav.classList.add('up');
+			// 	lelek = scrollPosition;
+			// 	savedScroll = scrollPosition + 40;
+			// } else if (lelek >= scrollPosition) {
+			// 	// scroll up
+			// 	topNav.classList.remove('up');
+			// 	lelek = scrollPosition;
+			// 	savedScroll = scrollPosition + 40;
+			// }
+		});
 
-    document.querySelector(".trigger").addEventListener("click", function() {
-      self.$refs.topNav.classList.add("animate")
-    })
+		document.querySelector('.trigger').addEventListener('click', function() {
+			self.$refs.topNav.classList.add('animate');
+		});
 
-    setTimeout(function() {
-      topNav.classList.add("show")
-    }, 500)
-  }
-}
+		setTimeout(function() {
+			topNav.classList.add('show');
+		}, 500);
+	}
+};
 </script>

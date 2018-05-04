@@ -12,35 +12,35 @@
 
 <script>
 export default {
-  data() {
-    return {
-      isMenuOpen: false,
-      headerIsActive: false,
-      flip: ""
-    }
-  },
-  head() {
-    return {
-      bodyAttrs: {
-        // class: this.isMenuOpen ? 'scroll-disable' : null
-      }
-    }
-  },
-  methods: {
-    toggleScrollBody: function() {
-      this.isMenuOpen = !this.isMenuOpen
-    },
-    toggleHeaderWidth: function() {
-      let self = this
-      self.$emit.headerIsActive = !self.$emit.headerIsActive
-      setTimeout(function() {
-        if (self._data.flip == false) {
-          self._data.flip = true
-        } else {
-          self._data.flip = false
-        }
-      }, 600)
-    }
-  }
-}
+	data() {
+		return {
+			isMenuOpen: false,
+			headerIsActive: false,
+			flip: ''
+		};
+	},
+	head() {
+		return {
+			bodyAttrs: {
+				// class: this.isMenuOpen ? 'scroll-disable' : null
+			}
+		};
+	},
+	methods: {
+		toggleScrollBody: function() {
+			this.isMenuOpen = !this.isMenuOpen;
+		},
+		toggleHeaderWidth: function() {
+			let self = this;
+			self.$emit.headerIsActive = !self.$emit.headerIsActive;
+			setTimeout(function() {
+				if (self._data.flip == false) {
+					self._data.flip = true;
+				} else {
+					self._data.flip = false;
+				}
+			}, 600);
+		}
+	}
+};
 </script>

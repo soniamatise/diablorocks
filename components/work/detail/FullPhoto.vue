@@ -15,15 +15,15 @@
 
 <script>
 export default {
-  props: {
-    imageFull: {
-      type: Object,
-      default: () => ({})
-    },
-    imageText: {
-      type: String,
-      default: ""
-    }
-  }
-}
+	props: {
+		imageFull: {
+			type: Object,
+			default: () => ({})
+		},
+		imageText: {
+			type: String,
+			default: ''
+		}
+	}
+};
 </script>
