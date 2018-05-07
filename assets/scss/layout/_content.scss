@@ -1,17 +1,42 @@
-%link-hover{
+%link-hover {
   &:before {
-    content: ''; position: absolute; right: 0; width: 0; top: calc(100% - 2px); background-color: color(Black); height: 1px; transition: width .3s ease-out;
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 0;
+    top: calc(100% - 2px);
+    background-color: color(Black);
+    height: 1px;
+    transition: width 0.3s ease-out;
   }
+
   &:hover {
-    &:before { left: 0; right: auto; width: 100%; }
+    &:before {
+      left: 0;
+      right: auto;
+      width: 100%;
+    }
   }
 }
-%link-hover-ext{
+
+%link-hover-ext {
   &:before {
-    content: ''; position: absolute; left: 0; width: 100%; bottom: -4px; background-color: color(Black); height: 1px; transition: width .3s ease-out;
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: -4px;
+    background-color: color(Black);
+    height: 1px;
+    transition: width 0.3s ease-out;
   }
+
   &:hover {
-    &:before { right: 0; right: auto; width: 0; }
+    &:before {
+      right: 0;
+      right: auto;
+      width: 0;
+    }
   }
 }
 
@@ -20,6 +45,8 @@
 //     @extend %link-hover;
 //   }
 // }
-.external{
-  p a{   @extend %link-hover-ext; }
+.external {
+  p a {
+    @extend %link-hover-ext;
+  }
 }

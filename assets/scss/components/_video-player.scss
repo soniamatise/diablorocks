@@ -1,232 +1,386 @@
-section.video{
-	background-color: color(Dark); height: 100vh; width: 100vw; overflow: hidden;
-	@media #{$medium-down}{
-		height: 100vw;
-	}
-	// needed to do animations
-	.make_full{
-		height: inherit; position: relative;
-	}
-	// holder
-	.holder{
-		color: color(Light); opacity: 1; z-index: 2; position: relative; height: 100%;
+section.video {
+  background-color: color(Dark);
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
 
-		&.show_video{
-			opacity: 0; transition: opacity 0.3s $easeboth;
-		}
-		@media #{$small-only}{
-			height: 100vw;
-		}
-		//bg element
-		.bg_element{
-			background-size: cover; background-position: center center; background-repeat: no-repeat; position: relative; transition: opacity 1s $easeboth; position: absolute; height: 100%; width: 100%; opacity: 1; z-index: 1;
-		}
-		// text
-		h2{
-			display: block; white-space: nowrap; position: relative;
-			@media #{$small-only}{
-				white-space: normal;
+  @media #{$medium-down} {
+    height: 100vw;
+  }
+  // needed to do animations
+  .make_full {
+    height: inherit;
+    position: relative;
+  }
+  // holder
+  .holder {
+    color: color(Light);
+    opacity: 1;
+    z-index: 2;
+    position: relative;
+    height: 100%;
 
-				span{
-					display: inline-flex;
-				}
-			}
-		}
-		// hover container
-		.hover_container{
-			cursor: pointer; width: 100vw; height: auto; position: relative; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 1;
+    &.show_video {
+      opacity: 0;
+      transition: opacity 0.3s $easeboth;
+    }
 
-			&:hover{
-				.content_holder{
-					.text_holder{
-						&.text_holder_left{
-							transition: transform 0.3s $easeboth 0.5s;
-						}
+    @media #{$small-only} {
+      height: 100vw;
+    }
+    //bg element
+    .bg_element {
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      position: relative;
+      transition: opacity 1s $easeboth;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      opacity: 1;
+      z-index: 1;
+    }
+    // text
+    h2 {
+      display: block;
+      white-space: nowrap;
+      position: relative;
 
-						&.text_holder_right{
-							.keep_position{
-								transform: translateX(-100%); transition: transform 0.6s $easeboth 0s;
+      @media #{$small-only} {
+        white-space: normal;
 
-								h2{
-									transform: translateX(100%); transition: transform 0.6s $easeboth 0s;
-								}
-							}
-						}
-					}
-				}
-			}
+        span {
+          display: inline-flex;
+        }
+      }
+    }
+    // hover container
+    .hover_container {
+      cursor: pointer;
+      width: 100vw;
+      height: auto;
+      position: relative;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
 
-			.content_holder{
-				left: 50%; top: 50%; transform: translate(-50%, -50%); position: absolute; height: 100%; display: block; padding: grid(1) 0; width: auto;
-				@media #{$medium-down}{
-					position: relative; display: inline-block; margin-top: rem(100); padding: grid(1);
-				}
+      &:hover {
+        .content_holder {
+          .text_holder {
+            &.text_holder_left {
+              transition: transform 0.3s $easeboth 0.5s;
+            }
 
-				.text_holder{
-					top: 50%; position: relative; transform: translateY(-50%); box-sizing: border-box; width: initial;
+            &.text_holder_right {
+              .keep_position {
+                transform: translateX(-100%);
+                transition: transform 0.6s $easeboth 0s;
 
-					&.mobile-only{
-						display: none;
-						@media #{$small-only}{
-							display: block; padding: 0 rem(64); transform: translateY(-50%); top: 50%;
+                h2 {
+                  transform: translateX(100%);
+                  transition: transform 0.6s $easeboth 0s;
+                }
+              }
+            }
+          }
+        }
+      }
 
-							h2{
-								span{
-									&:after{
-										content: none;
-									}
-								}
-							}
-						}
-					}
+      .content_holder {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        height: 100%;
+        display: block;
+        padding: grid(1) 0;
+        width: auto;
 
-					&.text_holder_left{
-						display: block; position: relative; float: left; z-index: 10; transform: translateY(0%); transition: transform 0.2s $easeboth 0.4s;
+        @media #{$medium-down} {
+          position: relative;
+          display: inline-block;
+          margin-top: rem(100);
+          padding: grid(1);
+        }
 
-						h2{
-							font-weight: $font-medium;
-						}
-						@media #{$small-only}{
-							display: none;
-						}
+        .text_holder {
+          top: 50%;
+          position: relative;
+          transform: translateY(-50%);
+          box-sizing: border-box;
+          width: initial;
 
-						.keep_position{
-							position: relative; display: block; width: 100%; transform: translateY(-50%);
-						}
-					}
+          &.mobile-only {
+            display: none;
 
-					&.text_holder_right{
-						display: block; float: right; overflow: hidden;
-						@media #{$small-only}{
-							display: none;
-						}
+            @media #{$small-only} {
+              display: block;
+              padding: 0 rem(64);
+              transform: translateY(-50%);
+              top: 50%;
 
-						.keep_position{
-							position: relative; display: block; width: 100%; overflow: hidden; transition: transform 0.3s $easeboth 0.5s; transform: translateX(0);
+              h2 {
+                span {
+                  &:after {
+                    content: none;
+                  }
+                }
+              }
+            }
+          }
 
-							h2{
-								transition: transform 0.3s $easeboth 0.5s; transform: translateX(0);
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	// video holder
-	.video_holder{
-		background: color(DarkGray); height: 90vh; width: 100vw; position: absolute; z-index: 1;
-		// padding: 10vh 0;
-		overflow: hidden; top: 5vh;
-		@media #{$small-only}{
-			height: 100%; top: 0; position: relative;
-		}
+          &.text_holder_left {
+            display: block;
+            position: relative;
+            float: left;
+            z-index: 10;
+            transform: translateY(0%);
+            transition: transform 0.2s $easeboth 0.4s;
 
-		&:before{
-			z-index: 2; position: absolute; content: ""; display: block; width: 100vw; height: 100vh; background: color(DarkGray); top: 0; left: 0; transform: translateX(0); transition: transform 1s $easeboth 0.3s;
-		}
+            h2 {
+              font-weight: $font-medium;
+            }
 
-		&.show_video{
-			&:before{
-				transform: translateX(100%); transition: transform 1s $easeboth 0.3s;
-			}
-		}
+            @media #{$small-only} {
+              display: none;
+            }
 
-		.holder_video_controls{
-			max-width: 80vw; max-height: 80vh; width: 100%; height: auto; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-			@media #{$small-only}{
-				max-width: 100vw; max-height: 100vw; width: 100%; height: auto;
-			}
-			video{
-				width: 100%; height: 100%; opacity: 1; object-fit: contain; pointer-events: none;
-			}
-		}
-	}
+            .keep_position {
+              position: relative;
+              display: block;
+              width: 100%;
+              transform: translateY(-50%);
+            }
+          }
 
-	.control_panel{
-		width: 100%; padding: 0 10%; height: $logo-height; position: absolute; bottom: 0; background-color: color(DarkGray); opacity: 1;
-		@media #{$small-only}{
-			height: rem(38);
-		}
+          &.text_holder_right {
+            display: block;
+            float: right;
+            overflow: hidden;
 
-		.control{
-			cursor: pointer; width: 32px; height: $logo-height; background-repeat: no-repeat; background-position: center center; display: inline-flex;
+            @media #{$small-only} {
+              display: none;
+            }
 
-			&:hover{
-				opacity: 0.5;
-			}
+            .keep_position {
+              position: relative;
+              display: block;
+              width: 100%;
+              overflow: hidden;
+              transition: transform 0.3s $easeboth 0.5s;
+              transform: translateX(0);
 
-			@media #{$small-only}{
-				background-size: contain; height: rem(14); width: rem(14); padding: 0 rem(12); position: relative; top: 50%; transform: translate(0, -50%);
-			}
+              h2 {
+                transition: transform 0.3s $easeboth 0.5s;
+                transform: translateX(0);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  // video holder
+  .video_holder {
+    background: color(DarkGray);
+    height: 90vh;
+    width: 100vw;
+    position: absolute;
+    z-index: 1;
+    // padding: 10vh 0;
+    overflow: hidden;
+    top: 5vh;
 
-			&.pause{
-				background-image: url("~/assets/img/pause.svg");
-				@media #{$small-only}{
-					margin: 0 rem(4);
-				}
+    @media #{$small-only} {
+      height: 100%;
+      top: 0;
+      position: relative;
+    }
 
-				&.paused{
-					background-image: url("~/assets/img/play.svg");
-					@media #{$small-only}{
-						margin: 0 rem(4);
-					}
-				}
-			}
+    &:before {
+      z-index: 2;
+      position: absolute;
+      content: "";
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      background: color(DarkGray);
+      top: 0;
+      left: 0;
+      transform: translateX(0);
+      transition: transform 1s $easeboth 0.3s;
+    }
 
-			&.timeline{
-				width: calc(100% - 96px); height: $logo-height; position: relative;
-				@media #{$small-only}{
-					width: calc(100% - 96px); height: rem(14); padding: 0;
-				}
+    &.show_video {
+      &:before {
+        transform: translateX(100%);
+        transition: transform 1s $easeboth 0.3s;
+      }
+    }
 
-				progress{
-					top: 50%; position: absolute; height: 2px; transform: translateY(-50%); width: calc(100% - 96px);
-				}
+    .holder_video_controls {
+      max-width: 80vw;
+      max-height: 80vh;
+      width: 100%;
+      height: auto;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
 
-				progress[value]::-webkit-progress-bar{
-					height: rem(2); background-color: color(Light, 0.25); position: relative;
-				}
+      @media #{$small-only} {
+        max-width: 100vw;
+        max-height: 100vw;
+        width: 100%;
+        height: auto;
+      }
 
-				progress[value]::-moz-progress-bar, progress[value]::-webkit-progress-value{
-					position: absolute; top: 0 !important; left: 0; height: rem(2); background-color: color(Light)!important; margin: 0; padding: 0;
-				}
+      video {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        object-fit: contain;
+        pointer-events: none;
+      }
+    }
+  }
 
-				.timeline-bar{
-					width: 100%;
-				}
-			}
+  .control_panel {
+    width: 100%;
+    padding: 0 10%;
+    height: $logo-height;
+    position: absolute;
+    bottom: 0;
+    background-color: color(DarkGray);
+    opacity: 1;
 
-			&.volume{
-				position: relative; background-repeat: no-repeat; background-position: 1rem center;
-				@media #{$small-only}{
-					background-size: contain; height: rem(14); width: rem(14); background-position: center;
-					@media #{$small-only}{
-						margin: 0 rem(4);
-					}
-				}
+    @media #{$small-only} {
+      height: rem(38);
+    }
 
-				&.on{
-					background-image: url("~/assets/img/sound.svg");
-					@media #{$small-only}{
-						margin: 0 rem(4);
-					}
-				}
+    .control {
+      cursor: pointer;
+      width: 32px;
+      height: $logo-height;
+      background-repeat: no-repeat;
+      background-position: center center;
+      display: inline-flex;
 
-				&.off{
-					background-image: url("~/assets/img/mute.svg");
-					@media #{$small-only}{
-						margin: 0 rem(4);
-					}
-				}
-			}
+      &:hover {
+        opacity: 0.5;
+      }
 
-			&.fullsize{
-				background-repeat: no-repeat; background-position: right center; background-image: url("~/assets/img/fullscreen.svg");
-				@media #{$small-only}{
-					margin: 0 rem(4);
-				}
-			}
-		}
-	}
+      @media #{$small-only} {
+        background-size: contain;
+        height: rem(14);
+        width: rem(14);
+        padding: 0 rem(12);
+        position: relative;
+        top: 50%;
+        transform: translate(0, -50%);
+      }
+
+      &.pause {
+        background-image: url("~/assets/img/pause.svg");
+
+        @media #{$small-only} {
+          margin: 0 rem(4);
+        }
+
+        &.paused {
+          background-image: url("~/assets/img/play.svg");
+
+          @media #{$small-only} {
+            margin: 0 rem(4);
+          }
+        }
+      }
+
+      &.timeline {
+        width: calc(100% - 96px);
+        height: $logo-height;
+        position: relative;
+
+        @media #{$small-only} {
+          width: calc(100% - 96px);
+          height: rem(14);
+          padding: 0;
+        }
+
+        progress {
+          top: 50%;
+          position: absolute;
+          height: 2px;
+          transform: translateY(-50%);
+          width: calc(100% - 96px);
+        }
+
+        progress[value]::-webkit-progress-bar {
+          height: rem(2);
+          background-color: color(Light, 0.25);
+          position: relative;
+        }
+
+        progress[value]::-moz-progress-bar,
+        progress[value]::-webkit-progress-value {
+          position: absolute;
+          top: 0 !important;
+          left: 0;
+          height: rem(2);
+          background-color: color(Light) !important;
+          margin: 0;
+          padding: 0;
+        }
+
+        .timeline-bar {
+          width: 100%;
+        }
+      }
+
+      &.volume {
+        position: relative;
+        background-repeat: no-repeat;
+        background-position: 1rem center;
+
+        @media #{$small-only} {
+          background-size: contain;
+          height: rem(14);
+          width: rem(14);
+          background-position: center;
+
+          @media #{$small-only} {
+            margin: 0 rem(4);
+          }
+        }
+
+        &.on {
+          background-image: url("~/assets/img/sound.svg");
+
+          @media #{$small-only} {
+            margin: 0 rem(4);
+          }
+        }
+
+        &.off {
+          background-image: url("~/assets/img/mute.svg");
+
+          @media #{$small-only} {
+            margin: 0 rem(4);
+          }
+        }
+      }
+
+      &.fullsize {
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-image: url("~/assets/img/fullscreen.svg");
+
+        @media #{$small-only} {
+          margin: 0 rem(4);
+        }
+      }
+    }
+  }
 }

@@ -1,8 +1,8 @@
 $base-fontpath: '~matise-assets/src/fonts';
 
 @import "color/index",
-"~matise-assets/index",
-"settings/settings",
+  "~matise-assets/index",
+  "settings/settings",
 "typography/index",
 "layout/index",
 "components/index",
@@ -11,61 +11,69 @@ $base-fontpath: '~matise-assets/src/fonts';
 
 
 body{
-	font-family: $body-font; background-color: color(White);
-	::selection{
-		background: color(Gray); color: color(Light);
-	}
-	::-moz-selection{
-		background: color(Gray); color: color(Light);
-	} 
-	&.scroll-disable{
-		// when mobile menu is active body scroll-disable
-		overflow: hidden;
-	}
-	// menu item styling when body class = white_menu
-	&.white_menu{
-		.nav{
-			&__link{
-				&:before{
-					background-color: color(White);
-				}
-			}
-			&__text{
-				color: color(White);
-			}
-		}
-	}
+  font-family: $body-font; background-color: color(White);
+
+  ::selection{
+    background: color(Gray); color: color(Light);
+  }
+
+  ::-moz-selection{
+    background: color(Gray); color: color(Light);
+  } 
+
+  &.scroll-disable{
+    // when mobile menu is active body scroll-disable
+    overflow: hidden;
+  }
+  // menu item styling when body class = white_menu
+  &.white_menu{
+    .nav{
+      &__link{
+        &:before{
+          background-color: color(White);
+        }
+      }
+
+      &__text{
+        color: color(White);
+      }
+    }
+  }
 }
 
 // overall intro section styling
 section.intro{
-	padding-top: grid(5);
-	@media #{$small-only}{
-		background-color: color(Black);
-		padding: rem(96) rem(64);
-		.paragraph_shower{ justify-content: normal;
-			p{padding-top: 0px; }
-		}
-		p{ color: color(White); text-align: left; line-height: 1.5; font-size: rem(20); font-weight: $font-regular; padding-top: 0px;
-			&:before{ font-weight: $font-medium; }
-		}
-		h1 { display: none; }
-	}
+  padding-top: grid(5);
+
+  @media #{$small-only}{
+    background-color: color(Black);
+    padding: rem(96) rem(64);
+
+    .paragraph_shower{ justify-content: normal;
+      p{padding-top: 0; }
+    }
+
+    p{ color: color(White); text-align: left; line-height: 1.5; font-size: rem(20); font-weight: $font-regular; padding-top: 0;
+      &:before{ font-weight: $font-medium; }
+    }
+    h1 { display: none; }
+  }
 }
 
 .link{
-	&--external{
-		text-decoration: underline;
-	}
+  &--external{
+    text-decoration: underline;
+  }
 }
 
 @media #{$medium-up}{
-	.hide-desktop{
-		display: none;
-	}
+  .hide-desktop{
+    display: none;
+  }
 }
+
 @media #{$small-only}{
-	.hide-mobile, .mobile-hide{
-		display: none;
-	}
+  .hide-mobile, .mobile-hide{
+    display: none;
+  }
 }

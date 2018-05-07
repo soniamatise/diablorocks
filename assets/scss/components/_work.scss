@@ -1,20 +1,25 @@
-.work__grid{ margin-top: grid(2); }
+.work__grid {
+  margin-top: grid(2);
+}
 
-.work{
-	.intro {
-		@media #{$mobile} {
-			p{
-				&:before{ content:'Work — '; }
-			}
-		}
-	}
-	// show subtitle when typewriter is done
-	.work__grid {
-		transform: translateY(100vh);
-		transition: .5s;
-		&.stay {
-			transform: none;
-			transition: 0 .2s;
-		}
-	}
+.work {
+  .intro {
+    @media #{$mobile} {
+      p {
+        &::before {
+          content: "Work — ";
+        }
+      }
+    }
+  }
+  // show subtitle when typewriter is done
+  .work__grid {
+    transform: translateY(100vh);
+    transition: 0.5s;
+
+    &.stay {
+      transform: none;
+      transition: 0 0.2s;
+    }
+  }
 }
