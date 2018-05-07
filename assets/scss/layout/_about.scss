@@ -456,7 +456,7 @@ section.about {
         overflow: scroll;
       }
 
-      &:before {
+      &::before {
         content: "";
         display: block;
         height: grid(3);
@@ -476,7 +476,6 @@ section.about {
           height: 60vh;
           scroll-snap-align: start;
           -webkit-scroll-snap-align: start;
-          width: 100vw;
         }
 
         display: inline-block;
@@ -487,7 +486,7 @@ section.about {
         &:nth-child(4),
         &:nth-child(7),
         &:nth-child(10) {
-          &:after {
+          &::after {
             display: none;
 
             @media #{$small-only} {
@@ -496,7 +495,7 @@ section.about {
           }
         }
 
-        &:after {
+        &::after {
           content: "";
           display: block;
           height: grid(9.5);
