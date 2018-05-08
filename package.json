@@ -4,6 +4,10 @@
   "description": "Matise 2018 in Nuxt",
   "author": "Maurits Meester <maurits@matise.nl>",
   "private": true,
+  "watch": {
+    "dev": "cross-env HOST=0.0.0.0 PORT=7777 nuxt",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
+  },
   "scripts": {
     "dev": "cross-env HOST=0.0.0.0 PORT=7777 nuxt",
     "build": "nuxt build",
@@ -14,7 +18,8 @@
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
-    "sassyup": "stylelint 'assets/scss/**/*.scss'"
+    "sassyup": "stylelint 'assets/scss/**/*.scss'; exit 0",
+    "watch": "npm-watch"
   },
   "dependencies": {
     "@nuxtjs/google-analytics": "^2.0.2",
@@ -24,6 +29,7 @@
     "matise-grid": "^1.1.6",
     "matise-stack": "^1.1.1",
     "npm": "^6.0.0",
+    "npm-watch": "^0.3.0",
     "nuxt": "^1.0.0",
     "sass-loader": "^6.0.7",
     "swiper": "^4.2.0",
@@ -43,7 +49,6 @@
     "postcss-cssnext": "^3.1.0",
     "postcss-custom-properties": "^7.0.0",
     "postcss-loader": "2.1.1",
-    "stylelint": "^9.2.0",
     "vue-style-loader": "^4.0.2"
   }
 }

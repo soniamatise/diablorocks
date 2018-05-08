@@ -79,7 +79,7 @@ module.exports = {
 		vendor: ['velocity-animate']
 	},
 	generate: {
-		routes: function() {
+		routes: function () {
 			return axios.get('https://api.matise.nl/wp-json/wp/v2/case').then(res => {
 				return res.data.map(item => {
 					return '/work/' + item.slug;
