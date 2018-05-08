@@ -60,7 +60,7 @@ section.boxed_image_video {
         }
       }
 
-      &:after {
+      &::after {
         z-index: 0;
         top: grid(0.5);
         left: grid(0.5);

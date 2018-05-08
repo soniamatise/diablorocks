@@ -1,5 +1,5 @@
 %link-hover {
-  &:before {
+  &::before {
     content: "";
     position: absolute;
     right: 0;
@@ -11,7 +11,7 @@
   }
 
   &:hover {
-    &:before {
+    &::before {
       left: 0;
       right: auto;
       width: 100%;
@@ -20,7 +20,7 @@
 }
 
 %link-hover-ext {
-  &:before {
+  &::before {
     content: "";
     position: absolute;
     left: 0;
@@ -32,7 +32,7 @@
   }
 
   &:hover {
-    &:before {
+    &::before {
       right: 0;
       right: auto;
       width: 0;
@@ -45,6 +45,7 @@
 //     @extend %link-hover;
 //   }
 // }
+
 .external {
   p a {
     @extend %link-hover-ext;

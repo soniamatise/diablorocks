@@ -6,11 +6,6 @@
     padding: 6rem 4rem 4rem 4rem;
   }
 
-  // Title Section
-  &__title {
-    // Hoppa, helemaal niks :) Zoals het hoort!
-  }
-
   // Navigation Section
   &__nav {
     margin-top: grid(0.5);
@@ -101,7 +96,7 @@
     }
 
     &__link {
-      &:before {
+      &::before {
         background-color: color(Black);
       }
     }
@@ -121,7 +116,7 @@
     }
 
     .nav__link {
-      &:before {
+      &::before {
         content: "";
         position: absolute;
         left: 0;
@@ -135,7 +130,7 @@
       }
 
       &:hover {
-        &:before {
+        &::before {
           right: 0;
           left: auto;
           width: 0;
@@ -146,7 +141,7 @@
 
   .nav__contact {
     .nav__link {
-      &:before {
+      &::before {
         content: "";
         position: absolute;
         left: auto;
@@ -161,7 +156,7 @@
       }
 
       &:hover {
-        &:before {
+        &::before {
           right: 0;
           left: 0;
           width: 100%;
@@ -173,7 +168,7 @@
 // dirty fix
 .footer__bottom {
   .nav__link {
-    &:before {
+    &::before {
       background-color: color(Gray, 0.5);
     }
   }

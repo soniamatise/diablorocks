@@ -35,24 +35,6 @@ span .holderValues {
     color: color(Light);
   }
 
-  &.changeShadow {
-    .swiper-container {
-      .swiper-wrapper {
-        .swiper-slide {
-          .content_container {
-            .shadow {
-              box-shadow: 0 0 grid(2) grid(1) var(--caseColor, black);
-
-              @media #{$small-only} {
-                box-shadow: 0 0 grid(2) grid(1) color(Dark);
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-
   // typewriter
   .home-bg-parallax {
     height: 100vh;
@@ -89,7 +71,6 @@ span .holderValues {
         color: color(White);
         font-size: grid(6);
         width: max-content;
-        height: 100%;
         font-weight: $font-medium;
         padding: 0 grid(2);
         height: grid(6);
@@ -107,7 +88,7 @@ span .holderValues {
         }
 
         &.caret {
-          &:after {
+          &::after {
             border-color: color(White);
             transform: translateX(grid(-2));
 
@@ -297,7 +278,7 @@ span .holderValues {
                 span {
                   font-weight: $font-medium;
 
-                  &:after {
+                  &::after {
                     content: "—";
                   }
                 }
@@ -512,12 +493,10 @@ span .holderValues {
               }
 
               &.landscape_image {
-                animation: clickBigLandscape 2s $specialcubicbezier 0.4s
-                  forwards;
+                animation: clickBigLandscape 2s $specialcubicbezier 0.4s forwards;
 
                 @media #{$medium-only} {
-                  animation: clickMediumLandscape 2s $specialcubicbezier 0.4s
-                    forwards;
+                  animation: clickMediumLandscape 2s $specialcubicbezier 0.4s forwards;
                 }
               }
 
@@ -525,8 +504,7 @@ span .holderValues {
                 animation: clickBigPortrait 2s $specialcubicbezier 0.4s forwards;
 
                 @media #{$medium-only} {
-                  animation: clickMediumPortrait 2s $specialcubicbezier 0.4s
-                    forwards;
+                  animation: clickMediumPortrait 2s $specialcubicbezier 0.4s forwards;
                 }
               }
 
@@ -534,8 +512,7 @@ span .holderValues {
                 animation: clickBigSquare 2s $specialcubicbezier 0.4s forwards;
 
                 @media #{$medium-only} {
-                  animation: clickMediumSquare 2s $specialcubicbezier 0.4s
-                    forwards;
+                  animation: clickMediumSquare 2s $specialcubicbezier 0.4s forwards;
                 }
               }
 
@@ -660,8 +637,8 @@ span .holderValues {
         bottom: grid(2);
       }
 
-      &:after,
-      &:before {
+      &::after,
+      &::before {
         position: absolute;
         height: 2px;
         background-color: var(--caseColor, color(Black));
@@ -674,7 +651,7 @@ span .holderValues {
         transition: background-color 1s $easeboth;
       }
 
-      &:after {
+      &::after {
         left: auto;
         right: -10px;
       }
@@ -702,6 +679,24 @@ span .holderValues {
 
       @media #{$small-only} {
         display: none;
+      }
+    }
+  }
+
+  &.changeShadow {
+    .swiper-container {
+      .swiper-wrapper {
+        .swiper-slide {
+          .content_container {
+            .shadow {
+              box-shadow: 0 0 grid(2) grid(1) var(--caseColor, black);
+
+              @media #{$small-only} {
+                box-shadow: 0 0 grid(2) grid(1) color(Dark);
+              }
+            }
+          }
+        }
       }
     }
   }

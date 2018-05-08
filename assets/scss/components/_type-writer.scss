@@ -34,7 +34,7 @@
     height: grid(2);
 
     &.caret {
-      &:after {
+      &::after {
         content: "";
         border-right: solid 2px black;
         position: absolute;

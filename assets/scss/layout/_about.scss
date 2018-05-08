@@ -11,7 +11,7 @@ section.intro {
 .intro {
   @media #{$mobile} {
     p {
-      &:before {
+      &::before {
         content: "About — ";
       }
     }
@@ -109,7 +109,7 @@ section.about {
         font-size: rem(18);
         display: flex;
 
-        &:before {
+        &::before {
           content: "-";
           padding-right: 20px;
         }
@@ -162,7 +162,7 @@ section.about {
           font-size: rem(18);
           display: flex;
 
-          &:before {
+          &::before {
             content: "-";
             padding-right: 20px;
           }
@@ -179,7 +179,7 @@ section.about {
       &__text {
         position: relative;
 
-        &:before {
+        &::before {
           content: "";
           position: absolute;
           right: 0;
@@ -191,7 +191,7 @@ section.about {
         }
 
         &:hover {
-          &:before {
+          &::before {
             left: 0;
             right: auto;
             width: 100%;
@@ -224,7 +224,7 @@ section.about {
           margin: rem(32) 0;
         }
 
-        &:before {
+        &::before {
           display: none;
         }
 

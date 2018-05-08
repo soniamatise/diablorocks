@@ -6,7 +6,9 @@
     "declaration-block-no-duplicate-properties": [
       true,
       {
-        "ignore": ["consecutive-duplicates-with-different-values"]
+        "ignore": [
+          "consecutive-duplicates-with-different-values"
+        ]
       }
     ],
     "declaration-block-no-shorthand-property-overrides": true,
@@ -16,7 +18,6 @@
     "function-linear-gradient-no-nonstandard-direction": true,
     "keyframe-declaration-no-important": true,
     "media-feature-name-no-unknown": true,
-    "no-descending-specificity": true,
     "no-duplicate-at-import-rules": true,
     "no-duplicate-selectors": true,
     "no-empty-source": true,
@@ -31,8 +32,13 @@
     "at-rule-empty-line-before": [
       "always",
       {
-        "except": ["blockless-after-same-name-blockless", "first-nested"],
-        "ignore": ["after-comment"]
+        "except": [
+          "blockless-after-same-name-blockless",
+          "first-nested"
+        ],
+        "ignore": [
+          "after-comment"
+        ]
       }
     ],
     "at-rule-name-case": "lower",
@@ -50,16 +56,26 @@
     "comment-empty-line-before": [
       "always",
       {
-        "except": ["first-nested"],
-        "ignore": ["stylelint-commands"]
+        "except": [
+          "first-nested"
+        ],
+        "ignore": [
+          "stylelint-commands"
+        ]
       }
     ],
     "comment-whitespace-inside": "always",
     "custom-property-empty-line-before": [
       "always",
       {
-        "except": ["after-custom-property", "first-nested"],
-        "ignore": ["after-comment", "inside-single-line-block"]
+        "except": [
+          "after-custom-property",
+          "first-nested"
+        ],
+        "ignore": [
+          "after-comment",
+          "inside-single-line-block"
+        ]
       }
     ],
     "declaration-bang-space-after": "never",
@@ -69,14 +85,20 @@
     "declaration-block-semicolon-space-before": "never",
     "declaration-block-single-line-max-declarations": 1,
     "declaration-block-trailing-semicolon": "always",
-    "declaration-colon-newline-after": "always",
+    "declaration-colon-newline-after": "always-multi-line",
     "declaration-colon-space-after": "always-single-line",
     "declaration-colon-space-before": "never",
     "declaration-empty-line-before": [
       "always",
       {
-        "except": ["after-declaration", "first-nested"],
-        "ignore": ["after-comment", "inside-single-line-block"]
+        "except": [
+          "after-declaration",
+          "first-nested"
+        ],
+        "ignore": [
+          "after-comment",
+          "inside-single-line-block"
+        ]
       }
     ],
     "function-comma-newline-after": "always-multi-line",
@@ -107,8 +129,12 @@
     "rule-empty-line-before": [
       "always-multi-line",
       {
-        "except": ["first-nested"],
-        "ignore": ["after-comment"]
+        "except": [
+          "first-nested"
+        ],
+        "ignore": [
+          "after-comment"
+        ]
       }
     ],
     "selector-attribute-brackets-space-inside": "never",

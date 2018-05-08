@@ -75,9 +75,7 @@ section.simple_text {
       margin-top: rem(64);
     }
   }
-}
 
-section.simple_text {
   & + section.simple_text {
     margin-top: rem(32);
 

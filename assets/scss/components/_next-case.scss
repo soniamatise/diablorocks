@@ -47,12 +47,13 @@ section.next_case {
     --gridH: calc((100vw / 24) * 20);
   }
 
-  clip-path: polygon(
-    var(--x1) var(--y1),
-    var(--x2) var(--y1),
-    var(--x2) var(--y2),
-    var(--x1) var(--y2)
-  );
+  clip-path:
+    polygon(
+      var(--x1) var(--y1),
+      var(--x2) var(--y1),
+      var(--x2) var(--y2),
+      var(--x1) var(--y2)
+    );
   width: 100vw;
   height: 100vh;
   background-size: 65.7vw;
@@ -77,21 +78,23 @@ section.next_case {
 
 @keyframes upAndExpand {
   0% {
-    clip-path: polygon(
-      var(--x1) var(--y1),
-      var(--x2) var(--y1),
-      var(--x2) var(--y2),
-      var(--x1) var(--y2)
-    );
+    clip-path:
+      polygon(
+        var(--x1) var(--y1),
+        var(--x2) var(--y1),
+        var(--x2) var(--y2),
+        var(--x1) var(--y2)
+      );
   }
 
   10% {
-    clip-path: polygon(
-      var(--x1) var(--y1),
-      var(--x2) var(--y1),
-      var(--x2) var(--y2),
-      var(--x1) var(--y2)
-    );
+    clip-path:
+      polygon(
+        var(--x1) var(--y1),
+        var(--x2) var(--y1),
+        var(--x2) var(--y2),
+        var(--x1) var(--y2)
+      );
     z-index: 10;
   }
 

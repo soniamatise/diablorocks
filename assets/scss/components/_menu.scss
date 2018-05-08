@@ -58,8 +58,7 @@ $time: 0.6;
     @media #{$small-only} {
       top: 50vh;
       transform-origin: calc(100% + 52px) 100%;
-      transform: rotate(90deg) translateX(calc(50% - #{rem($logo-height / 2)}))
-        translateY(200%);
+      transform: rotate(90deg) translateX(calc(50% - #{rem($logo-height / 2)})) translateY(200%);
     }
 
     &__link {
@@ -67,6 +66,7 @@ $time: 0.6;
       width: 100%;
       height: 100%;
       display: block;
+      backface-visibility: visible;
       -webkit-backface-visibility: visible;
       text-indent: -9999px;
       background: url("~/assets/img/logo.svg") no-repeat center center;
@@ -101,7 +101,7 @@ $time: 0.6;
     // Styling for link (a / nuxt-link) attribute
     position: relative;
 
-    &:before {
+    &::before {
       content: "";
       position: absolute;
       right: 0;
@@ -115,7 +115,7 @@ $time: 0.6;
     }
 
     &:hover {
-      &:before {
+      &::before {
         left: 0;
         right: auto;
         width: 100%;
@@ -123,7 +123,7 @@ $time: 0.6;
     }
 
     &--active {
-      &:before {
+      &::before {
         position: absolute;
         left: 0;
         right: auto;
@@ -131,7 +131,7 @@ $time: 0.6;
       }
       // active link hover
       &:hover {
-        &:before {
+        &::before {
           right: 0;
           left: auto;
           width: 0;
@@ -195,13 +195,13 @@ $time: 0.6;
       animation: spanWidth #{$time}s 0s forwards;
     }
 
-    &:before {
+    &::before {
       transform: translate(0, 5px);
       width: 100%;
       animation: goUpBefore #{$time}s 0s forwards;
     }
 
-    &:after {
+    &::after {
       transform: translate(0, -5px);
       width: 100%;
       animation: goDownAfter #{$time}s 0s forwards;
@@ -284,11 +284,11 @@ input#menu-trigger {
             animation: rotateSpan 0.4s forwards;
           }
 
-          &:before {
+          &::before {
             animation: goLeft #{$time}s 0s forwards;
           }
 
-          &:after {
+          &::after {
             animation: goRight #{$time}s 0s forwards;
           }
         }
