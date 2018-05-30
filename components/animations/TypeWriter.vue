@@ -1,6 +1,6 @@
 <template>
-	<div class="typeWriterTitle" ref="typeWriterTitle" >
-		<h1 class="desktop_only" :class="{caret: caret}" :text="heading" :wait="wait">{{ headingText }}</h1>
+	<div ref="typeWriterTitle" class="typeWriterTitle" >
+		<h1 :class="{caret: caret}" :text="heading" :wait="wait" class="desktop_only">{{ headingText }}</h1>
 		<div class="paragraph_shower">
 			<p :class="{show : show}">{{ sub }}</p>
 		</div>
@@ -9,47 +9,64 @@
 
 <script>
 export default {
-	props: ['delay', 'heading', 'sub', 'wait'],
+	props: {
+		delay: {
+			type: Number,
+			default: 0
+		},
+		heading: {
+			type: String,
+			default: ''
+		},
+		sub: {
+			type: String,
+			default: ''
+		},
+		wait: {
+			type: Boolean,
+			default: false
+		}
+	},
 	data() {
 		return {
 			headingText: '',
 			caret: true,
 			show: false,
 			waitForIt: this._props.wait
+		};
+	},
+	watch: {
+		wait: function() {
+			this.type();
 		}
 	},
 	mounted() {
 		let self = this;
-		if(self._props.wait != true){
+		if (self._props.wait != true) {
 			self.type();
 		}
 	},
-	methods:{
-		type: function(){
+	methods: {
+		type: function() {
 			let self = this;
 			let heading = self.heading;
 			if (self.heading.length !== undefined) {
-				for (var i = 0; i < heading.length; i++){
+				for (var i = 0; i < heading.length; i++) {
 					(function(index) {
 						setTimeout(function() {
 							//add one letter at a time
 							self._data.headingText += heading[index];
 							// if all letters are typed delete caret
-							if(heading.length == (index + 1)){
-								self._data.caret = false
-								self._data.show = true
+							if (heading.length == index + 1) {
+								self._data.caret = false;
+								self._data.show = true;
 								self.$emit('doneTyping');
 							}
-						}, i * 200)
+						}, i * 200);
 					})(i);
 				}
 			}
 		}
-	},
-	watch:{
-		wait: function(){
-			this.type();
-		}
 	}
-}
+};
 </script>

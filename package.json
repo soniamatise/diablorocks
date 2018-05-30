@@ -4,6 +4,11 @@
   "description": "Matise 2018 in Nuxt",
   "author": "Maurits Meester <maurits@matise.nl>",
   "private": true,
+  "watch": {
+    "dev": "cross-env HOST=0.0.0.0 PORT=7777 nuxt",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "sassyup": "stylelint 'assets/scss/**/*.scss';"
+  },
   "scripts": {
     "dev": "cross-env HOST=0.0.0.0 PORT=7777 nuxt",
     "build": "nuxt build",
@@ -12,7 +17,10 @@
     "start-dev": "PORT=3002 nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "precommit": "npm run lint"
+    "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint",
+    "sassyup": "stylelint 'assets/scss/**/*.scss'; exit 0",
+    "watch": "npm-watch"
   },
   "dependencies": {
     "@nuxtjs/google-analytics": "^2.0.2",
@@ -21,6 +29,8 @@
     "matise-assets": "^1.0.6",
     "matise-grid": "^1.1.6",
     "matise-stack": "^1.1.1",
+    "npm": "^6.0.0",
+    "npm-watch": "^0.3.0",
     "nuxt": "^1.0.0",
     "sass-loader": "^6.0.7",
     "swiper": "^4.2.0",
@@ -30,16 +40,17 @@
     "vue-motion": "^0.2.2"
   },
   "devDependencies": {
-    "babel-eslint": "^8.2.1",
+    "babel-eslint": "^8.2.3",
     "cross-env": "^5.1.4",
-    "eslint": "^4.15.0",
+    "eslint": "^4.19.1",
     "eslint-friendly-formatter": "^3.0.0",
-    "eslint-loader": "^1.7.1",
-    "eslint-plugin-vue": "^4.0.0",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-vue": "^4.5.0",
     "node-sass": "^4.7.2",
+    "postcss-cssnext": "^3.1.0",
     "postcss-custom-properties": "^7.0.0",
     "postcss-loader": "2.1.1",
-    "postcss-cssnext": "^3.1.0",
+    "stylelint": "^9.2.0",
     "vue-style-loader": "^4.0.2"
   }
 }

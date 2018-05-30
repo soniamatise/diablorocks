@@ -1,23 +1,23 @@
-@mixin max-margin-top($columns,$min-width,$alt: false){
-  @include max-('margin-top',$columns,$min-width,$alt){
+@mixin max-margin-top($columns, $min-width, $alt: false) {
+  @include max-("margin-top", $columns, $min-width, $alt) {
     @content;
   }
 }
 
-@mixin max-margin-bottom($columns,$min-width,$alt: false){
-  @include max-('margin-bottom',$columns,$min-width,$alt){
+@mixin max-margin-bottom($columns, $min-width, $alt: false) {
+  @include max-("margin-bottom", $columns, $min-width, $alt) {
     @content;
   }
 }
 
-@mixin max-margin-left($columns,$min-width,$alt: false){
-  @include max-('margin-left',$columns,$min-width,$alt){
+@mixin max-margin-left($columns, $min-width, $alt: false) {
+  @include max-("margin-left", $columns, $min-width, $alt) {
     @content;
   }
 }
 
-@mixin max-margin-right($columns,$min-width,$alt: false){
-  @include max-('margin-right',$columns,$min-width,$alt){
+@mixin max-margin-right($columns, $min-width, $alt: false) {
+  @include max-("margin-right", $columns, $min-width, $alt) {
     @content;
   }
 }

@@ -6,15 +6,15 @@
 			<div class="holder full">
 
 				<!-- video -->
-				<div class="content_holder" v-if="img.photo_video === 'Video'">
-					<video playsinline class="video" ref="video" v-bind:poster="img.image" autoplay loop preload>
-						<source v-bind:src="img.video.url" type="video/mp4">
+				<div v-if="img.photo_video === 'Video'" class="content_holder">
+					<video ref="video" :poster="img.image" playsinline class="video" autoplay loop preload>
+						<source :src="img.video.url" type="video/mp4">
 					</video>
 				</div>
 				<!-- end video -->
 
 				<!-- image -->
-				<div class="content_holder" v-else-if="img.photo_video === 'Photo'">
+				<div v-else-if="img.photo_video === 'Photo'" class="content_holder">
 					<img :src="img.big_photo.url" :alt="img.big_photo.alt">
 				</div>
 				<!-- end image -->
@@ -27,7 +27,12 @@
 </template>
 
 <script>
-	export default {
-		props: ['img']
+export default {
+	props: {
+		img: {
+			type: Object,
+			default: () => ({})
+		}
 	}
+};
 </script>

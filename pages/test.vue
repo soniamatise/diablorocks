@@ -6,18 +6,18 @@
 
 
 <script>
-import MainLayout from '~/layouts/body/MainLayout.vue'
+import MainLayout from '~/layouts/body/MainLayout.vue';
 // import SlideVideo from '~/components/work/detail/SlideVideo.vue'
 
 export default {
 	components: {
-		MainLayout,
+		MainLayout
 		// SlideVideo
 	},
-	data(){
-		return{
-			cuts: [6,12,24,32]
-		}
+	data() {
+		return {
+			cuts: [6, 12, 24, 32]
+		};
 	}
-}
+};
 </script>

@@ -7,7 +7,7 @@
 		<div class="content_holder">
 
 			<!-- text left -->
-			<div class="text_holder text_holder_left" ref="leftTextElement">
+			<div ref="leftTextElement" class="text_holder text_holder_left">
 				<div class="keep_position">
 					<h2><span>{{ textLeft }}</span>&nbsp;</h2>
 				</div>
@@ -15,10 +15,10 @@
 			<!-- end text left -->
 
 			<!-- text right -->
-			<div class="text_holder text_holder_right" ref="rightTextElement">
-					<div class="keep_position">
-						<h2>{{ textRight }}</h2>
-					</div>
+			<div ref="rightTextElement" class="text_holder text_holder_right">
+				<div class="keep_position">
+					<h2>{{ textRight }}</h2>
+				</div>
 			</div>
 			<!-- end text right -->
 
@@ -38,14 +38,23 @@
 
 <script>
 export default {
-	props: ['textRight', 'textLeft'],
+	props: {
+		textRight: {
+			type: String,
+			default: ''
+		},
+		textLeft: {
+			type: String,
+			default: ''
+		}
+	},
 	data: function() {
 		return {
 			elements: {
 				left: null,
 				right: null
 			}
-		}
+		};
 	},
 	mounted() {
 		this.elements.right = this.$refs.rightTextElement;
@@ -59,12 +68,13 @@ export default {
 		},
 		// text animation on mouseenter
 		textAnimationenter: function() {
-			this.elements.right.style.transform = 'translate(' + (-(this.elements.left.offsetWidth / 2) * 1) + 'px, 0%)';
+			this.elements.right.style.transform =
+        'translate(' + -(this.elements.left.offsetWidth / 2) * 1 + 'px, 0%)';
 		},
 		// text animation on mouseleave
 		textAnimationleave: function() {
 			this.elements.right.style.transform = 'translate(0%, 0%)';
-		},
+		}
 	}
-}
+};
 </script>

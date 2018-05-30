@@ -1,45 +1,75 @@
-.typeWriterTitle{
-	position: relative; text-align: center;
+.typeWriterTitle {
+  position: relative;
+  text-align: center;
 
-	.paragraph_shower{
-		display: flex; justify-content: center;
-		p{
-			width: 100%; width: max-content; font-size: grid(0.4); @include min-fontsize(0.4,20); padding-top: grid(0.4); clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
-			&.show{
-				clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); transition: 0.3s $easeboth 0.8s;
-			}
-		}
-	}
+  .paragraph_shower {
+    display: flex;
+    justify-content: center;
 
-	h1{
-		color: color(Black); position: relative; width: fit-content; margin: auto; padding-bottom: grid(0.2); line-height: 1; font-size: grid(2); height: grid(2);
+    p {
+      width: 100%;
+      width: max-content;
+      font-size: grid(0.4);
 
-		&.caret{
-			&:after{
-				content: ""; border-right: solid 2px black; position: absolute; height: 100%; bottom: 0; right: -2px; animation: caretAnim 1s $specialcubicbezier infinite forwards;
-			}
-		}
-	}
+      @include min-fontsize(0.4, 20);
+
+      padding-top: grid(0.4);
+      clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+
+      &.show {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+        transition: 0.3s $easeboth 0.8s;
+      }
+    }
+  }
+
+  h1 {
+    color: color(Black);
+    position: relative;
+    width: fit-content;
+    margin: auto;
+    padding-bottom: grid(0.2);
+    line-height: 1;
+    font-size: grid(2);
+    height: grid(2);
+
+    &.caret {
+      &::after {
+        content: "";
+        border-right: solid 2px black;
+        position: absolute;
+        height: 100%;
+        bottom: 0;
+        right: -2px;
+        animation: caretAnim 1s $specialcubicbezier infinite forwards;
+      }
+    }
+  }
 }
 
 // animations
-@keyframes caretAnim{
-	0%{
-		opacity: 1;
-	}
-	35%{
-		opacity: 1;
-	}
-	40%{
-		opacity: 0;
-	}
-	60%{
-		opacity: 0;
-	}
-	65%{
-		opacity: 1;
-	}
-	100%{
-		opacity: 1;
-	}
+@keyframes caretAnim {
+  0% {
+    opacity: 1;
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  40% {
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 0;
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }

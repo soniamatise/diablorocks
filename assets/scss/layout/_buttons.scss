@@ -1,38 +1,37 @@
 .button {
+  &.plainText {
+    position: relative;
+    display: inline-grid;
 
-	&.plainText {
-		position: relative;
-		display: inline-grid;
+    &::after {
+      content: "";
+      background-color: color(Dark);
+      width: 100%;
+      height: rem(1);
+      margin-top: rem(-7);
+      margin-left: 0;
+      transition-duration: 0.3s;
+      transition-timing-function: ease-out;
+    }
 
-		&:after {
-			content: "";
-			background-color: color(Dark);
-			width: 100%;
-			height: rem(1);
-			margin-top: rem(-7);
-			margin-left: 0;
-			width: 100%;
-			transition-duration: 0.3s;
-			transition-timing-function: ease-out;
-		}
+    &:hover {
+      &::after {
+        width: 0;
+        margin-right: 0;
+        margin-left: auto;
+      }
+    }
 
-		&:hover {
-			&:after {
-				width: 0;
-				margin-right: 0;
-				margin-left: auto;
-			}
-		}
+    &.gray {
+      &::after {
+        background-color: color(Gray);
+      }
+    }
 
-		&.gray {
-			&:after {
-				background-color: color(Gray);
-			}
-		}
-		&.lightGray {
-			&:after {
-				background-color: color(Gray , .5);
-			}
-		}
-	}
+    &.lightGray {
+      &::after {
+        background-color: color(Gray, 0.5);
+      }
+    }
+  }
 }

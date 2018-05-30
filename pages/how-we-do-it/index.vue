@@ -3,13 +3,13 @@
 
 		<section class="intro">
 			<type-writer
-			heading="Like what"
-			v-on:doneTyping="showContent"
+				heading="Like what"
+				@doneTyping="showContent"
 			/>
 		</section>
 
 		<section class="subnav">
-			<nav class="nav" aria-label="Top navigation" ref="topNav">
+			<nav ref="topNav" class="nav" aria-label="Top navigation">
 				<ul class="nav__list">
 					<li class="nav__item main-link">
 						<nuxt-link class="nav__link" to="/about">
@@ -33,8 +33,7 @@
 		<section class="how_we_do_it">
 
 			<div class="header_image">
-				<div class="image_holder">
-				</div>
+				<div class="image_holder"/>
 			</div>
 
 			<div class="content_block_left row center">
@@ -46,8 +45,7 @@
 					</div>
 				</div>
 				<div class="large-8 column">
-					<div class="image_holder">
-					</div>
+					<div class="image_holder"/>
 				</div>
 			</div>
 
@@ -82,44 +80,38 @@
 </template>
 
 <script>
-import axios from 'axios'
-import MainLayout from '~/layouts/body/MainLayout.vue'
-import TypeWriter from '~/components/animations/TypeWriter'
-
+import MainLayout from '~/layouts/body/MainLayout.vue';
+import TypeWriter from '~/components/animations/TypeWriter';
 
 export default {
 	components: {
 		MainLayout,
-		TypeWriter,
+		TypeWriter
 	},
 	data() {
 		return {
 			Velocity: this.$velocity,
-			displayContent: false,
-		}
+			displayContent: false
+		};
 	},
 	methods: {
 		showContent: function() {
 			let self = this;
 			self.displayContent = true;
 			let col = document.querySelector('.how_we_do_it');
-			self.Velocity(col, {
-				transform: 'translateY(0)'
-			}, 600, [180, 16]);
+			self.Velocity(
+				col,
+				{
+					transform: 'translateY(0)'
+				},
+				600,
+				[180, 16]
+			);
 			setTimeout(function() {
 				col.style = '';
 				col.classList.add('stay');
-			}, 600)
+			}, 600);
 		}
-	},
-	// asyncData () {
-	// 	return axios.get(`${process.env.baseUrl}/wp/v2/pages?slug=what-we-do&_embed`)
-	// 	.then((res) => {
-	// 	return {
-	// 		page: res.data[0],
-	// 		layouts :res.data[0]['layout'],
-  //     }
-  //   })
-  // }
-}
+	}
+};
 </script>

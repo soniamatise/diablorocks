@@ -29,13 +29,13 @@
 						<p>
 							<a class="nav__link" href="mailto:office@matise.nl">
 								<span class="nav__text">office@matise.nl</span>
-							</a><br />
+							</a><br >
 							<a class="nav__link" href="tel:+31 20 845 37 99">
 								<span class="nav__text">+31 20 845 37 99</span>
-							</a><br />
+							</a><br >
 							<a class="nav__link" href="http://maps.google.com/?q=Entrepotdok 78, Amsterdam, the Netherlands">
 								<span class="nav__text">Entrepotdok 78, Amsterdam</span>
-							</a><br />
+							</a><br >
 							Open on weekdays till 6pm
 						</p>
 					</div>

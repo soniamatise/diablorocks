@@ -3,7 +3,7 @@
 		<div class="column large-14 medium-full small-full">
 
 			<!-- holder -->
-			<div class="holder" v-swiper:mySwiper="swiperOption">
+			<div v-swiper:mySwiper="swiperOption" class="holder">
 
 				<!-- swiper wrapper -->
 				<div class="swiper-wrapper">
@@ -12,18 +12,18 @@
 					<div class="swiper-slide">
 						<div class="content_holder">
 							<div class="real_holder">
-								{{leftColKind}}
+								{{ leftColKind }}
 								<div v-if="leftColKind==='image'">
-									<img :src="imgOne.url" :alt="imgOne.alt" />
+									<img :src="imgOne.url" :alt="imgOne.alt" >
 								</div>
 								<div v-if="leftColKind==='video'">
-									<video playsinline class="video" ref="video" autoplay loop preload>
-										<source v-bind:src="videoOne.url " type="video/mp4">
+									<video ref="video" playsinline class="video" autoplay loop preload>
+										<source :src="videoOne.url " type="video/mp4">
 									</video>
 								</div>
 							</div>
 						</div>
-		      </div>
+					</div>
 					<!-- end imgOne -->
 
 					<!-- imgTwo -->
@@ -31,54 +31,70 @@
 						<div class="content_holder">
 							<div class="real_holder">
 								<div v-if="rightColKind==='image'">
-									<img :src="imgTwo.url" :alt="imgTwo.alt" />
+									<img :src="imgTwo.url" :alt="imgTwo.alt" >
 								</div>
 								<div v-if="rightColKind==='video'">
-									<video playsinline class="video" ref="video" autoplay loop preload>
-										<source v-bind:src="videoTwo.url " type="video/mp4">
+									<video ref="video" playsinline class="video" autoplay loop preload>
+										<source :src="videoTwo.url " type="video/mp4">
 									</video>
 								</div>
 							</div>
 						</div>
-		      </div>
+					</div>
 					<!-- end imgTwo -->
 
-		    </div>
+				</div>
 				<!-- end swiper wrapper -->
 
-	  	</div>
+			</div>
 			<!-- end holder -->
 
 		</div>
 	</div>
 </template>
 
-<style lang="scss" scoped>
-// .VueCarousel-inner{
-// 	.VueCarousel-slide{ border: solid 1px red; width: grid(6); height: 100%;
-// 		img{ width: grid(6); height: 100%; }
-// 	}
-// }
-</style>
-
-
 <script>
-	export default {
-		props: ['imgOne', 'imgTwo', 'leftColKind', 'rightColKind', 'videoOne', 'videoTwo'],
-		data() {
-			return {
-				swiperOption: {
-					slidesPerView: 2,
-					touchRatio: 0,
-					breakpoints: {
-						640: {
-							slidesPerView: 'auto',
-							spaceBetween: 32,
-							touchRatio: 1,
-						}
+export default {
+	props: {
+		imgOne: {
+			type: [Boolean, Object],
+			default: () => ({})
+		},
+		imgTwo: {
+			type: [Boolean, Object],
+			default: () => ({})
+		},
+		leftColKind: {
+			type: String,
+			default: ''
+		},
+		rightColKind: {
+			type: String,
+			default: ''
+		},
+		videoOne: {
+			type: [Boolean, Object],
+			default: () => ({})
+		},
+		videoTwo: {
+			type: [Boolean, Object],
+			default: () => ({})
+		}
+	},
+	data() {
+		return {
+			swiperOption: {
+				slidesPerView: 2,
+				touchRatio: 0,
+				breakpoints: {
+					640: {
+						slidesPerView: 'auto',
+						spaceBetween: 32,
+						touchRatio: 1
 					}
 				}
 			}
-		}
+		};
 	}
+};
 </script>
