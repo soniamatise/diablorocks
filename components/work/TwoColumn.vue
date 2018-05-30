@@ -57,11 +57,11 @@
 export default {
 	props: {
 		imgOne: {
-			type: Object,
+			type: [Boolean, Object],
 			default: () => ({})
 		},
 		imgTwo: {
-			type: Object,
+			type: [Boolean, Object],
 			default: () => ({})
 		},
 		leftColKind: {
@@ -73,11 +73,11 @@ export default {
 			default: ''
 		},
 		videoOne: {
-			type: Object,
+			type: [Boolean, Object],
 			default: () => ({})
 		},
 		videoTwo: {
-			type: Object,
+			type: [Boolean, Object],
 			default: () => ({})
 		}
 	},
