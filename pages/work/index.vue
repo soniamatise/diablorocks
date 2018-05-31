@@ -1,5 +1,5 @@
 <template>
-	<main-layout class="work">
+	<main-layout class="work" ref="mainLayout" style="background-color: var(--current-background-color">
 
 		<section class="intro">
 			<type-writer
@@ -9,56 +9,14 @@
 			/>
 		</section>
 
-		<div :class="[background ,'background__canvas', {'background__canvas--mouseout': mouseout} ]" :style="style"/>
-		<section class="work__grid content">
-			<div class="work__grid__column work__grid--column1">
-				<WorkCard v-for="value in allCases" v-if="value.column == 1" :key="value.id"
-					:ref="value.case_slug"
-					:image="value.case_image"
-					:case-name="value.case.post_name"
-					:size="value.size"
-					:column-nr="value.column"
-					:client="value.client_name"
-					:description="value.case_description"
-					:slug="value.case_slug"
-					:color="value.case_background_color"
-					@click.native="expand(value.case_slug)"
-					@mouseover.native="onHover(value.case_slug)"
-					@mouseout.native="notHover(value.case_slug)"
-				/>
-			</div>
-			<div class="work__grid__column work__grid--column2">
-				<WorkCard v-for="value in allCases" v-if="value.column == 2" :key="value.id"
-					:ref="value.case_slug"
-					:case-name="value.case.post_name"
-					:image="value.case_image"
-					:size="value.size"
-					:column-nr="value.column"
-					:client="value.client_name"
-					:description="value.case_description"
-					:slug="value.case_slug"
-					:color="value.case_background_color"
-					@click.native="expand(value.case_slug)"
-					@mouseover.native="onHover(value.case_slug)"
-					@mouseout.native="notHover(value.case_slug)"
-				/>
-			</div>
-			<div class="work__grid__column work__grid--column3">
-				<WorkCard v-for="value in allCases" v-if="value.column == 3" :key="value.id"
-					:ref="value.case_slug"
-					:case-name="value.case.post_name"
-					:image="value.case_image"
-					:size="value.size"
-					:column-nr="value.column"
-					:client="value.client_name"
-					:description="value.case_description"
-					:slug="value.case_slug"
-					:color="value.case_background_color"
-					@click.native="expand(value.case_slug)"
-					@mouseover.native="onHover(value.case_slug)"
-					@mouseout.native="notHover(value.case_slug)"
-				/>
-			</div>
+		<section ref="workGrid" class="row work__grid content" v-if="cases.length > 0">
+			<card 
+				v-for="(item, index) in cases" 
+				v-inview="{ increase: index }"
+				:release="index"
+				:key="item.ID" 
+				:data="item" 
+				class="case column small-full medium-half large-third" />
 		</section>
 
 		<next-case
@@ -69,15 +27,15 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
-import MainLayout from '~/layouts/body/MainLayout';
-import OneColumn from '~/components/work/OneColumn';
-import TwoColumn from '~/components/work/TwoColumn';
-import PayoffCredits from '~/components/work/PayoffCredits';
-import TypeWriter from '~/components/animations/TypeWriter';
-import NextCase from '~/components/work/NextCase';
-import WorkCard from '~/components/work/WorkCard';
+import MainLayout from "~/layouts/body/MainLayout";
+import OneColumn from "~/components/work/OneColumn";
+import TwoColumn from "~/components/work/TwoColumn";
+import PayoffCredits from "~/components/work/PayoffCredits";
+import TypeWriter from "~/components/animations/TypeWriter";
+import NextCase from "~/components/work/NextCase";
+import Card from "~/components/work/Card";
 export default {
 	components: {
 		OneColumn,
@@ -86,183 +44,82 @@ export default {
 		MainLayout,
 		TypeWriter,
 		NextCase,
-		WorkCard
+		Card
 	},
 	data() {
 		return {
 			Velocity: this.$velocity,
-			displayContent: false,
-			background: null,
-			click: false,
-			style: { '--background': '#ffffff' },
-			caseCount: null,
-			class1: ['medium', 'small'],
-			class2: ['small', 'large'],
-			class3: ['large', 'medium'],
-			allCases: '',
-			windowWidth: '',
-			mouseout: false
+			cases: []
 		};
 	},
-	mounted() {
-		let self = this;
-		let columns;
-		let savedWidth = window.innerWidth;
-		let cases = self._data.cases;
-
-		let checkWidth = function(viewWidth, savedWidth) {
-			if (viewWidth < 750 && savedWidth != 750) {
-				columns = 1;
-				self.disCases(columns, cases);
-			} else if (
-				window.innerWidth < 960 &&
-				window.innerWidth > 750 &&
-				savedWidth != 960
-			) {
-				columns = 2;
-				self.disCases(columns, cases);
-			} else {
-				columns = 3;
-				self.disCases(columns, cases);
-			}
-		};
-		window.addEventListener('resize', function() {
-			let viewWidth = window.innerWidth;
-			checkWidth(viewWidth, savedWidth);
-		});
-		checkWidth(savedWidth, savedWidth);
-		self._data.allCases = cases;
-	},
-	methods: {
-		showContent: function() {
-			let self = this;
-			self.displayContent = true;
-			let col = document.querySelector('.work__grid');
-			self.Velocity(col, { transform: 'translateY(0)' }, 600, [180, 16]);
-			setTimeout(function() {
-				col.style = '';
-				col.classList.add('stay');
-			}, 600);
-		},
-		expand: function(item) {
-			var self = this;
-			let workCard = self.$refs[item][0];
-
-			// if ((self.displayContent = true)) {
-			if (self.displayContent === true) {
-				workCard.expandCard(workCard);
-
-				// Add expand classes to change background
-				self._data.background = 'background__canvas--expand';
-
-				self._data.click = true;
-				//go to work detail
-				setTimeout(() => {
-					self.$router.push(workCard.slug);
-				}, 2400);
-			}
-		},
-		onHover: function(item) {
-			let self = this;
-			if (self.displayContent === true) {
-				let workCard = self.$refs[item][0];
-				self.style = `--background: ${workCard.color}`;
-				workCard.doHover(item);
-				if (self._data.click == false && !self._data.mouseout) {
-					self._data.background = 'background__canvas--forward';
-				} else {
-					setTimeout(function() {
-						self._data.background = 'background__canvas--forward';
-					}, 300);
-				}
-			}
-		},
-		notHover: function(item) {
-			let self = this;
-			let workCard = self.$refs[item][0];
-			workCard.dontHover(item);
-			if (self._data.click == false) {
-				self._data.background = '';
-			}
-			self._data.mouseout = true;
-			setTimeout(function() {
-				self._data.mouseout = false;
-			}, 300);
-		},
-		disCases: function(columns, cases) {
-			let self = this;
-			let counter = 0;
-			let classCounter = 0;
-			cases.forEach(function(workCard) {
-				let itemsInRow = Math.ceil(cases.length / columns);
-				if (columns == 1) {
-					//check if there is only one column
-					self.$set(workCard, 'column', 1);
-					workCard.size = 'small'; //set size
-				} else {
-					if (counter <= itemsInRow - 1) {
-						self.$set(workCard, 'column', 1);
-
-						let classes = self._data.class1; // get classes for column
-						if (classCounter !== classes.length) {
-							//check if there are classes left to give
-							workCard.size = classes[classCounter];
-						} else {
-							// start array again
-							classCounter = 0;
-							workCard.size = classes[classCounter];
-						}
-						counter++;
-						classCounter++;
-					} else if (
-						counter > itemsInRow - 1 &&
-						counter <= itemsInRow * 2 - 1
-					) {
-						self.$set(workCard, 'column', 2);
-						let classes = self._data.class2; // get classes for column
-						if (counter == itemsInRow) {
-							//check if it's the first element of the column
-							classCounter = 0;
-						}
-						if (classCounter !== classes.length) {
-							//check if there are classes left to give
-							workCard.size = classes[classCounter];
-						} else {
-							// start array again
-							classCounter = 0;
-							workCard.size = classes[classCounter];
-						}
-						counter++;
-						classCounter++;
-					} else {
-						self.$set(workCard, 'column', 3);
-
-						let classes = self._data.class3; // get classes for column
-						if (counter == itemsInRow) {
-							//check if it's the first element of the column
-							classCounter = 0;
-						}
-						if (classCounter !== classes.length) {
-							//check if there are classes left to give
-							workCard.size = classes[classCounter];
-						} else {
-							// start array again
-							classCounter = 0;
-							workCard.size = classes[classCounter];
-						}
-						counter++;
-						classCounter++;
-					}
-				}
-			});
+	watch: {
+		cases: function() {
+			console.log(this.cases);
+			console.log("cases is loaded");
 		}
 	},
-	asyncData() {
-		return axios.get(`${process.env.baseUrl}/page/cases`).then(res => {
-			return {
-				cases: res.data
-			};
-		});
+	created() {
+		axios
+			.get(`${process.env.baseUrl}/page/cases`)
+			.then(response => {
+				this.cases = response.data;
+			})
+			.catch(e => {
+				this.errors.push(e);
+			});
+	},
+	mounted() {},
+	methods: {
+		setBackgroundcolor: function(color) {
+			console.log(color);
+			this.$refs.mainLayout.style.setProperty(
+				"--current-background-color",
+				color
+			);
+		},
+		showContent: function() {}
 	}
 };
 </script>
+<style lang="scss">
+@import "~svd-style/ext";
+.case {
+	padding: grid(0.5);
+	&__holder {
+	}
+}
+// @for $i from 1 through 200 {
+// 	$j: ($i - 50);
+// 	[data-inparent="#{$j}"] {
+// 		$value: 0;
+
+// 		// @debug $j;
+// 		@if $j > -1 {
+// 			// @debug $j;
+// 			// @debug percentage($j * 0.01);
+// 			$value: (percentage($j * 0.01));
+// 			// 	$value: percentage(1 / ($j - 50));
+// 		}
+// 		transform: translateY($value);
+// 	}
+// }
+.work {
+	&__grid {
+		padding: grid(1.5);
+		align-items: center;
+
+		// .case {
+		// 	opacity: 1;
+		// 	transition: opacity 0.3s;
+		// }
+		// &:hover {
+		// 	.case {
+		// 		opacity: 0.5;
+		// 		&:hover {
+		// 			opacity: 1;
+		// 		}
+		// 	}
+		// }
+	}
+}
+</style>
