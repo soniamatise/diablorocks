@@ -51,3 +51,9 @@
     @extend %link-hover-ext;
   }
 }
+
+.link {
+  &--external {
+    text-decoration: underline;
+  }
+}

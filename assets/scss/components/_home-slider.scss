@@ -132,7 +132,7 @@ span .holderValues {
 
           &.show {
             transform: translateY(0%);
-            transition: transform 1s $cubic-bezier;
+            transition: transform 1s $base-cubic-bezier;
             transition-property: transform;
           }
         }
@@ -142,7 +142,7 @@ span .holderValues {
 
           &.show {
             transform: translateY(0%);
-            transition: transform 1s $cubic-bezier;
+            transition: transform 1s $base-cubic-bezier;
             transition-property: transform;
           }
         }
@@ -429,7 +429,7 @@ span .holderValues {
             position: absolute;
             z-index: 2;
             display: block;
-            transition: all 0.5s $cubic-bezier;
+            transition: all 0.5s $base-cubic-bezier;
             transition-property: clip-path, -webkit-clip-path;
             cursor: pointer;
 
@@ -493,26 +493,29 @@ span .holderValues {
               }
 
               &.landscape_image {
-                animation: clickBigLandscape 2s $specialcubicbezier 0.4s forwards;
+                animation: clickBigLandscape 2s $base-cubic-bezier 0.4s forwards;
 
                 @media #{$medium-only} {
-                  animation: clickMediumLandscape 2s $specialcubicbezier 0.4s forwards;
+                  animation: clickMediumLandscape 2s $base-cubic-bezier 0.4s
+                    forwards;
                 }
               }
 
               &.portrait_image {
-                animation: clickBigPortrait 2s $specialcubicbezier 0.4s forwards;
+                animation: clickBigPortrait 2s $base-cubic-bezier 0.4s forwards;
 
                 @media #{$medium-only} {
-                  animation: clickMediumPortrait 2s $specialcubicbezier 0.4s forwards;
+                  animation: clickMediumPortrait 2s $base-cubic-bezier 0.4s
+                    forwards;
                 }
               }
 
               &.square_image {
-                animation: clickBigSquare 2s $specialcubicbezier 0.4s forwards;
+                animation: clickBigSquare 2s $base-cubic-bezier 0.4s forwards;
 
                 @media #{$medium-only} {
-                  animation: clickMediumSquare 2s $specialcubicbezier 0.4s forwards;
+                  animation: clickMediumSquare 2s $base-cubic-bezier 0.4s
+                    forwards;
                 }
               }
 
@@ -520,14 +523,14 @@ span .holderValues {
               &.portrait_image,
               &.square_image {
                 @media #{$small-only} {
-                  animation: clickSmall 2s $specialcubicbezier 0.4s forwards;
+                  animation: clickSmall 2s $base-cubic-bezier 0.4s forwards;
                 }
               }
 
               .image_position {
                 .image_actual {
                   img {
-                    transition: transform 1s $specialcubicbezier 1.4s;
+                    transition: transform 1s $base-cubic-bezier 1.4s;
                     transform: translateX(-50%) scale(1);
                   }
                 }

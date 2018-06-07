@@ -11,7 +11,7 @@
       width: max-content;
       font-size: grid(0.4);
 
-      @include min-fontsize(0.4, 20);
+      @include min-("font-size", 0.4, 20);
 
       padding-top: grid(0.4);
       clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
@@ -41,7 +41,7 @@
         height: 100%;
         bottom: 0;
         right: -2px;
-        animation: caretAnim 1s $specialcubicbezier infinite forwards;
+        animation: caretAnim 1s $base-cubic-bezier infinite forwards;
       }
     }
   }

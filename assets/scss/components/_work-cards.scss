@@ -129,8 +129,8 @@
         var(--offsetRight) calc(var(--offsetY) + var(--height)),
         var(--offsetLeft) calc(var(--offsetY) + var(--height))
       );
-      animation: imageToClip 2.5s 0.5s $specialcubicbezier forwards,
-        backgroundPos 2.5s $specialcubicbezier;
+      animation: imageToClip 2.5s 0.5s $base-cubic-bezier forwards,
+        backgroundPos 2.5s $base-cubic-bezier;
 
       & + p {
         opacity: 0;
@@ -144,7 +144,7 @@
   &--expand {
     .work__card__image-container {
       background-size: 100vw;
-      transition: background-size 1.2s $specialcubicbezier;
+      transition: background-size 1.2s $base-cubic-bezier;
 
       @media #{$medium-down} {
         background-size: 175vh;

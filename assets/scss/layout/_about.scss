@@ -9,7 +9,7 @@ section.intro {
 }
 
 .intro {
-  @media #{$mobile} {
+  @media #{$small-only} {
     p {
       &::before {
         content: "About — ";
@@ -402,7 +402,7 @@ section.about {
               position: absolute;
               z-index: 2;
               display: block;
-              transition: all 0.5s $cubic-bezier;
+              transition: all 0.5s $base-cubic-bezier;
               transition-property: clip-path, -webkit-clip-path;
               cursor: pointer;
 
@@ -444,7 +444,7 @@ section.about {
         width: 100vw;
         display: flex;
         height: 80%;
-        // scroll on $mobile
+        // scroll on $small-only
         flex-wrap: nowrap;
         will-change: transform;
         align-content: center;

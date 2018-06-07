@@ -1,16 +1,18 @@
 $base-fontpath: "~matise-assets/src/fonts";
 
-@import "color/index",
-  "~matise-assets/index",
-  "settings/settings",
-  "typography/index",
-  "layout/index",
-  "components/index",
-  "components/work";
+@import "color/index";
+@import "~matise-assets/index";
+@import "settings/settings";
+@import "typography/index";
+@import "layout/index";
+@import "components/index";
+@import "components/work";
 
 body {
   font-family: $body-font;
   background-color: color(White);
+  margin: 0;
+  padding: 0;
 
   ::selection {
     background: color(Gray);
@@ -25,73 +27,5 @@ body {
   &.scroll-disable {
     // when mobile menu is active body scroll-disable
     overflow: hidden;
-  }
-  // menu item styling when body class = white_menu
-  &.white_menu {
-    .nav {
-      &__link {
-        &::before {
-          background-color: color(White);
-        }
-      }
-
-      &__text {
-        color: color(White);
-      }
-    }
-  }
-}
-
-// overall intro section styling
-section.intro {
-  padding-top: grid(5);
-
-  @media #{$small-only} {
-    background-color: color(Black);
-    padding: rem(96) rem(64);
-
-    p {
-      color: color(White);
-      text-align: left;
-      line-height: 1.5;
-      font-size: rem(20);
-      font-weight: $font-regular;
-      padding-top: 0;
-
-      &::before {
-        font-weight: $font-medium;
-      }
-    }
-
-    .paragraph_shower {
-      justify-content: normal;
-
-      p {
-        padding-top: 0;
-      }
-    }
-
-    h1 {
-      display: none;
-    }
-  }
-}
-
-.link {
-  &--external {
-    text-decoration: underline;
-  }
-}
-
-@media #{$medium-up} {
-  .hide-desktop {
-    display: none;
-  }
-}
-
-@media #{$small-only} {
-  .hide-mobile,
-  .mobile-hide {
-    display: none;
   }
 }

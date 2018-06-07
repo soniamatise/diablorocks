@@ -82,7 +82,7 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "~svd-style/ext";
+// @import "~henris/ext";
 .case {
 	padding: grid(0.5);
 	&__holder {
