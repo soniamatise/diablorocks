@@ -31,7 +31,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~svd-style/ext";
+@import "~henris/ext";
 
 .row {
 	counter-reset: countIt;
