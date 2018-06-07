@@ -82,44 +82,16 @@ export default {
 };
 </script>
 <style lang="scss">
-// @import "~henris/ext";
+@import "~henris/ext";
 .case {
 	padding: grid(0.5);
 	&__holder {
 	}
 }
-// @for $i from 1 through 200 {
-// 	$j: ($i - 50);
-// 	[data-inparent="#{$j}"] {
-// 		$value: 0;
-
-// 		// @debug $j;
-// 		@if $j > -1 {
-// 			// @debug $j;
-// 			// @debug percentage($j * 0.01);
-// 			$value: (percentage($j * 0.01));
-// 			// 	$value: percentage(1 / ($j - 50));
-// 		}
-// 		transform: translateY($value);
-// 	}
-// }
 .work {
 	&__grid {
 		padding: grid(1.5);
 		align-items: center;
-
-		// .case {
-		// 	opacity: 1;
-		// 	transition: opacity 0.3s;
-		// }
-		// &:hover {
-		// 	.case {
-		// 		opacity: 0.5;
-		// 		&:hover {
-		// 			opacity: 1;
-		// 		}
-		// 	}
-		// }
 	}
 }
 </style>

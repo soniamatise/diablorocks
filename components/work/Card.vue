@@ -45,6 +45,7 @@ export default {
 		transition: transform 0.2s;
 		backface-visibility: hidden;
 		will-change: transform;
+		padding: grid(0.5);
 
 		&:nth-child(1) {
 			margin-top: grid(0.5);
