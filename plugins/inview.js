@@ -235,8 +235,8 @@ Vue.directive("inview", {
     //function to be passed to "listen" property; adds data in #im1_data
     function showData() {
       // el.setAttribute("data-inparent", element.inParent);
-      el.style.transform = `translateY(${element.inParent /
-        binding.value.increase}px)`;
+      // el.style.transform = `translateY(${element.inParent /
+      //   binding.value.increase}px)`;
     }
 
     let element = new getInview(el);

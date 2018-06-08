@@ -26,6 +26,7 @@
     "@nuxtjs/google-analytics": "^2.0.2",
     "autoprefixer": "^8.3.0",
     "axios": "^0.18.0",
+    "gsap": "^2.0.1",
     "matise-assets": "^1.1.14",
     "npm": "^6.1.0",
     "npm-watch": "^0.3.0",

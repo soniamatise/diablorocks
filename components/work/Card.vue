@@ -26,6 +26,9 @@ export default {
 			this.item.image = this.$props.data.case_image;
 			this.item.imageSize = this.$props.data.case_size;
 		}
+	},
+	mounted() {
+		
 	}
 };
 </script>

@@ -10,12 +10,12 @@
 		</section>
 
 		<section ref="workGrid" class="row work__grid content" v-if="cases.length > 0">
-			<card 
-				v-for="(item, index) in cases" 
+			<card
+				v-for="(item, index) in cases"
 				v-inview="{ increase: index }"
 				:release="index"
-				:key="item.ID" 
-				:data="item" 
+				:key="item.ID"
+				:data="item"
 				class="case column small-full medium-half large-third" />
 		</section>
 
