@@ -1,6 +1,6 @@
 <template>
 	<main-layout class="work">
-
+		<page-transition-close></page-transition-close>
 		<section class="intro">
 			<type-writer
 				heading="Work"
@@ -65,6 +65,7 @@
 			left-text="It’s not all work"
 			case-name="Find out who we are"
 		/>
+
 	</main-layout>
 </template>
 
@@ -78,6 +79,8 @@ import PayoffCredits from '~/components/work/PayoffCredits';
 import TypeWriter from '~/components/animations/TypeWriter';
 import NextCase from '~/components/work/NextCase';
 import WorkCard from '~/components/work/WorkCard';
+import PageTransitionClose from '~/components/animations/PageTransitionClose';
+
 export default {
 	components: {
 		OneColumn,
@@ -86,7 +89,8 @@ export default {
 		MainLayout,
 		TypeWriter,
 		NextCase,
-		WorkCard
+		WorkCard,
+		PageTransitionClose
 	},
 	data() {
 		return {
