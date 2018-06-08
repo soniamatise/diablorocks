@@ -153,41 +153,41 @@
   }
 }
 
-.background__canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 1;
-  transition: 1s $easeboth;
-  opacity: 0;
-  background: var(--background);
-  pointer-events: none;
-
-  &--mouseout {
-    opacity: 0;
-    transition: 0.3s $easeboth;
-
-    & + .work__grid {
-      .card--hover p {
-        color: color(Black);
-      }
-    }
-  }
-
-  &--forward {
-    z-index: 1;
-    opacity: 0.9;
-    transition: 1s $easeboth;
-  }
-
-  &--expand {
-    opacity: 1;
-    z-index: 1;
-    pointer-events: auto;
-  }
-}
+// .backgrounddfasdf__canvas {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   bottom: 0;
+//   right: 0;
+//   z-index: 1;
+//   transition: 1s $easeboth;
+//   opacity: 0;
+//   background: var(--background);
+//   pointer-events: none;
+//
+//   &--mouseout {
+//     opacity: 0;
+//     transition: 0.3s $easeboth;
+//
+//     & + .work__grid {
+//       .card--hover p {
+//         color: color(Black);
+//       }
+//     }
+//   }
+//
+//   &--forward {
+//     z-index: 1;
+//     opacity: 0.9;
+//     transition: 1s $easeboth;
+//   }
+//
+//   &--expand {
+//     opacity: 1;
+//     z-index: 1;
+//     pointer-events: auto;
+//   }
+// }
 
 @keyframes imageToClip {
   0% {

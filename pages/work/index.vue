@@ -9,6 +9,8 @@
 			/>
 		</section>
 
+		<div class="background__canvas" ref="backgroundCanvas"></div>
+
 		<section ref="workGrid" class="row work__grid content" v-if="cases.length > 0">
 			<card
 				v-for="(item, index) in cases"
@@ -16,6 +18,7 @@
 				:release="index"
 				:key="item.ID"
 				:data="item"
+				@changeBackground="changeBackground"
 				class="case column small-full medium-half large-third" />
 		</section>
 
@@ -28,6 +31,7 @@
 
 <script>
 import axios from "axios";
+import TweenMax from 'gsap';
 
 import MainLayout from "~/layouts/body/MainLayout";
 import OneColumn from "~/components/work/OneColumn";
@@ -68,7 +72,9 @@ export default {
 				this.errors.push(e);
 			});
 	},
-	mounted() {},
+	mounted() {
+		this.backgroundCanvas = this.$refs.backgroundCanvas;
+	},
 	methods: {
 		setBackgroundcolor: function(color) {
 			console.log(color);
@@ -76,6 +82,23 @@ export default {
 				"--current-background-color",
 				color
 			);
+		},
+		changeBackground: function(caseColor, mouseEvent) {
+			// Function for animating the background element based on the event
+
+			if(mouseEvent === 'mouseover') {
+				TweenMax.to(this.backgroundCanvas, .6, {
+					backgroundColor: caseColor,
+					opacity: .8
+				});
+			}	else if(mouseEvent === 'mouseleave') {
+				TweenMax.to(this.backgroundCanvas, .6, {
+					opacity: 0,
+					clearProps: 'backgroundColor'
+				});
+			} else if(mouseEvent === 'transition') {
+				console.log('Transition started');
+			}
 		},
 		showContent: function() {}
 	}

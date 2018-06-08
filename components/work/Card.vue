@@ -1,21 +1,27 @@
 <template>
-	<div class="card__holder">
-		<div class="card">
-			<div :class="['card__image',item.imageSize]" :style="{ 'background-image': 'url(' + item.image + ')' }" >
+	<div class="card__holder" ref="cardHolder" :style="{ 'z-index': zIndex }">
+		<div class="card"
+			@mouseover="backgroundTransitionIn()"
+			@mouseleave="backgroundTransitionOut()">
+			<div :class="['card__image',item.imageSize]" ref="cardImage" :style="{ 'background-image': 'url(' + item.image + ')' }" >
 			</div>
 			<div class="card__content">
-				<h4><strong>{{ item.title }}</strong> &mdash; {{ item.description }}</h4>
+				<h4 ref="cardText"><strong>{{ item.title }}</strong> &mdash; {{ item.description }}</h4>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+import TweenMax from 'gsap';
+
 export default {
 	props: ["data"],
 	data() {
 		return {
-			item: {}
+			item: {},
+			pageTransition: false,
+			zIndex: ''
 		};
 	},
 	created() {
@@ -25,10 +31,43 @@ export default {
 			this.item.title = this.$props.data.client_name;
 			this.item.image = this.$props.data.case_image;
 			this.item.imageSize = this.$props.data.case_size;
+			this.item.backgroundColor = this.$props.data.case_background_color;
 		}
 	},
 	mounted() {
-		
+		this.cardText = this.$refs.cardText;
+	},
+	methods: {
+		backgroundTransitionIn: function () {
+			// Card mouse-enter animation if there is no page transition going
+			if (this.pageTransition === false) {
+
+				// Set the z-index of the card higher
+				this.zIndex = 999;
+
+				TweenMax.to(this.cardText, .5, {
+					color: '#fff'
+				});
+
+				// Emit the background-color and the event to the parent component
+				this.$emit('changeBackground', this.item.backgroundColor, 'mouseover');
+			}
+		},
+		backgroundTransitionOut: function () {
+			// Card mouse-leave animation if there is no page transition going
+			if (this.pageTransition === false) {
+
+				// Remove te z-index from the card
+				this.zIndex = '';
+
+				TweenMax.to(this.cardText, .3, {
+					color: '#000'
+				});
+
+				// Emit the the event to the parent component
+				this.$emit('changeBackground', '', 'mouseleave');
+			}
+		}
 	}
 };
 </script>
