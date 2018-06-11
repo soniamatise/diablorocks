@@ -46,6 +46,8 @@ export default {
 		this.cardImage = this.$refs.cardImage;
 		this.cardMask = this.$refs.cardMask;
 		this.cardImageHolder = this.$refs.cardImageHolder;
+
+		this.breakpoint = this.$store.state.breakpoints;
 	},
 	methods: {
 		backgroundTransitionIn: function () {
@@ -85,13 +87,14 @@ export default {
 
 			this.$emit('changeBackground', this.item.backgroundColor, 'pageTransition');
 
-			// Make a new timeline
+			// Make a two new timelines, one for centering the mask and the second one for making the transition
 			let timeline = new TimelineMax({
 				onComplete: pageTransitionAnimation
 			});
 
 			let timelineTwo = new TimelineMax({});
 
+			// Calculate where the image needs to center
 			let screenHeight = (window.innerHeight / 2) - (this.cardMask.offsetHeight / 2);
 			let imagePositionTop = this.cardMask.getBoundingClientRect().top;
 
@@ -154,7 +157,8 @@ export default {
 				}
 		},
 		completeAnimation: function () {
-			console.log('COMPLETE');
+			this.$store.commit('updateTransition', false);
+
 			this.$router.push(this.item.slug);
 		}
 	}

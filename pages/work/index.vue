@@ -30,16 +30,17 @@
 </template>
 
 <script>
-import axios from "axios";
-import TweenMax from 'gsap';
+import axios from 'axios';
 
 import MainLayout from "~/layouts/body/MainLayout";
 import OneColumn from "~/components/work/OneColumn";
 import TwoColumn from "~/components/work/TwoColumn";
-import PayoffCredits from "~/components/work/PayoffCredits";
 import TypeWriter from "~/components/animations/TypeWriter";
-import NextCase from "~/components/work/NextCase";
 import Card from "~/components/work/Card";
+
+const PayoffCredits = () => import ("~/components/work/PayoffCredits");
+const NextCase = () => import ("~/components/work/NextCase");
+
 export default {
 	components: {
 		OneColumn,
