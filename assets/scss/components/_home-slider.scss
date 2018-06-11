@@ -1,90 +1,25 @@
-// test
-span .holderValues {
-  position: fixed;
-  width: 100vh;
-  height: 100vh;
-  background: teal;
-  z-index: 1000;
-}
-
 // home slider
-#home-slider {
+.home-slider {
   z-index: 1;
-  transition: background-color 1s $easeboth;
-  background-color: var(--caseColor, color(Black));
+  background-color: color(Black);
+  user-select: none;
 
   @media #{$small-only} {
     background-color: color(Dark);
   }
 
-  // basic selection settings
-  img {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-
-  ::selection {
-    background: var(--caseColor, color(Black));
-    color: color(Light);
-  }
-
-  ::-moz-selection {
-    background: var(--caseColor, color(Black));
-    color: color(Light);
-  }
-
-  // typewriter
-  .home-bg-parallax {
-    height: 100vh;
-    width: 100%;
-    position: absolute;
-    display: flex;
-    align-items: center;
-
-    @media #{$small-only} {
-      height: 100%;
-    }
-
+  &__typewriter {
     .typeWriterTitle {
-      position: absolute;
-      white-space: nowrap;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      &.fade-out {
-        transition: opacity 1s $easeboth;
-        opacity: 0;
-        z-index: 0;
-      }
-
-      @media #{$small-only} {
-        transform: rotate(90deg) translate(0, -50vw);
-        transform-origin: 0 50%;
-        top: 0;
-      }
-
       h1 {
         color: color(White);
         font-size: grid(6);
-        width: max-content;
-        font-weight: $font-medium;
-        padding: 0 grid(2);
-        height: grid(6);
 
         @media #{$medium-only} {
           font-size: rem(192);
-          padding: 0 grid(4);
         }
 
         @media #{$small-only} {
           font-size: rem(128);
-          padding: 0;
-          left: -240px;
-          top: -16px;
         }
 
         &.caret {
@@ -112,8 +47,6 @@ span .holderValues {
 
   // swiper
   .swiper-container {
-    overflow: hidden;
-
     // swiper wrapper
     .swiper-wrapper {
       display: flex;
@@ -121,468 +54,6 @@ span .holderValues {
       height: 100vh;
       width: grid(24);
       z-index: 1;
-
-      .swiper-slide {
-        height: 100vh;
-        width: grid(16);
-        position: relative;
-
-        &:nth-child(1) {
-          transform: translateY(100%);
-
-          &.show {
-            transform: translateY(0%);
-            transition: transform 1s $base-cubic-bezier;
-            transition-property: transform;
-          }
-        }
-
-        &:nth-child(2) {
-          transform: translateY(100%);
-
-          &.show {
-            transform: translateY(0%);
-            transition: transform 1s $base-cubic-bezier;
-            transition-property: transform;
-          }
-        }
-
-        @media #{$medium-only} {
-          width: grid(18);
-        }
-
-        @media #{$small-only} {
-          width: 100%;
-          height: calc(100vw * 1.25);
-          transform: translateY(0%);
-        }
-
-        // content container
-        .content_container {
-          position: relative;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          height: 100vh;
-          width: 100%;
-
-          @media #{$small-only} {
-            transform: translateY(-32px);
-          }
-
-          &.fade-out {
-            .shadow {
-              transition: opacity 1s $easeboth;
-              opacity: 0;
-            }
-
-            .content {
-              transition: opacity 1s $easeboth;
-              opacity: 0;
-            }
-
-            &.click_up {
-              .shadow {
-                transition: none;
-                opacity: 1;
-
-                @media #{$small-only} {
-                  transition: opacity 1s $easeboth;
-                  opacity: 0;
-                }
-              }
-
-              .content {
-                transition: none;
-                opacity: 1;
-              }
-            }
-          }
-
-          @media #{$small-only} {
-            height: 100%;
-          }
-
-          // general content
-          .content {
-            position: absolute;
-            transform-origin: 50% 50%;
-            width: grid(6.5);
-            z-index: 1;
-
-            p {
-              color: color(Light);
-              font-size: rem(16);
-              line-height: rem(24);
-              top: 32px;
-              position: absolute;
-              width: 100%;
-              display: block;
-            }
-
-            &.name {
-              transform: rotate(90deg) translate(0, 0);
-
-              p {
-                font-weight: $font-medium;
-              }
-
-              @media #{$medium-only} {
-                display: none;
-              }
-
-              @media #{$small-only} {
-                transform: none;
-                width: calc(100vw - 64px);
-                height: calc(100vw - 64px) !important;
-
-                p {
-                  top: 100%;
-                  position: absolute;
-                  transform: translateY(32px) !important;
-                  font-size: rem(14);
-                  padding: 0 24px;
-                }
-              }
-            }
-
-            &.description {
-              transform: rotate(90deg) translate(0, 0);
-
-              p {
-                font-weight: $font-regular;
-                top: auto;
-                bottom: 32px;
-              }
-
-              @media #{$medium-down} {
-                display: none;
-              }
-            }
-          }
-
-          .content_for_medium {
-            display: none;
-
-            @media #{$medium-only} {
-              position: absolute;
-              display: block;
-              margin: 0 auto;
-
-              p {
-                color: color(White);
-                position: absolute;
-                bottom: 0;
-                transform: translateY(calc(100% + 32px));
-
-                span {
-                  font-weight: $font-medium;
-
-                  &::after {
-                    content: "—";
-                  }
-                }
-              }
-            }
-          }
-
-          // content in blocks
-          &.portrait_block {
-            .content {
-              height: grid(8);
-
-              &.name {
-                p {
-                  transform: translateY(grid(8));
-                }
-              }
-
-              &.description {
-                p {
-                  transform: translateY(grid(-8));
-                  max-width: 32ch;
-                }
-              }
-            }
-
-            .content_for_medium {
-              @media #{$medium-only} {
-                width: grid(12);
-                height: grid(16);
-              }
-            }
-          }
-
-          &.square_block {
-            .content {
-              height: grid(9);
-
-              &.name {
-                p {
-                  transform: translateY(grid(9));
-                }
-              }
-
-              &.description {
-                p {
-                  transform: translateY(grid(-9));
-                  max-width: 32ch;
-                }
-              }
-            }
-
-            .content_for_medium {
-              @media #{$medium-only} {
-                width: grid(14);
-                height: grid(14);
-              }
-            }
-          }
-
-          &.landscape_block {
-            .content {
-              height: grid(10);
-
-              &.name {
-                p {
-                  transform: translateY(grid(10));
-                }
-              }
-
-              &.description {
-                p {
-                  transform: translateY(grid(-10));
-                  max-width: 32ch;
-                }
-              }
-            }
-
-            .content_for_medium {
-              @media #{$medium-only} {
-                width: grid(14);
-                height: grid(10.5);
-              }
-            }
-          }
-
-          // shading
-          .shadow {
-            width: grid(8.5);
-            height: grid(8.5);
-            border-radius: 50%;
-            box-shadow: 0 0 grid(2) grid(0.75) black;
-            position: absolute;
-            transition: box-shadow 1s $easeboth;
-
-            &.landscape_image {
-              width: grid(9.5);
-              height: grid(7);
-
-              @media #{$medium-only} {
-                width: grid(13.5);
-                height: grid(10);
-              }
-
-              @media #{$small-only} {
-                width: calc(100vw - 64px);
-                height: calc(100vw - 64px);
-              }
-            }
-
-            &.portrait_image {
-              width: grid(7.5);
-              height: grid(10.5);
-
-              @media #{$medium-only} {
-                width: grid(11.5);
-                height: grid(15.5);
-              }
-
-              @media #{$small-only} {
-                width: calc(100vw - 64px);
-                height: calc(100vw - 64px);
-              }
-            }
-
-            &.square_image {
-              width: grid(8.5);
-              height: grid(8.5);
-
-              @media #{$medium-only} {
-                width: grid(13.5);
-                height: grid(13.5);
-              }
-
-              @media #{$small-only} {
-                width: calc(100vw - 64px);
-                height: calc(100vw - 64px);
-              }
-            }
-          }
-
-          // image holder
-          .image_holder {
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            z-index: 2;
-            display: block;
-            transition: all 0.5s $base-cubic-bezier;
-            transition-property: clip-path, -webkit-clip-path;
-            cursor: pointer;
-
-            &.fade-out {
-              transition: opacity 1s $easeboth;
-              opacity: 0;
-              z-index: 1;
-            }
-
-            &.landscape_image {
-              width: grid(12.5);
-              height: grid(9.375);
-              clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
-
-              @media #{$medium-only} {
-                width: grid(17.5);
-                height: grid(13.125);
-              }
-
-              &:hover {
-                clip-path: polygon(5% 21%, 83% 1%, 95% 79%, 17% 99%);
-              }
-            }
-
-            &.portrait_image {
-              width: grid(10);
-              height: grid(13.75);
-              clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
-
-              @media #{$medium-only} {
-                width: grid(15);
-                height: grid(20);
-              }
-
-              &:hover {
-                clip-path: polygon(1% 17%, 79% 5%, 99% 83%, 21% 95%);
-              }
-            }
-
-            &.square_image {
-              width: grid(11.25);
-              height: grid(11.25);
-              clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
-
-              @media #{$medium-only} {
-                width: grid(17.5);
-                height: grid(17.5);
-              }
-
-              &:hover {
-                clip-path: polygon(3% 19%, 81% 3%, 97% 81%, 21% 97%);
-              }
-            }
-            // epic animation!
-            &.click_up {
-              cursor: default;
-
-              &.fade-out {
-                opacity: 1;
-                z-index: 2;
-              }
-
-              &.landscape_image {
-                animation: clickBigLandscape 2s $base-cubic-bezier 0.4s forwards;
-
-                @media #{$medium-only} {
-                  animation: clickMediumLandscape 2s $base-cubic-bezier 0.4s
-                    forwards;
-                }
-              }
-
-              &.portrait_image {
-                animation: clickBigPortrait 2s $base-cubic-bezier 0.4s forwards;
-
-                @media #{$medium-only} {
-                  animation: clickMediumPortrait 2s $base-cubic-bezier 0.4s
-                    forwards;
-                }
-              }
-
-              &.square_image {
-                animation: clickBigSquare 2s $base-cubic-bezier 0.4s forwards;
-
-                @media #{$medium-only} {
-                  animation: clickMediumSquare 2s $base-cubic-bezier 0.4s
-                    forwards;
-                }
-              }
-
-              &.landscape_image,
-              &.portrait_image,
-              &.square_image {
-                @media #{$small-only} {
-                  animation: clickSmall 2s $base-cubic-bezier 0.4s forwards;
-                }
-              }
-
-              .image_position {
-                .image_actual {
-                  img {
-                    transition: transform 1s $base-cubic-bezier 1.4s;
-                    transform: translateX(-50%) scale(1);
-                  }
-                }
-              }
-            }
-
-            @media #{$small-only} {
-              &.landscape_image,
-              &.portrait_image,
-              &.square_image {
-                width: calc(100vw - 64px);
-                height: calc(100vw - 64px);
-                clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-
-                &:hover {
-                  clip-path: none;
-                  -webkit-clip-path: none;
-                }
-              }
-            }
-
-            // image position
-            .image_position {
-              position: absolute;
-              width: 100vw;
-              height: 83.34vw;
-              min-height: 100vh;
-              left: 50%;
-              top: 50%;
-              transform: translate(-50%, -50%);
-
-              .image_actual {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                text-align: center;
-                display: flex;
-
-                img {
-                  object-fit: cover;
-                  margin: 0;
-                  position: relative;
-                  left: 50%;
-                  transform: translateX(-50%) scale(0.9);
-                  width: 100%;
-                  height: 100%;
-                }
-              }
-            }
-          }
-        }
-      }
     }
 
     // swiper slide navigation
@@ -644,14 +115,13 @@ span .holderValues {
       &::before {
         position: absolute;
         height: 2px;
-        background-color: var(--caseColor, color(Black));
+        background-color: color(Black);
         width: 20px;
         content: "";
         display: block;
         z-index: 1;
         top: 0;
         left: -10px;
-        transition: background-color 1s $easeboth;
       }
 
       &::after {
@@ -663,11 +133,10 @@ span .holderValues {
         z-index: 2;
         width: 20px;
         margin: 0 20px;
-        background-color: var(--caseColor, color(Black));
+        background-color: color(Black);
         height: 100%;
         float: left;
         position: relative;
-        transition: background-color 1s $easeboth;
 
         &:nth-child(1) {
           margin-left: 50px;
@@ -685,18 +154,343 @@ span .holderValues {
       }
     }
   }
+}
 
-  &.changeShadow {
-    .swiper-container {
-      .swiper-wrapper {
-        .swiper-slide {
-          .content_container {
-            .shadow {
-              box-shadow: 0 0 grid(2) grid(1) var(--caseColor, black);
+.home-slider {
+  .swiper-slide {
+    height: 100vh;
+    width: grid(16);
+    position: relative;
+    transform: translateY(100%);
 
-              @media #{$small-only} {
-                box-shadow: 0 0 grid(2) grid(1) color(Dark);
+    @media #{$medium-only} {
+      width: grid(18);
+    }
+
+    @media #{$small-only} {
+      width: 100%;
+      height: calc(100vw * 1.25);
+      transform: translateY(0%);
+    }
+
+    // content container
+    .content_container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      width: 100%;
+
+      @media #{$small-only} {
+        transform: translateY(-32px);
+      }
+
+      @media #{$small-only} {
+        height: 100%;
+      }
+
+      // general content
+      .content {
+        position: absolute;
+        transform-origin: 50% 50%;
+        width: grid(6.5);
+        z-index: 1;
+
+        p {
+          color: color(Light);
+          font-size: rem(16);
+          line-height: rem(24);
+          top: 32px;
+          position: absolute;
+          width: 100%;
+          display: block;
+        }
+
+        &.name {
+          transform: rotate(90deg) translate(0, 0);
+
+          p {
+            font-weight: $font-medium;
+          }
+
+          @media #{$medium-only} {
+            display: none;
+          }
+
+          @media #{$small-only} {
+            transform: none;
+            width: calc(100vw - 64px);
+            height: calc(100vw - 64px) !important;
+
+            p {
+              top: 100%;
+              position: absolute;
+              transform: translateY(32px) !important;
+              font-size: rem(14);
+              padding: 0 24px;
+            }
+          }
+        }
+
+        &.description {
+          transform: rotate(90deg) translate(0, 0);
+
+          p {
+            font-weight: $font-regular;
+            top: auto;
+            bottom: 32px;
+          }
+
+          @media #{$medium-down} {
+            display: none;
+          }
+        }
+      }
+
+      .content_for_medium {
+        display: none;
+
+        @media #{$medium-only} {
+          position: absolute;
+          display: block;
+          margin: 0 auto;
+
+          p {
+            color: color(White);
+            position: absolute;
+            bottom: 0;
+            transform: translateY(calc(100% + 32px));
+
+            span {
+              font-weight: $font-medium;
+
+              &::after {
+                content: "—";
               }
+            }
+          }
+        }
+      }
+
+      // content in blocks
+      &.portrait_block {
+        .content {
+          height: grid(8);
+
+          &.name {
+            p {
+              transform: translateY(grid(8));
+            }
+          }
+
+          &.description {
+            p {
+              transform: translateY(grid(-8));
+              max-width: 32ch;
+            }
+          }
+        }
+
+        .content_for_medium {
+          @media #{$medium-only} {
+            width: grid(12);
+            height: grid(16);
+          }
+        }
+      }
+
+      &.square_block {
+        .content {
+          height: grid(9);
+
+          &.name {
+            p {
+              transform: translateY(grid(9));
+            }
+          }
+
+          &.description {
+            p {
+              transform: translateY(grid(-9));
+              max-width: 32ch;
+            }
+          }
+        }
+
+        .content_for_medium {
+          @media #{$medium-only} {
+            width: grid(14);
+            height: grid(14);
+          }
+        }
+      }
+
+      &.landscape_block {
+        .content {
+          height: grid(10);
+
+          &.name {
+            p {
+              transform: translateY(grid(10));
+            }
+          }
+
+          &.description {
+            p {
+              transform: translateY(grid(-10));
+              max-width: 32ch;
+            }
+          }
+        }
+
+        .content_for_medium {
+          @media #{$medium-only} {
+            width: grid(14);
+            height: grid(10.5);
+          }
+        }
+      }
+
+      // shading
+      .shadow {
+        width: grid(8.5);
+        height: grid(8.5);
+        border-radius: 50%;
+        box-shadow: 0 0 grid(2) grid(0.75) black;
+        position: absolute;
+
+        &.landscape_image {
+          width: grid(9.5);
+          height: grid(7);
+
+          @media #{$medium-only} {
+            width: grid(13.5);
+            height: grid(10);
+          }
+
+          @media #{$small-only} {
+            width: calc(100vw - 64px);
+            height: calc(100vw - 64px);
+          }
+        }
+
+        &.portrait_image {
+          width: grid(7.5);
+          height: grid(10.5);
+
+          @media #{$medium-only} {
+            width: grid(11.5);
+            height: grid(15.5);
+          }
+
+          @media #{$small-only} {
+            width: calc(100vw - 64px);
+            height: calc(100vw - 64px);
+          }
+        }
+
+        &.square_image {
+          width: grid(8.5);
+          height: grid(8.5);
+
+          @media #{$medium-only} {
+            width: grid(13.5);
+            height: grid(13.5);
+          }
+
+          @media #{$small-only} {
+            width: calc(100vw - 64px);
+            height: calc(100vw - 64px);
+          }
+        }
+      }
+
+      // image holder
+      .image_holder {
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        z-index: 2;
+        display: block;
+        cursor: pointer;
+
+        &.landscape_image {
+          width: grid(12.5);
+          height: grid(9.375);
+          clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
+
+          @media #{$medium-only} {
+            width: grid(17.5);
+            height: grid(13.125);
+          }
+        }
+
+        &.portrait_image {
+          width: grid(10);
+          height: grid(13.75);
+          clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
+
+          @media #{$medium-only} {
+            width: grid(15);
+            height: grid(20);
+          }
+        }
+
+        &.square_image {
+          width: grid(11.25);
+          height: grid(11.25);
+          clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
+
+          @media #{$medium-only} {
+            width: grid(17.5);
+            height: grid(17.5);
+          }
+        }
+
+
+        @media #{$small-only} {
+          &.landscape_image,
+          &.portrait_image,
+          &.square_image {
+            width: calc(100vw - 64px);
+            height: calc(100vw - 64px);
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+
+            &:hover {
+              clip-path: none;
+              -webkit-clip-path: none;
+            }
+          }
+        }
+
+        // image position
+        .image_position {
+          position: absolute;
+          width: 100vw;
+          height: 83.34vw;
+          min-height: 100vh;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+
+          .image_actual {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            display: flex;
+
+            img {
+              object-fit: cover;
+              margin: 0;
+              position: relative;
+              left: 50%;
+              transform: translateX(-50%) scale(0.9);
+              width: 100%;
+              height: 100%;
             }
           }
         }

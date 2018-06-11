@@ -97,6 +97,9 @@ export default {
 	data() {
 		return { scrollable: false };
 	},
+	transition: {
+		css: false
+	},
 	asyncData({ params }) {
 		return axios
 			.get(`${process.env.baseUrl}/wp/v2/case?slug=${params.detail}&_embed`)

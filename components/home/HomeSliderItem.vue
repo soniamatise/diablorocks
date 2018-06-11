@@ -82,9 +82,9 @@ export default {
     // Small and animation
     else {
       if (this.itemKey < 3) {
-        TweenMax.from(this.$refs.checkActive, 1.2, {
+        TweenMax.to(this.$refs.checkActive, 1.2, {
           delay: (this.itemKey / 3) + .8,
-          y: '130%',
+          y: '0',
           ease: Elastic.easeOut.config(0.3, 0.2)
         });
       } else {
@@ -96,7 +96,7 @@ export default {
   },
   methods: {
     mouseOver: function(imageClass) {
-      let mask = this.$refs.image_holder_active;
+			let mask = this.$refs.image_holder_active;
       let shadow = this.$refs.shadow;
       const breakpoint = this.$store.state.breakpoints;
 
@@ -110,17 +110,15 @@ export default {
       // If there is no transistion going and not mobile width
       if (!this.transition && breakpoint.small < window.innerWidth) {
         TweenMax.to(mask, .6, {
-          clipPath: clipPathHovers[imageClass],
-          ease: Power4.easeInOut
+          clipPath: clipPathHovers[imageClass]
         });
         TweenMax.to(shadow, .4, {
-          color: this.caseColor,
-          ease: Power4.easeIn
+          color: this.caseColor
         });
       }
 
       // Emit to change the background
-      this.$emit('mouseOver', this.caseColor);
+      //this.$emit('mouseOver', this.caseColor);
     },
     mouseLeave: function() {
       let mask = this.$refs.image_holder_active;
@@ -245,13 +243,7 @@ export default {
   },
 };
 </script>
-<style scoped>
-.background__canvas {
-  z-index: 4;
-  opacity: .7;
-}
+<style lang="scss">
+@import "~henris/ext";
 
-.swiper-slide {
-  z-index: -1;
-}
 </style>
