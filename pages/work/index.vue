@@ -98,7 +98,7 @@ export default {
 				});
 			} else if(mouseEvent === 'pageTransition') {
 				console.log('Transition started');
-				TweenMax.to(this.backgroundCanvas, .3, {
+				TweenMax.to(this.backgroundCanvas, 1, {
 					backgroundColor: caseColor,
 					opacity: 1
 				});

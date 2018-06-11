@@ -6,7 +6,17 @@ const createStore = () => {
       breakpoints: {
         small: 750,
         medium: 960,
-        large: 1000
+        large: 1000,
+
+        pageTransition: false
+      },
+      transition: {
+        page: false
+      }
+    },
+    mutations: {
+      updateTransition(state, pageTransition) {
+        state.transition.page = pageTransition;
       }
     }
   });

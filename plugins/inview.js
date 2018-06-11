@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 // In main.js
 import Vue from "vue";
 

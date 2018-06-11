@@ -4,7 +4,10 @@
 			@mouseover="backgroundTransitionIn()"
 			@mouseleave="backgroundTransitionOut()"
 			@click="pageTransition()">
-			<div :class="['card__image',item.imageSize]" ref="cardImage" :style="{ 'background-image': 'url(' + item.image + ')' }" >
+			<div class="card__mask" ref="cardMask">
+				<div class="card__image-holder" ref="cardImageHolder">
+					<img :class="['card__image',item.imageSize]" ref="cardImage" :src="item.image">
+				</div>
 			</div>
 			<div class="card__content">
 				<h4 ref="cardText"><strong>{{ item.title }}</strong> &mdash; {{ item.description }}</h4>
@@ -14,10 +17,12 @@
 </template>
 
 <script>
-import TweenMax from 'gsap';
 
 export default {
 	props: ["data"],
+		transition: {
+		css: false
+	},
 	data() {
 		return {
 			item: {},
@@ -33,15 +38,19 @@ export default {
 			this.item.image = this.$props.data.case_image;
 			this.item.imageSize = this.$props.data.case_size;
 			this.item.backgroundColor = this.$props.data.case_background_color;
+			this.item.slug = this.$props.data.case_slug;
 		}
 	},
 	mounted() {
 		this.cardText = this.$refs.cardText;
+		this.cardImage = this.$refs.cardImage;
+		this.cardMask = this.$refs.cardMask;
+		this.cardImageHolder = this.$refs.cardImageHolder;
 	},
 	methods: {
 		backgroundTransitionIn: function () {
 			// Card mouse-enter animation if there is no page transition going
-			if (this.pageTransitionState === false) {
+			if (this.$store.state.transition.page === false) {
 
 				// Set the z-index of the card higher
 				this.zIndex = 999;
@@ -56,7 +65,7 @@ export default {
 		},
 		backgroundTransitionOut: function () {
 			// Card mouse-leave animation if there is no page transition going
-			if (this.pageTransitionState === false) {
+			if (this.$store.state.transition.page === false) {
 
 				// Remove te z-index from the card
 				this.zIndex = '';
@@ -70,9 +79,83 @@ export default {
 			}
 		},
 		pageTransition: function () {
-			this.pageTransitionState = true;
+			let _this = this;
+			// Set page transition to true, so hover effect doesn't affect it
+			this.$store.commit('updateTransition', true);
 
 			this.$emit('changeBackground', this.item.backgroundColor, 'pageTransition');
+
+			// Make a new timeline
+			let timeline = new TimelineMax({
+				onComplete: pageTransitionAnimation
+			});
+
+			let timelineTwo = new TimelineMax({});
+
+			let screenHeight = (window.innerHeight / 2) - (this.cardMask.offsetHeight / 2);
+			let imagePositionTop = this.cardMask.getBoundingClientRect().top;
+
+			let screenWidth = (window.innerWidth / 2) - (this.cardMask.offsetWidth / 2);
+			let imagePositionLeft = this.cardMask.getBoundingClientRect().left;
+
+			timeline
+				.to(this.cardText, .5, {
+					opacity: 0
+				})
+				.to(this.cardMask, .5, {
+					y: screenHeight - imagePositionTop,
+					ease: Power2.easeInOut
+				}, '-=.4')
+				.to(this.cardMask, .3, {
+					x: screenWidth - imagePositionLeft,
+					ease: Power2.easeInOut
+				});
+
+				function pageTransitionAnimation() {
+					let imageBouding = _this.cardImageHolder.getBoundingClientRect();
+
+					timelineTwo
+					.set(_this.cardMask, {
+						width: `100vw`,
+            height: `100vh`,
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            clearProps: "transform",
+						clipPath: `polygon(
+              ${imageBouding.left / window.innerWidth * 100}%
+              ${imageBouding.top / window.innerHeight * 100}%,
+              ${(imageBouding.left + imageBouding.width) / window.innerWidth * 100}%
+              ${imageBouding.top / window.innerHeight * 100}%,
+              ${(imageBouding.left + imageBouding.width) / window.innerWidth * 100}%
+              ${(imageBouding.top + imageBouding.height) / window.innerHeight * 100}%,
+              ${imageBouding.left / window.innerWidth * 100}%
+              ${(imageBouding.top + imageBouding.height) / window.innerHeight * 100}%
+              )`
+					})
+					.set(_this.cardImageHolder, {
+						height: '100vh',
+						width: '100vw'
+					})
+					.to(_this.cardImage, 1, {
+						width: `100%`,
+						height: `100vh`,
+						top: 0,
+						objectFit: 'cover',
+						ease: Power2.easeIn
+					})
+					.to(_this.cardMask, 1.9, {
+						clipPath: 'polygon(-20% 120%, -20% -20%, 120% -20%, 120% 120%)',
+						ease: Power4.easeInOut,
+						onComplete: () => {
+							_this.completeAnimation();
+						}
+					}, '-=.85');
+				}
+		},
+		completeAnimation: function () {
+			console.log('COMPLETE');
+			this.$router.push(this.item.slug);
 		}
 	}
 };
@@ -89,10 +172,10 @@ export default {
 	width: 100%;
 	&__holder {
 		display: block;
-		position: relative;
+		//position: relative;
 		transition: transform 0.2s;
 		backface-visibility: hidden;
-		will-change: transform;
+		//will-change: transform;
 		padding: grid(0.5);
 
 		&:nth-child(1) {
@@ -105,24 +188,24 @@ export default {
 		/* Every first item  */
 		&:nth-child(4n + 1) {
 			.card__image {
-				padding-bottom: 130%;
+				//padding-bottom: 130%;
 			}
 		}
 		/* Every second item  */
 		&:nth-child(4n + 2) {
 			.card__image {
-				padding-bottom: 110%;
+				//padding-bottom: 110%;
 			}
 		}
 		/* Every second item  */
 		&:nth-child(4n + 3) {
 			.card__image {
-				padding-bottom: 110%;
+				//padding-bottom: 110%;
 			}
 		} /* Every second item  */
 		&:nth-child(4n + 4) {
 			.card__image {
-				padding-bottom: 90%;
+				//padding-bottom: 90%;
 			}
 		}
 		// /* Every third item  */
@@ -148,12 +231,21 @@ export default {
 		// 	background-color: red;
 		// }
 	}
+	&__mask {
+		clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+	}
+	&__image-holder {
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		align-items: center;
+		height: grid(9);
+	}
 	&__image {
 		display: block;
-		width: 100%;
-		height: 0;
-		padding-bottom: 25%;
-		overflow: hidden;
+		width: 67.5vw;
+		//padding-bottom: 25%;
 		background-size: cover;
 		// &.portrait {
 		// 	padding-bottom: 150%;
