@@ -2,7 +2,8 @@
 	<div class="card__holder" ref="cardHolder" :style="{ 'z-index': zIndex }">
 		<div class="card"
 			@mouseover="backgroundTransitionIn()"
-			@mouseleave="backgroundTransitionOut()">
+			@mouseleave="backgroundTransitionOut()"
+			@click="pageTransition()">
 			<div :class="['card__image',item.imageSize]" ref="cardImage" :style="{ 'background-image': 'url(' + item.image + ')' }" >
 			</div>
 			<div class="card__content">
@@ -20,7 +21,7 @@ export default {
 	data() {
 		return {
 			item: {},
-			pageTransition: false,
+			pageTransitionState: false,
 			zIndex: ''
 		};
 	},
@@ -40,12 +41,12 @@ export default {
 	methods: {
 		backgroundTransitionIn: function () {
 			// Card mouse-enter animation if there is no page transition going
-			if (this.pageTransition === false) {
+			if (this.pageTransitionState === false) {
 
 				// Set the z-index of the card higher
 				this.zIndex = 999;
 
-				TweenMax.to(this.cardText, .5, {
+				TweenMax.to(this.cardText, .8, {
 					color: '#fff'
 				});
 
@@ -55,18 +56,23 @@ export default {
 		},
 		backgroundTransitionOut: function () {
 			// Card mouse-leave animation if there is no page transition going
-			if (this.pageTransition === false) {
+			if (this.pageTransitionState === false) {
 
 				// Remove te z-index from the card
 				this.zIndex = '';
 
-				TweenMax.to(this.cardText, .3, {
+				TweenMax.to(this.cardText, .6, {
 					color: '#000'
 				});
 
 				// Emit the the event to the parent component
 				this.$emit('changeBackground', '', 'mouseleave');
 			}
+		},
+		pageTransition: function () {
+			this.pageTransitionState = true;
+
+			this.$emit('changeBackground', this.item.backgroundColor, 'pageTransition');
 		}
 	}
 };

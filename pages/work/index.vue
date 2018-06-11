@@ -89,15 +89,19 @@ export default {
 			if(mouseEvent === 'mouseover') {
 				TweenMax.to(this.backgroundCanvas, .6, {
 					backgroundColor: caseColor,
-					opacity: .8
+					opacity: .9
 				});
 			}	else if(mouseEvent === 'mouseleave') {
 				TweenMax.to(this.backgroundCanvas, .6, {
 					opacity: 0,
 					clearProps: 'backgroundColor'
 				});
-			} else if(mouseEvent === 'transition') {
+			} else if(mouseEvent === 'pageTransition') {
 				console.log('Transition started');
+				TweenMax.to(this.backgroundCanvas, .3, {
+					backgroundColor: caseColor,
+					opacity: 1
+				});
 			}
 		},
 		showContent: function() {}
