@@ -19,10 +19,12 @@
 						:data="item"
 						:case-index="index"
 						:case-size="item.case_fields.case_size"
+						ref="allCards"
 					/>
-				<!-- end slider item -->
-
 				</div>
+
+				<div class="background__canvas" ref="backgroundCanvas"></div>
+
 
 				<div class="swiper-pagination"></div>
 
@@ -96,9 +98,38 @@ export default {
 			displayContent: false
 		};
 	},
+	mounted() {
+		this.backgroundCanvas = this.$refs.backgroundCanvas;
+		this.allCards = this.$refs.allCards;
+	},
 	methods: {
-		changeBackground: function() {
-			console.log('change!');
+		changeBackground: function(key, caseColor, mouseEvent) {
+			// Function for animating the background element based on the event
+			if(mouseEvent === 'mouseover') {
+				TweenMax.to(this.backgroundCanvas, 1.5, {
+					backgroundColor: caseColor,
+					opacity: .9
+				});
+			}	else if(mouseEvent === 'mouseleave') {
+				TweenMax.to(this.backgroundCanvas, 1, {
+					opacity: 0,
+					clearProps: 'backgroundColor'
+				});
+			} else if(mouseEvent === 'pageTransition') {
+
+				// Fade out all case items expect the one clicked on
+				this.allCards.forEach(function(card) {
+					if (card.caseIndex !== key) {
+						TweenMax.to(card.$el, 1, {
+								opacity: 0
+							});
+					}
+				});
+				TweenMax.to(this.backgroundCanvas, 1, {
+					backgroundColor: caseColor,
+					opacity: 1
+				});
+			}
 		}
 	}
 };
