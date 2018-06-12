@@ -3,7 +3,7 @@
 	<div class="swiper-slide" ref="card">
 
 		<!-- content container -->
-		<div class="swiper-slide__container" :class="blockClass">
+		<div class="swiper-slide__container" :class="item.caseSize">
 
 			<!-- case name -->
 			<div class="content name" ref="mobilebox">
@@ -12,14 +12,14 @@
 
 
 			<!-- image -->
-			<div class="mask block" ref="cardMask"
-				:class="imageClass"
-				@click="bgClick(item.caseSize)"
+			<div class="swiper-slide__mask" ref="cardMask"
+				:class="item.caseSize"
+				@click="pageTransition(item.caseSize)"
 				@mouseover="mouseOver(item.caseSize)"
 				@mouseleave="mouseLeave()">
-				<div class="image_holder">
-					<div class="image_actual" data-swiper-parallax="50%" ref="cardImageHolder">
-						<img :src="loadImage" ref="cardImage" />
+				<div class="swiper-slide__image-holder" >
+					<div data-swiper-parallax="50%" ref="cardImageHolder">
+						<img class="swiper-slide__image" :src="loadImage" ref="cardImage" />
 					</div>
 				</div>
 			</div>
@@ -33,7 +33,7 @@
 			</div>
 
 			<!-- shadow -->
-			<div class="shadow" :class="imageClass" ref="cardShadow"></div>
+			<div class="swiper-slide__shadow" :class="item.caseSize" ref="cardShadow"></div>
 
 		</div>
 	</div>
@@ -44,8 +44,6 @@ export default {
 	props: ['case-index', 'data'],
   data() {
     return {
-      blockClass: 'square_block',
-      imageClass: 'square_image',
 			loadImage: '',
 			item: {},
 			hover: {
@@ -80,9 +78,6 @@ export default {
 			this.item.caseSize = this.$props.data.case_fields.case_size;
 
 			this.item.key = this.$props.caseIndex;
-
-			this.blockClass = this.item.caseSize + '_block';
-			this.imageClass = this.item.caseSize + '_image';
 		}
 	},
   methods: {
@@ -131,7 +126,7 @@ export default {
 				});
 			}
     },
-    bgClick: function(caseSize) {
+    pageTransition: function(caseSize) {
 			this.$store.commit('updateTransition', true);
 
 			this.$emit('changeBackground', this.item.key, this.item.caseColor, 'pageTransition');
@@ -149,7 +144,7 @@ export default {
       let timeline = new TimelineMax({
 				onComplete: this.complete
 			});
-			
+
       // Get scale ratio's to make a better transition
       if (caseSize === 'landscape') {
         extraAmount = (this.cardMask.getBoundingClientRect().width / this.cardMask.getBoundingClientRect().height) * 10;
@@ -212,12 +207,14 @@ export default {
       }
     },
     complete: function() {
+			this.$store.commit('updateTransition', false);
+
       this.$router.push(this.item.slug);
     },
   },
 };
 </script>
 <style lang="scss">
-@import "~henris/ext";
+//@import "~henris/ext";
 
 </style>

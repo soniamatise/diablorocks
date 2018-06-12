@@ -111,7 +111,7 @@ export default {
 					opacity: .9
 				});
 			}	else if(mouseEvent === 'mouseleave') {
-				TweenMax.to(this.backgroundCanvas, 1, {
+				TweenMax.to(this.backgroundCanvas, 2, {
 					opacity: 0,
 					clearProps: 'backgroundColor'
 				});

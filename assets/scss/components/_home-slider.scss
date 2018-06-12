@@ -157,11 +157,6 @@
 }
 
 .home-slider {
-
-  .swiper-wrapper {
-    z-index: 10;
-  }
-
   .swiper-slide {
     height: 100vh;
     width: grid(16);
@@ -275,7 +270,7 @@
       }
 
       // content in blocks
-      &.portrait_block {
+      &.portrait {
         .content {
           height: grid(8);
 
@@ -301,7 +296,7 @@
         }
       }
 
-      &.square_block {
+      &.square {
         .content {
           height: grid(9);
 
@@ -327,7 +322,7 @@
         }
       }
 
-      &.landscape_block {
+      &.landscape {
         .content {
           height: grid(10);
 
@@ -352,149 +347,133 @@
           }
         }
       }
+    }
+    // image holder
+    &__mask {
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      z-index: 2;
+      display: block;
+      cursor: pointer;
 
-      // shading
-      .shadow {
-        width: grid(8.5);
-        height: grid(8.5);
-        border-radius: 50%;
-        color: color(Black);
-        box-shadow: 0 0 grid(2) grid(0.75);
-        position: absolute;
+      &.landscape {
+        width: grid(12.5);
+        height: grid(9.375);
+        clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
 
-        &.landscape_image {
-          width: grid(9.5);
-          height: grid(7);
-
-          @media #{$medium-only} {
-            width: grid(13.5);
-            height: grid(10);
-          }
-
-          @media #{$small-only} {
-            width: calc(100vw - 64px);
-            height: calc(100vw - 64px);
-          }
-        }
-
-        &.portrait_image {
-          width: grid(7.5);
-          height: grid(10.5);
-
-          @media #{$medium-only} {
-            width: grid(11.5);
-            height: grid(15.5);
-          }
-
-          @media #{$small-only} {
-            width: calc(100vw - 64px);
-            height: calc(100vw - 64px);
-          }
-        }
-
-        &.square_image {
-          width: grid(8.5);
-          height: grid(8.5);
-
-          @media #{$medium-only} {
-            width: grid(13.5);
-            height: grid(13.5);
-          }
-
-          @media #{$small-only} {
-            width: calc(100vw - 64px);
-            height: calc(100vw - 64px);
-          }
+        @media #{$medium-only} {
+          width: grid(17.5);
+          height: grid(13.125);
         }
       }
 
-      // image holder
-      .mask {
-        overflow: hidden;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: absolute;
-        z-index: 2;
-        display: block;
-        cursor: pointer;
+      &.portrait {
+        width: grid(10);
+        height: grid(13.75);
+        clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
 
-        &.landscape_image {
-          width: grid(12.5);
-          height: grid(9.375);
-          clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
-
-          @media #{$medium-only} {
-            width: grid(17.5);
-            height: grid(13.125);
-          }
+        @media #{$medium-only} {
+          width: grid(15);
+          height: grid(20);
         }
+      }
 
-        &.portrait_image {
-          width: grid(10);
-          height: grid(13.75);
-          clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
+      &.square {
+        width: grid(11.25);
+        height: grid(11.25);
+        clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
 
-          @media #{$medium-only} {
-            width: grid(15);
-            height: grid(20);
-          }
+        @media #{$medium-only} {
+          width: grid(17.5);
+          height: grid(17.5);
         }
+      }
 
-        &.square_image {
-          width: grid(11.25);
-          height: grid(11.25);
-          clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
 
-          @media #{$medium-only} {
-            width: grid(17.5);
-            height: grid(17.5);
-          }
+      @media #{$small-only} {
+        &.landscape,
+        &.portrait,
+        &.square {
+          width: calc(100vw - 64px);
+          height: calc(100vw - 64px);
+          clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
         }
+      }
+    }
+    // image position
+    &__image-holder {
+      position: absolute;
+      width: 100vw;
+      height: 83.34vw;
+      min-height: 100vh;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &__image {
+        object-fit: cover;
+        margin: 0;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%) scale(0.8);
+        width: 100%;
+        height: 100%;
+    }
 
+    // shading
+    &__shadow {
+      width: grid(8.5);
+      height: grid(8.5);
+      border-radius: 50%;
+      color: color(Black);
+      box-shadow: 0 0 grid(2) grid(0.75);
+      position: absolute;
+
+      &.landscape {
+        width: grid(9.5);
+        height: grid(7);
+
+        @media #{$medium-only} {
+          width: grid(13.5);
+          height: grid(10);
+        }
 
         @media #{$small-only} {
-          &.landscape_image,
-          &.portrait_image,
-          &.square_image {
-            width: calc(100vw - 64px);
-            height: calc(100vw - 64px);
-            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+          width: calc(100vw - 64px);
+          height: calc(100vw - 64px);
+        }
+      }
 
-            &:hover {
-              clip-path: none;
-              -webkit-clip-path: none;
-            }
-          }
+      &.portrait {
+        width: grid(7.5);
+        height: grid(10.5);
+
+        @media #{$medium-only} {
+          width: grid(11.5);
+          height: grid(15.5);
         }
 
-        // image position
-        .image_holder {
-          position: absolute;
-          width: 100vw;
-          height: 83.34vw;
-          min-height: 100vh;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
+        @media #{$small-only} {
+          width: calc(100vw - 64px);
+          height: calc(100vw - 64px);
+        }
+      }
 
-          .image_actual {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            display: flex;
+      &.square {
+        width: grid(8.5);
+        height: grid(8.5);
 
-            img {
-              object-fit: cover;
-              margin: 0;
-              position: relative;
-              left: 50%;
-              transform: translateX(-50%) scale(0.9);
-              width: 100%;
-              height: 100%;
-            }
-          }
+        @media #{$medium-only} {
+          width: grid(13.5);
+          height: grid(13.5);
+        }
+
+        @media #{$small-only} {
+          width: calc(100vw - 64px);
+          height: calc(100vw - 64px);
         }
       }
     }
