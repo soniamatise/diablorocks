@@ -6,9 +6,9 @@ const createStore = () => {
       breakpoints: {
         small: 750,
         medium: 960,
-        large: 1000,
-
-        pageTransition: false
+        large: 1280,
+        xlarge: 1920,
+        xxlarge: 9999
       },
       transition: {
         page: false

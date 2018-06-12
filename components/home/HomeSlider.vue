@@ -14,17 +14,11 @@
 
 				<div class="swiper-wrapper">
 					<!-- slider item -->
-					<home-slider-item v-for="(value, key) in cases" :key="value.post.id"
+					<home-slider-item v-for="(item, index) in cases" :key="item.post.id"
 						@changeBackground="changeBackground"
-						@mouseOver="mouseOver"
-						@mouseLeave="mouseLeave"
-						:case-name="value.case_fields.client_name"
-						:slug="`work/${value.post.post_name}`"
-						:case-description="value.case_fields.case_description"
-						:case-image="value.case_fields.case_image"
-						:case-color="value.case_fields.case_background_color"
-						:case-size="value.case_fields.case_size"
-						:item-key="key"
+						:data="item"
+						:case-index="index"
+						:case-size="item.case_fields.case_size"
 					/>
 				<!-- end slider item -->
 
@@ -32,7 +26,7 @@
 
 				<div class="swiper-pagination"></div>
 
-				<div class="swiper-scrollbar contentDisappear" :class="{show: displayContent}" :style="sliderStyle" ref="scrollbar">
+				<div class="swiper-scrollbar contentDisappear" :class="{show: displayContent}" ref="scrollbar">
 					<span ref="bullet" v-for="value in cases" class="bullet" :key="value.post.id"></span>
 				</div>
 			</div>
@@ -103,6 +97,9 @@ export default {
 		};
 	},
 	methods: {
+		changeBackground: function() {
+			console.log('change!');
+		}
 	}
 };
 

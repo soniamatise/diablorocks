@@ -174,7 +174,7 @@
     }
 
     // content container
-    .content_container {
+    &__container {
       position: relative;
       display: flex;
       justify-content: center;
@@ -407,7 +407,7 @@
       }
 
       // image holder
-      .image_holder {
+      .mask {
         overflow: hidden;
         display: flex;
         align-items: center;
@@ -467,7 +467,7 @@
         }
 
         // image position
-        .image_position {
+        .image_holder {
           position: absolute;
           width: 100vw;
           height: 83.34vw;
