@@ -13,7 +13,7 @@ export default {
     this.$nextTick(() => {
       this.$nuxt.$loading.start()
 
-      setTimeout(() => this.$nuxt.$loading.finish(), 2000)
+      setTimeout(() => this.$nuxt.$loading.finish(), 500)
     })
   },
   methods: {
@@ -32,12 +32,34 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 0%;
+  height: 100%;
   background: white;
   text-align: center;
   font-size: 30px;
   font-family: sans-serif;
   z-index: 500;
+  animation: open 1s ease forwards, close 1s 2s ease forwards;
+}
+
+@keyframes open {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes close {
+  0% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0%;
+    right: 0;
+  }
 }
 </style>
