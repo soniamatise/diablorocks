@@ -11,43 +11,38 @@
 
 <script>
 export default {
-	props: {
+  props: {},
+  data: function() {
+    return {
 
-	},
-	data: function() {
-		return {
-			show: false
-		};
-	},
-	mounted() {
+    };
+  },
+  mounted() {},
+  methods: {
 
-	},
-	methods: {
-		beforeLeave: function () {
-			// how to have this per-route
-			console.log( 'Route entered' );
-		}
-	}
+  }
 };
 </script>
 
 <style scoped>
-/* .page-transition-overlay {
-    position: fixed;
-    background-color: white;
-    z-index: 500;
-    width: 0%;
-    height: 100%;
-    left: 0;
-    opacity: 1;
-    animation-name: example;
-    animation-duration: 2s;
-    animation-delay: 2s;
-    animation-direction: forwards;
+.page-transition-overlay_close {
+  position: fixed;
+  background-color: white;
+  z-index: 500;
+  width: 0%;
+  height: 100%;
+  left: 0;
+  opacity: 1;
+  animation: example 1s 1.5s ease forwards;
 }
-@keyframes example {
-    0%   { width: 0%;}
-    100% { width: 100%;}
-} */
 
+@keyframes example {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
 </style>

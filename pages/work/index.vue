@@ -1,6 +1,5 @@
 <template>
 	<main-layout class="work">
-		<page-transition-close></page-transition-close>
 		<section class="intro">
 			<type-writer
 				heading="Work"
@@ -79,7 +78,6 @@ import PayoffCredits from '~/components/work/PayoffCredits';
 import TypeWriter from '~/components/animations/TypeWriter';
 import NextCase from '~/components/work/NextCase';
 import WorkCard from '~/components/work/WorkCard';
-import PageTransitionClose from '~/components/animations/PageTransitionClose';
 
 export default {
 	components: {
@@ -90,7 +88,6 @@ export default {
 		TypeWriter,
 		NextCase,
 		WorkCard,
-		PageTransitionClose
 	},
 	data() {
 		return {
