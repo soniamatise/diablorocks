@@ -1,30 +1,30 @@
 <template lang="html">
-  <div class="loading-page" v-if="loading">
-    <p>Loading...</p>
-  </div>
+	<div class="loading-page" v-if="loading">
+		<p>Loading...</p>
+	</div>
 </template>
 
 <script>
 export default {
-  data: () => ({
-    loading: false
-  }),
-  mounted () {
-    this.$nextTick(() => {
-      this.$nuxt.$loading.start()
+	data: () => ({
+		loading: false
+	}),
+	mounted () {
+		this.$nextTick(() => {
+			this.$nuxt.$loading.start();
 
-      setTimeout(() => this.$nuxt.$loading.finish(), 500)
-    })
-  },
-  methods: {
-    start () {
-      this.loading = true
-    },
-    finish () {
-      this.loading = false
-    }
-  }
-}
+			setTimeout(() => this.$nuxt.$loading.finish(), 500);
+		});
+	},
+	methods: {
+		start () {
+			this.loading = true;
+		},
+		finish () {
+			this.loading = false;
+		}
+	}
+};
 </script>
 
 <style scoped>
@@ -39,7 +39,8 @@ export default {
   font-size: 30px;
   font-family: sans-serif;
   z-index: 500;
-  animation: open 1s ease forwards, close 1s 2s ease forwards;
+  animation: open .5s 0s ease forwards;
+   /* close 1s 2s ease forwards; */
 }
 
 @keyframes open {
