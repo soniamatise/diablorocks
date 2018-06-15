@@ -48,7 +48,7 @@ export default {
   transition: width 0.5s ease-in-out;
 
   &_leave-page {
-	background-color: black;
+    background-color: black;
     width: 0%;
 
     &.opening {
@@ -58,7 +58,7 @@ export default {
   }
 
   &_open-page {
-	background-color: black;
+    background-color: black;
     width: 100%;
 
     &.closing {
