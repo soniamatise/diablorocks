@@ -35,11 +35,7 @@ module.exports = {
 	/*
 	 ** Customize the progress bar color
 	 */
-	// loading: {
-	// 	color: 'white',
-	// 	height: '100%'
-	// },
-	loading: '~/components/loadingNew.vue',
+	loading: '~/components/loading.vue',
 	plugins: [
 		{
 			src: '~plugins/swiper.js',
