@@ -119,7 +119,6 @@ export default {
 			this.leaveOpen = true;
 			next();
 		}
-		// console.log(to.name);
 	},
 	mounted() {
 		let self = this;

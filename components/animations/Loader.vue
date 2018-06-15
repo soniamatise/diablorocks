@@ -9,19 +9,17 @@
 
 <script>
 export default {
-	props: [
-		'leaveOpen',
-	],
-	data () {
+	props: ['leaveOpen'],
+	data() {
 		return {
 			isClosing: false,
 			isOpening: false
 		};
 	},
 	watch: {
-		leaveOpen () {
+		leaveOpen() {
 			this.open();
-		},
+		}
 	},
 	beforeMount() {
 		let self = this;
@@ -30,11 +28,11 @@ export default {
 		}, 200);
 	},
 	methods: {
-		close: function (){
+		close: function() {
 			let self = this;
 			self.isClosing = true;
 		},
-		open: function (){
+		open: function() {
 			let self = this;
 			self.isOpening = true;
 		}
@@ -43,30 +41,30 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .overlay {
-        position: fixed;
-        height: 100%;
-        background-color: black;
-        z-index: 3;
-        transition: width .5s ease-in-out;
+.overlay {
+  position: fixed;
+  height: 100%;
+  z-index: 3;
+  transition: width 0.5s ease-in-out;
 
-        &_leave-page {
-            width: 0%;
+  &_leave-page {
+	background-color: black;
+    width: 0%;
 
-            &.opening {
-                left: 0;
-                width: 100% !important;
-            }
-        }
-
-        &_open-page {
-            width: 100%;
-
-            &.closing {
-                right: 0;
-                width: 0% !important;
-            }
-        }
+    &.opening {
+      left: 0;
+      width: 100% !important;
     }
+  }
 
+  &_open-page {
+	background-color: black;
+    width: 100%;
+
+    &.closing {
+      right: 0;
+      width: 0% !important;
+    }
+  }
+}
 </style>
