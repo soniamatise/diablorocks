@@ -45,7 +45,7 @@ export default {
   position: fixed;
   height: 100%;
   z-index: 3;
-  transition: width 0.5s ease-in-out;
+  transition: width 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
   &_leave-page {
     background-color: black;
