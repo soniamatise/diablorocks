@@ -30,11 +30,6 @@ export default {
 			failedColor: 'red',
 		};
 	},
-	// watch: {
-	// 	get: function () {
-	// 		console.log(this.percent);
-	// 	}
-	// },
 	methods: {
 
 		start () {
@@ -72,7 +67,7 @@ export default {
 			return this;
 		},
 		finish () {
-			console.log('heu')
+			console.log('heu');
 			this.percent = 100;
 			this.hide();
 			return this;

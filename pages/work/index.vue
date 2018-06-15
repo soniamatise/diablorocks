@@ -1,5 +1,7 @@
 <template>
 	<main-layout class="work">
+		<loader :leave-open="leaveOpen"></loader>
+
 		<section class="intro">
 			<type-writer
 				heading="Work"
@@ -78,6 +80,7 @@ import PayoffCredits from '~/components/work/PayoffCredits';
 import TypeWriter from '~/components/animations/TypeWriter';
 import NextCase from '~/components/work/NextCase';
 import WorkCard from '~/components/work/WorkCard';
+import Loader from '~/components/animations/Loader';
 
 export default {
 	components: {
@@ -88,6 +91,7 @@ export default {
 		TypeWriter,
 		NextCase,
 		WorkCard,
+		Loader
 	},
 	data() {
 		return {
@@ -102,8 +106,15 @@ export default {
 			class3: ['large', 'medium'],
 			allCases: '',
 			windowWidth: '',
-			mouseout: false
+			mouseout: false,
+			// LOADING COMPONENT LEAVE OVERLAY
+			leaveOpen: false,
 		};
+	},
+	// LOADING COMPONENT LEAVE OVERLAY
+	beforeRouteLeave (to, from , next) {
+		this.leaveOpen = true;
+		next();
 	},
 	mounted() {
 		let self = this;
