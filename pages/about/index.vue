@@ -1,6 +1,7 @@
 <!-- very basic data import -->
 <template>
 	<main-layout>
+		<loader :leave-open="leaveOpen"></loader>
 
 		<section class="intro">
 			<type-writer
@@ -127,16 +128,20 @@ import axios from 'axios';
 
 import MainLayout from '~/layouts/body/MainLayout.vue';
 import TypeWriter from '~/components/animations/TypeWriter';
+import Loader from '~/components/animations/Loader';
 
 export default {
 	components: {
 		MainLayout,
-		TypeWriter
+		TypeWriter,
+		Loader
 	},
 	data() {
 		return {
 			Velocity: this.$velocity,
 			displayContent: false,
+			// LOADING COMPONENT LEAVE OVERLAY
+			leaveOpen: false,
 			swiperOption: {
 				slidesPerView: 'auto',
 				centeredSlides: true,
@@ -162,6 +167,11 @@ export default {
 				}
 			}
 		};
+	},
+	// LOADING COMPONENT LEAVE OVERLAY
+	beforeRouteLeave (to, from , next) {
+		this.leaveOpen = true;
+		next();
 	},
 	methods: {
 		showContent: function() {

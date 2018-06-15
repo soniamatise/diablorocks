@@ -48,7 +48,7 @@ export default {
         height: 100%;
         background-color: black;
         z-index: 3;
-        transition: width 1s ease-in-out;
+        transition: width .5s ease-in-out;
 
         &_leave-page {
             width: 0%;

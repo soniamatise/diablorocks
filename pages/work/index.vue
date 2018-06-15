@@ -113,8 +113,13 @@ export default {
 	},
 	// LOADING COMPONENT LEAVE OVERLAY
 	beforeRouteLeave (to, from , next) {
-		this.leaveOpen = true;
-		next();
+		if (to.name == 'work-detail'){
+			next();
+		} else {
+			this.leaveOpen = true;
+			next();
+		}
+		// console.log(to.name);
 	},
 	mounted() {
 		let self = this;
