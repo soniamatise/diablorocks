@@ -55,10 +55,6 @@ module.exports = {
     {
       src: '~plugins/gsap.js',
       ssr: false
-    },
-    {
-      src: '~plugins/inviewplugin.js',
-      ssr: false
     }
   ],
   /*

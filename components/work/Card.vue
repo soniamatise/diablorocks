@@ -48,7 +48,6 @@ export default {
 			this.item.backgroundColor = this.$props.data.case_background_color;
 			this.item.slug = this.$props.data.case_slug;
 		}
-		//window.addEventListener('scroll', this.handleScroll);
 	},
 	mounted() {
 		inviewplugin.mixin;
@@ -59,19 +58,9 @@ export default {
 		this.cardImageHolder = this.$refs.cardImageHolder;
 
 		this.breakpoint = this.$store.state.breakpoints;
-		// TweenMax.set(this.$refs.cardHolder, {
-		// 	opacity: 0
-		// });
 
 	},
 	methods: {
-		handleScroll () {
-			console.log(this.inview.visible.x);
-			var y = Math.floor(Math.random() * 3) + 1;
-			TweenMax.set(this.$refs.cardHolder, {
-				y: `-=${y}`,
-			});
-		},
 		backgroundTransitionIn: function () {
 			console.log(this.inview);
 			console.log(this);
