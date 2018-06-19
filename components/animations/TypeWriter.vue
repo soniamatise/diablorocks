@@ -37,13 +37,17 @@ export default {
 	},
 	watch: {
 		wait: function() {
-			this.type();
+			setTimeout(function() {
+				this.type();
+			},900);
 		}
 	},
 	mounted() {
 		let self = this;
 		if (self._props.wait != true) {
-			self.type();
+			setTimeout(function() {
+				self.type();
+			},900);
 		}
 	},
 	methods: {
