@@ -17,8 +17,6 @@
 </template>
 
 <script>
-import inviewplugin from '~/plugins/inviewplugin';
-
 export default {
 	props: ["data"],
 		transition: {
