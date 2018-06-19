@@ -1,9 +1,9 @@
 const axios = require('axios');
 
 module.exports = {
-	router: {
-		middleware: 'delay'
-	},
+	// router: {
+	// 	middleware: 'delay'
+	// },
 	serverMiddleware: ['~/middleware/seo.js'],
 	/*
 	 ** Headers of the page
