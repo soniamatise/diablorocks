@@ -37,8 +37,9 @@ export default {
 	},
 	watch: {
 		wait: function() {
+			let self = this;
 			setTimeout(function() {
-				this.type();
+				self.type();
 			},900);
 		}
 	},
