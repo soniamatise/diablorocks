@@ -1,9 +1,6 @@
 const axios = require('axios');
 
 module.exports = {
-	// router: {
-	// 	middleware: 'delay'
-	// },
 	serverMiddleware: ['~/middleware/seo.js'],
 	/*
 	 ** Headers of the page
@@ -35,7 +32,6 @@ module.exports = {
 	/*
 	 ** Customize the progress bar color
 	 */
-	// loading: '~/components/loading.vue',
 	plugins: [
 		{
 			src: '~plugins/swiper.js',
