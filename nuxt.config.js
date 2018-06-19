@@ -2,9 +2,6 @@ const axios = require("axios");
 
 module.exports = {
   serverMiddleware: ["~/middleware/seo.js"],
-  /*
-	 ** Headers of the page
-	 */
   head: {
     title: "Matise - Not your average Agency",
     meta: [
@@ -29,9 +26,6 @@ module.exports = {
       }
     ]
   },
-  /*
-	 ** Customize the progress bar color
-	 */
   loading: {
     color: "black"
   },
@@ -53,9 +47,7 @@ module.exports = {
       ssr: false
     }
   ],
-  /*
-	 ** Build configuration
-	 */
+
   build: {
     postcss: {
       plugins: {
@@ -67,9 +59,7 @@ module.exports = {
         }
       }
     },
-    /*
-		 ** Run ESLint on save
-		 */
+
     extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
@@ -107,7 +97,6 @@ module.exports = {
     }
   ],
   modules: [
-    // Simple usage
     [
       "@nuxtjs/google-analytics",
       {

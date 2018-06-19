@@ -26,8 +26,7 @@ export default {
 		return {
 			item: {},
 			pageTransitionState: false,
-			zIndex: '',
-			inview: ''
+			zIndex: ''
 		};
 	},
 	watch: {
@@ -48,20 +47,15 @@ export default {
 		}
 	},
 	mounted() {
-		inviewplugin.mixin;
-
 		this.cardText = this.$refs.cardText;
 		this.cardImage = this.$refs.cardImage;
 		this.cardMask = this.$refs.cardMask;
 		this.cardImageHolder = this.$refs.cardImageHolder;
 
 		this.breakpoint = this.$store.state.breakpoints;
-
 	},
 	methods: {
 		backgroundTransitionIn: function () {
-			console.log(this.inview);
-			console.log(this);
 			// Card mouse-enter animation if there is no page transition going
 			if (this.$store.state.transition.page === false) {
 
@@ -200,52 +194,6 @@ export default {
 		&:nth-child(2) {
 			margin-top: grid(1);
 		}
-
-		/* Every first item  */
-		&:nth-child(4n + 1) {
-			.card__image {
-				//padding-bottom: 130%;
-			}
-		}
-		/* Every second item  */
-		&:nth-child(4n + 2) {
-			.card__image {
-				//padding-bottom: 110%;
-			}
-		}
-		/* Every second item  */
-		&:nth-child(4n + 3) {
-			.card__image {
-				//padding-bottom: 110%;
-			}
-		} /* Every second item  */
-		&:nth-child(4n + 4) {
-			.card__image {
-				//padding-bottom: 90%;
-			}
-		}
-		// /* Every third item  */
-		// &:nth-child(3n + 3) {
-		// 	border: 2px solid purple;
-		// 	.card__image {
-		// 		padding-bottom: 150%;
-		// 	}
-		// }
-
-		// counter-increment: countIt;
-		// &:before {
-		// 	content: counter(countIt);
-		// 	display: block;
-		// 	position: absolute;
-		// 	left: 0px;
-		// 	width: 2rem;
-		// 	top: 0;
-		// 	height: 2rem;
-		// 	color: white;
-		// 	line-height: 2rem;
-		// 	text-align: center;
-		// 	background-color: red;
-		// }
 	}
 	&__mask {
 		clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
@@ -267,15 +215,6 @@ export default {
 		@media #{$medium-down} {
 			width: 100vw;
 		}
-		// &.portrait {
-		// 	padding-bottom: 150%;
-		// }
-		// &.landscape {
-		// 	padding-bottom: 100%;
-		// }
-		// &.square {
-		// 	padding-bottom: 50%;
-		// }
 	}
 	&__content {
 		padding: grid(0.5);
