@@ -119,7 +119,7 @@ export default {
 			this.leaveOpen = true;
 			setTimeout(function() {
 				next();
-			},700);
+			},200);
 		}
 	},
 	mounted() {
