@@ -173,7 +173,7 @@ export default {
 		this.leaveOpen = true;
 		setTimeout(function() {
 			next();
-		},300);
+		},200);
 	},
 	methods: {
 		showContent: function() {
