@@ -171,7 +171,9 @@ export default {
 	// LOADING COMPONENT LEAVE OVERLAY
 	beforeRouteLeave (to, from , next) {
 		this.leaveOpen = true;
-		next();
+		setTimeout(function() {
+			next();
+		},700);
 	},
 	methods: {
 		showContent: function() {

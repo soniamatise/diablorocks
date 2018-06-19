@@ -45,11 +45,12 @@ export default {
   position: fixed;
   height: 100%;
   z-index: 3;
-  transition: width 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: width 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
   &_leave-page {
     background-color: black;
     width: 0%;
+		transition: width 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     &.opening {
       left: 0;
@@ -60,6 +61,7 @@ export default {
   &_open-page {
     background-color: black;
     width: 100%;
+		transition: width 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     &.closing {
       right: 0;

@@ -117,7 +117,9 @@ export default {
 			next();
 		} else {
 			this.leaveOpen = true;
-			next();
+			setTimeout(function() {
+				next();
+			},700);
 		}
 	},
 	mounted() {
