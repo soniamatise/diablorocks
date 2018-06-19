@@ -1,5 +1,5 @@
 <template>
-	<div id="main-layout">
+	<div id="main-layout" class="smoothie">
 		<input id="menu-trigger" type="checkbox">
 		<logo/>
 		<top-nav :class="{headerIsActive: activeHeader}" @headerIsActive="makeActive"/>
@@ -26,10 +26,13 @@ export default {
 			activeHeader: false
 		};
 	},
+	mounted() {
+	
+	},
 	methods: {
 		makeActive: function() {
 			this._data.activeHeader = true;
 		}
-	}
+	},
 };
 </script>
