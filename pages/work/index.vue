@@ -1,5 +1,6 @@
 <template>
 	<main-layout class="work">
+		<loader :leave-open="leaveOpen"></loader>
 
 		<section class="intro">
 			<type-writer
@@ -65,6 +66,7 @@
 			left-text="It’s not all work"
 			case-name="Find out who we are"
 		/>
+
 	</main-layout>
 </template>
 
@@ -78,6 +80,8 @@ import PayoffCredits from '~/components/work/PayoffCredits';
 import TypeWriter from '~/components/animations/TypeWriter';
 import NextCase from '~/components/work/NextCase';
 import WorkCard from '~/components/work/WorkCard';
+import Loader from '~/components/animations/Loader';
+
 export default {
 	components: {
 		OneColumn,
@@ -86,7 +90,8 @@ export default {
 		MainLayout,
 		TypeWriter,
 		NextCase,
-		WorkCard
+		WorkCard,
+		Loader
 	},
 	data() {
 		return {
@@ -101,8 +106,21 @@ export default {
 			class3: ['large', 'medium'],
 			allCases: '',
 			windowWidth: '',
-			mouseout: false
+			mouseout: false,
+			// LOADING COMPONENT LEAVE OVERLAY
+			leaveOpen: false,
 		};
+	},
+	// LOADING COMPONENT LEAVE OVERLAY
+	beforeRouteLeave (to, from , next) {
+		if (to.name == 'work-detail'){
+			next();
+		} else {
+			this.leaveOpen = true;
+			setTimeout(function() {
+				next();
+			},700);
+		}
 	},
 	mounted() {
 		let self = this;
