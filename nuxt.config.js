@@ -49,10 +49,6 @@ module.exports = {
       ssr: false
     },
     {
-      src: "~plugins/inview.js",
-      ssr: false
-    },
-    {
       src: '~plugins/gsap.js',
       ssr: false
     }
