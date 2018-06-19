@@ -18,7 +18,7 @@
 				@mouseover="mouseOver(item.caseSize)"
 				@mouseleave="mouseLeave()">
 				<div class="swiper-slide__image-holder" >
-					<div data-swiper-parallax="50%" ref="cardImageHolder">
+					<div data-swiper-parallax="50%" ref="cardImageHolder" class="swiper-slide__image-holder-card">
 						<img class="swiper-slide__image" :src="loadImage" ref="cardImage" />
 					</div>
 				</div>
@@ -60,6 +60,7 @@ export default {
 		this.card = this.$refs.card;
 		this.cardText = this.$refs.cardText;
 		this.cardImage = this.$refs.cardImage;
+		this.cardImageHolder = this.$refs.cardImageHolder;
 		this.cardMask = this.$refs.cardMask;
 		this.cardShadow = this.$refs.cardShadow;
 
@@ -130,9 +131,6 @@ export default {
 			this.$store.commit('updateTransition', true);
 
 			this.$emit('changeBackground', this.item.key, this.item.caseColor, 'pageTransition');
-      let image = this.$refs.imgActive;
-      let mask = this.$refs.image_holder_active;
-      let imageContainer = this.$refs.imageMask;
       let extraAmount;
 
 
@@ -153,7 +151,7 @@ export default {
       }
 
       // Animation for Large & medium
-      if (window.innerWidth > this.breakpoint.medium) {
+      if (window.innerWidth > this.breakpoint.small) {
         timeline
           .set(document.getElementById('header'), {
             zIndex: 1
@@ -175,6 +173,7 @@ export default {
           }, '-=2.6');
       } else {
 				// Animation for small
+				console.log('medium');
 				let imageBouding = this.cardMask.getBoundingClientRect();
 
         timeline
@@ -216,5 +215,7 @@ export default {
 </script>
 <style lang="scss">
 //@import "~henris/ext";
-
+.swiper-slide__image-holder-card {
+	height: 100%;
+}
 </style>

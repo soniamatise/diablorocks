@@ -4,7 +4,8 @@
 import Vue from "vue";
 
 Vue.directive("inview", {
-  bind: function(el, binding) {
+  twoWay: true,
+  bind: function(el, binding, vnode) {
     function getInview(el) {
       let _this = this;
       _this.win = {
@@ -236,16 +237,15 @@ Vue.directive("inview", {
 
     //function to be passed to "listen" property; adds data in #im1_data
     function showData() {
-      // el.setAttribute("data-inparent", element.inParent);
-      // el.style.transform = `translateY(${element.inParent /
-      //   binding.value.increase}px)`;
+      //console.log(vnode.context)
+      vnode.child.inview = element
+      //console.log(el)
+    //  el.scroll.element.inParent)
+
     }
 
     let element = new getInview(el);
 
-    // console.log(element);
     element.listen = showData;
-    // console.log(window);
-    // console.log(element);
   }
 });

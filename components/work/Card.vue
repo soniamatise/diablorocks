@@ -17,6 +17,7 @@
 </template>
 
 <script>
+import inviewplugin from '~/plugins/inviewplugin';
 
 export default {
 	props: ["data"],
@@ -27,8 +28,15 @@ export default {
 		return {
 			item: {},
 			pageTransitionState: false,
-			zIndex: ''
+			zIndex: '',
+			inview: ''
 		};
+	},
+	watch: {
+		inview: function(oldValue, newValue) {
+			console.log(oldValue);
+			console.log(newValue);
+		}
 	},
 	created() {
 		if (this.$props.data) {
@@ -40,17 +48,33 @@ export default {
 			this.item.backgroundColor = this.$props.data.case_background_color;
 			this.item.slug = this.$props.data.case_slug;
 		}
+		//window.addEventListener('scroll', this.handleScroll);
 	},
 	mounted() {
+		inviewplugin.mixin;
+
 		this.cardText = this.$refs.cardText;
 		this.cardImage = this.$refs.cardImage;
 		this.cardMask = this.$refs.cardMask;
 		this.cardImageHolder = this.$refs.cardImageHolder;
 
 		this.breakpoint = this.$store.state.breakpoints;
+		// TweenMax.set(this.$refs.cardHolder, {
+		// 	opacity: 0
+		// });
+
 	},
 	methods: {
+		handleScroll () {
+			console.log(this.inview.visible.x);
+			var y = Math.floor(Math.random() * 3) + 1;
+			TweenMax.set(this.$refs.cardHolder, {
+				y: `-=${y}`,
+			});
+		},
 		backgroundTransitionIn: function () {
+			console.log(this.inview);
+			console.log(this);
 			// Card mouse-enter animation if there is no page transition going
 			if (this.$store.state.transition.page === false) {
 
@@ -145,6 +169,7 @@ export default {
 						height: `100vh`,
 						top: 0,
 						objectFit: 'cover',
+						position: 'absolute',
 						ease: Power2.easeIn
 					})
 					.to(_this.cardMask, 1.9, {
@@ -161,7 +186,7 @@ export default {
 
 			this.$router.push(this.item.slug);
 		}
-	}
+	},
 };
 </script>
 
@@ -248,9 +273,13 @@ export default {
 	}
 	&__image {
 		display: block;
+		position: absolute;
 		width: 67.5vw;
 		//padding-bottom: 25%;
 		background-size: cover;
+		@media #{$medium-down} {
+			width: 100vw;
+		}
 		// &.portrait {
 		// 	padding-bottom: 150%;
 		// }

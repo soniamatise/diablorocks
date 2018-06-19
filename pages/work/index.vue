@@ -14,7 +14,7 @@
 		<section ref="workGrid" class="row work__grid content" v-if="cases.length > 0">
 			<card
 				v-for="(item, index) in cases"
-				v-inview="{ increase: index }"
+				v-inview="{ data: index }"
 				:release="index"
 				:key="item.ID"
 				:data="item"
@@ -77,13 +77,6 @@ export default {
 		this.backgroundCanvas = this.$refs.backgroundCanvas;
 	},
 	methods: {
-		setBackgroundcolor: function(color) {
-			console.log(color);
-			this.$refs.mainLayout.style.setProperty(
-				"--current-background-color",
-				color
-			);
-		},
 		changeBackground: function(caseColor, mouseEvent) {
 			// Function for animating the background element based on the event
 
