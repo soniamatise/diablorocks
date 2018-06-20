@@ -1,5 +1,5 @@
 document.body.addEventListener('mouseover',function(){
-	new SmoothScroll(document,30,12);
+	new SmoothScroll(document,20,12);// 20,12
 },true);
 
 function SmoothScroll(target, speed, smooth) {
