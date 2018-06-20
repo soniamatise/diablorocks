@@ -1,6 +1,5 @@
 <template>
 	<main-layout class="work" ref="mainLayout" style="background-color: var(--current-background-color">
-
 		<section class="intro">
 			<type-writer
 				heading="Work"
@@ -25,12 +24,12 @@
 			left-text="It’s not all work"
 			case-name="Find out who we are"
 		/>
+
 	</main-layout>
 </template>
 
 <script>
 import axios from 'axios';
-
 import MainLayout from "~/layouts/body/MainLayout";
 import OneColumn from "~/components/work/OneColumn";
 import TwoColumn from "~/components/work/TwoColumn";

@@ -9,7 +9,7 @@ import MainLayout from '~/layouts/body/MainLayout.vue';
 
 export default {
 	components: {
-		MainLayout
+		MainLayout,
 		// SlideVideo
 	},
 	data() {
