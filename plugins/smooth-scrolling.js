@@ -1,18 +1,18 @@
-document.body.addEventListener('mouseover',function(){
-	new SmoothScroll(document,20,12);// 20,12
+document.body.addEventListener('mouseover', () => {
+	new SmoothScroll(document,25,55);// 20,12
 },true);
 
 function SmoothScroll(target, speed, smooth) {
 	if (target == document)
 		target = (document.documentElement || document.body.parentNode || document.body); // cross browser support for document scrolling
-	var moving = false;
-	var pos = target.scrollTop;
+	let moving = false;
+	let pos = target.scrollTop;
 	target.addEventListener('mousewheel', scrolled, false);
 	target.addEventListener('DOMMouseScroll', scrolled, false);
 
 	function scrolled(e) {
 		e.preventDefault(); // disable default scrolling
-		var delta = e.delta || e.wheelDelta;
+		let delta = e.delta || e.wheelDelta;
 		if (delta === undefined) {
 			//we are on firefox
 			delta = -e.detail;
@@ -27,7 +27,7 @@ function SmoothScroll(target, speed, smooth) {
 
 	function update() {
 		moving = true;
-		var delta = (pos - target.scrollTop) / smooth;
+		let delta = (pos - target.scrollTop) / smooth;
 		target.scrollTop += delta;
 		if (Math.abs(delta) > 0.5)
 			requestFrame(update);
@@ -35,7 +35,7 @@ function SmoothScroll(target, speed, smooth) {
 			moving = false;
 	}
 
-	var requestFrame = function() { // requestAnimationFrame cross browser
+	let requestFrame = function() { // requestAnimationFrame cross browser
 		return (
 			window.requestAnimationFrame ||
 			window.webkitRequestAnimationFrame ||

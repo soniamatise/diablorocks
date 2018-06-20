@@ -33,7 +33,6 @@
     "npm-watch": "^0.3.0",
     "nuxt": "^1.0.0",
     "sass-loader": "^6.0.7",
-    "smooth-scrolling": "^2.3.9",
     "swiper": "^4.2.0",
     "velocity-animate": "^2.0.2",
     "vue-awesome-swiper": "^3.1.3",
