@@ -25,11 +25,11 @@ export default {
 		return {
 			activeHeader: false
 		};
-	}, 
+	},
 	methods: {
 		makeActive: function() {
 			this._data.activeHeader = true;
 		}
-	},
+	}
 };
 </script>
