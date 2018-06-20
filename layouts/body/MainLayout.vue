@@ -25,10 +25,7 @@ export default {
 		return {
 			activeHeader: false
 		};
-	},
-	mounted() {
-	
-	},
+	}, 
 	methods: {
 		makeActive: function() {
 			this._data.activeHeader = true;
