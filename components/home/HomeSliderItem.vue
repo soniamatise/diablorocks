@@ -1,161 +1,221 @@
 <template>
-
 	<!-- swiper slide -->
-	<div ref="checkActive" class="swiper-slide">
+	<div class="swiper-slide" ref="card">
 
 		<!-- content container -->
-		<div ref="content_container_active" :class="blockClass" class="content_container">
+		<div class="swiper-slide__container" :class="item.caseSize">
 
 			<!-- case name -->
-			<div class="content name">
-				<p>{{ caseName }}</p>
+			<div class="content name" ref="mobilebox">
+				<p>{{ item.caseName }}</p>
 			</div>
-			<!-- end case name -->
+
 
 			<!-- image -->
-			<div ref="image_holder_active" :class="imageClass" class="image_holder block" @click="bgClick()" @mouseover="bgOfCase()" @mouseleave="bgToNormal()">
-				<div class="image_position">
-					<div class="image_actual" data-swiper-parallax="50%">
-						<img ref="imgActive" :src="caseImage" >
+			<div class="swiper-slide__mask" ref="cardMask"
+				:class="item.caseSize"
+				@click="pageTransition(item.caseSize)"
+				@mouseover="mouseOver(item.caseSize)"
+				@mouseleave="mouseLeave()">
+				<div class="swiper-slide__image-holder" >
+					<div data-swiper-parallax="50%" ref="cardImageHolder" class="swiper-slide__image-holder-card">
+						<img class="swiper-slide__image" :src="loadImage" ref="cardImage" />
 					</div>
 				</div>
 			</div>
-			<!-- end image -->
 
 			<!-- case description -->
 			<div class="content description">
-				<p>{{ caseDescription }}</p>
+				<p>{{ item.caseDescription }}</p>
 			</div>
 			<div class="content_for_medium">
-				<p><span>{{ caseName }}</span>{{ caseDescription }}</p>
+				<p><span>{{ item.caseName }}</span>{{ item.caseDescription }}</p>
 			</div>
-			<!-- end case description -->
 
 			<!-- shadow -->
-			<div :class="imageClass" class="shadow"/>
-			<!-- end shadow -->
+			<div class="swiper-slide__shadow" :class="item.caseSize" ref="cardShadow"></div>
 
 		</div>
-		<!-- end content container -->
-
 	</div>
-	<!-- end swiper slide -->
-
 </template>
 
 <script>
 export default {
-	props: {
-		caseName: {
-			type: String,
-			default: ''
-		},
-		caseDescription: {
-			type: String,
-			default: ''
-		},
-		caseImage: {
-			type: String,
-			default: ''
-		},
-		caseUrl: {
-			type: String,
-			default: ''
-		},
-		caseColor: {
-			type: String,
-			default: ''
-		},
-		caseSize: {
-			type: String,
-			default: ''
-		},
-		slug: {
-			type: String,
-			default: ''
-		}
-	},
-	data() {
-		return {
-			blockClass: 'square_block',
-			imageClass: 'square_image'
-		};
-	},
-	mounted() {
-		if (this.caseSize) {
-			this.blockClass = this.caseSize + '_block';
-			this.imageClass = this.caseSize + '_image';
-		}
-	},
-	methods: {
-		bgClick: function() {
-			const checkActive = this.$refs.checkActive;
-			console.log(checkActive);
-
-			if (checkActive.classList.contains('swiper-slide-active')) {
-				// noSlider
-				this.$parent.mySwiper.allowSlideNext = false;
-				this.$parent.mySwiper.allowSlidePrev = false;
-
-				// get the right element
-				let clickUp = this.$refs.image_holder_active;
-				clickUp.classList.add('click_up');
-
-				// get rid of non elements
-				document.querySelector('.nav__list').classList.add('fade-out');
-				document.querySelector('.typeWriterTitle').classList.add('fade-out');
-				document.querySelector('.swiper-pagination').classList.add('change-z');
-
-				// remove others items
-				let imageHolders = document.querySelectorAll('.image_holder');
-
-				imageHolders.forEach(function(imageHolder) {
-					imageHolder.classList.add('fade-out');
-				});
-
-				// remove content in other items
-				let contentContainers = document.querySelectorAll('.content_container');
-
-				contentContainers.forEach(function(contentContainer) {
-					contentContainer.classList.add('fade-out');
-				});
-
-				// keep current content_holder
-				let keepContent = this.$refs.content_container_active;
-				keepContent.classList.add('click_up');
+	props: ['case-index', 'data'],
+  data() {
+    return {
+			loadImage: '',
+			item: {},
+			hover: {
+				landscape: 'polygon(5% 21%, 83% 1%, 95% 79%, 17% 99%)',
+				square: 'polygon(3% 19%, 81% 3%, 97% 81%, 21% 97%)',
+				portrait: 'polygon(1% 17%, 79% 5%, 99% 83%, 21% 95%)'
 			}
-			let self = this;
-			setTimeout(() => {
-				self.$router.push(this.slug);
-			}, 2400);
-		},
-		bgOfCase: function() {
-			let shadowChange = this.$parent.$refs.homeSlider;
-			shadowChange.classList.add('changeShadow');
+    };
+  },
+  mounted() {
+		// Load images after the page is loaded
+		this.loadImage = this.item.image;
 
-			let imageHolder = document.querySelectorAll('.image_holder');
-			// const getGrid = window.innerWidth / 24
+		this.card = this.$refs.card;
+		this.cardText = this.$refs.cardText;
+		this.cardImage = this.$refs.cardImage;
+		this.cardImageHolder = this.$refs.cardImageHolder;
+		this.cardMask = this.$refs.cardMask;
+		this.cardShadow = this.$refs.cardShadow;
 
-			this.$emit('onEnter', this.caseColor);
+		this.breakpoint =  this.$store.state.breakpoints;
 
-			var self = this;
+		// Start animation for items flying in when page loads
+		this.animateIn();
+  },
+	created() {
+		if (this.$props.data) {
+			this.item.caseName = this.$props.data.case_fields.client_name;
+			this.item.slug = `work/${this.$props.data.post.post_name}`;
+			this.item.caseDescription = this.$props.data.case_fields.case_description;
+			this.item.image = this.$props.data.case_fields.case_image;
+			this.item.caseColor = this.$props.data.case_fields.case_background_color;
+			this.item.caseSize = this.$props.data.case_fields.case_size;
 
-			imageHolder.forEach(function(imageHolder) {
-				imageHolder.style = `--caseColor: ${self.caseColor}`;
-			});
-		},
-		bgToNormal: function() {
-			let shadowChange = this.$parent.$refs.homeSlider;
-			shadowChange.classList.remove('changeShadow');
-
-			let imageHolder = document.querySelectorAll('.image_holder');
-
-			this.$emit('onLeave');
-
-			imageHolder.forEach(function(imageHolder) {
-				imageHolder.style = '--caseColor: black';
-			});
+			this.item.key = this.$props.caseIndex;
 		}
-	}
+	},
+  methods: {
+		animateIn: function () {
+		// Animation for homepage slideup items
+				// Only animate first three items
+				if (this.item.key < 3) {
+					TweenMax.to(this.card, 1.2, {
+						delay: (this.item.key / 2) + .5,
+						y: 0,
+						ease: Elastic.easeOut.config(0.3, 0.2)
+					});
+				} else {
+					TweenMax.set(this.card, {
+						y: 0
+					});
+				}
+		},
+    mouseOver: function(caseSize) {
+			if (this.$store.state.transition.page === false && this.breakpoint.small < window.innerWidth) {
+				this.$emit('changeBackground', this.item.key, this.item.caseColor, 'mouseover');
+
+				TweenMax.to(this.cardMask, 1, {
+          clipPath: this.hover[caseSize],
+					ease: Elastic.easeInOut.config(1, 0.5)
+        });
+
+        TweenMax.to(this.cardShadow, 1, {
+          color: this.item.caseColor,
+					ease: Power2.easeIn
+        });
+			}
+    },
+    mouseLeave: function() {
+			if (this.$store.state.transition.page === false && this.breakpoint.small < window.innerWidth) {
+				this.$emit('changeBackground', this.item.key, this.item.caseColor, 'mouseleave');
+
+				TweenMax.to(this.cardMask, .9, {
+					ease: Power3.easeOut,
+          clipPath: "polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%)"
+        });
+
+				TweenMax.to(this.cardShadow, 1, {
+					color: '#000',
+					ease: Power2.easeInOut
+				});
+			}
+    },
+    pageTransition: function(caseSize) {
+			this.$store.commit('updateTransition', true);
+
+			this.$emit('changeBackground', this.item.key, this.item.caseColor, 'pageTransition');
+      let extraAmount;
+
+
+      // // Disable swiper
+      this.$parent.mySwiper.allowSlideNext = false;
+      this.$parent.mySwiper.allowSlidePrev = false;
+
+      // Define a new timeline, when complete push router
+      let timeline = new TimelineMax({
+				onComplete: this.complete
+			});
+
+      // Get scale ratio's to make a better transition
+      if (caseSize === 'landscape') {
+        extraAmount = (this.cardMask.getBoundingClientRect().width / this.cardMask.getBoundingClientRect().height) * 10;
+      } else {
+        extraAmount = (this.cardMask.getBoundingClientRect().height / this.cardMask.getBoundingClientRect().width) * 10;
+      }
+
+      // Animation for Large & medium
+      if (window.innerWidth > this.breakpoint.small) {
+        timeline
+          .set(document.getElementById('header'), {
+            zIndex: 1
+          })
+          .set(this.cardMask, {
+            zIndex: 15
+          })
+          .to(this.cardMask, 2.3, {
+						delay: .2,
+            clipPath: `polygon(
+						0% ${extraAmount + 100}%, 0% ${-extraAmount}%, 100% ${-extraAmount}%, 100% ${extraAmount + 100}%)`,
+            width: `${window.innerWidth}px`,
+            height: `${window.innerHeight}px`,
+            ease: Power4.easeInOut
+          })
+          .to(this.cardImage, 2, {
+            scale: 1,
+            ease: Power4.easeIn
+          }, '-=2.6');
+      } else {
+				// Animation for small
+				console.log('medium');
+				let imageBouding = this.cardMask.getBoundingClientRect();
+
+        timeline
+          .set(this.cardMask, {
+            width: `${window.innerWidth}px`,
+            height: `${window.innerHeight}px`,
+            clipPath: `polygon(
+						${imageBouding.left / window.innerWidth * 100}%
+						${(imageBouding.top / window.innerHeight) * 100}%,
+						${(imageBouding.left + imageBouding.width) / window.innerWidth * 100}%
+						${imageBouding.top / window.innerHeight * 100}%,
+						${(imageBouding.left + imageBouding.width) / window.innerWidth * 100}%
+						${(imageBouding.top + imageBouding.height) / window.innerHeight * 100}%,
+						${imageBouding.left / window.innerWidth * 100}%
+						${(imageBouding.top + imageBouding.height) / window.innerHeight * 100}%
+						)`
+          })
+					.to(this.cardShadow, .5, {
+						color: this.item.caseColor
+					})
+          .to(this.cardMask, 2.3, {
+            clipPath: `polygon(
+						0% ${extraAmount + 100}%, 0% ${-extraAmount}%, 100% ${-extraAmount}%, 100% ${extraAmount + 100}%)`,
+            ease: Power4.easeInOut
+          })
+          .to(this.cardImage, 1, {
+            scale: 1,
+            ease: Power4.easeIn
+          }, '-=2');
+      }
+    },
+    complete: function() {
+			this.$store.commit('updateTransition', false);
+
+      this.$router.push(this.item.slug);
+    },
+  },
 };
 </script>
+<style lang="scss">
+//@import "~henris/ext";
+.swiper-slide__image-holder-card {
+	height: 100%;
+}
+</style>
