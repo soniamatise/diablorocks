@@ -44,6 +44,10 @@ module.exports = {
 		{
 			src: '~plugins/vue-motion.js',
 			ssr: false
+		},
+		{
+			src: '~plugins/gsap.js',
+			ssr: false
 		}
 	],
 	/*
