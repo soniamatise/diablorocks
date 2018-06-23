@@ -6,7 +6,7 @@ module.exports = {
 	 ** Headers of the page
 	 */
 	head: {
-		title: 'Matise - Not your average Agency',
+		title: 'Diablo Rocks',
 		meta: [
 			{
 				charset: 'utf-8'
@@ -18,7 +18,7 @@ module.exports = {
 			{
 				hid: 'description',
 				name: 'description',
-				content: 'Matise - Not your average Agency'
+				content: 'Diablo Rocks'
 			}
 		],
 		link: [

@@ -5,12 +5,6 @@
 		<!-- home slider -->
 		<div class="home-slider" ref="homeSlider">
 			<div v-swiper:mySwiper="swiperOption">
-				<div class="home-slider__typewriter" data-swiper-parallax="-280%">
-					<type-writer
-						heading="Our copy guy was out of office"
-						sub=""
-					/>
-				</div>
 
 				<div class="swiper-wrapper">
 					<!-- slider item -->
