@@ -76,7 +76,7 @@ import FullPhoto from '~/components/work/detail/FullPhoto.vue';
 export default {
 	head() {
 		return {
-			title: this.client + ' | Matise - Not your average Agency',
+			title: this.client + ' | Diablo Rocks',
 			bodyAttrs: {
 				class: 'white_menu'
 			}

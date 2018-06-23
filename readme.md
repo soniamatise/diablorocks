@@ -1,6 +1,6 @@
-# matise2018
+# Diablo Rocks
 
-> Matise 2018 in Nuxt
+> Diablo
 
 ## Build Setup
 

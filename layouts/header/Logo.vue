@@ -1,7 +1,7 @@
 <template>
 	<h1 class="nav__logo">
 		<nuxt-link to="/">
-			<span class="nav__logo__link">Matise</span>
+			<span class="">Diablo</span>
 		</nuxt-link>
 		<label class="trigger" for="menu-trigger" @click="toggleScrollBody(),toggleHeaderWidth()">
 			<span :class="{flip: flip}"/>
