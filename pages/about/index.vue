@@ -7,29 +7,6 @@
 			<h1>About</h1>
 		</section>
 
-		<!--  sub nav -->
-		<!-- <section class="subnav">
-			<nav class="nav" aria-label="Top navigation" ref="topNav">
-				<ul class="nav__list">
-					<li class="nav__item main-link">
-						<nuxt-link class="nav__link active" to="/about">
-							<span class="nav__text">Who we are</span>
-						</nuxt-link>
-					</li>
-					<li class="nav__item main-link">
-						<nuxt-link class="nav__link" to="/what-we-do">
-							<span class="nav__text">What we do</span>
-						</nuxt-link>
-					</li>
-					<li class="nav__item main-link">
-						<nuxt-link class="nav__link" to="/how-we-do-it">
-							<span class="nav__text">How we do it</span>
-						</nuxt-link>
-					</li>
-				</ul>
-			</nav>
-		</section> -->
-
 
 		<section class="about">
 			<!-- loop trough layouts -->
