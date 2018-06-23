@@ -214,7 +214,6 @@ export default {
 };
 </script>
 <style lang="scss">
-//@import "~henris/ext";
 .swiper-slide__image-holder-card {
 	height: 100%;
 }

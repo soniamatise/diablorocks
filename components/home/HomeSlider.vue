@@ -32,7 +32,6 @@
 
 <script>
 import HomeSliderItem from '~/components/home/HomeSliderItem.vue';
-import TypeWriter from '~/components/animations/TypeWriter.vue';
 import HomeIntro from '~/components/home/HomeIntro.vue';
 
 export default {
@@ -43,7 +42,6 @@ export default {
 	},
 	components: {
 		HomeSliderItem,
-		TypeWriter,
 		HomeIntro
 	},
 	props: ['cases'],
@@ -129,48 +127,3 @@ export default {
 };
 
 </script>
-<style lang="scss">
-@import "~henris/ext";
-
-.home-slider {
-	&__typewriter {
-		height: 100vh;
-    width: 100%;
-    position: absolute;
-    display: flex;
-    align-items: center;
-
-		@media #{$small-only} {
-      height: 100%;
-    }
-
-		.typeWriterTitle {
-			position: absolute;
-			white-space: nowrap;
-			height: 100%;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			@media #{$small-only} {
-				transform: rotate(90deg) translate(0, -50vw);
-				transform-origin: 0 50%;
-				top: 0;
-			}
-			h1 {
-				width: max-content;
-				padding: 0 grid(2);
-				height: grid(6);
-
-				@media #{$medium-only} {
-					padding: 0 grid(4);
-				}
-				@media #{$small-only} {
-					padding: 0;
-					left: -240px;
-					top: -16px;
-				}
-			}
-		}
-	}
-}
-</style>

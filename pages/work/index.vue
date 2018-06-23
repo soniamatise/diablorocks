@@ -1,11 +1,7 @@
 <template>
 	<main-layout class="work" ref="mainLayout" style="background-color: var(--current-background-color">
 		<section class="intro">
-			<type-writer
-				heading="Work"
-				sub="Our latest and greatest for brands we believe in."
-				@doneTyping="showContent"
-			/>
+			<h1>Work</h1>
 		</section>
 
 		<div class="background__canvas" ref="backgroundCanvas"></div>
@@ -33,7 +29,6 @@ import axios from 'axios';
 import MainLayout from "~/layouts/body/MainLayout";
 import OneColumn from "~/components/work/OneColumn";
 import TwoColumn from "~/components/work/TwoColumn";
-import TypeWriter from "~/components/animations/TypeWriter";
 import Card from "~/components/work/Card";
 
 const PayoffCredits = () => import ("~/components/work/PayoffCredits");
@@ -45,7 +40,6 @@ export default {
 		TwoColumn,
 		PayoffCredits,
 		MainLayout,
-		TypeWriter,
 		NextCase,
 		Card
 	},

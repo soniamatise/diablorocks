@@ -8,43 +8,6 @@
     background-color: color(Dark);
   }
 
-  &__typewriter {
-    .typeWriterTitle {
-      h1 {
-        color: color(White);
-        font-size: grid(6);
-
-        @media #{$medium-only} {
-          font-size: rem(192);
-        }
-
-        @media #{$small-only} {
-          font-size: rem(128);
-        }
-
-        &.caret {
-          &::after {
-            border-color: color(White);
-            transform: translateX(grid(-2));
-
-            @media #{$large-up} {
-              border-width: 4px;
-            }
-
-            @media #{$small-only} {
-              transform: translateX(grid(0));
-              top: 16px;
-            }
-          }
-        }
-      }
-
-      p {
-        display: none;
-      }
-    }
-  }
-
   // swiper
   .swiper-container {
     // swiper wrapper

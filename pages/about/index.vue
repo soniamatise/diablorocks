@@ -4,11 +4,7 @@
 		<loader :leave-open="leaveOpen"></loader>
 
 		<section class="intro">
-			<type-writer
-				heading="About"
-				sub="It’s all about us"
-				@doneTyping="showContent"
-			/>
+			<h1>About</h1>
 		</section>
 
 		<!--  sub nav -->
@@ -127,13 +123,11 @@
 import axios from 'axios';
 
 import MainLayout from '~/layouts/body/MainLayout.vue';
-import TypeWriter from '~/components/animations/TypeWriter';
 import Loader from '~/components/animations/Loader';
 
 export default {
 	components: {
 		MainLayout,
-		TypeWriter,
 		Loader
 	},
 	data() {
