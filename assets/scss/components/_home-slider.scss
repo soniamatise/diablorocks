@@ -1,13 +1,13 @@
+.home {
+  height: 100vh;
+  position: relative;
+  bottom: 0;
+}
 // home slider
 .home-slider {
   z-index: 1;
   background-color: color(Black);
   user-select: none;
-
-  @media #{$small-only} {
-    background-color: color(Dark);
-  }
-
   // swiper
   .swiper-container {
     // swiper wrapper
@@ -28,16 +28,6 @@
     position: relative;
     transform: translateY(100%);
 
-    @media #{$medium-only} {
-      width: grid(18);
-    }
-
-    @media #{$small-only} {
-      width: 100%;
-      height: calc(100vw * 1.25);
-      transform: translateY(150%);
-    }
-
     // content container
     &__container {
       position: relative;
@@ -46,172 +36,6 @@
       align-items: center;
       height: 50vh;
       width: 100%;
-
-      @media #{$small-only} {
-        height: 100%;
-      }
-
-      // general content
-      .content {
-        position: absolute;
-        transform-origin: 50% 50%;
-        width: grid(6.5);
-        z-index: 1;
-
-        p {
-          color: color(Light);
-          font-size: rem(16);
-          line-height: rem(24);
-          top: 32px;
-          position: absolute;
-          width: 100%;
-          display: block;
-        }
-
-        &.name {
-          transform: rotate(90deg) translate(0, 0);
-
-          p {
-            font-weight: $font-medium;
-          }
-
-          @media #{$medium-only} {
-            display: none;
-          }
-
-          @media #{$small-only} {
-            transform: none;
-            width: calc(100vw - 64px);
-            height: calc(100vw - 64px) !important;
-
-            p {
-              top: 100%;
-              position: absolute;
-              transform: translateY(32px) !important;
-              font-size: rem(14);
-              padding: 0 24px;
-            }
-          }
-        }
-
-        &.description {
-          transform: rotate(90deg) translate(0, 0);
-
-          p {
-            font-weight: $font-regular;
-            top: auto;
-            bottom: 32px;
-          }
-
-          @media #{$medium-down} {
-            display: none;
-          }
-        }
-      }
-
-      .content_for_medium {
-        display: none;
-
-        @media #{$medium-only} {
-          position: absolute;
-          display: block;
-          margin: 0 auto;
-
-          p {
-            color: color(White);
-            position: absolute;
-            bottom: 0;
-            transform: translateY(calc(100% + 32px));
-
-            span {
-              font-weight: $font-medium;
-
-              &::after {
-                content: "—";
-              }
-            }
-          }
-        }
-      }
-
-      // content in blocks
-      &.portrait {
-        .content {
-          height: grid(8);
-
-          &.name {
-            p {
-              transform: translateY(grid(8));
-            }
-          }
-
-          &.description {
-            p {
-              transform: translateY(grid(-8));
-              max-width: 32ch;
-            }
-          }
-        }
-
-        .content_for_medium {
-          @media #{$medium-only} {
-            width: grid(12);
-            height: grid(16);
-          }
-        }
-      }
-
-      &.square {
-        .content {
-          height: grid(9);
-
-          &.name {
-            p {
-              transform: translateY(grid(9));
-            }
-          }
-
-          &.description {
-            p {
-              transform: translateY(grid(-9));
-              max-width: 32ch;
-            }
-          }
-        }
-
-        .content_for_medium {
-          @media #{$medium-only} {
-            width: grid(14);
-            height: grid(14);
-          }
-        }
-      }
-
-      &.landscape {
-        .content {
-          height: grid(10);
-
-          &.name {
-            p {
-              transform: translateY(grid(10));
-            }
-          }
-
-          &.description {
-            p {
-              transform: translateY(grid(-10));
-              max-width: 32ch;
-            }
-          }
-        }
-
-        .content_for_medium {
-          @media #{$medium-only} {
-            width: grid(14);
-            height: grid(10.5);
-          }
-        }
-      }
     }
     // image holder
     &__mask {
@@ -228,19 +52,6 @@
         width: grid(12.5);
         height: grid(9.375);
         clip-path: polygon(10% 10%, 90% 10%, 90% 90%, 10% 90%);
-
-        @media #{$medium-only} {
-          width: grid(17.5);
-          height: grid(13.125);
-        }
-      }
-
-      @media #{$small-only} {
-        &.landscape {
-          width: calc(100vw - 64px);
-          height: calc(100vw - 64px);
-          clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-        }
       }
     }
     // image position
@@ -263,31 +74,6 @@
           width: 100%;
           height: 100vh;
         }
-    }
-
-    // shading
-    &__shadow {
-      width: grid(8.5);
-      height: grid(8.5);
-      border-radius: 50%;
-      color: color(Black);
-      box-shadow: 0 0 grid(2) grid(0.75);
-      position: absolute;
-
-      &.landscape {
-        width: grid(9.5);
-        height: grid(7);
-
-        @media #{$medium-only} {
-          width: grid(13.5);
-          height: grid(10);
-        }
-
-        @media #{$small-only} {
-          width: calc(100vw - 64px);
-          height: calc(100vw - 64px);
-        }
-      }
     }
   }
 }

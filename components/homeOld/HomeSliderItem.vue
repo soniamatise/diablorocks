@@ -4,7 +4,13 @@
 
 		<!-- content container -->
 		<div class="swiper-slide__container" :class="item.caseSize">
-			
+
+			<!-- case name -->
+			<div class="content name" ref="mobilebox">
+				<p>{{ item.caseName }}</p>
+			</div>
+
+
 			<!-- image -->
 			<div class="swiper-slide__mask landscape" ref="cardMask"
 				@click="pageTransition(item.caseSize)"
@@ -17,6 +23,10 @@
 				</div>
 			</div>
 
+			<!-- case description -->
+			<div class="content description">
+				<p>{{ item.caseDescription }}</p>
+			</div>
 			<div class="content_for_medium">
 				<p><span>{{ item.caseName }}</span>{{ item.caseDescription }}</p>
 			</div>

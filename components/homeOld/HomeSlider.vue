@@ -53,7 +53,18 @@ export default {
 				keyboard: {
 					enabled: true,
 					onlyInViewport: false,
-				}
+				},
+				// breakpoints
+				breakpoints: {
+					9999: {
+						parallax: true,
+					},
+					750: {
+						direction: 'vertical',
+						parallax: true,
+						speed: 400,
+					},
+				},
 			},
 			displayContent: false
 		};
