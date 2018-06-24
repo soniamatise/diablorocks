@@ -2,22 +2,5 @@
   width: 100%;
   z-index: 3;
   position: relative;
-
-  @media #{$small-only} {
-    width: 100vw;
-    height: 0;
-    top: 0;
-    left: 0;
-  }
-
-  .nav__contact {
-    position: absolute;
-    bottom: 5.75rem;
-    //only show on mobile
-    display: none;
-
-    @media #{$small-only} {
-      display: block;
-    }
-  }
+  background-color: red;
 }
