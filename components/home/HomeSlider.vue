@@ -1,15 +1,12 @@
 <template>
 	<div class="home" ref="wrapperFull">
-		<!-- <home-intro v-on:typeIt="type()"></home-intro> -->
 
-		<!-- home slider -->
 		<div class="home-slider" ref="homeSlider">
 			<div v-swiper:mySwiper="swiperOption">
 
 				<div class="swiper-wrapper">
 					<!-- slider item -->
 					<home-slider-item v-for="(item, index) in cases" :key="item.post.id"
-						@changeBackground="changeBackground"
 						:data="item"
 						:case-index="index"
 						:case-size="item.case_fields.case_size"
@@ -17,14 +14,6 @@
 					/>
 				</div>
 
-				<div class="background__canvas" ref="backgroundCanvas"></div>
-
-
-				<div class="swiper-pagination"></div>
-
-				<div class="swiper-scrollbar contentDisappear" :class="{show: displayContent}" ref="scrollbar">
-					<span ref="bullet" v-for="value in cases" class="bullet" :key="value.post.id"></span>
-				</div>
 			</div>
 		</div>
 	</div>
@@ -56,16 +45,6 @@ export default {
 				parallax: true,
 				grabCursor: true,
 				preventIntercationOnTransition: true,
-				scrollbar: {
-					el: '.swiper-scrollbar',
-					draggable: true,
-					dragSize: '60',
-				},
-				pagination: {
-					el: '.swiper-pagination',
-					type: 'bullets',
-					clickable: 'true',
-				},
 				mousewheel: {
 					invert: false,
 					sensitivity: 25,
@@ -91,38 +70,10 @@ export default {
 		};
 	},
 	mounted() {
-		this.backgroundCanvas = this.$refs.backgroundCanvas;
 		this.allCards = this.$refs.allCards;
 	},
 	methods: {
-		changeBackground: function(key, caseColor, mouseEvent) {
-			// Function for animating the background element based on the event
-			if(mouseEvent === 'mouseover') {
-				TweenMax.to(this.backgroundCanvas, 1.5, {
-					backgroundColor: caseColor,
-					opacity: .9
-				});
-			}	else if(mouseEvent === 'mouseleave') {
-				TweenMax.to(this.backgroundCanvas, 2, {
-					opacity: 0,
-					clearProps: 'backgroundColor'
-				});
-			} else if(mouseEvent === 'pageTransition') {
 
-				// Fade out all case items expect the one clicked on
-				this.allCards.forEach(function(card) {
-					if (card.caseIndex !== key) {
-						TweenMax.to(card.$el, 1, {
-								opacity: 0
-							});
-					}
-				});
-				TweenMax.to(this.backgroundCanvas, 1, {
-					backgroundColor: caseColor,
-					opacity: 1
-				});
-			}
-		}
 	}
 };
 

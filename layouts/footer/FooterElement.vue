@@ -64,7 +64,7 @@
 					<p class="hide-desktop">
 						<a class="nav__link" href="https://cdn.matise.nl/content/uploads/2018/04/20084059/av_matise.pdf">Terms &amp; conditions</a>
 					</p>
-					<p>&copy; Matise 2018 — All Rights Reserved
+					<p>&copy; Diablo Rocks 2018 — All Rights Reserved
 						<span class="hide-mobile">
 							<a class="nav__link" href="https://cdn.matise.nl/content/uploads/2018/04/20084059/av_matise.pdf">
 								<span class="nav__text">Terms &amp; conditions</span>

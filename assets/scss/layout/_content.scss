@@ -40,12 +40,6 @@
   }
 }
 
-// p{
-//   a{ position: relative;
-//     @extend %link-hover;
-//   }
-// }
-
 .external {
   p a {
     @extend %link-hover-ext;

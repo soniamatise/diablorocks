@@ -12,8 +12,7 @@
 
 
 			<!-- image -->
-			<div class="swiper-slide__mask" ref="cardMask"
-				:class="item.caseSize"
+			<div class="swiper-slide__mask landscape" ref="cardMask"
 				@click="pageTransition(item.caseSize)"
 				@mouseover="mouseOver(item.caseSize)"
 				@mouseleave="mouseLeave()">
@@ -99,7 +98,6 @@ export default {
 		},
     mouseOver: function(caseSize) {
 			if (this.$store.state.transition.page === false && this.breakpoint.small < window.innerWidth) {
-				this.$emit('changeBackground', this.item.key, this.item.caseColor, 'mouseover');
 
 				TweenMax.to(this.cardMask, 1, {
           clipPath: this.hover[caseSize],
@@ -114,7 +112,6 @@ export default {
     },
     mouseLeave: function() {
 			if (this.$store.state.transition.page === false && this.breakpoint.small < window.innerWidth) {
-				this.$emit('changeBackground', this.item.key, this.item.caseColor, 'mouseleave');
 
 				TweenMax.to(this.cardMask, .9, {
 					ease: Power3.easeOut,
@@ -130,7 +127,6 @@ export default {
     pageTransition: function(caseSize) {
 			this.$store.commit('updateTransition', true);
 
-			this.$emit('changeBackground', this.item.key, this.item.caseColor, 'pageTransition');
       let extraAmount;
 
 
@@ -213,8 +209,3 @@ export default {
   },
 };
 </script>
-<style lang="scss">
-.swiper-slide__image-holder-card {
-	height: 100%;
-}
-</style>

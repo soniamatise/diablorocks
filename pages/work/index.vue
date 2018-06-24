@@ -12,15 +12,8 @@
 				:release="index"
 				:key="item.ID"
 				:data="item"
-				@changeBackground="changeBackground"
 				class="case column small-full medium-half large-third" />
 		</section>
-
-		<next-case
-			left-text="It’s not all work"
-			case-name="Find out who we are"
-		/>
-
 	</main-layout>
 </template>
 
@@ -31,16 +24,11 @@ import OneColumn from "~/components/work/OneColumn";
 import TwoColumn from "~/components/work/TwoColumn";
 import Card from "~/components/work/Card";
 
-const PayoffCredits = () => import ("~/components/work/PayoffCredits");
-const NextCase = () => import ("~/components/work/NextCase");
-
 export default {
 	components: {
 		OneColumn,
 		TwoColumn,
-		PayoffCredits,
 		MainLayout,
-		NextCase,
 		Card
 	},
 	data() {
@@ -69,43 +57,7 @@ export default {
 		this.backgroundCanvas = this.$refs.backgroundCanvas;
 	},
 	methods: {
-		changeBackground: function(caseColor, mouseEvent) {
-			// Function for animating the background element based on the event
-
-			if(mouseEvent === 'mouseover') {
-				TweenMax.to(this.backgroundCanvas, .6, {
-					backgroundColor: caseColor,
-					opacity: .9
-				});
-			}	else if(mouseEvent === 'mouseleave') {
-				TweenMax.to(this.backgroundCanvas, .6, {
-					opacity: 0,
-					clearProps: 'backgroundColor'
-				});
-			} else if(mouseEvent === 'pageTransition') {
-				console.log('Transition started');
-				TweenMax.to(this.backgroundCanvas, 1, {
-					backgroundColor: caseColor,
-					opacity: 1
-				});
-			}
-		},
 		showContent: function() {}
 	}
 };
 </script>
-
-<style lang="scss">
-@import "~henris/ext";
-.case {
-	padding: grid(0.5);
-	&__holder {
-	}
-}
-.work {
-	&__grid {
-		padding: grid(1.5);
-		align-items: center;
-	}
-}
-</style>

@@ -67,7 +67,6 @@ export default {
 				});
 
 				// Emit the background-color and the event to the parent component
-				this.$emit('changeBackground', this.item.backgroundColor, 'mouseover');
 			}
 		},
 		backgroundTransitionOut: function () {
@@ -82,7 +81,6 @@ export default {
 				});
 
 				// Emit the the event to the parent component
-				this.$emit('changeBackground', '', 'mouseleave');
 			}
 		},
 		pageTransition: function () {
@@ -90,7 +88,6 @@ export default {
 			// Set page transition to true, so hover effect doesn't affect it
 			this.$store.commit('updateTransition', true);
 
-			this.$emit('changeBackground', this.item.backgroundColor, 'pageTransition');
 
 			// Make a two new timelines, one for centering the mask and the second one for making the transition
 			let timeline = new TimelineMax({
