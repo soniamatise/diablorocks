@@ -1,8 +1,8 @@
 {
-  "name": "matise2018",
+  "name": "Diablo Rocks",
   "version": "1.0.0",
-  "description": "Matise 2018 in Nuxt",
-  "author": "Maurits Meester <maurits@matise.nl>",
+  "description": "",
+  "author": "Sonia Nusselder <sonia144@me.com>",
   "private": true,
   "watch": {
     "dev": "cross-env HOST=0.0.0.0 PORT=7777 nuxt",
