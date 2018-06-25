@@ -1,7 +1,7 @@
 <template>
 	<h1 class="logo">
 		<nuxt-link to="/">
-			<span class="">Diablo</span>
+			<!-- <span class="">Diablo</span> -->
 		</nuxt-link>
 	</h1>
 </template>

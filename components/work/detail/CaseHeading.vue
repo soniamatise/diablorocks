@@ -79,7 +79,6 @@ export default {
 	methods: {
 		// case color color and animation img on mouseenter
 		bgOfCase: function() {
-			// const caseImage = document.getElementById("caseImage")
 			let self = this;
 			this.yElement = 100;
 			this.introStyle['z-index'] = 1;
