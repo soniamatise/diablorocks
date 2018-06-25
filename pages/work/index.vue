@@ -4,8 +4,6 @@
 			<h1>Work</h1>
 		</section>
 
-		<div class="background__canvas" ref="backgroundCanvas"></div>
-
 		<section ref="workGrid" class="row work__grid content" v-if="cases.length > 0">
 			<card
 				v-for="(item, index) in cases"
@@ -40,7 +38,7 @@ export default {
 	watch: {
 		cases: function() {
 			console.log(this.cases);
-			console.log("cases is loaded");
+			// console.log("cases is loaded");
 		}
 	},
 	created() {
@@ -54,7 +52,7 @@ export default {
 			});
 	},
 	mounted() {
-		this.backgroundCanvas = this.$refs.backgroundCanvas;
+		
 	},
 	methods: {
 		showContent: function() {}

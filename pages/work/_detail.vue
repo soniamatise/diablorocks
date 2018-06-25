@@ -29,12 +29,6 @@
 				:image-full="value.image"
 				:image-text="value.photo_information"
 			/>
-
-			<icons-caption v-if="value.acf_fc_layout==='icon_block'"
-				:grid-color="value.icon_background"
-				:grid-icons="value.icons"
-			/>
-
 		</section>
 
 	</main-layout>
@@ -47,7 +41,6 @@ import MainLayout from '~/layouts/body/MainLayout.vue';
 import TitleText from '~/components/work/detail/TitleText.vue';
 import OneColumn from '~/components/work/OneColumn.vue';
 import TwoColumn from '~/components/work/TwoColumn.vue';
-import IconsCaption from '~/components/work/detail/IconsCaption.vue';
 import CaseHeading from '~/components/work/detail/CaseHeading.vue';
 import FullPhoto from '~/components/work/detail/FullPhoto.vue';
 
@@ -64,7 +57,6 @@ export default {
 		TitleText,
 		OneColumn,
 		TwoColumn,
-		IconsCaption,
 		MainLayout,
 		CaseHeading,
 		FullPhoto

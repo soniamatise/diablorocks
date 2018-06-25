@@ -2,7 +2,7 @@
 	<div id="main-layout">
 		<input id="menu-trigger" type="checkbox">
 		<logo/>
-		<top-nav :class="{headerIsActive: activeHeader}" @headerIsActive="makeActive"/>
+		<top-nav/>
 		<main>
 			<slot/>
 		</main>
@@ -23,13 +23,9 @@ export default {
 	},
 	data() {
 		return {
-			activeHeader: false
 		};
 	},
 	methods: {
-		makeActive: function() {
-			this._data.activeHeader = true;
-		}
 	}
 };
 </script>
