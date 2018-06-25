@@ -6,6 +6,8 @@
 // home slider
 .home-slider {
   z-index: 1;
+  position: absolute;
+  bottom: 0;
   background-color: color(Black);
   user-select: none;
   // swiper

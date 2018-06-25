@@ -1,7 +1,5 @@
 <template>
 	<main>
-		<input id="menu-trigger" type="checkbox">
-		<logo/>
 		<top-nav/>
 		<home-slider :cases="cases" />
 	</main>
@@ -10,7 +8,6 @@
 <script>
 import axios from 'axios';
 import TopNav from '~/layouts/header/TopNav';
-import Logo from '~/layouts/header/Logo';
 import HomeSlider from '~/components/home/HomeSlider';
 
 export default {
@@ -23,8 +20,7 @@ export default {
 	},
 	components: {
 		HomeSlider,
-		TopNav,
-		Logo
+		TopNav
 	},
 	watch: {
 		slideIn: function() {}

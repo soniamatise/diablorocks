@@ -6,7 +6,6 @@ $base-fontpath: "~matise-assets/src/fonts";
 @import "typography/index";
 @import "layout/index";
 @import "components/index";
-@import "components/work";
 
 body {
   font-family: $body-font;

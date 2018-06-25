@@ -1,6 +1,7 @@
 <template>
 	<header id="header" ref="header" class="header ">
-		<nav ref="topNav" class="nav" aria-label="Top navigation">
+		<logo/>
+		<nav ref="" class="nav" aria-label="navigation">
 			<ul class="nav__list">
 
 				<li class="nav__item main-link">
@@ -19,6 +20,11 @@
 </template>
 
 <script>
+import Logo from '~/layouts/header/Logo';
+
 export default {
+	components: {
+		Logo
+	},
 };   
 </script>

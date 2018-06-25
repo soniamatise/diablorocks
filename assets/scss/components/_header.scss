@@ -1,6 +1,16 @@
 .header {
   width: 100%;
   z-index: 3;
-  position: relative;
+  position: absolute;
+  top: 0;
   background-color: red;
+
+  .nav {
+    height: 100%;
+    width: 100%;
+    background: pink;
+    position: absolute;
+    transition: 1s ease-out;
+    z-index: 3;
+  }
 }
