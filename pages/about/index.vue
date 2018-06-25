@@ -30,8 +30,6 @@ export default {
 	},
 	data() {
 		return {
-			Velocity: this.$velocity,
-			displayContent: false,
 			// LOADING COMPONENT LEAVE OVERLAY
 			leaveOpen: false,
 		};
@@ -44,16 +42,7 @@ export default {
 		},200);
 	},
 	methods: {
-		showContent: function() {
-			let self = this;
-			self.displayContent = true;
-			let col = document.querySelector('.about');
-			self.Velocity(col, { transform: 'translateY(0)' }, 600, [180, 16]);
-			setTimeout(function() {
-				col.style = '';
-				col.classList.add('stay');
-			}, 600);
-		}
+
 	},
 	asyncData() {
 	
